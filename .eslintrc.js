@@ -1,5 +1,10 @@
 module.exports = {
-  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
   ignorePatterns: ['babel.config.js', '.eslintrc.js', '__tests__', 'stories'],
   parser: '@typescript-eslint/parser',
   parserOptions: {

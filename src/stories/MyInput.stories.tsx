@@ -1,26 +1,27 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import MyInput from "../MyInput/MyInput";
+import MyInput from '../MyInput/MyInput';
 
-export default {
-    title: 'Example/MyInput',
-    component: MyInput,
-} as ComponentMeta<typeof MyInput>;
+const meta: Meta<typeof MyInput> = {
+  component: MyInput,
+};
 
-const Template: ComponentStory<typeof MyInput> = (args) => <MyInput {...args} />;
+export default meta;
 
-export const SmallInput = Template.bind({});
-SmallInput.args = {
+type Story = StoryObj<typeof MyInput>;
+
+export const SmallInput: Story = {
+  args: {
     big: false,
     placeholder: 'TEXT',
-    label: 'label'
+    label: 'label',
+  },
 };
 
-export const BigInput = Template.bind({});
-BigInput.args = {
+export const BigInput: Story = {
+  args: {
     big: true,
     placeholder: 'TEXT',
-    label: 'label'
+    label: 'label',
+  },
 };
-

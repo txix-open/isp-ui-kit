@@ -1,30 +1,33 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import MyButton from "../MyButton/MyButton";
+import MyButton from '../MyButton/MyButton';
 
-export default {
-    title: 'Example/MyButton',
-    component: MyButton,
-} as ComponentMeta<typeof MyButton>;
+const meta: Meta<typeof MyButton> = {
+  component: MyButton,
+};
 
-const Template: ComponentStory<typeof MyButton> = (args) => <MyButton {...args} />;
+export default meta;
 
-export const RedBtn = Template.bind({});
-RedBtn.args = {
+type Story = StoryObj<typeof MyButton>;
+
+export const RedBtn: Story = {
+  args: {
     color: 'red',
-    children: 'Какой то текст'
+    children: 'Какой то текст',
+  },
 };
 
-export const OrangeBtn = Template.bind({});
-OrangeBtn.args = {
+export const OrangeBtn: Story = {
+  args: {
     color: 'orange',
-    children: 'Какой то текст'
+    children: 'Какой то текст',
+  },
 };
 
-export const BigBtn = Template.bind({});
-BigBtn.args = {
+export const BigBtn: Story = {
+  args: {
     color: 'orange',
     big: true,
-    children: 'Какой то текст'
+    children: 'Какой то текст',
+  },
 };
