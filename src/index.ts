@@ -1,7 +1,5 @@
-import MyButton from "./MyButton/MyButton";
-import MyInput from "./MyInput/MyInput";
+import FormCheckbox from './FormCheckbox/FormCheckbox';
+import MyButton from './MyButton/MyButton';
+import MyInput from './MyInput/MyInput';
 
-export {
-    MyButton,
-    MyInput
-}
+export { MyButton, MyInput, FormCheckbox };
