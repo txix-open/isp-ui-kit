@@ -78,5 +78,8 @@
   },
   "publishConfig": {
     "registry": "https://nexus.txix.ru/repository/msp-npm/"
+  },
+  "dependencies": {
+    "react-hook-form": "^7.49.1"
   }
 }
