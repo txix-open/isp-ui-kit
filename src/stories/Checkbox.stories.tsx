@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
 import FormCheckbox from '../FormCheckbox/FormCheckbox';
 import { useForm } from 'react-hook-form';
 
