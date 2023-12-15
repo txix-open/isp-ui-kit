@@ -23,7 +23,7 @@ module.exports = {
   },
   // Fine tune rules
   rules: {
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
     'no-param-reassign': [2, { props: false }],
     'react/button-has-type': 'off',
