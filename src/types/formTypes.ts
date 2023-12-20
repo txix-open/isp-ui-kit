@@ -7,3 +7,8 @@ export interface FormComponentProps<TFormValues extends FieldValues> {
   controlClassName?: string;
   label?: string;
 }
+
+export type LabelItem = {
+  value: any;
+  label: any;
+};
