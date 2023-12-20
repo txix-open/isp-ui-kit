@@ -1,4 +1,5 @@
 import FormCheckbox from './FormCheckbox/FormCheckbox';
+import FormCodeEditor from './FormCodeEditor/FormCodeEditor';
 import FormInput from './FormInput/FormInput';
 import FormInputNumber from './FormInputNumber/FormInputNumber';
 import FormInputPassword from './FormInputPassword/FormInputPassword';
@@ -13,4 +14,4 @@ import SearchInput from './SearchInput/SearchInput';
 import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';
 
-export { MyButton, MyInput, FormCheckbox, FormInput, FormRadioGroup, FormInputNumber, FormInputPassword, FormSelect, FormTextArea, FormTreeSelect, SearchInput, Layout, useAuth, getConfigProperty };
+export { MyButton, MyInput, FormCheckbox, FormInput, FormRadioGroup, FormInputNumber, FormInputPassword, FormSelect, FormTextArea, FormTreeSelect, FormCodeEditor, SearchInput, Layout, useAuth, getConfigProperty };
