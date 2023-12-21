@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import FormInputNumber from '../FormInputNumber/FormInputNumber';
+import { FormInputNumber } from '../FormComponents';
 
 const meta: Meta<typeof FormInputNumber> = {
   component: FormInputNumber,
-  title: 'InputNumber',
+  title: 'FormComponents/FormInputNumber',
   args: {
     label: 'Название InputNumber',
     name: 'InputNumber',

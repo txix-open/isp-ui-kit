@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FormCheckbox from '../FormCheckbox/FormCheckbox';
 import { useForm } from 'react-hook-form';
+import { FormCheckbox } from '../FormComponents';
 
 const meta: Meta<typeof FormCheckbox> = {
   component: FormCheckbox,
-  title: 'Checkbox',
+  title: 'FormComponents/FormCheckbox',
   args: {
     label: 'Название checkbox',
     name: 'checkbox',

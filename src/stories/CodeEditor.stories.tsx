@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import FormCodeEditor from '../FormCodeEditor/FormCodeEditor';
+import { FormCodeEditor } from '../FormComponents';
 
 const meta: Meta<typeof FormCodeEditor> = {
   component: FormCodeEditor,
-  title: 'CodeEditor',
+  title: 'FormComponents/FormCodeEditor',
   args: {
     label: 'Название CodeEditor',
     name: 'CodeEditor',

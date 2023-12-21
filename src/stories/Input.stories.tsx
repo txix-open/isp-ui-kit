@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FormInput from '../FormInput/FormInput';
 import { useForm } from 'react-hook-form';
-import FormCheckbox from '../FormCheckbox/FormCheckbox';
+import { FormInput } from '../FormComponents';
 
 const meta: Meta<typeof FormInput> = {
   component: FormInput,
-  title: 'Input',
+  title: 'FormComponents/FormInput',
   args: {
     label: 'Название Input',
     name: 'input',

@@ -1,7 +1,7 @@
 import { Form, Radio } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
-import { LabelItem } from '../types/formTypes';
 import { FormRadioGroupProps } from './form-radio-group.type';
+import { LabelItem } from '../formTypes';
 
 export default <T extends FieldValues>({
   control,

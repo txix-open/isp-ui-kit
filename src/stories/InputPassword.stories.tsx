@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import FormInputPassword from '../FormInputPassword/FormInputPassword';
+import { FormInputPassword } from '../FormComponents';
 
 const meta: Meta<typeof FormInputPassword> = {
   component: FormInputPassword,
-  title: 'InputPassword',
+  title: 'FormComponents/FormInputPassword',
   args: {
     label: 'Название InputPassword',
     name: 'InputPassword',
