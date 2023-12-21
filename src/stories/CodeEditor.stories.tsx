@@ -1,34 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FormCheckbox from '../FormCheckbox/FormCheckbox';
 import { useForm } from 'react-hook-form';
+import FormCodeEditor from '../FormCodeEditor/FormCodeEditor';
 
-const meta: Meta<typeof FormCheckbox> = {
-  component: FormCheckbox,
-  title: 'Checkbox',
+const meta: Meta<typeof FormCodeEditor> = {
+  component: FormCodeEditor,
+  title: 'CodeEditor',
   args: {
-    label: 'Название checkbox',
-    name: 'checkbox',
+    label: 'Название CodeEditor',
+    name: 'CodeEditor',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Checkbox, который поддерживает react-hook-form',
+        component: 'Компонент CodeEditor, который поддерживает react-hook-form',
       },
     },
   },
   argTypes: {
     control: {
-      control: false,
+      control: true,
       description: 'параметр, получаемый из react-hook-form',
     },
     name: {
-      control: false,
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к checkbox',
+      description: 'Подпись к CodeEditor',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,33 +40,17 @@ const meta: Meta<typeof FormCheckbox> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormCheckbox>;
+type Story = StoryObj<typeof FormCodeEditor>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const Checkbox: Story = {
+export const CodeEditor: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
-      </form>
-    );
-  },
-};
-export const Validation: Story = {
-  render: (args) => {
-    const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
-    control.setError('checkbox', {
-      type: 'required',
-      message: args.rules!.required!.message,
-    });
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormCodeEditor {...args} />
       </form>
     );
   },

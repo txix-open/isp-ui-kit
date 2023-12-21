@@ -1,6 +1,6 @@
 {
   "name": "isp-ui-kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "react ui lib for project",
   "main": "./dist/index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "@types/react": "^18.2.43",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
+    "@babel/eslint-parser": "^7.23.3",
     "antd": "^5.12.2",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.3",
@@ -81,6 +82,9 @@
   },
   "dependencies": {
     "react-hook-form": "^7.49.1",
-    "simplebar-react": "^3.2.4"
+    "simplebar-react": "^3.2.4",
+    "@codemirror/lang-javascript": "^6.2.1",
+    "@codemirror/lang-json": "^6.0.1",
+    "@uiw/react-codemirror": "^4.21.21"
   }
 }

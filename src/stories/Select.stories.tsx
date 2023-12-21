@@ -1,20 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FormCheckbox from '../FormCheckbox/FormCheckbox';
 import { useForm } from 'react-hook-form';
+import FormSelect from '../FormSelect/FormSelect';
 
-const meta: Meta<typeof FormCheckbox> = {
-  component: FormCheckbox,
-  title: 'Checkbox',
+const meta: Meta<typeof FormSelect> = {
+  component: FormSelect,
+  title: 'Select',
   args: {
-    label: 'Название checkbox',
-    name: 'checkbox',
+    label: 'Название Select',
+    name: 'Select',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
+    options: [
+      { value: 'id-1', label: 'name 1' },
+      { value: 'id-2', label: 'name 2' },
+    ],
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Checkbox, который поддерживает react-hook-form',
+        component: 'Компонент Select, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +32,7 @@ const meta: Meta<typeof FormCheckbox> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к checkbox',
+      description: 'Подпись к Select',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -36,22 +40,25 @@ const meta: Meta<typeof FormCheckbox> = {
     controlClassName: {
       description: 'Имя класса для компонента формы',
     },
+    options: {
+      description: ' Ожидает массив объектов {value: "id", label: "Заголовок"}',
+    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FormCheckbox>;
+type Story = StoryObj<typeof FormSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const Checkbox: Story = {
+export const Select: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormSelect {...args} />
       </form>
     );
   },
@@ -61,13 +68,13 @@ export const Validation: Story = {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('checkbox', {
+    control.setError('Select', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormSelect {...args} />
       </form>
     );
   },
