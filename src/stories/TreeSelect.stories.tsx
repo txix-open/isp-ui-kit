@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import FormTreeSelect from '../FormTreeSelect/FormTreeSelect';
+import { FormTreeSelect } from '../FormComponents';
 
 const meta: Meta<typeof FormTreeSelect> = {
   component: FormTreeSelect,
-  title: 'TreeSelect',
+  title: 'FormComponents/FormTreeSelect',
   args: {
     label: 'Название TreeSelect',
     name: 'TreeSelect',

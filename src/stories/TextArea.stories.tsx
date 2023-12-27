@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import FormTextArea from '../FormTextArea/FormTextArea';
+import { FormTextArea } from '../FormComponents';
 
 const meta: Meta<typeof FormTextArea> = {
   component: FormTextArea,
-  title: 'TextArea',
+  title: 'FormComponents/FormTextArea',
   args: {
     label: 'Название TextArea',
     name: 'TextArea',

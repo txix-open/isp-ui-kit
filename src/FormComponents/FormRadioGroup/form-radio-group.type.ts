@@ -1,7 +1,7 @@
 import { RadioGroupProps } from 'antd';
 
 import { FieldValues } from 'react-hook-form';
-import { FormComponentProps, LabelItem } from '../types/formTypes';
+import { FormComponentProps, LabelItem } from '../formTypes';
 
 export type FormRadioGroupProps<TFormValues extends FieldValues> =
   FormComponentProps<TFormValues> &

@@ -1,6 +1,6 @@
 import { InputProps } from 'antd';
 import { FieldValues } from 'react-hook-form';
-import { FormComponentProps } from '../types/formTypes';
+import { FormComponentProps } from '../formTypes';
 
-export type FormInputProps<TFormValues extends FieldValues> =
+export type FormTextAreaProps<TFormValues extends FieldValues> =
   FormComponentProps<TFormValues> & InputProps;

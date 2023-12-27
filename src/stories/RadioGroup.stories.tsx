@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import FormRadioGroup from '../FormRadioGroup/FormRadioGroup';
+import { FormRadioGroup } from '../FormComponents';
 
 const meta: Meta<typeof FormRadioGroup> = {
   component: FormRadioGroup,
-  title: 'RadioGroup',
+  title: 'FormComponents/FormRadioGroup',
   args: {
     label: 'Название RadioGroup',
     name: 'RadioGroup',
