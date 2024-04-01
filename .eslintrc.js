@@ -5,7 +5,13 @@ module.exports = {
     'prettier',
     'plugin:storybook/recommended',
   ],
-  ignorePatterns: ['babel.config.js', '.eslintrc.js', '__tests__', 'stories'],
+  ignorePatterns: [
+    'babel.config.js',
+    '.eslintrc.js',
+    '__tests__',
+    'stories',
+    'dist',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',

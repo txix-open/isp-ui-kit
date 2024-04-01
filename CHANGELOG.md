@@ -1,3 +1,7 @@
+### 0.3.1
+ - Добавлена папка dist в удаленный репозиторий
+ - Некоторые зависимости перенесены из devDeps в Deps
+ - Обновлено readme
 ### 0.3.0
 - Добавлены компоненты FormCheckbox, FormCodeEditor, FormInput, FormInputNumber, InputPassword, MyInput, RadioGroup, FormSelect, FormTextArea, TreeSelect
 ### 0.2.0
