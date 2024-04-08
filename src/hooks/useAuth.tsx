@@ -22,6 +22,7 @@ export interface IsLogged {
 
 interface UseAuth {
   isLogged: IsLogged;
+  isLoading: boolean;
   login: (
     path: string,
     data: UserData,
@@ -44,12 +45,15 @@ const useAuth = (): UseAuth => {
     value: false,
   });
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const login = async (
     path: string,
     data: UserData,
     headers: Record<string, string> = {},
-  ): Promise<AuthResponse> =>
-    fetch(path, {
+  ): Promise<AuthResponse> => {
+    setIsLoading(true);
+    return fetch(path, {
       method: 'POST',
       headers: {
         ...headers,
@@ -65,10 +69,12 @@ const useAuth = (): UseAuth => {
         setLoggedIn({ type: 'basic', value: true });
         return response.json();
       })
-      .then((responseData) => responseData);
-
-  const logout = async (path: string, headers: Record<string, string> = {}) =>
-    fetch(path, {
+      .then((responseData) => responseData)
+      .finally(() => setIsLoading(false));
+  };
+  const logout = async (path: string, headers: Record<string, string> = {}) => {
+    setIsLoading(true);
+    return fetch(path, {
       method: 'POST',
       headers: {
         ...headers,
@@ -83,14 +89,17 @@ const useAuth = (): UseAuth => {
         setLoggedIn({ type: 'basic', value: false });
         return response.json();
       })
-      .then((responseData) => responseData);
+      .then((responseData) => responseData)
+      .finally(() => setIsLoading(false));
+  };
 
   const sudirLogin = async (
     path: string,
     data: SudirRequest,
     headers: Record<string, string> = {},
-  ) =>
-    fetch(path, {
+  ) => {
+    setIsLoading(true);
+    return fetch(path, {
       method: 'POST',
       headers: { ...headers },
       body: JSON.stringify(data),
@@ -105,10 +114,13 @@ const useAuth = (): UseAuth => {
         setLoggedIn({ type: 'sudir', value: true });
         return response.json();
       })
-      .then((responseData) => responseData);
+      .then((responseData) => responseData)
+      .finally(() => setIsLoading(false));
+  };
 
   return {
     isLogged,
+    isLoading,
     login,
     logout,
     sudirLogin,
