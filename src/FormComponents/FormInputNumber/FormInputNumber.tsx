@@ -1,6 +1,7 @@
 import { Form, InputNumber } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormInputNumberProps } from './form-input-number.type';
+import '../form-components.scss';
 
 export default <T extends FieldValues>({
   control,
@@ -15,15 +16,17 @@ export default <T extends FieldValues>({
     fieldState: { error },
   } = useController({ name, control, rules });
   return (
-    <Form.Item
-      className={controlClassName}
-      labelCol={{ span: 24 }}
-      label={label}
-      validateStatus={error && 'error'}
-      help={error && error.message}
-    >
-      {/* @ts-ignore */}
-      <InputNumber {...rest} {...field} autoComplete="off" />
-    </Form.Item>
+    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
+      <Form.Item
+        className={controlClassName}
+        labelCol={{ span: 24 }}
+        label={label}
+        validateStatus={error && 'error'}
+        help={error && error.message}
+      >
+        {/* @ts-ignore */}
+        <InputNumber {...rest} {...field} autoComplete="off" />
+      </Form.Item>
+    </div>
   );
 };

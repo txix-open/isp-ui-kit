@@ -1,6 +1,7 @@
 import { Form, Input } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormTextAreaProps } from './form-text-area.type';
+import '../form-components.scss';
 
 const { TextArea } = Input;
 
@@ -19,7 +20,7 @@ export default <T extends FieldValues>({
 
   return (
     // @ts-ignore
-    <div className={`${rules?.required.value ? 'requiredInput' : ''}`}>
+    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
         className={controlClassName}
         labelCol={{ span: 24 }}
