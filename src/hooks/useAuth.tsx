@@ -87,9 +87,9 @@ const useAuth = (): UseAuth => {
           return Promise.reject(errorData);
         }
         setLoggedIn({ type: 'basic', value: false });
-        return response.json();
+        return response.text();
       })
-      .then((responseData) => responseData)
+      .then((responseData) => (responseData ? JSON.parse(responseData) : {}))
       .finally(() => setIsLoading(false));
   };
 
