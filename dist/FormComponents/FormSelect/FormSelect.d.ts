@@ -1,5 +1,6 @@
 import { FieldValues } from 'react-hook-form';
 import { FormSelectProps } from './form-select.type';
+import '../form-components.scss';
 declare const _default: <T extends FieldValues>({
   defaultValue,
   control,

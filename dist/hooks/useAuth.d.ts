@@ -16,6 +16,7 @@ export interface IsLogged {
 }
 interface UseAuth {
   isLogged: IsLogged;
+  isLoading: boolean;
   login: (
     path: string,
     data: UserData,
