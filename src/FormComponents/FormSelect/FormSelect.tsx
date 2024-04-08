@@ -1,6 +1,7 @@
 import { Form, Select } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormSelectProps } from './form-select.type';
+import '../form-components.scss';
 
 export default <T extends FieldValues>({
   defaultValue,
@@ -18,7 +19,7 @@ export default <T extends FieldValues>({
 
   return (
     // @ts-ignore
-    <div className={`${rules?.required.value ? 'requiredInput' : ''}`}>
+    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
         labelCol={{ span: 24 }}
         label={label}

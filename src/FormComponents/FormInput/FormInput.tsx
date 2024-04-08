@@ -1,6 +1,7 @@
 import { Form, Input } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormInputProps } from './form-input.type';
+import '../form-components.scss';
 
 export default <T extends FieldValues>({
   control,
@@ -17,7 +18,7 @@ export default <T extends FieldValues>({
 
   return (
     // @ts-ignore
-    <div className={`${rules?.required.value ? 'requiredInput' : ''}`}>
+    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
         className={controlClassName}
         labelCol={{ span: 24 }}

@@ -1,8 +1,8 @@
 import { Form, TreeSelect } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 
-import './from-tree-select.scss';
 import { FormTreeSelectProps } from './form-tree-select.type';
+import '../form-components.scss';
 
 export default <T extends FieldValues>({
   control,
@@ -18,7 +18,7 @@ export default <T extends FieldValues>({
 
   return (
     // @ts-ignore
-    <div className={`${rules?.required.value ? 'requiredInput' : ''}`}>
+    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
         className="form-tree-select"
         labelCol={{ span: 24 }}

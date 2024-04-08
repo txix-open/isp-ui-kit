@@ -1,0 +1,12 @@
+.requiredInput {
+  position: relative;
+  width: 100%;
+}
+
+.requiredInput::after {
+  content: "*";
+  color: red;
+  position: absolute;
+  top: 3px;
+  left: -8px;
+}
