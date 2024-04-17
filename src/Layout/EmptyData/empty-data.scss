@@ -1,0 +1,9 @@
+.empty-data {
+  width: 100%;
+  height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: calc(1.5vw + 1.5vh);
+}
