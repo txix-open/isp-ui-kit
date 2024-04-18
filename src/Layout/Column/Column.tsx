@@ -1,8 +1,12 @@
-import { DeleteOutlined, PlusSquareOutlined } from '@ant-design/icons';
+import {
+  DeleteOutlined,
+  EditOutlined,
+  PlusSquareOutlined,
+} from '@ant-design/icons';
 import { Button, List, Popconfirm } from 'antd';
 import { ChangeEvent, createRef, RefObject, useEffect } from 'react';
 import SimpleBar from 'simplebar-react';
-import { ColumnProps } from './column.type';
+import { ColumnItem, ColumnProps } from './column.type';
 import SearchInput from '../../SearchInput/SearchInput';
 
 import './column.scss';
@@ -10,8 +14,10 @@ import './column.scss';
 const Column = <T extends {}>({
   items = [],
   onAddItem = () => {},
+  onUpdateItem = () => {},
   onRemoveItem = () => {},
   showRemoveBtn = true,
+  showUpdateBtn = true,
   showAddBtn = true,
   selectedItemId,
   setSelectedItemId,
@@ -53,6 +59,10 @@ const Column = <T extends {}>({
   const checkIsActive = (id: string | number): boolean =>
     id.toString() === selectedItemId;
 
+  function sortByName(arr: ColumnItem<T>[]) {
+    return arr.slice().sort((a, b) => a.name.localeCompare(b.name));
+  }
+
   return (
     <section data-cy="firstColumn" className="column">
       <div className="column__header">
@@ -67,6 +77,13 @@ const Column = <T extends {}>({
               data-cy="onAddItem"
               onClick={onAddItem}
               icon={<PlusSquareOutlined />}
+            />
+          )}
+          {showUpdateBtn && (
+            <Button
+              data-cy="showUpdateBtn"
+              onClick={onUpdateItem}
+              icon={<EditOutlined />}
             />
           )}
           {showRemoveBtn && (
@@ -86,7 +103,7 @@ const Column = <T extends {}>({
       </div>
       <SimpleBar className="column__items">
         <List
-          dataSource={items}
+          dataSource={sortByName(items)}
           renderItem={(item) => (
             <div
               aria-hidden="true"
