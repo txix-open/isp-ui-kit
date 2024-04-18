@@ -3,8 +3,10 @@ import './column.scss';
 declare const Column: <T extends {}>({
   items,
   onAddItem,
+  onUpdateItem,
   onRemoveItem,
   showRemoveBtn,
+  showUpdateBtn,
   showAddBtn,
   selectedItemId,
   setSelectedItemId,
