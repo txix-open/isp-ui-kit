@@ -21,9 +21,9 @@
               AccountBookFilled: () => Zt,
               AccountBookOutlined: () => Rt,
               AccountBookTwoTone: () => Tt,
-              AimOutlined: () => Bt,
+              AimOutlined: () => $t,
               AlertFilled: () => jt,
-              AlertOutlined: () => It,
+              AlertOutlined: () => Nt,
               AlertTwoTone: () => Xt,
               AlibabaOutlined: () => Ut,
               AlignCenterOutlined: () => te,
@@ -39,9 +39,9 @@
               AmazonCircleFilled: () => Ze,
               AmazonOutlined: () => Re,
               AmazonSquareFilled: () => Te,
-              AndroidFilled: () => Be,
+              AndroidFilled: () => $e,
               AndroidOutlined: () => je,
-              AntCloudOutlined: () => Ie,
+              AntCloudOutlined: () => Ne,
               AntDesignOutlined: () => Xe,
               ApartmentOutlined: () => Ue,
               ApiFilled: () => tn,
@@ -128,9 +128,9 @@
               CaretRightOutlined: () => Ho,
               CaretUpFilled: () => Eo,
               CaretUpOutlined: () => Qo,
-              CarryOutFilled: () => $o,
+              CarryOutFilled: () => Bo,
               CarryOutOutlined: () => Wo,
-              CarryOutTwoTone: () => No,
+              CarryOutTwoTone: () => Io,
               CheckCircleFilled: () => qo,
               CheckCircleOutlined: () => Go,
               CheckCircleTwoTone: () => Jo,
@@ -146,9 +146,9 @@
               CiOutlined: () => Ha,
               CiTwoTone: () => Ea,
               ClearOutlined: () => Qa,
-              ClockCircleFilled: () => $a,
+              ClockCircleFilled: () => Ba,
               ClockCircleOutlined: () => Wa,
-              ClockCircleTwoTone: () => Na,
+              ClockCircleTwoTone: () => Ia,
               CloseCircleFilled: () => qa,
               CloseCircleOutlined: () => Ga,
               CloseCircleTwoTone: () => Ja,
@@ -164,9 +164,9 @@
               CloudTwoTone: () => Hc,
               CloudUploadOutlined: () => Ec,
               ClusterOutlined: () => Qc,
-              CodeFilled: () => $c,
+              CodeFilled: () => Bc,
               CodeOutlined: () => Wc,
-              CodeSandboxCircleFilled: () => Nc,
+              CodeSandboxCircleFilled: () => Ic,
               CodeSandboxOutlined: () => qc,
               CodeSandboxSquareFilled: () => Gc,
               CodeTwoTone: () => Jc,
@@ -182,9 +182,9 @@
               CompassOutlined: () => Hl,
               CompassTwoTone: () => El,
               CompressOutlined: () => Ql,
-              ConsoleSqlOutlined: () => $l,
+              ConsoleSqlOutlined: () => Bl,
               ContactsFilled: () => Wl,
-              ContactsOutlined: () => Nl,
+              ContactsOutlined: () => Il,
               ContactsTwoTone: () => ql,
               ContainerFilled: () => Gl,
               ContainerOutlined: () => Jl,
@@ -200,9 +200,9 @@
               CopyrightCircleTwoTone: () => Hh,
               CopyrightOutlined: () => Eh,
               CopyrightTwoTone: () => Qh,
-              CreditCardFilled: () => $h,
+              CreditCardFilled: () => Bh,
               CreditCardOutlined: () => Wh,
-              CreditCardTwoTone: () => Nh,
+              CreditCardTwoTone: () => Ih,
               CrownFilled: () => qh,
               CrownOutlined: () => Gh,
               CrownTwoTone: () => Jh,
@@ -218,9 +218,9 @@
               DatabaseTwoTone: () => Zf,
               DeleteColumnOutlined: () => Rf,
               DeleteFilled: () => Tf,
-              DeleteOutlined: () => Bf,
+              DeleteOutlined: () => $f,
               DeleteRowOutlined: () => jf,
-              DeleteTwoTone: () => If,
+              DeleteTwoTone: () => Nf,
               DeliveredProcedureOutlined: () => Xf,
               DeploymentUnitOutlined: () => Uf,
               DesktopOutlined: () => td,
@@ -236,9 +236,9 @@
               DislikeOutlined: () => Zd,
               DislikeTwoTone: () => Rd,
               DollarCircleFilled: () => Td,
-              DollarCircleOutlined: () => Bd,
+              DollarCircleOutlined: () => $d,
               DollarCircleTwoTone: () => jd,
-              DollarOutlined: () => Id,
+              DollarOutlined: () => Nd,
               DollarTwoTone: () => Xd,
               DotChartOutlined: () => Ud,
               DoubleLeftOutlined: () => tu,
@@ -254,9 +254,9 @@
               DragOutlined: () => Zu,
               DribbbleCircleFilled: () => Ru,
               DribbbleOutlined: () => Tu,
-              DribbbleSquareFilled: () => Bu,
+              DribbbleSquareFilled: () => $u,
               DribbbleSquareOutlined: () => ju,
-              DropboxCircleFilled: () => Iu,
+              DropboxCircleFilled: () => Nu,
               DropboxOutlined: () => Xu,
               DropboxSquareFilled: () => Uu,
               EditFilled: () => tm,
@@ -272,9 +272,9 @@
               EuroCircleTwoTone: () => Zm,
               EuroOutlined: () => Rm,
               EuroTwoTone: () => Tm,
-              ExceptionOutlined: () => Bm,
+              ExceptionOutlined: () => $m,
               ExclamationCircleFilled: () => jm,
-              ExclamationCircleOutlined: () => Im,
+              ExclamationCircleOutlined: () => Nm,
               ExclamationCircleTwoTone: () => Xm,
               ExclamationOutlined: () => Um,
               ExpandAltOutlined: () => tp,
@@ -290,9 +290,9 @@
               EyeOutlined: () => Zp,
               EyeTwoTone: () => Rp,
               FacebookFilled: () => Tp,
-              FacebookOutlined: () => Bp,
+              FacebookOutlined: () => $p,
               FallOutlined: () => jp,
-              FastBackwardFilled: () => Ip,
+              FastBackwardFilled: () => Np,
               FastBackwardOutlined: () => Xp,
               FastForwardFilled: () => Up,
               FastForwardOutlined: () => tg,
@@ -308,9 +308,9 @@
               FileExcelOutlined: () => Zg,
               FileExcelTwoTone: () => Rg,
               FileExclamationFilled: () => Tg,
-              FileExclamationOutlined: () => Bg,
+              FileExclamationOutlined: () => $g,
               FileExclamationTwoTone: () => jg,
-              FileFilled: () => Ig,
+              FileFilled: () => Ng,
               FileGifOutlined: () => Xg,
               FileImageFilled: () => Ug,
               FileImageOutlined: () => tv,
@@ -326,9 +326,9 @@
               FilePptFilled: () => Zv,
               FilePptOutlined: () => Rv,
               FilePptTwoTone: () => Tv,
-              FileProtectOutlined: () => Bv,
+              FileProtectOutlined: () => $v,
               FileSearchOutlined: () => jv,
-              FileSyncOutlined: () => Iv,
+              FileSyncOutlined: () => Nv,
               FileTextFilled: () => Xv,
               FileTextOutlined: () => Uv,
               FileTextTwoTone: () => tO,
@@ -344,9 +344,9 @@
               FileZipTwoTone: () => ZO,
               FilterFilled: () => RO,
               FilterOutlined: () => TO,
-              FilterTwoTone: () => BO,
+              FilterTwoTone: () => $O,
               FireFilled: () => jO,
-              FireOutlined: () => IO,
+              FireOutlined: () => NO,
               FireTwoTone: () => XO,
               FlagFilled: () => UO,
               FlagOutlined: () => tw,
@@ -362,9 +362,9 @@
               FolderTwoTone: () => Zw,
               FolderViewOutlined: () => Rw,
               FontColorsOutlined: () => Tw,
-              FontSizeOutlined: () => Bw,
+              FontSizeOutlined: () => $w,
               ForkOutlined: () => jw,
-              FormOutlined: () => Iw,
+              FormOutlined: () => Nw,
               FormatPainterFilled: () => Xw,
               FormatPainterOutlined: () => Uw,
               ForwardFilled: () => tb,
@@ -380,9 +380,9 @@
               FundProjectionScreenOutlined: () => Zb,
               FundTwoTone: () => Rb,
               FundViewOutlined: () => Tb,
-              FunnelPlotFilled: () => Bb,
+              FunnelPlotFilled: () => $b,
               FunnelPlotOutlined: () => jb,
-              FunnelPlotTwoTone: () => Ib,
+              FunnelPlotTwoTone: () => Nb,
               GatewayOutlined: () => Xb,
               GifOutlined: () => Ub,
               GiftFilled: () => ty,
@@ -398,9 +398,9 @@
               GoldTwoTone: () => Zy,
               GoldenFilled: () => Ry,
               GoogleCircleFilled: () => Ty,
-              GoogleOutlined: () => By,
+              GoogleOutlined: () => $y,
               GooglePlusCircleFilled: () => jy,
-              GooglePlusOutlined: () => Iy,
+              GooglePlusOutlined: () => Ny,
               GooglePlusSquareFilled: () => Xy,
               GoogleSquareFilled: () => Uy,
               GroupOutlined: () => tx,
@@ -416,16 +416,16 @@
               HighlightTwoTone: () => Zx,
               HistoryOutlined: () => Rx,
               HolderOutlined: () => Tx,
-              HomeFilled: () => Bx,
+              HomeFilled: () => $x,
               HomeOutlined: () => jx,
-              HomeTwoTone: () => Ix,
+              HomeTwoTone: () => Nx,
               HourglassFilled: () => Xx,
               HourglassOutlined: () => Ux,
               HourglassTwoTone: () => tz,
               Html5Filled: () => iz,
               Html5Outlined: () => oz,
               Html5TwoTone: () => lz,
-              IconProvider: () => PN,
+              IconProvider: () => PI,
               IdcardFilled: () => dz,
               IdcardOutlined: () => pz,
               IdcardTwoTone: () => Oz,
@@ -435,9 +435,9 @@
               ImportOutlined: () => Zz,
               InboxOutlined: () => Rz,
               InfoCircleFilled: () => Tz,
-              InfoCircleOutlined: () => Bz,
+              InfoCircleOutlined: () => $z,
               InfoCircleTwoTone: () => jz,
-              InfoOutlined: () => Iz,
+              InfoOutlined: () => Nz,
               InsertRowAboveOutlined: () => Xz,
               InsertRowBelowOutlined: () => Uz,
               InsertRowLeftOutlined: () => tS,
@@ -453,9 +453,9 @@
               IssuesCloseOutlined: () => ZS,
               ItalicOutlined: () => RS,
               KeyOutlined: () => TS,
-              LaptopOutlined: () => BS,
+              LaptopOutlined: () => $S,
               LayoutFilled: () => jS,
-              LayoutOutlined: () => IS,
+              LayoutOutlined: () => NS,
               LayoutTwoTone: () => XS,
               LeftCircleFilled: () => US,
               LeftCircleOutlined: () => tM,
@@ -471,9 +471,9 @@
               LineHeightOutlined: () => ZM,
               LineOutlined: () => RM,
               LinkOutlined: () => TM,
-              LinkedinFilled: () => BM,
+              LinkedinFilled: () => $M,
               LinkedinOutlined: () => jM,
-              Loading3QuartersOutlined: () => IM,
+              Loading3QuartersOutlined: () => NM,
               LoadingOutlined: () => XM,
               LockFilled: () => UM,
               LockOutlined: () => tk,
@@ -489,9 +489,9 @@
               MedicineBoxFilled: () => Zk,
               MedicineBoxOutlined: () => Rk,
               MedicineBoxTwoTone: () => Tk,
-              MediumCircleFilled: () => Bk,
+              MediumCircleFilled: () => $k,
               MediumOutlined: () => jk,
-              MediumSquareFilled: () => Ik,
+              MediumSquareFilled: () => Nk,
               MediumWorkmarkOutlined: () => Xk,
               MehFilled: () => Uk,
               MehOutlined: () => tC,
@@ -507,9 +507,9 @@
               MinusCircleOutlined: () => ZC,
               MinusCircleTwoTone: () => RC,
               MinusOutlined: () => TC,
-              MinusSquareFilled: () => BC,
+              MinusSquareFilled: () => $C,
               MinusSquareOutlined: () => jC,
-              MinusSquareTwoTone: () => IC,
+              MinusSquareTwoTone: () => NC,
               MobileFilled: () => XC,
               MobileOutlined: () => UC,
               MobileTwoTone: () => tV,
@@ -525,9 +525,9 @@
               NotificationOutlined: () => ZV,
               NotificationTwoTone: () => RV,
               NumberOutlined: () => TV,
-              OneToOneOutlined: () => BV,
+              OneToOneOutlined: () => $V,
               OrderedListOutlined: () => jV,
-              PaperClipOutlined: () => IV,
+              PaperClipOutlined: () => NV,
               PartitionOutlined: () => XV,
               PauseCircleFilled: () => UV,
               PauseCircleOutlined: () => tH,
@@ -543,9 +543,9 @@
               PicLeftOutlined: () => ZH,
               PicRightOutlined: () => RH,
               PictureFilled: () => TH,
-              PictureOutlined: () => BH,
+              PictureOutlined: () => $H,
               PictureTwoTone: () => jH,
-              PieChartFilled: () => IH,
+              PieChartFilled: () => NH,
               PieChartOutlined: () => XH,
               PieChartTwoTone: () => UH,
               PlayCircleFilled: () => tZ,
@@ -561,9 +561,9 @@
               PlusSquareFilled: () => ZZ,
               PlusSquareOutlined: () => RZ,
               PlusSquareTwoTone: () => TZ,
-              PoundCircleFilled: () => BZ,
+              PoundCircleFilled: () => $Z,
               PoundCircleOutlined: () => jZ,
-              PoundCircleTwoTone: () => IZ,
+              PoundCircleTwoTone: () => NZ,
               PoundOutlined: () => XZ,
               PoweroffOutlined: () => UZ,
               PrinterFilled: () => tP,
@@ -579,9 +579,9 @@
               PropertySafetyOutlined: () => ZP,
               PropertySafetyTwoTone: () => RP,
               PullRequestOutlined: () => TP,
-              PushpinFilled: () => BP,
+              PushpinFilled: () => $P,
               PushpinOutlined: () => jP,
-              PushpinTwoTone: () => IP,
+              PushpinTwoTone: () => NP,
               QqCircleFilled: () => XP,
               QqOutlined: () => UP,
               QqSquareFilled: () => tE,
@@ -597,9 +597,9 @@
               RadiusUpleftOutlined: () => ZE,
               RadiusUprightOutlined: () => RE,
               ReadFilled: () => TE,
-              ReadOutlined: () => BE,
+              ReadOutlined: () => $E,
               ReconciliationFilled: () => jE,
-              ReconciliationOutlined: () => IE,
+              ReconciliationOutlined: () => NE,
               ReconciliationTwoTone: () => XE,
               RedEnvelopeFilled: () => UE,
               RedEnvelopeOutlined: () => tR,
@@ -615,9 +615,9 @@
               RetweetOutlined: () => ZR,
               RightCircleFilled: () => RR,
               RightCircleOutlined: () => TR,
-              RightCircleTwoTone: () => BR,
+              RightCircleTwoTone: () => $R,
               RightOutlined: () => jR,
-              RightSquareFilled: () => IR,
+              RightSquareFilled: () => NR,
               RightSquareOutlined: () => XR,
               RightSquareTwoTone: () => UR,
               RiseOutlined: () => tA,
@@ -633,9 +633,9 @@
               SafetyCertificateOutlined: () => ZA,
               SafetyCertificateTwoTone: () => RA,
               SafetyOutlined: () => TA,
-              SaveFilled: () => BA,
+              SaveFilled: () => $A,
               SaveOutlined: () => jA,
-              SaveTwoTone: () => IA,
+              SaveTwoTone: () => NA,
               ScanOutlined: () => XA,
               ScheduleFilled: () => UA,
               ScheduleOutlined: () => tQ,
@@ -651,9 +651,9 @@
               SettingOutlined: () => ZQ,
               SettingTwoTone: () => RQ,
               ShakeOutlined: () => TQ,
-              ShareAltOutlined: () => BQ,
+              ShareAltOutlined: () => $Q,
               ShopFilled: () => jQ,
-              ShopOutlined: () => IQ,
+              ShopOutlined: () => NQ,
               ShopTwoTone: () => XQ,
               ShoppingCartOutlined: () => UQ,
               ShoppingFilled: () => tT,
@@ -669,9 +669,9 @@
               SkinOutlined: () => ZT,
               SkinTwoTone: () => RT,
               SkypeFilled: () => TT,
-              SkypeOutlined: () => BT,
+              SkypeOutlined: () => $T,
               SlackCircleFilled: () => jT,
-              SlackOutlined: () => IT,
+              SlackOutlined: () => NT,
               SlackSquareFilled: () => XT,
               SlackSquareOutlined: () => UT,
               SlidersFilled: () => tL,
@@ -687,47 +687,47 @@
               SolutionOutlined: () => ZL,
               SortAscendingOutlined: () => RL,
               SortDescendingOutlined: () => TL,
-              SoundFilled: () => BL,
+              SoundFilled: () => $L,
               SoundOutlined: () => jL,
-              SoundTwoTone: () => IL,
+              SoundTwoTone: () => NL,
               SplitCellsOutlined: () => XL,
               StarFilled: () => UL,
-              StarOutlined: () => t$,
-              StarTwoTone: () => i$,
-              StepBackwardFilled: () => o$,
-              StepBackwardOutlined: () => l$,
-              StepForwardFilled: () => d$,
-              StepForwardOutlined: () => p$,
-              StockOutlined: () => O$,
-              StopFilled: () => y$,
-              StopOutlined: () => S$,
-              StopTwoTone: () => C$,
-              StrikethroughOutlined: () => Z$,
-              SubnodeOutlined: () => R$,
-              SwapLeftOutlined: () => T$,
-              SwapOutlined: () => B$,
-              SwapRightOutlined: () => j$,
-              SwitcherFilled: () => I$,
-              SwitcherOutlined: () => X$,
-              SwitcherTwoTone: () => U$,
-              SyncOutlined: () => tB,
-              TableOutlined: () => iB,
-              TabletFilled: () => oB,
-              TabletOutlined: () => lB,
-              TabletTwoTone: () => dB,
-              TagFilled: () => pB,
-              TagOutlined: () => OB,
-              TagTwoTone: () => yB,
-              TagsFilled: () => SB,
-              TagsOutlined: () => CB,
-              TagsTwoTone: () => ZB,
-              TaobaoCircleFilled: () => RB,
-              TaobaoCircleOutlined: () => TB,
-              TaobaoOutlined: () => BB,
-              TaobaoSquareFilled: () => jB,
-              TeamOutlined: () => IB,
-              ThunderboltFilled: () => XB,
-              ThunderboltOutlined: () => UB,
+              StarOutlined: () => tB,
+              StarTwoTone: () => iB,
+              StepBackwardFilled: () => oB,
+              StepBackwardOutlined: () => lB,
+              StepForwardFilled: () => dB,
+              StepForwardOutlined: () => pB,
+              StockOutlined: () => OB,
+              StopFilled: () => yB,
+              StopOutlined: () => SB,
+              StopTwoTone: () => CB,
+              StrikethroughOutlined: () => ZB,
+              SubnodeOutlined: () => RB,
+              SwapLeftOutlined: () => TB,
+              SwapOutlined: () => $B,
+              SwapRightOutlined: () => jB,
+              SwitcherFilled: () => NB,
+              SwitcherOutlined: () => XB,
+              SwitcherTwoTone: () => UB,
+              SyncOutlined: () => t$,
+              TableOutlined: () => i$,
+              TabletFilled: () => o$,
+              TabletOutlined: () => l$,
+              TabletTwoTone: () => d$,
+              TagFilled: () => p$,
+              TagOutlined: () => O$,
+              TagTwoTone: () => y$,
+              TagsFilled: () => S$,
+              TagsOutlined: () => C$,
+              TagsTwoTone: () => Z$,
+              TaobaoCircleFilled: () => R$,
+              TaobaoCircleOutlined: () => T$,
+              TaobaoOutlined: () => $$,
+              TaobaoSquareFilled: () => j$,
+              TeamOutlined: () => N$,
+              ThunderboltFilled: () => X$,
+              ThunderboltOutlined: () => U$,
               ThunderboltTwoTone: () => tD,
               ToTopOutlined: () => iD,
               ToolFilled: () => oD,
@@ -741,9 +741,9 @@
               TranslationOutlined: () => ZD,
               TrophyFilled: () => RD,
               TrophyOutlined: () => TD,
-              TrophyTwoTone: () => BD,
+              TrophyTwoTone: () => $D,
               TwitterCircleFilled: () => jD,
-              TwitterOutlined: () => ID,
+              TwitterOutlined: () => ND,
               TwitterSquareFilled: () => XD,
               UnderlineOutlined: () => UD,
               UndoOutlined: () => tW,
@@ -759,9 +759,9 @@
               UpSquareFilled: () => ZW,
               UpSquareOutlined: () => RW,
               UpSquareTwoTone: () => TW,
-              UploadOutlined: () => BW,
+              UploadOutlined: () => $W,
               UsbFilled: () => jW,
-              UsbOutlined: () => IW,
+              UsbOutlined: () => NW,
               UsbTwoTone: () => XW,
               UserAddOutlined: () => UW,
               UserDeleteOutlined: () => tj,
@@ -777,9 +777,9 @@
               VerticalRightOutlined: () => Zj,
               VideoCameraAddOutlined: () => Rj,
               VideoCameraFilled: () => Tj,
-              VideoCameraOutlined: () => Bj,
+              VideoCameraOutlined: () => $j,
               VideoCameraTwoTone: () => jj,
-              WalletFilled: () => Ij,
+              WalletFilled: () => Nj,
               WalletOutlined: () => Xj,
               WalletTwoTone: () => Uj,
               WarningFilled: () => t_,
@@ -795,21 +795,21 @@
               WhatsAppOutlined: () => Z_,
               WifiOutlined: () => R_,
               WindowsFilled: () => T_,
-              WindowsOutlined: () => B_,
+              WindowsOutlined: () => $_,
               WomanOutlined: () => j_,
-              YahooFilled: () => I_,
+              YahooFilled: () => N_,
               YahooOutlined: () => X_,
               YoutubeFilled: () => U_,
-              YoutubeOutlined: () => tN,
-              YuqueFilled: () => iN,
-              YuqueOutlined: () => oN,
-              ZhihuCircleFilled: () => lN,
-              ZhihuOutlined: () => dN,
-              ZhihuSquareFilled: () => pN,
-              ZoomInOutlined: () => ON,
-              ZoomOutOutlined: () => yN,
-              createFromIconfontCN: () => ZN,
-              default: () => kN,
+              YoutubeOutlined: () => tI,
+              YuqueFilled: () => iI,
+              YuqueOutlined: () => oI,
+              ZhihuCircleFilled: () => lI,
+              ZhihuOutlined: () => dI,
+              ZhihuSquareFilled: () => pI,
+              ZoomInOutlined: () => OI,
+              ZoomOutOutlined: () => yI,
+              createFromIconfontCN: () => ZI,
+              default: () => kI,
               getTwoToneColor: () => Mt,
               setTwoToneColor: () => St,
             });
@@ -1377,7 +1377,7 @@
             })(t.r, t.g, t.b);
             return { h: 360 * e.h, s: e.s, v: e.v };
           }
-          function $(t) {
+          function B(t) {
             var e = t.r,
               n = t.g,
               i = t.b;
@@ -1392,7 +1392,7 @@
               })(e, n, i),
             );
           }
-          function B(t, e, n) {
+          function $(t, e, n) {
             var i;
             return (
               (i =
@@ -1438,13 +1438,13 @@
               r -= 1
             ) {
               var s = L(i),
-                o = $(z({ h: B(s, r, !0), s: D(s, r, !0), v: W(s, r, !0) }));
+                o = B(z({ h: $(s, r, !0), s: D(s, r, !0), v: W(s, r, !0) }));
               n.push(o);
             }
-            n.push($(i));
+            n.push(B(i));
             for (var a = 1; a <= Q; a += 1) {
               var c = L(i),
-                l = $(z({ h: B(c, a), s: D(c, a), v: W(c, a) }));
+                l = B(z({ h: $(c, a), s: D(c, a), v: W(c, a) }));
               n.push(l);
             }
             return 'dark' === e.theme
@@ -1454,7 +1454,7 @@
                     s,
                     o = t.index,
                     a = t.opacity;
-                  return $(
+                  return B(
                     ((i = z(e.backgroundColor || '#141414')),
                     (s = (100 * a) / 100),
                     {
@@ -1481,23 +1481,23 @@
               magenta: '#EB2F96',
               grey: '#666666',
             },
-            N = {},
-            I = {};
+            I = {},
+            N = {};
           Object.keys(_).forEach(function (t) {
-            (N[t] = j(_[t])),
-              (N[t].primary = N[t][5]),
-              (I[t] = j(_[t], { theme: 'dark', backgroundColor: '#141414' })),
-              (I[t].primary = I[t][5]);
+            (I[t] = j(_[t])),
+              (I[t].primary = I[t][5]),
+              (N[t] = j(_[t], { theme: 'dark', backgroundColor: '#141414' })),
+              (N[t].primary = N[t][5]);
           }),
-            N.red,
-            N.volcano,
-            N.gold,
-            N.orange,
-            N.yellow,
-            N.lime,
-            N.green,
-            N.cyan;
-          var Y = N.blue;
+            I.red,
+            I.volcano,
+            I.gold,
+            I.orange,
+            I.yellow,
+            I.lime,
+            I.green,
+            I.cyan;
+          var Y = I.blue;
           function q(t, e) {
             var n = Object.keys(t);
             if (Object.getOwnPropertySymbols) {
@@ -1532,7 +1532,7 @@
             }
             return t;
           }
-          N.geekblue, N.purple, N.magenta, N.grey, N.grey;
+          I.geekblue, I.purple, I.magenta, I.grey, I.grey;
           var F = 'data-rc-order',
             G = 'data-rc-priority',
             U = 'rc-util-key',
@@ -2004,10 +2004,10 @@
               name: 'aim',
               theme: 'outlined',
             };
-          var $t = function (t, e) {
+          var Bt = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lt }));
           };
-          const Bt = i.forwardRef($t),
+          const $t = i.forwardRef(Bt),
             Dt = {
               icon: {
                 tag: 'svg',
@@ -2044,10 +2044,10 @@
               name: 'alert',
               theme: 'outlined',
             };
-          var Nt = function (t, e) {
+          var It = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _t }));
           };
-          const It = i.forwardRef(Nt),
+          const Nt = i.forwardRef(It),
             Yt = {
               icon: function (t, e) {
                 return {
@@ -2374,10 +2374,10 @@
               name: 'android',
               theme: 'filled',
             };
-          var $e = function (t, e) {
+          var Be = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Le }));
           };
-          const Be = i.forwardRef($e),
+          const $e = i.forwardRef(Be),
             De = {
               icon: {
                 tag: 'svg',
@@ -2414,10 +2414,10 @@
               name: 'ant-cloud',
               theme: 'outlined',
             };
-          var Ne = function (t, e) {
+          var Ie = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _e }));
           };
-          const Ie = i.forwardRef(Ne),
+          const Ne = i.forwardRef(Ie),
             Ye = {
               icon: {
                 tag: 'svg',
@@ -2743,7 +2743,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Qn }));
           };
           const Ln = i.forwardRef(Tn),
-            $n = {
+            Bn = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -2759,10 +2759,10 @@
               name: 'arrow-up',
               theme: 'outlined',
             };
-          var Bn = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $n }));
+          var $n = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bn }));
           };
-          const Dn = i.forwardRef(Bn),
+          const Dn = i.forwardRef($n),
             Wn = {
               icon: {
                 tag: 'svg',
@@ -2783,7 +2783,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Wn }));
           };
           const _n = i.forwardRef(jn),
-            Nn = {
+            In = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -2799,10 +2799,10 @@
               name: 'audio',
               theme: 'filled',
             };
-          var In = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Nn }));
+          var Nn = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: In }));
           };
-          const Yn = i.forwardRef(In),
+          const Yn = i.forwardRef(Nn),
             qn = {
               icon: {
                 tag: 'svg',
@@ -3138,7 +3138,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Qi }));
           };
           const Li = i.forwardRef(Ti),
-            $i = {
+            Bi = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -3154,10 +3154,10 @@
               name: 'behance-square',
               theme: 'outlined',
             };
-          var Bi = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $i }));
+          var $i = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bi }));
           };
-          const Di = i.forwardRef(Bi),
+          const Di = i.forwardRef($i),
             Wi = {
               icon: {
                 tag: 'svg',
@@ -3178,7 +3178,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Wi }));
           };
           const _i = i.forwardRef(ji),
-            Ni = {
+            Ii = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -3194,10 +3194,10 @@
               name: 'bell',
               theme: 'outlined',
             };
-          var Ii = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ni }));
+          var Ni = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ii }));
           };
-          const Yi = i.forwardRef(Ii),
+          const Yi = i.forwardRef(Ni),
             qi = {
               icon: function (t, e) {
                 return {
@@ -3525,7 +3525,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Qr }));
           };
           const Lr = i.forwardRef(Tr),
-            $r = {
+            Br = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -3541,10 +3541,10 @@
               name: 'border-verticle',
               theme: 'outlined',
             };
-          var Br = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $r }));
+          var $r = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Br }));
           };
-          const Dr = i.forwardRef(Br),
+          const Dr = i.forwardRef($r),
             Wr = {
               icon: {
                 tag: 'svg',
@@ -3570,7 +3570,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Wr }));
           };
           const _r = i.forwardRef(jr),
-            Nr = {
+            Ir = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -3586,10 +3586,10 @@
               name: 'box-plot',
               theme: 'filled',
             };
-          var Ir = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Nr }));
+          var Nr = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ir }));
           };
-          const Yr = i.forwardRef(Ir),
+          const Yr = i.forwardRef(Nr),
             qr = {
               icon: {
                 tag: 'svg',
@@ -3959,7 +3959,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Qs }));
           };
           const Ls = i.forwardRef(Ts),
-            $s = {
+            Bs = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -3975,10 +3975,10 @@
               name: 'calendar',
               theme: 'filled',
             };
-          var Bs = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $s }));
+          var $s = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bs }));
           };
-          const Ds = i.forwardRef(Bs),
+          const Ds = i.forwardRef($s),
             Ws = {
               icon: {
                 tag: 'svg',
@@ -3999,7 +3999,7 @@
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ws }));
           };
           const _s = i.forwardRef(js),
-            Ns = {
+            Is = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -4025,10 +4025,10 @@
               name: 'calendar',
               theme: 'twotone',
             };
-          var Is = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ns }));
+          var Ns = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Is }));
           };
-          const Ys = i.forwardRef(Is),
+          const Ys = i.forwardRef(Ns),
             qs = {
               icon: {
                 tag: 'svg',
@@ -4369,8 +4369,8 @@
           var Lo = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: To }));
           };
-          const $o = i.forwardRef(Lo),
-            Bo = {
+          const Bo = i.forwardRef(Lo),
+            $o = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -4387,7 +4387,7 @@
               theme: 'outlined',
             };
           var Do = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bo }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $o }));
           };
           const Wo = i.forwardRef(Do),
             jo = {
@@ -4426,8 +4426,8 @@
           var _o = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: jo }));
           };
-          const No = i.forwardRef(_o),
-            Io = {
+          const Io = i.forwardRef(_o),
+            No = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -4444,7 +4444,7 @@
               theme: 'filled',
             };
           var Yo = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Io }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: No }));
           };
           const qo = i.forwardRef(Yo),
             Xo = {
@@ -4831,8 +4831,8 @@
           var La = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ta }));
           };
-          const $a = i.forwardRef(La),
-            Ba = {
+          const Ba = i.forwardRef(La),
+            $a = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -4855,7 +4855,7 @@
               theme: 'outlined',
             };
           var Da = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ba }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $a }));
           };
           const Wa = i.forwardRef(Da),
             ja = {
@@ -4894,8 +4894,8 @@
           var _a = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: ja }));
           };
-          const Na = i.forwardRef(_a),
-            Ia = {
+          const Ia = i.forwardRef(_a),
+            Na = {
               icon: {
                 tag: 'svg',
                 attrs: {
@@ -4916,7 +4916,7 @@
               theme: 'filled',
             };
           var Ya = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ia }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Na }));
           };
           const qa = i.forwardRef(Ya),
             Xa = {
@@ -5308,8 +5308,8 @@
           var Lc = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Tc }));
           };
-          const $c = i.forwardRef(Lc),
-            Bc = {
+          const Bc = i.forwardRef(Lc),
+            $c = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -5326,7 +5326,7 @@
               theme: 'outlined',
             };
           var Dc = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bc }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $c }));
           };
           const Wc = i.forwardRef(Dc),
             jc = {
@@ -5348,8 +5348,8 @@
           var _c = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: jc }));
           };
-          const Nc = i.forwardRef(_c),
-            Ic = {
+          const Ic = i.forwardRef(_c),
+            Nc = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -5366,7 +5366,7 @@
               theme: 'outlined',
             };
           var Yc = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ic }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Nc }));
           };
           const qc = i.forwardRef(Yc),
             Xc = {
@@ -5741,8 +5741,8 @@
           var Ll = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Tl }));
           };
-          const $l = i.forwardRef(Ll),
-            Bl = {
+          const Bl = i.forwardRef(Ll),
+            $l = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -5759,7 +5759,7 @@
               theme: 'filled',
             };
           var Dl = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bl }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $l }));
           };
           const Wl = i.forwardRef(Dl),
             jl = {
@@ -5781,8 +5781,8 @@
           var _l = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: jl }));
           };
-          const Nl = i.forwardRef(_l),
-            Il = {
+          const Il = i.forwardRef(_l),
+            Nl = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -5823,7 +5823,7 @@
               theme: 'twotone',
             };
           var Yl = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Il }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Nl }));
           };
           const ql = i.forwardRef(Yl),
             Xl = {
@@ -6224,8 +6224,8 @@
           var Lh = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Th }));
           };
-          const $h = i.forwardRef(Lh),
-            Bh = {
+          const Bh = i.forwardRef(Lh),
+            $h = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -6242,7 +6242,7 @@
               theme: 'outlined',
             };
           var Dh = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Bh }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: $h }));
           };
           const Wh = i.forwardRef(Dh),
             jh = {
@@ -6281,8 +6281,8 @@
           var _h = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: jh }));
           };
-          const Nh = i.forwardRef(_h),
-            Ih = {
+          const Ih = i.forwardRef(_h),
+            Nh = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -6299,7 +6299,7 @@
               theme: 'filled',
             };
           var Yh = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ih }));
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Nh }));
           };
           const qh = i.forwardRef(Yh),
             Xh = {
@@ -6678,10 +6678,10 @@
               name: 'delete',
               theme: 'outlined',
             };
-          var $f = function (t, e) {
+          var Bf = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lf }));
           };
-          const Bf = i.forwardRef($f),
+          const $f = i.forwardRef(Bf),
             Df = {
               icon: {
                 tag: 'svg',
@@ -6730,10 +6730,10 @@
               name: 'delete',
               theme: 'twotone',
             };
-          var Nf = function (t, e) {
+          var If = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _f }));
           };
-          const If = i.forwardRef(Nf),
+          const Nf = i.forwardRef(If),
             Yf = {
               icon: {
                 tag: 'svg',
@@ -7089,10 +7089,10 @@
               name: 'dollar-circle',
               theme: 'outlined',
             };
-          var $d = function (t, e) {
+          var Bd = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ld }));
           };
-          const Bd = i.forwardRef($d),
+          const $d = i.forwardRef(Bd),
             Dd = {
               icon: function (t, e) {
                 return {
@@ -7153,10 +7153,10 @@
               name: 'dollar',
               theme: 'outlined',
             };
-          var Nd = function (t, e) {
+          var Id = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _d }));
           };
-          const Id = i.forwardRef(Nd),
+          const Nd = i.forwardRef(Id),
             Yd = {
               icon: function (t, e) {
                 return {
@@ -7543,10 +7543,10 @@
               name: 'dribbble-square',
               theme: 'filled',
             };
-          var $u = function (t, e) {
+          var Bu = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lu }));
           };
-          const Bu = i.forwardRef($u),
+          const $u = i.forwardRef(Bu),
             Du = {
               icon: {
                 tag: 'svg',
@@ -7583,10 +7583,10 @@
               name: 'dropbox-circle',
               theme: 'filled',
             };
-          var Nu = function (t, e) {
+          var Iu = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _u }));
           };
-          const Iu = i.forwardRef(Nu),
+          const Nu = i.forwardRef(Iu),
             Yu = {
               icon: {
                 tag: 'svg',
@@ -7964,10 +7964,10 @@
               name: 'exception',
               theme: 'outlined',
             };
-          var $m = function (t, e) {
+          var Bm = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lm }));
           };
-          const Bm = i.forwardRef($m),
+          const $m = i.forwardRef(Bm),
             Dm = {
               icon: {
                 tag: 'svg',
@@ -8010,10 +8010,10 @@
               name: 'exclamation-circle',
               theme: 'outlined',
             };
-          var Nm = function (t, e) {
+          var Im = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _m }));
           };
-          const Im = i.forwardRef(Nm),
+          const Nm = i.forwardRef(Im),
             Ym = {
               icon: function (t, e) {
                 return {
@@ -8426,10 +8426,10 @@
               name: 'facebook',
               theme: 'outlined',
             };
-          var $p = function (t, e) {
+          var Bp = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lp }));
           };
-          const Bp = i.forwardRef($p),
+          const $p = i.forwardRef(Bp),
             Dp = {
               icon: {
                 tag: 'svg',
@@ -8466,10 +8466,10 @@
               name: 'fast-backward',
               theme: 'filled',
             };
-          var Np = function (t, e) {
+          var Ip = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _p }));
           };
-          const Ip = i.forwardRef(Np),
+          const Np = i.forwardRef(Ip),
             Yp = {
               icon: {
                 tag: 'svg',
@@ -8846,10 +8846,10 @@
               name: 'file-exclamation',
               theme: 'outlined',
             };
-          var $g = function (t, e) {
+          var Bg = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lg }));
           };
-          const Bg = i.forwardRef($g),
+          const $g = i.forwardRef(Bg),
             Dg = {
               icon: function (t, e) {
                 return {
@@ -8903,10 +8903,10 @@
               name: 'file',
               theme: 'filled',
             };
-          var Ng = function (t, e) {
+          var Ig = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _g }));
           };
-          const Ig = i.forwardRef(Ng),
+          const Ng = i.forwardRef(Ig),
             Yg = {
               icon: {
                 tag: 'svg',
@@ -9329,10 +9329,10 @@
               name: 'file-protect',
               theme: 'outlined',
             };
-          var $v = function (t, e) {
+          var Bv = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lv }));
           };
-          const Bv = i.forwardRef($v),
+          const $v = i.forwardRef(Bv),
             Dv = {
               icon: {
                 tag: 'svg',
@@ -9369,10 +9369,10 @@
               name: 'file-sync',
               theme: 'outlined',
             };
-          var Nv = function (t, e) {
+          var Iv = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _v }));
           };
-          const Iv = i.forwardRef(Nv),
+          const Nv = i.forwardRef(Iv),
             Yv = {
               icon: {
                 tag: 'svg',
@@ -9781,10 +9781,10 @@
               name: 'filter',
               theme: 'twotone',
             };
-          var $O = function (t, e) {
+          var BO = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LO }));
           };
-          const BO = i.forwardRef($O),
+          const $O = i.forwardRef(BO),
             DO = {
               icon: {
                 tag: 'svg',
@@ -9821,10 +9821,10 @@
               name: 'fire',
               theme: 'outlined',
             };
-          var NO = function (t, e) {
+          var IO = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _O }));
           };
-          const IO = i.forwardRef(NO),
+          const NO = i.forwardRef(IO),
             YO = {
               icon: function (t, e) {
                 return {
@@ -10214,10 +10214,10 @@
               name: 'font-size',
               theme: 'outlined',
             };
-          var $w = function (t, e) {
+          var Bw = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lw }));
           };
-          const Bw = i.forwardRef($w),
+          const $w = i.forwardRef(Bw),
             Dw = {
               icon: {
                 tag: 'svg',
@@ -10260,10 +10260,10 @@
               name: 'form',
               theme: 'outlined',
             };
-          var Nw = function (t, e) {
+          var Iw = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _w }));
           };
-          const Iw = i.forwardRef(Nw),
+          const Nw = i.forwardRef(Iw),
             Yw = {
               icon: {
                 tag: 'svg',
@@ -10657,10 +10657,10 @@
               name: 'funnel-plot',
               theme: 'filled',
             };
-          var $b = function (t, e) {
+          var Bb = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lb }));
           };
-          const Bb = i.forwardRef($b),
+          const $b = i.forwardRef(Bb),
             Db = {
               icon: {
                 tag: 'svg',
@@ -10707,10 +10707,10 @@
               name: 'funnel-plot',
               theme: 'twotone',
             };
-          var Nb = function (t, e) {
+          var Ib = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _b }));
           };
-          const Ib = i.forwardRef(Nb),
+          const Nb = i.forwardRef(Ib),
             Yb = {
               icon: {
                 tag: 'svg',
@@ -11052,10 +11052,10 @@
               name: 'google',
               theme: 'outlined',
             };
-          var $y = function (t, e) {
+          var By = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Ly }));
           };
-          const By = i.forwardRef($y),
+          const $y = i.forwardRef(By),
             Dy = {
               icon: {
                 tag: 'svg',
@@ -11092,10 +11092,10 @@
               name: 'google-plus',
               theme: 'outlined',
             };
-          var Ny = function (t, e) {
+          var Iy = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _y }));
           };
-          const Iy = i.forwardRef(Ny),
+          const Ny = i.forwardRef(Iy),
             Yy = {
               icon: {
                 tag: 'svg',
@@ -11460,10 +11460,10 @@
               name: 'home',
               theme: 'filled',
             };
-          var $x = function (t, e) {
+          var Bx = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lx }));
           };
-          const Bx = i.forwardRef($x),
+          const $x = i.forwardRef(Bx),
             Dx = {
               icon: {
                 tag: 'svg',
@@ -11510,10 +11510,10 @@
               name: 'home',
               theme: 'twotone',
             };
-          var Nx = function (t, e) {
+          var Ix = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _x }));
           };
-          const Ix = i.forwardRef(Nx),
+          const Nx = i.forwardRef(Ix),
             Yx = {
               icon: {
                 tag: 'svg',
@@ -11891,10 +11891,10 @@
               name: 'info-circle',
               theme: 'outlined',
             };
-          var $z = function (t, e) {
+          var Bz = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lz }));
           };
-          const Bz = i.forwardRef($z),
+          const $z = i.forwardRef(Bz),
             Dz = {
               icon: function (t, e) {
                 return {
@@ -11948,10 +11948,10 @@
               name: 'info',
               theme: 'outlined',
             };
-          var Nz = function (t, e) {
+          var Iz = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _z }));
           };
-          const Iz = i.forwardRef(Nz),
+          const Nz = i.forwardRef(Iz),
             Yz = {
               icon: {
                 tag: 'svg',
@@ -12326,10 +12326,10 @@
               name: 'laptop',
               theme: 'outlined',
             };
-          var $S = function (t, e) {
+          var BS = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LS }));
           };
-          const BS = i.forwardRef($S),
+          const $S = i.forwardRef(BS),
             DS = {
               icon: {
                 tag: 'svg',
@@ -12366,10 +12366,10 @@
               name: 'layout',
               theme: 'outlined',
             };
-          var NS = function (t, e) {
+          var IS = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _S }));
           };
-          const IS = i.forwardRef(NS),
+          const NS = i.forwardRef(IS),
             YS = {
               icon: function (t, e) {
                 return {
@@ -12752,10 +12752,10 @@
               name: 'linkedin',
               theme: 'filled',
             };
-          var $M = function (t, e) {
+          var BM = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LM }));
           };
-          const BM = i.forwardRef($M),
+          const $M = i.forwardRef(BM),
             DM = {
               icon: {
                 tag: 'svg',
@@ -12792,10 +12792,10 @@
               name: 'loading-3-quarters',
               theme: 'outlined',
             };
-          var NM = function (t, e) {
+          var IM = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _M }));
           };
-          const IM = i.forwardRef(NM),
+          const NM = i.forwardRef(IM),
             YM = {
               icon: {
                 tag: 'svg',
@@ -13196,10 +13196,10 @@
               name: 'medium-circle',
               theme: 'filled',
             };
-          var $k = function (t, e) {
+          var Bk = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lk }));
           };
-          const Bk = i.forwardRef($k),
+          const $k = i.forwardRef(Bk),
             Dk = {
               icon: {
                 tag: 'svg',
@@ -13236,10 +13236,10 @@
               name: 'medium-square',
               theme: 'filled',
             };
-          var Nk = function (t, e) {
+          var Ik = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _k }));
           };
-          const Ik = i.forwardRef(Nk),
+          const Nk = i.forwardRef(Ik),
             Yk = {
               icon: {
                 tag: 'svg',
@@ -13625,10 +13625,10 @@
               name: 'minus-square',
               theme: 'filled',
             };
-          var $C = function (t, e) {
+          var BC = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LC }));
           };
-          const BC = i.forwardRef($C),
+          const $C = i.forwardRef(BC),
             DC = {
               icon: {
                 tag: 'svg',
@@ -13688,10 +13688,10 @@
               name: 'minus-square',
               theme: 'twotone',
             };
-          var NC = function (t, e) {
+          var IC = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _C }));
           };
-          const IC = i.forwardRef(NC),
+          const NC = i.forwardRef(IC),
             YC = {
               icon: {
                 tag: 'svg',
@@ -14084,10 +14084,10 @@
               name: 'one-to-one',
               theme: 'outlined',
             };
-          var $V = function (t, e) {
+          var BV = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LV }));
           };
-          const BV = i.forwardRef($V),
+          const $V = i.forwardRef(BV),
             DV = {
               icon: {
                 tag: 'svg',
@@ -14124,10 +14124,10 @@
               name: 'paper-clip',
               theme: 'outlined',
             };
-          var NV = function (t, e) {
+          var IV = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _V }));
           };
-          const IV = i.forwardRef(NV),
+          const NV = i.forwardRef(IV),
             YV = {
               icon: {
                 tag: 'svg',
@@ -14476,10 +14476,10 @@
               name: 'picture',
               theme: 'outlined',
             };
-          var $H = function (t, e) {
+          var BH = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LH }));
           };
-          const BH = i.forwardRef($H),
+          const $H = i.forwardRef(BH),
             DH = {
               icon: function (t, e) {
                 return {
@@ -14547,10 +14547,10 @@
               name: 'pie-chart',
               theme: 'filled',
             };
-          var NH = function (t, e) {
+          var IH = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _H }));
           };
-          const IH = i.forwardRef(NH),
+          const NH = i.forwardRef(IH),
             YH = {
               icon: {
                 tag: 'svg',
@@ -14996,10 +14996,10 @@
               name: 'pound-circle',
               theme: 'filled',
             };
-          var $Z = function (t, e) {
+          var BZ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LZ }));
           };
-          const BZ = i.forwardRef($Z),
+          const $Z = i.forwardRef(BZ),
             DZ = {
               icon: {
                 tag: 'svg',
@@ -15053,10 +15053,10 @@
               name: 'pound-circle',
               theme: 'twotone',
             };
-          var NZ = function (t, e) {
+          var IZ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _Z }));
           };
-          const IZ = i.forwardRef(NZ),
+          const NZ = i.forwardRef(IZ),
             YZ = {
               icon: {
                 tag: 'svg',
@@ -15441,10 +15441,10 @@
               name: 'pushpin',
               theme: 'filled',
             };
-          var $P = function (t, e) {
+          var BP = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LP }));
           };
-          const BP = i.forwardRef($P),
+          const $P = i.forwardRef(BP),
             DP = {
               icon: {
                 tag: 'svg',
@@ -15491,10 +15491,10 @@
               name: 'pushpin',
               theme: 'twotone',
             };
-          var NP = function (t, e) {
+          var IP = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _P }));
           };
-          const IP = i.forwardRef(NP),
+          const NP = i.forwardRef(IP),
             YP = {
               icon: {
                 tag: 'svg',
@@ -15834,10 +15834,10 @@
               name: 'read',
               theme: 'outlined',
             };
-          var $E = function (t, e) {
+          var BE = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LE }));
           };
-          const BE = i.forwardRef($E),
+          const $E = i.forwardRef(BE),
             DE = {
               icon: {
                 tag: 'svg',
@@ -15874,10 +15874,10 @@
               name: 'reconciliation',
               theme: 'outlined',
             };
-          var NE = function (t, e) {
+          var IE = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _E }));
           };
-          const IE = i.forwardRef(NE),
+          const NE = i.forwardRef(IE),
             YE = {
               icon: function (t, e) {
                 return {
@@ -16300,10 +16300,10 @@
               name: 'right-circle',
               theme: 'twotone',
             };
-          var $R = function (t, e) {
+          var BR = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LR }));
           };
-          const BR = i.forwardRef($R),
+          const $R = i.forwardRef(BR),
             DR = {
               icon: {
                 tag: 'svg',
@@ -16340,10 +16340,10 @@
               name: 'right-square',
               theme: 'filled',
             };
-          var NR = function (t, e) {
+          var IR = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _R }));
           };
-          const IR = i.forwardRef(NR),
+          const NR = i.forwardRef(IR),
             YR = {
               icon: {
                 tag: 'svg',
@@ -16750,10 +16750,10 @@
               name: 'save',
               theme: 'filled',
             };
-          var $A = function (t, e) {
+          var BA = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LA }));
           };
-          const BA = i.forwardRef($A),
+          const $A = i.forwardRef(BA),
             DA = {
               icon: {
                 tag: 'svg',
@@ -16807,10 +16807,10 @@
               name: 'save',
               theme: 'twotone',
             };
-          var NA = function (t, e) {
+          var IA = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _A }));
           };
-          const IA = i.forwardRef(NA),
+          const NA = i.forwardRef(IA),
             YA = {
               icon: {
                 tag: 'svg',
@@ -17204,10 +17204,10 @@
               name: 'share-alt',
               theme: 'outlined',
             };
-          var $Q = function (t, e) {
+          var BQ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LQ }));
           };
-          const BQ = i.forwardRef($Q),
+          const $Q = i.forwardRef(BQ),
             DQ = {
               icon: {
                 tag: 'svg',
@@ -17244,10 +17244,10 @@
               name: 'shop',
               theme: 'outlined',
             };
-          var NQ = function (t, e) {
+          var IQ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _Q }));
           };
-          const IQ = i.forwardRef(NQ),
+          const NQ = i.forwardRef(IQ),
             YQ = {
               icon: function (t, e) {
                 return {
@@ -17604,10 +17604,10 @@
               name: 'skype',
               theme: 'outlined',
             };
-          var $T = function (t, e) {
+          var BT = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LT }));
           };
-          const BT = i.forwardRef($T),
+          const $T = i.forwardRef(BT),
             DT = {
               icon: {
                 tag: 'svg',
@@ -17644,10 +17644,10 @@
               name: 'slack',
               theme: 'outlined',
             };
-          var NT = function (t, e) {
+          var IT = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _T }));
           };
-          const IT = i.forwardRef(NT),
+          const NT = i.forwardRef(IT),
             YT = {
               icon: {
                 tag: 'svg',
@@ -18001,10 +18001,10 @@
               name: 'sound',
               theme: 'filled',
             };
-          var $L = function (t, e) {
+          var BL = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LL }));
           };
-          const BL = i.forwardRef($L),
+          const $L = i.forwardRef(BL),
             DL = {
               icon: {
                 tag: 'svg',
@@ -18051,10 +18051,10 @@
               name: 'sound',
               theme: 'twotone',
             };
-          var NL = function (t, e) {
+          var IL = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _L }));
           };
-          const IL = i.forwardRef(NL),
+          const NL = i.forwardRef(IL),
             YL = {
               icon: {
                 tag: 'svg',
@@ -18119,8 +18119,8 @@
           var JL = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: KL }));
           };
-          const t$ = i.forwardRef(JL),
-            e$ = {
+          const tB = i.forwardRef(JL),
+            eB = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18146,11 +18146,11 @@
               name: 'star',
               theme: 'twotone',
             };
-          var n$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: e$ }));
+          var nB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: eB }));
           };
-          const i$ = i.forwardRef(n$),
-            r$ = {
+          const iB = i.forwardRef(nB),
+            rB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '0 0 1024 1024', focusable: 'false' },
@@ -18166,11 +18166,11 @@
               name: 'step-backward',
               theme: 'filled',
             };
-          var s$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: r$ }));
+          var sB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: rB }));
           };
-          const o$ = i.forwardRef(s$),
-            a$ = {
+          const oB = i.forwardRef(sB),
+            aB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '0 0 1024 1024', focusable: 'false' },
@@ -18186,11 +18186,11 @@
               name: 'step-backward',
               theme: 'outlined',
             };
-          var c$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: a$ }));
+          var cB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: aB }));
           };
-          const l$ = i.forwardRef(c$),
-            h$ = {
+          const lB = i.forwardRef(cB),
+            hB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '0 0 1024 1024', focusable: 'false' },
@@ -18206,11 +18206,11 @@
               name: 'step-forward',
               theme: 'filled',
             };
-          var f$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: h$ }));
+          var fB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: hB }));
           };
-          const d$ = i.forwardRef(f$),
-            u$ = {
+          const dB = i.forwardRef(fB),
+            uB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '0 0 1024 1024', focusable: 'false' },
@@ -18226,11 +18226,11 @@
               name: 'step-forward',
               theme: 'outlined',
             };
-          var m$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: u$ }));
+          var mB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: uB }));
           };
-          const p$ = i.forwardRef(m$),
-            g$ = {
+          const pB = i.forwardRef(mB),
+            gB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18246,11 +18246,11 @@
               name: 'stock',
               theme: 'outlined',
             };
-          var v$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: g$ }));
+          var vB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: gB }));
           };
-          const O$ = i.forwardRef(v$),
-            w$ = {
+          const OB = i.forwardRef(vB),
+            wB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18266,11 +18266,11 @@
               name: 'stop',
               theme: 'filled',
             };
-          var b$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: w$ }));
+          var bB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: wB }));
           };
-          const y$ = i.forwardRef(b$),
-            x$ = {
+          const yB = i.forwardRef(bB),
+            xB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18286,11 +18286,11 @@
               name: 'stop',
               theme: 'outlined',
             };
-          var z$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: x$ }));
+          var zB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: xB }));
           };
-          const S$ = i.forwardRef(z$),
-            M$ = {
+          const SB = i.forwardRef(zB),
+            MB = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18316,11 +18316,11 @@
               name: 'stop',
               theme: 'twotone',
             };
-          var k$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: M$ }));
+          var kB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: MB }));
           };
-          const C$ = i.forwardRef(k$),
-            V$ = {
+          const CB = i.forwardRef(kB),
+            VB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18336,11 +18336,11 @@
               name: 'strikethrough',
               theme: 'outlined',
             };
-          var H$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: V$ }));
+          var HB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: VB }));
           };
-          const Z$ = i.forwardRef(H$),
-            P$ = {
+          const ZB = i.forwardRef(HB),
+            PB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18361,11 +18361,11 @@
               name: 'subnode',
               theme: 'outlined',
             };
-          var E$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: P$ }));
+          var EB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: PB }));
           };
-          const R$ = i.forwardRef(E$),
-            A$ = {
+          const RB = i.forwardRef(EB),
+            AB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '0 0 1024 1024', focusable: 'false' },
@@ -18381,11 +18381,11 @@
               name: 'swap-left',
               theme: 'outlined',
             };
-          var Q$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: A$ }));
+          var QB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: AB }));
           };
-          const T$ = i.forwardRef(Q$),
-            L$ = {
+          const TB = i.forwardRef(QB),
+            LB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18401,11 +18401,11 @@
               name: 'swap',
               theme: 'outlined',
             };
-          var $$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: L$ }));
+          var BB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LB }));
           };
-          const B$ = i.forwardRef($$),
-            D$ = {
+          const $B = i.forwardRef(BB),
+            DB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '0 0 1024 1024', focusable: 'false' },
@@ -18421,11 +18421,11 @@
               name: 'swap-right',
               theme: 'outlined',
             };
-          var W$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: D$ }));
+          var WB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: DB }));
           };
-          const j$ = i.forwardRef(W$),
-            _$ = {
+          const jB = i.forwardRef(WB),
+            _B = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18441,11 +18441,11 @@
               name: 'switcher',
               theme: 'filled',
             };
-          var N$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _$ }));
+          var IB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _B }));
           };
-          const I$ = i.forwardRef(N$),
-            Y$ = {
+          const NB = i.forwardRef(IB),
+            YB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18461,11 +18461,11 @@
               name: 'switcher',
               theme: 'outlined',
             };
-          var q$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Y$ }));
+          var qB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: YB }));
           };
-          const X$ = i.forwardRef(q$),
-            F$ = {
+          const XB = i.forwardRef(qB),
+            FB = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18502,11 +18502,11 @@
               name: 'switcher',
               theme: 'twotone',
             };
-          var G$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: F$ }));
+          var GB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: FB }));
           };
-          const U$ = i.forwardRef(G$),
-            K$ = {
+          const UB = i.forwardRef(GB),
+            KB = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18522,11 +18522,11 @@
               name: 'sync',
               theme: 'outlined',
             };
-          var J$ = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: K$ }));
+          var JB = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: KB }));
           };
-          const tB = i.forwardRef(J$),
-            eB = {
+          const t$ = i.forwardRef(JB),
+            e$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18542,11 +18542,11 @@
               name: 'table',
               theme: 'outlined',
             };
-          var nB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: eB }));
+          var n$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: e$ }));
           };
-          const iB = i.forwardRef(nB),
-            rB = {
+          const i$ = i.forwardRef(n$),
+            r$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18562,11 +18562,11 @@
               name: 'tablet',
               theme: 'filled',
             };
-          var sB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: rB }));
+          var s$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: r$ }));
           };
-          const oB = i.forwardRef(sB),
-            aB = {
+          const o$ = i.forwardRef(s$),
+            a$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18582,11 +18582,11 @@
               name: 'tablet',
               theme: 'outlined',
             };
-          var cB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: aB }));
+          var c$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: a$ }));
           };
-          const lB = i.forwardRef(cB),
-            hB = {
+          const l$ = i.forwardRef(c$),
+            h$ = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18619,11 +18619,11 @@
               name: 'tablet',
               theme: 'twotone',
             };
-          var fB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: hB }));
+          var f$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: h$ }));
           };
-          const dB = i.forwardRef(fB),
-            uB = {
+          const d$ = i.forwardRef(f$),
+            u$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18639,11 +18639,11 @@
               name: 'tag',
               theme: 'filled',
             };
-          var mB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: uB }));
+          var m$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: u$ }));
           };
-          const pB = i.forwardRef(mB),
-            gB = {
+          const p$ = i.forwardRef(m$),
+            g$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18659,11 +18659,11 @@
               name: 'tag',
               theme: 'outlined',
             };
-          var vB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: gB }));
+          var v$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: g$ }));
           };
-          const OB = i.forwardRef(vB),
-            wB = {
+          const O$ = i.forwardRef(v$),
+            w$ = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18696,11 +18696,11 @@
               name: 'tag',
               theme: 'twotone',
             };
-          var bB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: wB }));
+          var b$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: w$ }));
           };
-          const yB = i.forwardRef(bB),
-            xB = {
+          const y$ = i.forwardRef(b$),
+            x$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18716,11 +18716,11 @@
               name: 'tags',
               theme: 'filled',
             };
-          var zB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: xB }));
+          var z$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: x$ }));
           };
-          const SB = i.forwardRef(zB),
-            MB = {
+          const S$ = i.forwardRef(z$),
+            M$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18736,11 +18736,11 @@
               name: 'tags',
               theme: 'outlined',
             };
-          var kB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: MB }));
+          var k$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: M$ }));
           };
-          const CB = i.forwardRef(kB),
-            VB = {
+          const C$ = i.forwardRef(k$),
+            V$ = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18780,11 +18780,11 @@
               name: 'tags',
               theme: 'twotone',
             };
-          var HB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: VB }));
+          var H$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: V$ }));
           };
-          const ZB = i.forwardRef(HB),
-            PB = {
+          const Z$ = i.forwardRef(H$),
+            P$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18800,11 +18800,11 @@
               name: 'taobao-circle',
               theme: 'filled',
             };
-          var EB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: PB }));
+          var E$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: P$ }));
           };
-          const RB = i.forwardRef(EB),
-            AB = {
+          const R$ = i.forwardRef(E$),
+            A$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18820,11 +18820,11 @@
               name: 'taobao-circle',
               theme: 'outlined',
             };
-          var QB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: AB }));
+          var Q$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: A$ }));
           };
-          const TB = i.forwardRef(QB),
-            LB = {
+          const T$ = i.forwardRef(Q$),
+            L$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18840,11 +18840,11 @@
               name: 'taobao',
               theme: 'outlined',
             };
-          var $B = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LB }));
+          var B$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: L$ }));
           };
-          const BB = i.forwardRef($B),
-            DB = {
+          const $$ = i.forwardRef(B$),
+            D$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18860,11 +18860,11 @@
               name: 'taobao-square',
               theme: 'filled',
             };
-          var WB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: DB }));
+          var W$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: D$ }));
           };
-          const jB = i.forwardRef(WB),
-            _B = {
+          const j$ = i.forwardRef(W$),
+            _$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18880,11 +18880,11 @@
               name: 'team',
               theme: 'outlined',
             };
-          var NB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _B }));
+          var I$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _$ }));
           };
-          const IB = i.forwardRef(NB),
-            YB = {
+          const N$ = i.forwardRef(I$),
+            Y$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18900,11 +18900,11 @@
               name: 'thunderbolt',
               theme: 'filled',
             };
-          var qB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: YB }));
+          var q$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Y$ }));
           };
-          const XB = i.forwardRef(qB),
-            FB = {
+          const X$ = i.forwardRef(q$),
+            F$ = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -18920,11 +18920,11 @@
               name: 'thunderbolt',
               theme: 'outlined',
             };
-          var GB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: FB }));
+          var G$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: F$ }));
           };
-          const UB = i.forwardRef(GB),
-            KB = {
+          const U$ = i.forwardRef(G$),
+            K$ = {
               icon: function (t, e) {
                 return {
                   tag: 'svg',
@@ -18950,10 +18950,10 @@
               name: 'thunderbolt',
               theme: 'twotone',
             };
-          var JB = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: KB }));
+          var J$ = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: K$ }));
           };
-          const tD = i.forwardRef(JB),
+          const tD = i.forwardRef(J$),
             eD = {
               icon: {
                 tag: 'svg',
@@ -19265,10 +19265,10 @@
               name: 'trophy',
               theme: 'twotone',
             };
-          var $D = function (t, e) {
+          var BD = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LD }));
           };
-          const BD = i.forwardRef($D),
+          const $D = i.forwardRef(BD),
             DD = {
               icon: {
                 tag: 'svg',
@@ -19305,10 +19305,10 @@
               name: 'twitter',
               theme: 'outlined',
             };
-          var ND = function (t, e) {
+          var ID = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _D }));
           };
-          const ID = i.forwardRef(ND),
+          const ND = i.forwardRef(ID),
             YD = {
               icon: {
                 tag: 'svg',
@@ -19693,10 +19693,10 @@
               name: 'upload',
               theme: 'outlined',
             };
-          var $W = function (t, e) {
+          var BW = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: LW }));
           };
-          const BW = i.forwardRef($W),
+          const $W = i.forwardRef(BW),
             DW = {
               icon: {
                 tag: 'svg',
@@ -19733,10 +19733,10 @@
               name: 'usb',
               theme: 'outlined',
             };
-          var NW = function (t, e) {
+          var IW = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _W }));
           };
-          const IW = i.forwardRef(NW),
+          const NW = i.forwardRef(IW),
             YW = {
               icon: function (t, e) {
                 return {
@@ -20109,10 +20109,10 @@
               name: 'video-camera',
               theme: 'outlined',
             };
-          var $j = function (t, e) {
+          var Bj = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: Lj }));
           };
-          const Bj = i.forwardRef($j),
+          const $j = i.forwardRef(Bj),
             Dj = {
               icon: function (t, e) {
                 return {
@@ -20166,10 +20166,10 @@
               name: 'wallet',
               theme: 'filled',
             };
-          var Nj = function (t, e) {
+          var Ij = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: _j }));
           };
-          const Ij = i.forwardRef(Nj),
+          const Nj = i.forwardRef(Ij),
             Yj = {
               icon: {
                 tag: 'svg',
@@ -20538,10 +20538,10 @@
               name: 'windows',
               theme: 'outlined',
             };
-          var $_ = function (t, e) {
+          var B_ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: L_ }));
           };
-          const B_ = i.forwardRef($_),
+          const $_ = i.forwardRef(B_),
             D_ = {
               icon: {
                 tag: 'svg',
@@ -20578,10 +20578,10 @@
               name: 'yahoo',
               theme: 'filled',
             };
-          var N_ = function (t, e) {
+          var I_ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: __ }));
           };
-          const I_ = i.forwardRef(N_),
+          const N_ = i.forwardRef(I_),
             Y_ = {
               icon: {
                 tag: 'svg',
@@ -20641,8 +20641,8 @@
           var J_ = function (t, e) {
             return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: K_ }));
           };
-          const tN = i.forwardRef(J_),
-            eN = {
+          const tI = i.forwardRef(J_),
+            eI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20658,11 +20658,11 @@
               name: 'yuque',
               theme: 'filled',
             };
-          var nN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: eN }));
+          var nI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: eI }));
           };
-          const iN = i.forwardRef(nN),
-            rN = {
+          const iI = i.forwardRef(nI),
+            rI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20678,11 +20678,11 @@
               name: 'yuque',
               theme: 'outlined',
             };
-          var sN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: rN }));
+          var sI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: rI }));
           };
-          const oN = i.forwardRef(sN),
-            aN = {
+          const oI = i.forwardRef(sI),
+            aI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20698,11 +20698,11 @@
               name: 'zhihu-circle',
               theme: 'filled',
             };
-          var cN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: aN }));
+          var cI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: aI }));
           };
-          const lN = i.forwardRef(cN),
-            hN = {
+          const lI = i.forwardRef(cI),
+            hI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20718,11 +20718,11 @@
               name: 'zhihu',
               theme: 'outlined',
             };
-          var fN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: hN }));
+          var fI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: hI }));
           };
-          const dN = i.forwardRef(fN),
-            uN = {
+          const dI = i.forwardRef(fI),
+            uI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20738,11 +20738,11 @@
               name: 'zhihu-square',
               theme: 'filled',
             };
-          var mN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: uN }));
+          var mI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: uI }));
           };
-          const pN = i.forwardRef(mN),
-            gN = {
+          const pI = i.forwardRef(mI),
+            gI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20758,11 +20758,11 @@
               name: 'zoom-in',
               theme: 'outlined',
             };
-          var vN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: gN }));
+          var vI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: gI }));
           };
-          const ON = i.forwardRef(vN),
-            wN = {
+          const OI = i.forwardRef(vI),
+            wI = {
               icon: {
                 tag: 'svg',
                 attrs: { viewBox: '64 64 896 896', focusable: 'false' },
@@ -20778,11 +20778,11 @@
               name: 'zoom-out',
               theme: 'outlined',
             };
-          var bN = function (t, e) {
-            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: wN }));
+          var bI = function (t, e) {
+            return i.createElement(Vt, (0, o.Z)({}, t, { ref: e, icon: wI }));
           };
-          const yN = i.forwardRef(bN);
-          function xN() {
+          const yI = i.forwardRef(bI);
+          function xI() {
             for (var t = arguments.length, e = new Array(t), n = 0; n < t; n++)
               e[n] = arguments[n];
             var i = e.filter(function (t) {
@@ -20803,7 +20803,7 @@
                   });
                 };
           }
-          function zN() {
+          function zI() {
             for (var t = arguments.length, e = new Array(t), n = 0; n < t; n++)
               e[n] = arguments[n];
             return (
@@ -20817,14 +20817,14 @@
                     return t !== o[e];
                   })
                 ))) ||
-                ((a.current.value = xN.apply(void 0, e)),
+                ((a.current.value = xI.apply(void 0, e)),
                 (a.current.condition = r)),
               a.current.value
             );
             var r, s, o, a;
           }
           n(1805);
-          var SN = [
+          var SI = [
               'className',
               'component',
               'viewBox',
@@ -20834,7 +20834,7 @@
               'onClick',
               'children',
             ],
-            MN = i.forwardRef(function (t, e) {
+            MI = i.forwardRef(function (t, e) {
               var n = t.className,
                 r = t.component,
                 a = t.viewBox,
@@ -20843,9 +20843,9 @@
                 h = t.tabIndex,
                 d = t.onClick,
                 m = t.children,
-                g = u(t, SN),
+                g = u(t, SI),
                 v = i.useRef(),
-                O = zN(v, e);
+                O = zI(v, e);
               dt(
                 Boolean(r || m),
                 'Should have `component` prop or `children`.',
@@ -20895,11 +20895,11 @@
                 )
               );
             });
-          MN.displayName = 'AntdIcon';
-          const kN = MN;
-          var CN = ['type', 'children'],
-            VN = new Set();
-          function HN(t) {
+          MI.displayName = 'AntdIcon';
+          const kI = MI;
+          var CI = ['type', 'children'],
+            VI = new Set();
+          function HI(t) {
             var e,
               n =
                 arguments.length > 1 && void 0 !== arguments[1]
@@ -20907,23 +20907,23 @@
                   : 0,
               i = t[n];
             if (
-              ((e = i), Boolean('string' == typeof e && e.length && !VN.has(e)))
+              ((e = i), Boolean('string' == typeof e && e.length && !VI.has(e)))
             ) {
               var r = document.createElement('script');
               r.setAttribute('src', i),
                 r.setAttribute('data-namespace', i),
                 t.length > n + 1 &&
                   ((r.onload = function () {
-                    HN(t, n + 1);
+                    HI(t, n + 1);
                   }),
                   (r.onerror = function () {
-                    HN(t, n + 1);
+                    HI(t, n + 1);
                   })),
-                VN.add(i),
+                VI.add(i),
                 document.body.appendChild(r);
             }
           }
-          function ZN() {
+          function ZI() {
             var t =
                 arguments.length > 0 && void 0 !== arguments[0]
                   ? arguments[0]
@@ -20935,22 +20935,22 @@
               'undefined' != typeof document &&
               'undefined' != typeof window &&
               'function' == typeof document.createElement &&
-              (Array.isArray(e) ? HN(e.reverse()) : HN([e]));
+              (Array.isArray(e) ? HI(e.reverse()) : HI([e]));
             var s = i.forwardRef(function (t, e) {
               var n = t.type,
                 s = t.children,
-                a = u(t, CN),
+                a = u(t, CI),
                 c = null;
               return (
                 t.type &&
                   (c = i.createElement('use', { xlinkHref: '#'.concat(n) })),
                 s && (c = s),
-                i.createElement(kN, (0, o.Z)({}, r, a, { ref: e }), c)
+                i.createElement(kI, (0, o.Z)({}, r, a, { ref: e }), c)
               );
             });
             return (s.displayName = 'Iconfont'), s;
           }
-          var PN = s.Provider;
+          var PI = s.Provider;
         },
         5866: (t, e, n) => {
           'use strict';
@@ -20967,7 +20967,7 @@
               Compartment: () => J,
               Decoration: () => rn,
               Direction: () => Wn,
-              EditorSelection: () => B,
+              EditorSelection: () => $,
               EditorState: () => Mt,
               EditorView: () => jr,
               Facet: () => j,
@@ -20981,7 +20981,7 @@
               RangeSetBuilder: () => Et,
               RangeValue: () => Ct,
               RectangleMarker: () => ns,
-              SelectionRange: () => $,
+              SelectionRange: () => B,
               StateEffect: () => mt,
               StateEffectType: () => ut,
               StateField: () => F,
@@ -20998,13 +20998,13 @@
               color: () => ju,
               combineConfig: () => kt,
               countColumn: () => _t,
-              crosshairCursor: () => Is,
+              crosshairCursor: () => Ns,
               default: () => em,
               defaultLightThemeOption: () => Yu,
               drawSelection: () => hs,
               dropCursor: () => ys,
               findClusterBreak: () => b,
-              findColumn: () => Nt,
+              findColumn: () => It,
               fromCodePoint: () => k,
               getDefaultExtensions: () => qu,
               getDrawSelectionConfig: () => fs,
@@ -21024,14 +21024,14 @@
               keymap: () => Fr,
               layer: () => as,
               lineNumberMarkers: () => Ro,
-              lineNumbers: () => $o,
+              lineNumbers: () => Bo,
               logException: () => Sn,
               minimalSetup: () => Mu,
-              oneDark: () => Iu,
-              oneDarkHighlightStyle: () => Nu,
+              oneDark: () => Nu,
+              oneDarkHighlightStyle: () => Iu,
               oneDarkTheme: () => _u,
               panels: () => mo,
-              placeholder: () => Bs,
+              placeholder: () => $s,
               rectangularSelection: () => js,
               repositionTooltips: () => fo,
               runScopeHandlers: () => Kr,
@@ -22045,7 +22045,7 @@
                   : ((this.ins -= t), (this.off += t));
             }
           }
-          class $ {
+          class B {
             constructor(t, e, n) {
               (this.from = t), (this.to = e), (this.flags = n);
             }
@@ -22075,14 +22075,14 @@
                 this.empty
                   ? (n = i = t.mapPos(this.from, e))
                   : ((n = t.mapPos(this.from, 1)), (i = t.mapPos(this.to, -1))),
-                n == this.from && i == this.to ? this : new $(n, i, this.flags)
+                n == this.from && i == this.to ? this : new B(n, i, this.flags)
               );
             }
             extend(t, e = t) {
-              if (t <= this.anchor && e >= this.anchor) return B.range(t, e);
+              if (t <= this.anchor && e >= this.anchor) return $.range(t, e);
               let n =
                 Math.abs(t - this.anchor) > Math.abs(e - this.anchor) ? t : e;
-              return B.range(this.anchor, n);
+              return $.range(this.anchor, n);
             }
             eq(t) {
               return this.anchor == t.anchor && this.head == t.head;
@@ -22099,20 +22099,20 @@
                 throw new RangeError(
                   'Invalid JSON representation for SelectionRange',
                 );
-              return B.range(t.anchor, t.head);
+              return $.range(t.anchor, t.head);
             }
             static create(t, e, n) {
-              return new $(t, e, n);
+              return new B(t, e, n);
             }
           }
-          class B {
+          class $ {
             constructor(t, e) {
               (this.ranges = t), (this.mainIndex = e);
             }
             map(t, e = -1) {
               return t.empty
                 ? this
-                : B.create(
+                : $.create(
                     this.ranges.map((n) => n.map(t, e)),
                     this.mainIndex,
                   );
@@ -22131,17 +22131,17 @@
               return this.ranges[this.mainIndex];
             }
             asSingle() {
-              return 1 == this.ranges.length ? this : new B([this.main], 0);
+              return 1 == this.ranges.length ? this : new $([this.main], 0);
             }
             addRange(t, e = !0) {
-              return B.create(
+              return $.create(
                 [t].concat(this.ranges),
                 e ? 0 : this.mainIndex + 1,
               );
             }
             replaceRange(t, e = this.mainIndex) {
               let n = this.ranges.slice();
-              return (n[e] = t), B.create(n, this.mainIndex);
+              return (n[e] = t), $.create(n, this.mainIndex);
             }
             toJSON() {
               return {
@@ -22159,13 +22159,13 @@
                 throw new RangeError(
                   'Invalid JSON representation for EditorSelection',
                 );
-              return new B(
-                t.ranges.map((t) => $.fromJSON(t)),
+              return new $(
+                t.ranges.map((t) => B.fromJSON(t)),
                 t.main,
               );
             }
             static single(t, e = t) {
-              return new B([B.range(t, e)], 0);
+              return new $([$.range(t, e)], 0);
             }
             static create(t, e = 0) {
               if (0 == t.length)
@@ -22173,13 +22173,13 @@
               for (let n = 0, i = 0; i < t.length; i++) {
                 let r = t[i];
                 if (r.empty ? r.from <= n : r.from < n)
-                  return B.normalized(t.slice(), e);
+                  return $.normalized(t.slice(), e);
                 n = r.to;
               }
-              return new B(t, e);
+              return new $(t, e);
             }
             static cursor(t, e = 0, n, i) {
-              return $.create(
+              return B.create(
                 t,
                 t,
                 (0 == e ? 0 : e < 0 ? 8 : 16) |
@@ -22192,8 +22192,8 @@
                 ((null != n ? n : 16777215) << 6) |
                 (null == i ? 7 : Math.min(6, i));
               return e < t
-                ? $.create(e, t, 48 | r)
-                : $.create(t, e, (e > t ? 8 : 0) | r);
+                ? B.create(e, t, 48 | r)
+                : B.create(t, e, (e > t ? 8 : 0) | r);
             }
             static normalized(t, e = 0) {
               let n = t[e];
@@ -22208,11 +22208,11 @@
                     t.splice(
                       --n,
                       2,
-                      i.anchor > i.head ? B.range(o, s) : B.range(s, o),
+                      i.anchor > i.head ? $.range(o, s) : $.range(s, o),
                     );
                 }
               }
-              return new B(t, e);
+              return new $(t, e);
             }
           }
           function D(t, e) {
@@ -22244,17 +22244,17 @@
               );
             }
             of(t) {
-              return new N([], this, 0, t);
+              return new I([], this, 0, t);
             }
             compute(t, e) {
               if (this.isStatic)
                 throw new Error("Can't compute a static facet");
-              return new N(t, this, 1, e);
+              return new I(t, this, 1, e);
             }
             computeN(t, e) {
               if (this.isStatic)
                 throw new Error("Can't compute a static facet");
-              return new N(t, this, 2, e);
+              return new I(t, this, 2, e);
             }
             from(t, e) {
               return (
@@ -22267,7 +22267,7 @@
               t == e || (t.length == e.length && t.every((t, n) => t === e[n]))
             );
           }
-          class N {
+          class I {
             constructor(t, e, n, i) {
               (this.dependencies = t),
                 (this.facet = e),
@@ -22303,7 +22303,7 @@
                     Y(t, l)
                   ) {
                     let e = n(t);
-                    if (o ? !I(e, t.values[s], i) : !i(e, t.values[s]))
+                    if (o ? !N(e, t.values[s], i) : !i(e, t.values[s]))
                       return (t.values[s] = e), 1;
                   }
                   return 0;
@@ -22320,7 +22320,7 @@
                           : !(n instanceof F) ||
                             e.field(n, !1) == t.field(n, !1),
                       ) ||
-                      (o ? I((a = n(t)), r, i) : i((a = n(t)), r))
+                      (o ? N((a = n(t)), r, i) : i((a = n(t)), r))
                     )
                       return (t.values[s] = r), 0;
                   } else a = n(t);
@@ -22329,7 +22329,7 @@
               };
             }
           }
-          function I(t, e, n) {
+          function N(t, e, n) {
             if (t.length != e.length) return !1;
             for (let i = 0; i < t.length; i++) if (!n(t[i], e[i])) return !1;
             return !0;
@@ -22499,7 +22499,7 @@
                     } else if (s instanceof K) t(s.inner, s.prec);
                     else if (s instanceof F)
                       i[o].push(s), s.provides && t(s.provides, o);
-                    else if (s instanceof N)
+                    else if (s instanceof I)
                       i[o].push(s),
                         s.facet.extensions && t(s.facet.extensions, 2);
                     else {
@@ -22731,7 +22731,7 @@
                     ? e.changes
                     : P.of(e.changes || [], n, t.facet(ot)),
                 selection:
-                  i && (i instanceof B ? i : B.single(i.anchor, i.head)),
+                  i && (i instanceof $ ? i : $.single(i.anchor, i.head)),
                 effects: yt(e.effects),
                 annotations: r,
                 scrollIntoView: !!e.scrollIntoView,
@@ -22902,7 +22902,7 @@
                 'string' == typeof t && (t = this.toText(t)),
                 this.changeByRange((e) => ({
                   changes: { from: e.from, to: e.to, insert: t },
-                  range: B.cursor(e.from + t.length),
+                  range: $.cursor(e.from + t.length),
                 }))
               );
             }
@@ -22926,7 +22926,7 @@
               }
               return {
                 changes: i,
-                selection: B.create(r, e.mainIndex),
+                selection: $.create(r, e.mainIndex),
                 effects: s,
               };
             }
@@ -22974,7 +22974,7 @@
                   }
               return Mt.create({
                 doc: t.doc,
-                selection: B.fromJSON(t.selection),
+                selection: $.fromJSON(t.selection),
                 extensions: e.extensions ? i.concat([e.extensions]) : i,
               });
             }
@@ -22989,10 +22989,10 @@
                         ),
                       ),
                 i = t.selection
-                  ? t.selection instanceof B
+                  ? t.selection instanceof $
                     ? t.selection
-                    : B.single(t.selection.anchor, t.selection.head)
-                  : B.single(0);
+                    : $.single(t.selection.anchor, t.selection.head)
+                  : $.single(0);
               return (
                 D(i, n.length),
                 e.staticFacet(st) || (i = i.asSingle()),
@@ -23081,7 +23081,7 @@
                 if (r(e.slice(o, t)) != xt.Word) break;
                 o = t;
               }
-              return s == o ? null : B.range(s + n, o + n);
+              return s == o ? null : $.range(s + n, o + n);
             }
           }
           function kt(t, e, n = {}) {
@@ -23339,8 +23339,8 @@
                 a = Rt(s, o, n),
                 c = new Lt(s, a, r),
                 l = new Lt(o, a, r);
-              n.iterGaps((t, e, n) => $t(c, t, l, e, n, i)),
-                n.empty && 0 == n.length && $t(c, 0, l, 0, 0, i);
+              n.iterGaps((t, e, n) => Bt(c, t, l, e, n, i)),
+                n.empty && 0 == n.length && Bt(c, 0, l, 0, 0, i);
             }
             static eq(t, e, n = 0, i) {
               null == i && (i = 999999999);
@@ -23354,7 +23354,7 @@
               for (;;) {
                 if (
                   a.to != c.to ||
-                  !Bt(a.active, c.active) ||
+                  !$t(a.active, c.active) ||
                   (a.point && (!c.point || !a.point.eq(c.point)))
                 )
                   return !1;
@@ -23796,7 +23796,7 @@
               return e;
             }
           }
-          function $t(t, e, n, i, r, s) {
+          function Bt(t, e, n, i, r, s) {
             t.goto(e), n.goto(i);
             let o = i + r,
               a = i,
@@ -23810,10 +23810,10 @@
                   ? (t.point &&
                       n.point &&
                       (t.point == n.point || t.point.eq(n.point)) &&
-                      Bt(t.activeForPoint(t.to), n.activeForPoint(n.to))) ||
+                      $t(t.activeForPoint(t.to), n.activeForPoint(n.to))) ||
                     s.comparePoint(a, r, t.point, n.point)
                   : r > a &&
-                    !Bt(t.active, n.active) &&
+                    !$t(t.active, n.active) &&
                     s.compareRange(a, r, t.active, n.active),
                 i > o)
               )
@@ -23821,7 +23821,7 @@
               (a = i), e <= 0 && t.next(), e >= 0 && n.next();
             }
           }
-          function Bt(t, e) {
+          function $t(t, e) {
             if (t.length != e.length) return !1;
             for (let n = 0; n < t.length; n++)
               if (t[n] != e[n] && !t[n].eq(e[n])) return !1;
@@ -23851,7 +23851,7 @@
                 : (i++, (r = b(t, r)));
             return i;
           }
-          function Nt(t, e, n, i) {
+          function It(t, e, n, i) {
             for (let i = 0, r = 0; ; ) {
               if (r >= e) return i;
               if (i == t.length) break;
@@ -23859,7 +23859,7 @@
             }
             return !0 === i ? -1 : t.length;
           }
-          const It = 'undefined' == typeof Symbol ? '__ͼ' : Symbol.for('ͼ'),
+          const Nt = 'undefined' == typeof Symbol ? '__ͼ' : Symbol.for('ͼ'),
             Yt =
               'undefined' == typeof Symbol
                 ? '__styleSet' + Math.floor(1e8 * Math.random())
@@ -23926,8 +23926,8 @@
               return this.rules.join('\n');
             }
             static newName() {
-              let t = qt[It] || 1;
-              return (qt[It] = t + 1), 'ͼ' + t.toString(36);
+              let t = qt[Nt] || 1;
+              return (qt[Nt] = t + 1), 'ͼ' + t.toString(36);
             }
             static mount(t, e, n) {
               let i = t[Yt],
@@ -24592,11 +24592,11 @@
             Qe = !Ae && /gecko\/(\d+)/i.test(He.userAgent),
             Te = !Ae && /Chrome\/(\d+)/.exec(He.userAgent),
             Le = 'webkitFontSmoothing' in Ze.documentElement.style,
-            $e = !Ae && /Apple Computer/.test(He.vendor),
-            Be =
-              $e && (/Mobile\/\w+/.test(He.userAgent) || He.maxTouchPoints > 2);
+            Be = !Ae && /Apple Computer/.test(He.vendor),
+            $e =
+              Be && (/Mobile\/\w+/.test(He.userAgent) || He.maxTouchPoints > 2);
           var De = {
-            mac: Be || /Mac/.test(He.platform),
+            mac: $e || /Mac/.test(He.platform),
             windows: /Win/.test(He.platform),
             linux: /Linux|X11/.test(He.platform),
             ie: Ae,
@@ -24613,10 +24613,10 @@
               : 0,
             chrome: !!Te,
             chrome_version: Te ? +Te[1] : 0,
-            ios: Be,
+            ios: $e,
             android: /Android\b/.test(He.userAgent),
             webkit: Le,
-            safari: $e,
+            safari: Be,
             webkit_version: Le
               ? +(/\bAppleWebKit\/(\d+)/.exec(navigator.userAgent) || [0, 0])[1]
               : 0,
@@ -24770,7 +24770,7 @@
               );
             }
             domAtPos(t) {
-              return Ie(this, t);
+              return Ne(this, t);
             }
             coordsAt(t, e) {
               return qe(this, t, e);
@@ -24875,7 +24875,7 @@
               super.destroy(), this.dom && this.widget.destroy(this.dom);
             }
           }
-          class Ne extends Se {
+          class Ie extends Se {
             constructor(t) {
               super(), (this.side = t);
             }
@@ -24886,10 +24886,10 @@
               return !1;
             }
             become(t) {
-              return t instanceof Ne && t.side == this.side;
+              return t instanceof Ie && t.side == this.side;
             }
             split() {
-              return new Ne(this.side);
+              return new Ie(this.side);
             }
             sync() {
               if (!this.dom) {
@@ -24921,7 +24921,7 @@
               return !0;
             }
           }
-          function Ie(t, e) {
+          function Ne(t, e) {
             let n = t.dom,
               { children: i } = t,
               r = 0;
@@ -24998,7 +24998,7 @@
           }
           We.prototype.children =
             _e.prototype.children =
-            Ne.prototype.children =
+            Ie.prototype.children =
               ze;
           const Fe = Object.create(null);
           function Ge(t, e, n) {
@@ -25110,7 +25110,7 @@
                 n && (this.attrs = Xe({ class: n }, this.attrs || {}));
             }
             domAtPos(t) {
-              return Ie(this, t);
+              return Ne(this, t);
             }
             reuseDOM(t) {
               'DIV' == t.nodeName && (this.setDOM(t), (this.flags |= 6));
@@ -25535,7 +25535,7 @@
             }
             flushBuffer(t = this.bufferMarks) {
               this.pendingBuffer &&
-                (this.curLine.append(fn(new Ne(-1), t), t.length),
+                (this.curLine.append(fn(new Ie(-1), t), t.length),
                 (this.pendingBuffer = 0));
             }
             addBlockWidget(t) {
@@ -25635,7 +25635,7 @@
                     (this.pendingBuffer = 0),
                     this.flushBuffer(i),
                     a &&
-                      (l.append(fn(new Ne(1), i), r),
+                      (l.append(fn(new Ie(1), i), r),
                       (r = i.length + Math.max(0, r - i.length))),
                     l.append(fn(s, i), r),
                     (this.atCursorPos = c),
@@ -25723,7 +25723,7 @@
               return this.range.to <= t.doc.length
                 ? this
                 : new xn(
-                    B.cursor(t.doc.length),
+                    $.cursor(t.doc.length),
                     this.y,
                     this.x,
                     this.yMargin,
@@ -25878,8 +25878,8 @@
             }
             return { left: e, right: n, top: i, bottom: r };
           }
-          const $n = j.define();
-          class Bn {
+          const Bn = j.define();
+          class $n {
             constructor(t, e, n, i) {
               (this.fromA = t),
                 (this.toA = e),
@@ -25887,7 +25887,7 @@
                 (this.toB = i);
             }
             join(t) {
-              return new Bn(
+              return new $n(
                 Math.min(this.fromA, t.fromA),
                 Math.max(this.toA, t.toA),
                 Math.min(this.fromB, t.fromB),
@@ -25918,12 +25918,12 @@
                     i = e[r + 1],
                     s = Math.max(o, t),
                     a = Math.min(l, i);
-                  if ((s <= a && new Bn(s + c, a + c, s, a).addToSet(n), i > l))
+                  if ((s <= a && new $n(s + c, a + c, s, a).addToSet(n), i > l))
                     break;
                   r += 2;
                 }
                 if (!a) return n;
-                new Bn(a.fromA, a.toA, a.fromB, a.toB).addToSet(n),
+                new $n(a.fromA, a.toA, a.fromB, a.toB).addToSet(n),
                   (s = a.toA),
                   (o = a.toB);
               }
@@ -25940,7 +25940,7 @@
               for (let t of n) this.changes = this.changes.compose(t.changes);
               let i = [];
               this.changes.iterChangedRanges((t, e, n, r) =>
-                i.push(new Bn(t, e, n, r)),
+                i.push(new $n(t, e, n, r)),
               ),
                 (this.changedRanges = i);
             }
@@ -25974,15 +25974,15 @@
           })(Wn || (Wn = {}));
           const jn = Wn.LTR,
             _n = Wn.RTL;
-          function Nn(t) {
+          function In(t) {
             let e = [];
             for (let n = 0; n < t.length; n++) e.push(1 << +t[n]);
             return e;
           }
-          const In = Nn(
+          const Nn = In(
               '88888888888888888888888888888888888666888888787833333333337888888000000000000000000000000008888880000000000000000000000000088888888888888888888888888888888888887866668888088888663380888308888800000000000000000000000800000000000000000000000000000008',
             ),
-            Yn = Nn(
+            Yn = In(
               '4444448826627288999999999992222222222222222222222222222222222222222222222229999999999999999999994444444444644222822222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222999999949999999229989999223333333333',
             ),
             qn = Object.create(null),
@@ -26146,7 +26146,7 @@
                 for (let e = a, n = l, i = l; e < c; e++) {
                   let r =
                     (s = t.charCodeAt(e)) <= 247
-                      ? In[s]
+                      ? Nn[s]
                       : 1424 <= s && s <= 1524
                         ? 2
                         : 1536 <= s && s <= 1785
@@ -26289,13 +26289,13 @@
               ((ii = t.text.slice(Math.min(o, h), Math.max(o, h))),
               h > c.from && h < c.to)
             )
-              return B.cursor(h + t.from, l ? -1 : 1, c.level);
+              return $.cursor(h + t.from, l ? -1 : 1, c.level);
             let f = a == (r ? e.length - 1 : 0) ? null : e[a + (r ? 1 : -1)];
             return f || c.level == n
               ? f && f.level < c.level
-                ? B.cursor(f.side(!r, n) + t.from, r ? 1 : -1, f.level)
-                : B.cursor(h + t.from, r ? -1 : 1, c.level)
-              : B.cursor(r ? t.to : t.from, r ? -1 : 1, n);
+                ? $.cursor(f.side(!r, n) + t.from, r ? 1 : -1, f.level)
+                : $.cursor(h + t.from, r ? -1 : 1, c.level)
+              : $.cursor(r ? t.to : t.from, r ? -1 : 1, n);
           }
           class si extends Se {
             get length() {
@@ -26321,7 +26321,7 @@
                 this.children[0].setParent(this),
                 this.updateDeco(),
                 this.updateInner(
-                  [new Bn(0, 0, 0, t.state.doc.length)],
+                  [new $n(0, 0, 0, t.state.doc.length)],
                   0,
                   null,
                 );
@@ -26372,7 +26372,7 @@
                       if (t.state.doc.sliceString(i.from, i.to) != a)
                         return null;
                       let c = e.invertedDesc,
-                        l = new Bn(c.mapPos(s), c.mapPos(o), s, o),
+                        l = new $n(c.mapPos(s), c.mapPos(o), s, o),
                         h = [];
                       for (let e = r.parentNode; ; e = e.parentNode) {
                         let n = Se.get(e);
@@ -26400,7 +26400,7 @@
               if (((this.domChanged = null), this.hasComposition)) {
                 this.markedForComposition.clear();
                 let { from: e, to: i } = this.hasComposition;
-                n = new Bn(
+                n = new $n(
                   e,
                   i,
                   t.changes.mapPos(e, -1),
@@ -26420,7 +26420,7 @@
                 return Pt.compare(t, e, n, i), i.changes;
               })(this.decorations, this.updateDeco(), t.changes);
               return (
-                (n = Bn.extendWithRanges(n, s)),
+                (n = $n.extendWithRanges(n, s)),
                 !!(7 & this.flags || 0 != n.length) &&
                   (this.updateInner(n, t.startState.doc.length, r),
                   t.transactions.length && (this.lastUpdate = Date.now()),
@@ -27308,7 +27308,7 @@
                 t.viewState.heightOracle.lineLength;
             }
             let o = t.state.sliceDoc(n.from, n.to);
-            return n.from + Nt(o, s, t.state.tabSize);
+            return n.from + It(o, s, t.state.tabSize);
           }
           function wi(t, e) {
             let n = t.lineBlockAt(e);
@@ -27333,7 +27333,7 @@
                 (l = '\n'),
                   (r = t.state.doc.line(r.number + (n ? 1 : -1))),
                   (s = t.bidiSpans(r)),
-                  (e = B.cursor(n ? r.from : r.to));
+                  (e = $.cursor(n ? r.from : r.to));
               }
               if (c) {
                 if (!c(l)) return a;
@@ -27363,7 +27363,7 @@
               n.from,
               e.head > n.from ? -1 : 1,
             );
-            return i == n.from ? n : B.cursor(i, i < n.from ? 1 : -1);
+            return i == n.from ? n : $.cursor(i, i < n.from ? 1 : -1);
           }
           class zi {
             setSelectionOrigin(t) {
@@ -27626,7 +27626,7 @@
                           return !0;
                       }
                       return !1;
-                    })(t, e) || 1 != Ni(e)
+                    })(t, e) || 1 != Ii(e)
                   ) && null);
             }
             start(t) {
@@ -27707,19 +27707,19 @@
                   r = null;
                 if (i.empty) {
                   let t = yi(this.atoms, i.from, 0);
-                  t != i.from && (r = B.cursor(t, -1));
+                  t != i.from && (r = $.cursor(t, -1));
                 } else {
                   let t = yi(this.atoms, i.from, -1),
                     e = yi(this.atoms, i.to, 1);
                   (t == i.from && e == i.to) ||
-                    (r = B.range(
+                    (r = $.range(
                       i.from == i.anchor ? t : e,
                       i.from == i.head ? t : e,
                     ));
                 }
                 r && (e || (e = t.ranges.slice()), (e[n] = r));
               }
-              return e ? B.create(e, t.mainIndex) : t;
+              return e ? $.create(e, t.mainIndex) : t;
             }
             select(t) {
               let { view: e } = this,
@@ -27765,7 +27765,7 @@
                 let c = i.toText((o ? s.line(r++).text : e) + i.lineBreak);
                 return {
                   changes: { from: a.from, insert: c },
-                  range: B.cursor(n.from + c.length),
+                  range: $.cursor(n.from + c.length),
                 };
               });
             } else
@@ -27774,20 +27774,20 @@
                     let e = s.line(r++);
                     return {
                       changes: { from: t.from, to: t.to, insert: e.text },
-                      range: B.cursor(t.from + e.length),
+                      range: $.cursor(t.from + e.length),
                     };
                   })
                 : i.replaceSelection(s);
             t.dispatch(n, { userEvent: 'input.paste', scrollIntoView: !0 });
           }
           function Qi(t, e, n, i) {
-            if (1 == i) return B.cursor(e, n);
+            if (1 == i) return $.cursor(e, n);
             if (2 == i)
               return (function (t, e, n = 1) {
                 let i = t.charCategorizer(e),
                   r = t.doc.lineAt(e),
                   s = e - r.from;
-                if (0 == r.length) return B.cursor(e);
+                if (0 == r.length) return $.cursor(e);
                 0 == s ? (n = 1) : s == r.length && (n = -1);
                 let o = s,
                   a = s;
@@ -27803,14 +27803,14 @@
                   if (i(r.text.slice(a, t)) != c) break;
                   a = t;
                 }
-                return B.range(o + r.from, a + r.from);
+                return $.range(o + r.from, a + r.from);
               })(t.state, e, n);
             {
               let n = Je.find(t.docView, e),
                 i = t.state.doc.lineAt(n ? n.posAtEnd : e),
                 r = n ? n.posAtStart : i.from,
                 s = n ? n.posAtEnd : i.to;
-              return s < t.state.doc.length && s == i.to && s++, B.range(r, s);
+              return s < t.state.doc.length && s == i.to && s++, $.range(r, s);
             }
           }
           (Ei.scroll = (t) => {
@@ -27841,8 +27841,8 @@
                 (n ||
                   0 != e.button ||
                   (n = (function (t, e) {
-                    let n = Bi(t, e),
-                      i = Ni(e),
+                    let n = $i(t, e),
+                      i = Ii(e),
                       r = t.state.selection;
                     return {
                       update(t) {
@@ -27852,13 +27852,13 @@
                       },
                       get(e, s, o) {
                         let a,
-                          c = Bi(t, e),
+                          c = $i(t, e),
                           l = Qi(t, c.pos, c.bias, i);
                         if (n.pos != c.pos && !s) {
                           let e = Qi(t, n.pos, n.bias, i),
                             r = Math.min(e.from, l.from),
                             s = Math.max(e.to, l.to);
-                          l = r < l.from ? B.range(r, s) : B.range(s, r);
+                          l = r < l.from ? $.range(r, s) : $.range(s, r);
                         }
                         return s
                           ? r.replaceRange(r.main.extend(l.from, l.to))
@@ -27869,7 +27869,7 @@
                                 for (let n = 0; n < t.ranges.length; n++) {
                                   let { from: i, to: r } = t.ranges[n];
                                   if (i <= e && r >= e)
-                                    return B.create(
+                                    return $.create(
                                       t.ranges
                                         .slice(0, n)
                                         .concat(t.ranges.slice(n + 1)),
@@ -27884,7 +27884,7 @@
                             ? a
                             : o
                               ? r.addRange(l)
-                              : B.create([l]);
+                              : $.create([l]);
                       },
                     };
                   })(t, e)),
@@ -27900,7 +27900,7 @@
             });
           let Ti = (t, e) => t >= e.top && t <= e.bottom,
             Li = (t, e, n) => Ti(e, n) && t >= n.left && t <= n.right;
-          function $i(t, e, n, i) {
+          function Bi(t, e, n, i) {
             let r = Je.find(t.docView, e);
             if (!r) return 1;
             let s = e - r.posAtStart;
@@ -27911,15 +27911,15 @@
             let a = r.coordsAt(s, 1);
             return a && Li(n, i, a) ? 1 : o && Ti(i, o) ? -1 : 1;
           }
-          function Bi(t, e) {
+          function $i(t, e) {
             let n = t.posAtCoords({ x: e.clientX, y: e.clientY }, !1);
-            return { pos: n, bias: $i(t, n, e.clientX, e.clientY) };
+            return { pos: n, bias: Bi(t, n, e.clientX, e.clientY) };
           }
           const Di = De.ie && De.ie_version <= 11;
           let Wi = null,
             ji = 0,
             _i = 0;
-          function Ni(t) {
+          function Ii(t) {
             if (!Di) return t.detail;
             let e = Wi,
               n = _i;
@@ -27935,7 +27935,7 @@
                   : 1)
             );
           }
-          function Ii(t, e, n, i) {
+          function Ni(t, e, n, i) {
             if (!n) return;
             let r = t.posAtCoords({ x: e.clientX, y: e.clientY }, !1),
               { draggedContent: s } = t.inputState,
@@ -27967,7 +27967,7 @@
               if (i && i.isWidget) {
                 let t = i.posAtStart,
                   e = t + i.length;
-                (t >= n.to || e <= n.from) && (n = B.range(t, e));
+                (t >= n.to || e <= n.from) && (n = $.range(t, e));
               }
             }
             let { inputState: i } = t;
@@ -27990,7 +27990,7 @@
                   r = 0,
                   s = () => {
                     ++r == n.length &&
-                      Ii(
+                      Ni(
                         t,
                         e,
                         i.filter((t) => null != t).join(t.state.lineBreak),
@@ -28011,7 +28011,7 @@
               }
               {
                 let n = e.dataTransfer.getData('Text');
-                if (n) return Ii(t, e, n, !0), !0;
+                if (n) return Ni(t, e, n, !0), !0;
               }
               return !1;
             }),
@@ -28987,7 +28987,7 @@
                     this.stateDeco,
                     o.empty,
                     this.heightOracle.setDoc(t.doc),
-                    [new Bn(0, 0, 0, t.doc.length)],
+                    [new $n(0, 0, 0, t.doc.length)],
                   )),
                 (this.viewport = this.getViewport(0, null)),
                 this.updateViewportLines(),
@@ -29040,7 +29040,7 @@
                 .facet(En)
                 .filter((t) => 'function' != typeof t);
               let i = t.changedRanges,
-                r = Bn.extendWithRanges(
+                r = $n.extendWithRanges(
                   i,
                   (function (t, e, n) {
                     let i = new hr();
@@ -29188,7 +29188,7 @@
                             this.stateDeco,
                             o.empty,
                             this.heightOracle,
-                            [new Bn(0, 0, 0, t.state.doc.length)],
+                            [new $n(0, 0, 0, t.state.doc.length)],
                           )
                       : this.heightMap
                   ).updateHeight(i, 0, s, new Ji(n.from, r));
@@ -29334,7 +29334,7 @@
                       n &&
                       e.visibleRanges.some((t) => t.from <= s && t.to >= s)
                     ) {
-                      let t = e.moveToLineBoundary(B.cursor(s), !1, !0).head;
+                      let t = e.moveToLineBoundary($.cursor(s), !1, !0).head;
                       t > i && (s = t);
                     }
                     d = new ur(i, s, this.gapSize(c, i, s, l));
@@ -29935,7 +29935,7 @@
                     if (0 == t.length) return null;
                     let n = t[0].pos,
                       i = 2 == t.length ? t[1].pos : n;
-                    return n > -1 && i > -1 ? B.single(n + e, i + e) : null;
+                    return n > -1 && i > -1 ? $.single(n + e, i + e) : null;
                   })(e, this.bounds.from));
               } else {
                 let e = t.observer.selectionRange,
@@ -29951,7 +29951,7 @@
                     !re(t.contentDOM, e.anchorNode)
                       ? t.state.selection.main.anchor
                       : t.docView.posFromDOM(e.anchorNode, e.anchorOffset);
-                this.newSel = B.single(i, n);
+                this.newSel = $.single(i, n);
               }
             }
           }
@@ -30039,7 +30039,7 @@
                       'off' == t.contentDOM.getAttribute('autocorrect')
                     ? (i &&
                         2 == n.insert.length &&
-                        (i = B.single(i.main.anchor - 1, i.main.head - 1)),
+                        (i = $.single(i.main.anchor - 1, i.main.head - 1)),
                       (n = { from: r.from, to: r.to, insert: o.of([' ']) }))
                     : De.chrome &&
                       n &&
@@ -30047,7 +30047,7 @@
                       n.from == r.head &&
                       '\n ' == n.insert.toString() &&
                       t.lineWrapping &&
-                      (i && (i = B.single(i.main.anchor - 1, i.main.head - 1)),
+                      (i && (i = $.single(i.main.anchor - 1, i.main.head - 1)),
                       (n = { from: r.from, to: r.to, insert: o.of([' ']) })),
               n)
             ) {
@@ -30133,7 +30133,7 @@
                         return {
                           changes: u,
                           range: a
-                            ? B.range(
+                            ? $.range(
                                 Math.max(0, a.anchor + m),
                                 Math.max(0, a.head + m),
                               )
@@ -30178,14 +30178,14 @@
             }
             return !1;
           }
-          const $r = {
+          const Br = {
               childList: !0,
               characterData: !0,
               subtree: !0,
               attributes: !0,
               characterDataOldValue: !0,
             },
-            Br = De.ie && De.ie_version <= 11;
+            $r = De.ie && De.ie_version <= 11;
           class Dr {
             constructor(t) {
               (this.view = t),
@@ -30218,7 +30218,7 @@
                     ? this.flushSoon()
                     : this.flush();
                 })),
-                Br &&
+                $r &&
                   (this.onCharData = (t) => {
                     this.queue.push({
                       target: t.target,
@@ -30441,8 +30441,8 @@
             }
             start() {
               this.active ||
-                (this.observer.observe(this.dom, $r),
-                Br &&
+                (this.observer.observe(this.dom, Br),
+                $r &&
                   this.dom.addEventListener(
                     'DOMCharacterDataModified',
                     this.onCharData,
@@ -30453,7 +30453,7 @@
               this.active &&
                 ((this.active = !1),
                 this.observer.disconnect(),
-                Br &&
+                $r &&
                   this.dom.removeEventListener(
                     'DOMCharacterDataModified',
                     this.onCharData,
@@ -30774,17 +30774,17 @@
                     h = new xn(
                       t.empty
                         ? t
-                        : B.cursor(t.head, t.head > t.anchor ? -1 : 1),
+                        : $.cursor(t.head, t.head > t.anchor ? -1 : 1),
                     );
                   }
                   for (let t of e.effects)
                     t.is(zn) && (h = t.value.clip(this.state));
                 }
                 this.viewState.update(e, h),
-                  (this.bidiCache = Ir.update(this.bidiCache, e.changes)),
+                  (this.bidiCache = Nr.update(this.bidiCache, e.changes)),
                   e.empty || (this.updatePlugins(e), this.inputState.update(e)),
                   (n = this.docView.update(e)),
-                  this.state.facet($n) != this.styleModules &&
+                  this.state.facet(Bn) != this.styleModules &&
                     this.mountStyles(),
                   (i = this.updateAttrs()),
                   this.showAnnouncements(t),
@@ -30913,7 +30913,7 @@
                       try {
                         return t.read(this);
                       } catch (t) {
-                        return Sn(this.state, t), Nr;
+                        return Sn(this.state, t), Ir;
                       }
                     }),
                     l = Dn.create(this, this.state, []),
@@ -30927,7 +30927,7 @@
                       this.updateAttrs(),
                       (h = this.docView.update(l)));
                   for (let t = 0; t < a.length; t++)
-                    if (c[t] != Nr)
+                    if (c[t] != Ir)
                       try {
                         let e = a[t];
                         e.write && e.write(c[t], this);
@@ -31014,7 +31014,7 @@
                     ).textContent = t.value));
             }
             mountStyles() {
-              this.styleModules = this.state.facet($n);
+              this.styleModules = this.state.facet(Bn);
               let t = this.state.facet(jr.cspNonce);
               Xt.mount(
                 this.root,
@@ -31128,9 +31128,9 @@
                       x: n == (i == Wn.LTR) ? e.right - 1 : e.left + 1,
                       y: (s.top + s.bottom) / 2,
                     });
-                  if (null != o) return B.cursor(o, n ? -1 : 1);
+                  if (null != o) return $.cursor(o, n ? -1 : 1);
                 }
-                return B.cursor(n ? r.to : r.from, n ? -1 : 1);
+                return $.cursor(n ? r.to : r.from, n ? -1 : 1);
               })(this, t, e, n);
             }
             moveVertically(t, e, n) {
@@ -31141,7 +31141,7 @@
                   let r = e.head,
                     s = n ? 1 : -1;
                   if (r == (n ? t.state.doc.length : 0))
-                    return B.cursor(r, e.assoc);
+                    return $.cursor(r, e.assoc);
                   let o,
                     a = e.goalColumn,
                     c = t.contentDOM.getBoundingClientRect(),
@@ -31168,7 +31168,7 @@
                     if (n < c.top || n > c.bottom || (s < 0 ? i < r : i > r)) {
                       let e = t.docView.coordsForChar(i),
                         r = !e || n < e.top ? -1 : 1;
-                      return B.cursor(i, r, void 0, a);
+                      return $.cursor(i, r, void 0, a);
                     }
                   }
                 })(this, t, e, n),
@@ -31229,7 +31229,7 @@
                   return i.order;
               e || (e = Qn(this, t.from, t.to));
               let i = ei(t.text, n, e);
-              return this.bidiCache.push(new Ir(t.from, t.to, n, e, !0, i)), i;
+              return this.bidiCache.push(new Nr(t.from, t.to, n, e, !0, i)), i;
             }
             get hasFocus() {
               var t;
@@ -31270,7 +31270,7 @@
             static scrollIntoView(t, e = {}) {
               return zn.of(
                 new xn(
-                  'number' == typeof t ? B.cursor(t) : t,
+                  'number' == typeof t ? $.cursor(t) : t,
                   e.y,
                   e.x,
                   e.yMargin,
@@ -31282,7 +31282,7 @@
               let { scrollTop: t, scrollLeft: e } = this.scrollDOM,
                 n = this.viewState.scrollAnchorAt(t);
               return zn.of(
-                new xn(B.cursor(n.from), 'start', 'start', n.top - t, e, !0),
+                new xn($.cursor(n.from), 'start', 'start', n.top - t, e, !0),
               );
             }
             static domEventHandlers(t) {
@@ -31293,11 +31293,11 @@
             }
             static theme(t, e) {
               let n = Xt.newName(),
-                i = [zr.of(n), $n.of(Hr(`.${n}`, t))];
+                i = [zr.of(n), Bn.of(Hr(`.${n}`, t))];
               return e && e.dark && i.push(Sr.of(!0)), i;
             }
             static baseTheme(t) {
-              return U.lowest($n.of(Hr('.' + Mr, t, Vr)));
+              return U.lowest(Bn.of(Hr('.' + Mr, t, Vr)));
             }
             static findFromDOM(t) {
               var e;
@@ -31310,7 +31310,7 @@
               );
             }
           }
-          (jr.styleModule = $n),
+          (jr.styleModule = Bn),
             (jr.inputHandler = On),
             (jr.focusChangeEffect = wn),
             (jr.perLineTextDirection = bn),
@@ -31335,8 +31335,8 @@
             })),
             (jr.announce = mt.define());
           const _r = 4096,
-            Nr = {};
-          class Ir {
+            Ir = {};
+          class Nr {
             constructor(t, e, n, i, r, s) {
               (this.from = t),
                 (this.to = e),
@@ -31354,7 +31354,7 @@
                 s.dir != i ||
                   e.touchesRange(s.from, s.to) ||
                   n.push(
-                    new Ir(
+                    new Nr(
                       e.mapPos(s.from, 1),
                       e.mapPos(s.to, -1),
                       s.dir,
@@ -31779,7 +31779,7 @@
             };
           }
           function rs(t, e, n) {
-            let i = B.cursor(e);
+            let i = $.cursor(e);
             return {
               from: Math.max(n.from, t.moveToLineBoundary(i, !1, !0).from),
               to: Math.min(n.to, t.moveToLineBoundary(i, !0, !0).from),
@@ -31904,7 +31904,7 @@
                       : 'cm-cursor cm-cursor-secondary',
                     n = r.empty
                       ? r
-                      : B.cursor(r.head, r.head > r.anchor ? -1 : 1);
+                      : $.cursor(r.head, r.head > r.anchor ? -1 : 1);
                   for (let r of ns.forRange(t, e, n)) i.push(r);
                 }
               }
@@ -32401,7 +32401,7 @@
               },
               { decorations: (t) => t.decorations },
             );
-          class $s extends en {
+          class Bs extends en {
             constructor(t) {
               super(), (this.content = t);
             }
@@ -32440,14 +32440,14 @@
               return !1;
             }
           }
-          function Bs(t) {
+          function $s(t) {
             return Vn.fromClass(
               class {
                 constructor(e) {
                   (this.view = e),
                     (this.placeholder = t
                       ? rn.set([
-                          rn.widget({ widget: new $s(t), side: 1 }).range(0),
+                          rn.widget({ widget: new Bs(t), side: 1 }).range(0),
                         ])
                       : rn.none);
                 }
@@ -32523,18 +32523,18 @@
                                 for (let e = i; e <= r; e++) {
                                   let n = t.doc.line(e);
                                   n.length <= a &&
-                                    s.push(B.range(n.from + o, n.to + a));
+                                    s.push($.range(n.from + o, n.to + a));
                                 }
                               } else {
                                 let o = Math.min(e.col, n.col),
                                   a = Math.max(e.col, n.col);
                                 for (let e = i; e <= r; e++) {
                                   let n = t.doc.line(e),
-                                    i = Nt(n.text, o, t.tabSize, !0);
-                                  if (i < 0) s.push(B.cursor(n.to));
+                                    i = It(n.text, o, t.tabSize, !0);
+                                  if (i < 0) s.push($.cursor(n.to));
                                   else {
-                                    let e = Nt(n.text, a, t.tabSize);
-                                    s.push(B.range(n.from + i, n.from + e));
+                                    let e = It(n.text, a, t.tabSize);
+                                    s.push($.range(n.from + i, n.from + e));
                                   }
                                 }
                               }
@@ -32542,8 +32542,8 @@
                             })(t.state, n, o);
                             return a.length
                               ? s
-                                ? B.create(a.concat(i.ranges))
-                                : B.create(a)
+                                ? $.create(a.concat(i.ranges))
+                                : $.create(a)
                               : i;
                           },
                         }
@@ -32558,8 +32558,8 @@
               Shift: [16, (t) => !!t.shiftKey],
               Meta: [91, (t) => !!t.metaKey],
             },
-            Ns = { style: 'cursor: crosshair' };
-          function Is(t = {}) {
+            Is = { style: 'cursor: crosshair' };
+          function Ns(t = {}) {
             let [e, n] = _s[t.key || 'Alt'],
               i = Vn.fromClass(
                 class {
@@ -32592,7 +32592,7 @@
                 return (
                   null === (e = t.plugin(i)) || void 0 === e ? void 0 : e.isDown
                 )
-                  ? Ns
+                  ? Is
                   : null;
               }),
             ];
@@ -33802,17 +33802,17 @@
             widgetMarker: () => null,
             lineMarkerChange: (t) =>
               t.startState.facet(Ao) != t.state.facet(Ao),
-            initialSpacer: (t) => new Qo(To(t, Bo(t.state.doc.lines))),
+            initialSpacer: (t) => new Qo(To(t, $o(t.state.doc.lines))),
             updateSpacer(t, e) {
-              let n = To(e.view, Bo(e.view.state.doc.lines));
+              let n = To(e.view, $o(e.view.state.doc.lines));
               return n == t.number ? t : new Qo(n);
             },
             domEventHandlers: t.facet(Ao).domEventHandlers,
           }));
-          function $o(t = {}) {
+          function Bo(t = {}) {
             return [Ao.of(t), ko(), Lo];
           }
-          function Bo(t) {
+          function $o(t) {
             let e = 9;
             for (; e < t; ) e = 10 * e + 9;
             return e;
@@ -33836,7 +33836,7 @@
             return Wo;
           }
           const _o = new Map();
-          function No(t) {
+          function Io(t) {
             return Vn.define(
               (e) => ({
                 decorations: t.createDeco(e),
@@ -33847,7 +33847,7 @@
               { decorations: (t) => t.decorations },
             );
           }
-          const Io = No(
+          const No = Io(
             new zs({
               regexp: /\t| +/g,
               decoration: (t) =>
@@ -33874,9 +33874,9 @@
             }),
           );
           function Yo() {
-            return Io;
+            return No;
           }
-          const qo = No(
+          const qo = Io(
             new zs({
               regexp: /\s+$/g,
               decoration: rn.mark({ class: 'cm-trailingSpace' }),
@@ -33891,7 +33891,7 @@
               HeightOracle: Ki,
               MeasuredHeights: Ji,
               QueryType: er,
-              ChangedRange: Bn,
+              ChangedRange: $n,
               computeOrder: ei,
               moveVisually: ri,
             },
@@ -35447,43 +35447,43 @@
             }
           }
           const La = Va.define,
-            $a = La(),
             Ba = La(),
-            Da = La(Ba),
-            Wa = La(Ba),
+            $a = La(),
+            Da = La($a),
+            Wa = La($a),
             ja = La(),
             _a = La(ja),
-            Na = La(ja),
-            Ia = La(),
-            Ya = La(Ia),
+            Ia = La(ja),
+            Na = La(),
+            Ya = La(Na),
             qa = La(),
             Xa = La(),
             Fa = La(),
             Ga = La(Fa),
             Ua = La(),
             Ka = {
-              comment: $a,
-              lineComment: La($a),
-              blockComment: La($a),
-              docComment: La($a),
-              name: Ba,
-              variableName: La(Ba),
+              comment: Ba,
+              lineComment: La(Ba),
+              blockComment: La(Ba),
+              docComment: La(Ba),
+              name: $a,
+              variableName: La($a),
               typeName: Da,
               tagName: La(Da),
               propertyName: Wa,
               attributeName: La(Wa),
-              className: La(Ba),
-              labelName: La(Ba),
-              namespace: La(Ba),
-              macroName: La(Ba),
+              className: La($a),
+              labelName: La($a),
+              namespace: La($a),
+              macroName: La($a),
               literal: ja,
               string: _a,
               docString: La(_a),
               character: La(_a),
               attributeValue: La(_a),
-              number: Na,
-              integer: La(Na),
-              float: La(Na),
+              number: Ia,
+              integer: La(Ia),
+              float: La(Ia),
               bool: La(ja),
               regexp: La(ja),
               escape: La(ja),
@@ -35516,7 +35516,7 @@
               squareBracket: La(Ga),
               paren: La(Ga),
               brace: La(Ga),
-              content: Ia,
+              content: Na,
               heading: Ya,
               heading1: La(Ya),
               heading2: La(Ya),
@@ -35524,14 +35524,14 @@
               heading4: La(Ya),
               heading5: La(Ya),
               heading6: La(Ya),
-              contentSeparator: La(Ia),
-              list: La(Ia),
-              quote: La(Ia),
-              emphasis: La(Ia),
-              strong: La(Ia),
-              link: La(Ia),
-              monospace: La(Ia),
-              strikethrough: La(Ia),
+              contentSeparator: La(Na),
+              list: La(Na),
+              quote: La(Na),
+              emphasis: La(Na),
+              strong: La(Na),
+              link: La(Na),
+              monospace: La(Na),
+              strikethrough: La(Na),
               inserted: La(),
               deleted: La(),
               changed: La(),
@@ -36308,8 +36308,8 @@
                 if (n.is(Pc) && !Tc(t, n.value.from, n.value.to)) {
                   let { preparePlaceholder: i } = e.state.facet(Wc),
                     r = i
-                      ? rn.replace({ widget: new Ic(i(e.state, n.value)) })
-                      : Nc;
+                      ? rn.replace({ widget: new Nc(i(e.state, n.value)) })
+                      : Ic;
                   t = t.update({ add: [r.range(n.value.from, n.value.to)] });
                 } else
                   n.is(Ec) &&
@@ -36352,7 +36352,7 @@
                   r = t[n++];
                 if ('number' != typeof i || 'number' != typeof r)
                   throw new RangeError('Invalid JSON for fold state');
-                e.push(Nc.range(i, r));
+                e.push(Ic.range(i, r));
               }
               return rn.set(e, !0);
             },
@@ -36381,7 +36381,7 @@
           function Lc(t, e) {
             return t.field(Ac, !1) ? e : e.concat(mt.appendConfig.of(jc()));
           }
-          function $c(t, e, n = !0) {
+          function Bc(t, e, n = !0) {
             let i = t.state.doc.lineAt(e.from).number,
               r = t.state.doc.lineAt(e.to).number;
             return jr.announce.of(
@@ -36390,7 +36390,7 @@
               )} ${i} ${t.state.phrase('to')} ${r}.`,
             );
           }
-          const Bc = [
+          const $c = [
               {
                 key: 'Ctrl-Shift-[',
                 mac: 'Cmd-Alt-[',
@@ -36400,7 +36400,7 @@
                     if (n)
                       return (
                         t.dispatch({
-                          effects: Lc(t.state, [Pc.of(n), $c(t, n)]),
+                          effects: Lc(t.state, [Pc.of(n), Bc(t, n)]),
                         }),
                         !0
                       );
@@ -36416,7 +36416,7 @@
                   let e = [];
                   for (let n of Rc(t)) {
                     let i = Qc(t.state, n.from, n.to);
-                    i && e.push(Ec.of(i), $c(t, i, !1));
+                    i && e.push(Ec.of(i), Bc(t, i, !1));
                   }
                   return e.length && t.dispatch({ effects: e }), e.length > 0;
                 },
@@ -36483,14 +36483,14 @@
               s
             );
           }
-          const Nc = rn.replace({
+          const Ic = rn.replace({
             widget: new (class extends en {
               toDOM(t) {
                 return _c(t, null);
               }
             })(),
           });
-          class Ic extends en {
+          class Nc extends en {
             constructor(t) {
               super(), (this.value = t);
             }
@@ -37079,7 +37079,7 @@
                     o = 0 == s ? t.undone : t.done;
                   return (
                     (o = r
-                      ? Nl(o, o.length, n.minDepth, r)
+                      ? Il(o, o.length, n.minDepth, r)
                       : Xl(o, e.startState.selection)),
                     new Jl(0 == s ? i.rest : o, 0 == s ? o : i.rest)
                   );
@@ -37122,7 +37122,7 @@
                 beforeinput(t, e) {
                   let n =
                     'historyUndo' == t.inputType
-                      ? Bl
+                      ? $l
                       : 'historyRedo' == t.inputType
                         ? Dl
                         : null;
@@ -37131,7 +37131,7 @@
               }),
             ];
           }
-          function $l(t, e) {
+          function Bl(t, e) {
             return function ({ state: n, dispatch: i }) {
               if (!e && n.readOnly) return !1;
               let r = n.field(Tl, !1);
@@ -37140,10 +37140,10 @@
               return !!s && (i(s), !0);
             };
           }
-          const Bl = $l(0, !1),
-            Dl = $l(1, !1),
-            Wl = $l(0, !0),
-            jl = $l(1, !0);
+          const $l = Bl(0, !1),
+            Dl = Bl(1, !1),
+            Wl = Bl(0, !0),
+            jl = Bl(1, !0);
           class _l {
             constructor(t, e, n, i, r) {
               (this.changes = t),
@@ -37184,8 +37184,8 @@
                 t.changes && P.fromJSON(t.changes),
                 [],
                 t.mapped && Z.fromJSON(t.mapped),
-                t.startSelection && B.fromJSON(t.startSelection),
-                t.selectionsAfter.map(B.fromJSON),
+                t.startSelection && $.fromJSON(t.startSelection),
+                t.selectionsAfter.map($.fromJSON),
               );
             }
             static fromTransaction(t, e) {
@@ -37208,12 +37208,12 @@
               return new _l(void 0, Yl, void 0, void 0, t);
             }
           }
-          function Nl(t, e, n, i) {
+          function Il(t, e, n, i) {
             let r = e + 1 > n + 20 ? e - n - 1 : 0,
               s = t.slice(r, e);
             return s.push(i), s;
           }
-          function Il(t, e) {
+          function Nl(t, e) {
             return t.length ? (e.length ? t.concat(e) : t) : e;
           }
           const Yl = [],
@@ -37226,7 +37226,7 @@
                 );
               return i.length && i[i.length - 1].eq(e)
                 ? t
-                : (i.push(e), Nl(t, t.length - 1, 1e9, n.setSelAfter(i)));
+                : (i.push(e), Il(t, t.length - 1, 1e9, n.setSelAfter(i)));
             }
             return [_l.selection([e])];
           }
@@ -37255,7 +37255,7 @@
             return i.length ? [_l.selection(i)] : Yl;
           }
           function Ul(t, e, n) {
-            let i = Il(
+            let i = Nl(
               t.selectionsAfter.length
                 ? t.selectionsAfter.map((t) => t.map(e))
                 : Yl,
@@ -37315,19 +37315,19 @@
                       })(o.changes, t.changes),
                     )) ||
                     'input.type.compose' == n)
-                    ? Nl(
+                    ? Il(
                         s,
                         s.length - 1,
                         i.minDepth,
                         new _l(
                           t.changes.compose(o.changes),
-                          Il(t.effects, o.effects),
+                          Nl(t.effects, o.effects),
                           o.mapped,
                           o.startSelection,
                           Yl,
                         ),
                       )
-                    : Nl(s, s.length, i.minDepth, t)),
+                    : Il(s, s.length, i.minDepth, t)),
                 new Jl(s, Yl, e, n)
               );
             }
@@ -37390,14 +37390,14 @@
           }
           Jl.empty = new Jl(Yl, Yl);
           const th = [
-            { key: 'Mod-z', run: Bl, preventDefault: !0 },
+            { key: 'Mod-z', run: $l, preventDefault: !0 },
             { key: 'Mod-y', mac: 'Mod-Shift-z', run: Dl, preventDefault: !0 },
             { linux: 'Ctrl-Shift-z', run: Dl, preventDefault: !0 },
             { key: 'Mod-u', run: Wl, preventDefault: !0 },
             { key: 'Alt-u', mac: 'Mod-Shift-u', run: jl, preventDefault: !0 },
           ];
           function eh(t, e) {
-            return B.create(t.ranges.map(e), t.mainIndex);
+            return $.create(t.ranges.map(e), t.mainIndex);
           }
           function nh(t, e) {
             return t.update({
@@ -37411,7 +37411,7 @@
             return !i.eq(t.selection) && (e(nh(t, i)), !0);
           }
           function rh(t, e) {
-            return B.cursor(e ? t.to : t.from);
+            return $.cursor(e ? t.to : t.from);
           }
           function sh(t, e) {
             return ih(t, (n) => (n.empty ? t.moveByChar(n, e) : rh(n, e)));
@@ -37453,7 +37453,7 @@
                   : n
                     ? s.to
                     : s.from),
-              B.cursor(r, n ? -1 : 1)
+              $.cursor(r, n ? -1 : 1)
             );
           }
           function dh(t, e) {
@@ -37525,14 +37525,14 @@
               let n = /^\s*/.exec(
                 t.state.sliceDoc(i.from, Math.min(i.from + 100, i.to)),
               )[0].length;
-              n && e.head != i.from + n && (r = B.cursor(i.from + n));
+              n && e.head != i.from + n && (r = $.cursor(i.from + n));
             }
             return r;
           }
           function bh(t, e) {
             let n = eh(t.state.selection, (t) => {
               let n = e(t);
-              return B.range(
+              return $.range(
                 t.anchor,
                 n.head,
                 n.goalColumn,
@@ -37588,7 +37588,7 @@
                   ? { range: i }
                   : {
                       changes: { from: r, to: s },
-                      range: B.cursor(r, r < i.head ? -1 : 1),
+                      range: $.cursor(r, r < i.head ? -1 : 1),
                     };
               });
             return (
@@ -37642,8 +37642,8 @@
                         (r = b(a.text, r - a.from, !1, !1) + a.from);
                 return r;
               }),
-            $h = (t) => Lh(t, !1),
-            Bh = (t) => Lh(t, !0),
+            Bh = (t) => Lh(t, !1),
+            $h = (t) => Lh(t, !0),
             Dh = (t, e) =>
               Qh(t, (n) => {
                 let i = n.head,
@@ -37701,7 +37701,7 @@
                 );
                 for (let n of e.ranges)
                   r.push(
-                    B.range(
+                    $.range(
                       Math.min(t.doc.length, n.anchor + o),
                       Math.min(t.doc.length, n.head + o),
                     ),
@@ -37712,7 +37712,7 @@
                   { from: e.to, insert: t.lineBreak + s.text },
                 );
                 for (let t of e.ranges)
-                  r.push(B.range(t.anchor - o, t.head - o));
+                  r.push($.range(t.anchor - o, t.head - o));
               }
             }
             return (
@@ -37721,14 +37721,14 @@
                 t.update({
                   changes: i,
                   scrollIntoView: !0,
-                  selection: B.create(r, t.selection.mainIndex),
+                  selection: $.create(r, t.selection.mainIndex),
                   userEvent: 'move.line',
                 }),
               ),
               !0)
             );
           }
-          function Nh(t, e, n) {
+          function Ih(t, e, n) {
             if (t.readOnly) return !1;
             let i = [];
             for (let e of jh(t))
@@ -37752,7 +37752,7 @@
               !0
             );
           }
-          const Ih = Yh(!1);
+          const Nh = Yh(!1);
           function Yh(t) {
             return ({ state: e, dispatch: n }) => {
               if (e.readOnly) return !1;
@@ -37804,7 +37804,7 @@
                   a && h.push(vc(e, c.lineIndent(s.from, -1))),
                   {
                     changes: { from: i, to: r, insert: o.of(h) },
-                    range: B.cursor(i + 1 + h[1].length),
+                    range: $.cursor(i + 1 + h[1].length),
                   }
                 );
               });
@@ -37827,7 +37827,7 @@
               let s = t.changes(r);
               return {
                 changes: r,
-                range: B.range(s.mapPos(i.anchor, 1), s.mapPos(i.head, 1)),
+                range: $.range(s.mapPos(i.anchor, 1), s.mapPos(i.head, 1)),
               };
             });
           }
@@ -37889,7 +37889,7 @@
               },
               {
                 key: 'Shift-Alt-ArrowUp',
-                run: ({ state: t, dispatch: e }) => Nh(t, e, !1),
+                run: ({ state: t, dispatch: e }) => Ih(t, e, !1),
               },
               {
                 key: 'Alt-ArrowDown',
@@ -37897,7 +37897,7 @@
               },
               {
                 key: 'Shift-Alt-ArrowDown',
-                run: ({ state: t, dispatch: e }) => Nh(t, e, !0),
+                run: ({ state: t, dispatch: e }) => Ih(t, e, !0),
               },
               {
                 key: 'Escape',
@@ -37906,8 +37906,8 @@
                     i = null;
                   return (
                     n.ranges.length > 1
-                      ? (i = B.create([n.main]))
-                      : n.main.empty || (i = B.create([B.cursor(n.main.head)])),
+                      ? (i = $.create([n.main]))
+                      : n.main.empty || (i = $.create([$.cursor(n.main.head)])),
                     !!i && (e(nh(t, i)), !0)
                   );
                 },
@@ -37918,11 +37918,11 @@
                 mac: 'Ctrl-l',
                 run: ({ state: t, dispatch: e }) => {
                   let n = jh(t).map(({ from: e, to: n }) =>
-                    B.range(e, Math.min(n + 1, t.doc.length)),
+                    $.range(e, Math.min(n + 1, t.doc.length)),
                   );
                   return (
                     e(
-                      t.update({ selection: B.create(n), userEvent: 'select' }),
+                      t.update({ selection: $.create(n), userEvent: 'select' }),
                     ),
                     !0
                   );
@@ -37942,7 +37942,7 @@
                           ? void 0
                           : n.parent)
                       )
-                        return B.range(t.to, t.from);
+                        return $.range(t.to, t.from);
                     }
                     return e;
                   });
@@ -38022,7 +38022,7 @@
                         if (!r || !r.end) return e;
                         i = !0;
                         let s = r.start.from == e.head ? r.end.to : r.end.from;
-                        return n ? B.range(e.anchor, s) : B.cursor(s);
+                        return n ? $.range(e.anchor, s) : $.cursor(s);
                       });
                     return !!i && (e(nh(t, r)), !0);
                   })(t, e, !1),
@@ -38089,7 +38089,7 @@
                   preventDefault: !0,
                 },
                 { key: 'Mod-End', run: Eh, shift: Ah },
-                { key: 'Enter', run: Ih },
+                { key: 'Enter', run: Nh },
                 {
                   key: 'Mod-a',
                   run: ({ state: t, dispatch: e }) => (
@@ -38102,8 +38102,8 @@
                     !0
                   ),
                 },
-                { key: 'Backspace', run: $h, shift: $h },
-                { key: 'Delete', run: Bh },
+                { key: 'Backspace', run: Bh, shift: Bh },
+                { key: 'Delete', run: $h },
                 { key: 'Mod-Backspace', mac: 'Alt-Backspace', run: Wh },
                 { key: 'Mod-Delete', mac: 'Alt-Delete', run: (t) => Dh(t, !0) },
                 {
@@ -38133,19 +38133,19 @@
                   {
                     key: 'Ctrl-a',
                     run: (t) =>
-                      ih(t, (e) => B.cursor(t.lineBlockAt(e.head).from, 1)),
+                      ih(t, (e) => $.cursor(t.lineBlockAt(e.head).from, 1)),
                     shift: (t) =>
-                      bh(t, (e) => B.cursor(t.lineBlockAt(e.head).from)),
+                      bh(t, (e) => $.cursor(t.lineBlockAt(e.head).from)),
                   },
                   {
                     key: 'Ctrl-e',
                     run: (t) =>
-                      ih(t, (e) => B.cursor(t.lineBlockAt(e.head).to, -1)),
+                      ih(t, (e) => $.cursor(t.lineBlockAt(e.head).to, -1)),
                     shift: (t) =>
-                      bh(t, (e) => B.cursor(t.lineBlockAt(e.head).to)),
+                      bh(t, (e) => $.cursor(t.lineBlockAt(e.head).to)),
                   },
-                  { key: 'Ctrl-d', run: Bh },
-                  { key: 'Ctrl-h', run: $h },
+                  { key: 'Ctrl-d', run: $h },
+                  { key: 'Ctrl-h', run: Bh },
                   {
                     key: 'Ctrl-k',
                     run: (t) =>
@@ -38167,7 +38167,7 @@
                           to: t.to,
                           insert: o.of(['', '']),
                         },
-                        range: B.cursor(t.from),
+                        range: $.cursor(t.from),
                       }));
                       return (
                         e(
@@ -38203,7 +38203,7 @@
                             to: s,
                             insert: t.doc.slice(n, s).append(t.doc.slice(r, n)),
                           },
-                          range: B.cursor(s),
+                          range: $.cursor(s),
                         };
                       });
                       return (
@@ -38513,7 +38513,7 @@
                   (h = Math.round(i.doc.lines * t));
               } else o && s && (h = h * ('-' == s ? -1 : 1) + r.number);
               let f = i.doc.line(Math.max(1, Math.min(i.doc.lines, h))),
-                d = B.cursor(f.from + Math.max(0, Math.min(l, f.length)));
+                d = $.cursor(f.from + Math.max(0, Math.min(l, f.length)));
               t.dispatch({
                 effects: [
                   ff.of(!1),
@@ -38884,7 +38884,7 @@
           const Zf = mt.define(),
             Pf = mt.define(),
             Ef = F.define({
-              create: (t) => new Rf(Nf(t).create(), null),
+              create: (t) => new Rf(If(t).create(), null),
               update(t, e) {
                 for (let n of e.effects)
                   n.is(Zf)
@@ -38945,11 +38945,11 @@
               return n && n.query.spec.valid ? t(e, n) : qf(e);
             };
           }
-          const $f = Lf((t, { query: e }) => {
+          const Bf = Lf((t, { query: e }) => {
               let { to: n } = t.state.selection.main,
                 i = e.nextMatch(t.state, n, n);
               if (!i) return !1;
-              let r = B.single(i.from, i.to),
+              let r = $.single(i.from, i.to),
                 s = t.state.facet(yf);
               return (
                 t.dispatch({
@@ -38961,12 +38961,12 @@
                 !0
               );
             }),
-            Bf = Lf((t, { query: e }) => {
+            $f = Lf((t, { query: e }) => {
               let { state: n } = t,
                 { from: i } = n.selection.main,
                 r = e.prevMatch(n, i, i);
               if (!r) return !1;
-              let s = B.single(r.from, r.to),
+              let s = $.single(r.from, r.to),
                 o = t.state.facet(yf);
               return (
                 t.dispatch({
@@ -38984,7 +38984,7 @@
                 !n ||
                 !n.length ||
                 (t.dispatch({
-                  selection: B.create(n.map((t) => B.range(t.from, t.to))),
+                  selection: $.create(n.map((t) => $.range(t.from, t.to))),
                   userEvent: 'select.search.matches',
                 }),
                 0)
@@ -39020,7 +39020,7 @@
                   0 == c.length || c[0].from >= s.to
                     ? 0
                     : s.to - s.from - a.length;
-                (o = B.single(s.from - e, s.to - e)),
+                (o = $.single(s.from - e, s.to - e)),
                   l.push(td(t, s)),
                   l.push(n.facet(yf).scrollToMatch(o.main, t));
               }
@@ -39054,7 +39054,7 @@
           function _f(t) {
             return t.state.facet(yf).createPanel(t);
           }
-          function Nf(t, e) {
+          function If(t, e) {
             var n, i, r, s, o;
             let a = t.selection.main,
               c =
@@ -39088,20 +39088,20 @@
                   : l.wholeWord,
             });
           }
-          function If(t) {
+          function Nf(t) {
             let e = po(t, _f);
             return e && e.dom.querySelector('[main-field]');
           }
           function Yf(t) {
-            let e = If(t);
+            let e = Nf(t);
             e && e == t.root.activeElement && e.select();
           }
           const qf = (t) => {
               let e = t.state.field(Ef, !1);
               if (e && e.panel) {
-                let n = If(t);
+                let n = Nf(t);
                 if (n && n != t.root.activeElement) {
-                  let i = Nf(t.state, e.query.spec);
+                  let i = If(t.state, e.query.spec);
                   i.valid && t.dispatch({ effects: Zf.of(i) }),
                     n.focus(),
                     n.select();
@@ -39111,7 +39111,7 @@
                   effects: [
                     Pf.of(!0),
                     e
-                      ? Zf.of(Nf(t.state, e.query.spec))
+                      ? Zf.of(If(t.state, e.query.spec))
                       : mt.appendConfig.of(nd),
                   ],
                 });
@@ -39131,15 +39131,15 @@
               { key: 'Mod-f', run: qf, scope: 'editor search-panel' },
               {
                 key: 'F3',
-                run: $f,
-                shift: Bf,
+                run: Bf,
+                shift: $f,
                 scope: 'editor search-panel',
                 preventDefault: !0,
               },
               {
                 key: 'Mod-g',
-                run: $f,
-                shift: Bf,
+                run: Bf,
+                shift: $f,
                 scope: 'editor search-panel',
                 preventDefault: !0,
               },
@@ -39159,12 +39159,12 @@
                   ) {
                     if (s.length > 1e3) return !1;
                     e.value.from == i && (o = s.length),
-                      s.push(B.range(e.value.from, e.value.to));
+                      s.push($.range(e.value.from, e.value.to));
                   }
                   return (
                     e(
                       t.update({
-                        selection: B.create(s, o),
+                        selection: $.create(s, o),
                         userEvent: 'select.search.matches',
                       }),
                     ),
@@ -39193,9 +39193,9 @@
                   if (n.some((t) => t.from === t.to))
                     return (({ state: t, dispatch: e }) => {
                       let { selection: n } = t,
-                        i = B.create(
+                        i = $.create(
                           n.ranges.map(
-                            (e) => t.wordAt(e.head) || B.cursor(e.head),
+                            (e) => t.wordAt(e.head) || $.cursor(e.head),
                           ),
                           n.mainIndex,
                         );
@@ -39246,7 +39246,7 @@
                     (e(
                       t.update({
                         selection: t.selection.addRange(
-                          B.range(r.from, r.to),
+                          $.range(r.from, r.to),
                           !1,
                         ),
                         effects: jr.scrollIntoView(r.to),
@@ -39317,8 +39317,8 @@
                   { onkeydown: (t) => this.keydown(t), class: 'cm-search' },
                   [
                     this.searchField,
-                    n('next', () => $f(t), [Uf(t, 'next')]),
-                    n('prev', () => Bf(t), [Uf(t, 'previous')]),
+                    n('next', () => Bf(t), [Uf(t, 'next')]),
+                    n('prev', () => $f(t), [Uf(t, 'previous')]),
                     n('select', () => Df(t), [Uf(t, 'all')]),
                     Kh('label', null, [this.caseField, Uf(t, 'match case')]),
                     Kh('label', null, [this.reField, Uf(t, 'regexp')]),
@@ -39359,7 +39359,7 @@
               Kr(this.view, t, 'search-panel')
                 ? t.preventDefault()
                 : 13 == t.keyCode && t.target == this.searchField
-                  ? (t.preventDefault(), (t.shiftKey ? Bf : $f)(this.view))
+                  ? (t.preventDefault(), (t.shiftKey ? $f : Bf)(this.view))
                   : 13 == t.keyCode &&
                     t.target == this.replaceField &&
                     (t.preventDefault(), Wf(this.view));
@@ -40459,7 +40459,7 @@
                                         to: i == r.from ? a.to : a.from + o,
                                         insert: e,
                                       },
-                                      range: B.cursor(a.from + s + e.length),
+                                      range: $.cursor(a.from + s + e.length),
                                     },
                               ),
                             ),
@@ -40795,12 +40795,12 @@
                 },
               },
             }),
-            $d = {
+            Bd = {
               brackets: ['(', '[', '{', "'", '"'],
               before: ')]}:;>',
               stringPrefixes: [],
             },
-            Bd = mt.define({
+            $d = mt.define({
               map(t, e) {
                 let n = e.mapPos(t, -1, H.TrackAfter);
                 return null == n ? void 0 : n;
@@ -40816,7 +40816,7 @@
                   t = t.update({ filter: (t) => t >= n.from && t <= n.to });
                 }
                 for (let n of e.effects)
-                  n.is(Bd) &&
+                  n.is($d) &&
                     (t = t.update({ add: [Dd.range(n.value, n.value + 1)] }));
                 return t;
               },
@@ -40827,14 +40827,14 @@
               if (jd.charCodeAt(e) == t) return jd.charAt(e + 1);
             return k(t < 128 ? t : t + 1);
           }
-          function Nd(t, e) {
-            return t.languageDataAt('closeBrackets', e)[0] || $d;
+          function Id(t, e) {
+            return t.languageDataAt('closeBrackets', e)[0] || Bd;
           }
-          const Id =
+          const Nd =
               'object' == typeof navigator &&
               /Android\b/.test(navigator.userAgent),
             Yd = jr.inputHandler.of((t, e, n, i) => {
-              if ((Id ? t.composing : t.compositionStarted) || t.state.readOnly)
+              if ((Nd ? t.composing : t.compositionStarted) || t.state.readOnly)
                 return !1;
               let r = t.state.selection.main;
               if (
@@ -40845,14 +40845,14 @@
               )
                 return !1;
               let s = (function (t, e) {
-                let n = Nd(t, t.selection.main.head),
-                  i = n.brackets || $d.brackets;
+                let n = Id(t, t.selection.main.head),
+                  i = n.brackets || Bd.brackets;
                 for (let r of i) {
                   let s = _d(M(r, 0));
                   if (e == r)
                     return s == r
                       ? Kd(t, r, i.indexOf(r + r + r) > -1, n)
-                      : Gd(t, r, s, n.before || $d.before);
+                      : Gd(t, r, s, n.before || Bd.before);
                   if (e == s && Xd(t, t.selection.main.from))
                     return Ud(t, 0, s);
                 }
@@ -40865,7 +40865,7 @@
                 key: 'Backspace',
                 run: ({ state: t, dispatch: e }) => {
                   if (t.readOnly) return !1;
-                  let n = Nd(t, t.selection.main.head).brackets || $d.brackets,
+                  let n = Id(t, t.selection.main.head).brackets || Bd.brackets,
                     i = null,
                     r = t.changeByRange((e) => {
                       if (e.empty) {
@@ -40880,7 +40880,7 @@
                                 from: e.head - r.length,
                                 to: e.head + r.length,
                               },
-                              range: B.cursor(e.head - r.length),
+                              range: $.cursor(e.head - r.length),
                             };
                       }
                       return { range: (i = e) };
@@ -40920,15 +40920,15 @@
                       { insert: e, from: s.from },
                       { insert: n, from: s.to },
                     ],
-                    effects: Bd.of(s.to + e.length),
-                    range: B.range(s.anchor + e.length, s.head + e.length),
+                    effects: $d.of(s.to + e.length),
+                    range: $.range(s.anchor + e.length, s.head + e.length),
                   };
                 let o = Fd(t.doc, s.head);
                 return !o || /\s/.test(o) || i.indexOf(o) > -1
                   ? {
                       changes: { insert: e + n, from: s.head },
-                      effects: Bd.of(s.head + e.length),
-                      range: B.cursor(s.head + e.length),
+                      effects: $d.of(s.head + e.length),
+                      range: $.cursor(s.head + e.length),
                     }
                   : { range: (r = s) };
               });
@@ -40946,7 +40946,7 @@
                         to: e.head + n.length,
                         insert: n,
                       },
-                      range: B.cursor(e.head + n.length),
+                      range: $.cursor(e.head + n.length),
                     }
                   : (i = { range: e }),
               );
@@ -40955,7 +40955,7 @@
               : t.update(r, { scrollIntoView: !0, userEvent: 'input.type' });
           }
           function Kd(t, e, n, i) {
-            let r = i.stringPrefixes || $d.stringPrefixes,
+            let r = i.stringPrefixes || Bd.stringPrefixes,
               s = null,
               o = t.changeByRange((i) => {
                 if (!i.empty)
@@ -40964,8 +40964,8 @@
                       { insert: e, from: i.from },
                       { insert: e, from: i.to },
                     ],
-                    effects: Bd.of(i.to + e.length),
-                    range: B.range(i.anchor + e.length, i.head + e.length),
+                    effects: $d.of(i.to + e.length),
+                    range: $.range(i.anchor + e.length, i.head + e.length),
                   };
                 let o,
                   a = i.head,
@@ -40974,8 +40974,8 @@
                   if (Jd(t, a))
                     return {
                       changes: { insert: e + e, from: a },
-                      effects: Bd.of(a + e.length),
-                      range: B.cursor(a + e.length),
+                      effects: $d.of(a + e.length),
+                      range: $.cursor(a + e.length),
                     };
                   if (Xd(t, a)) {
                     let i =
@@ -40984,7 +40984,7 @@
                         : e;
                     return {
                       changes: { from: a, to: a + i.length, insert: i },
-                      range: B.cursor(a + i.length),
+                      range: $.cursor(a + i.length),
                     };
                   }
                 } else {
@@ -40996,8 +40996,8 @@
                   )
                     return {
                       changes: { insert: e + e + e + e, from: a },
-                      effects: Bd.of(a + e.length),
-                      range: B.cursor(a + e.length),
+                      effects: $d.of(a + e.length),
+                      range: $.cursor(a + e.length),
                     };
                   if (
                     t.charCategorizer(a)(c) != xt.Word &&
@@ -41035,8 +41035,8 @@
                   )
                     return {
                       changes: { insert: e + e, from: a },
-                      effects: Bd.of(a + e.length),
-                      range: B.cursor(a + e.length),
+                      effects: $d.of(a + e.length),
+                      range: $.cursor(a + e.length),
                     };
                 }
                 return { range: (s = i) };
@@ -41672,12 +41672,12 @@
                 !1 !== t.defaultKeymap && (n = n.concat(Gh)),
                 !1 !== t.searchKeymap && (n = n.concat(Ff)),
                 !1 !== t.historyKeymap && (n = n.concat(th)),
-                !1 !== t.foldKeymap && (n = n.concat(Bc)),
+                !1 !== t.foldKeymap && (n = n.concat($c)),
                 !1 !== t.completionKeymap && (n = n.concat(eu)),
                 !1 !== t.lintKeymap && (n = n.concat(mu));
               var i = [];
               return (
-                !1 !== t.lineNumbers && i.push($o()),
+                !1 !== t.lineNumbers && i.push(Bo()),
                 !1 !== t.highlightActiveLineGutter && i.push(jo()),
                 !1 !== t.highlightSpecialChars && i.push(Hs()),
                 !1 !== t.history && i.push(Ll()),
@@ -41811,7 +41811,7 @@
                     })(),
                   ),
                 !1 !== t.rectangularSelection && i.push(js()),
-                !1 !== e && i.push(Is()),
+                !1 !== e && i.push(Ns()),
                 !1 !== t.highlightActiveLine && i.push(Qs()),
                 !1 !== t.highlightSelectionMatches &&
                   i.push(
@@ -41852,8 +41852,8 @@
             Qu = '#c678dd',
             Tu = '#21252b',
             Lu = '#2c313a',
-            $u = '#282c34',
-            Bu = '#353a42',
+            Bu = '#282c34',
+            $u = '#353a42',
             Du = '#3E4451',
             Wu = '#528bff',
             ju = {
@@ -41869,14 +41869,14 @@
               violet: Qu,
               darkBackground: Tu,
               highlightBackground: Lu,
-              background: $u,
-              tooltipBackground: Bu,
+              background: Bu,
+              tooltipBackground: $u,
               selection: Du,
               cursor: Wu,
             },
             _u = jr.theme(
               {
-                '&': { color: Zu, backgroundColor: $u },
+                '&': { color: Zu, backgroundColor: Bu },
                 '.cm-content': { caretColor: Wu },
                 '.cm-cursor, .cm-dropCursor': { borderLeftColor: Wu },
                 '&.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground, .cm-selectionBackground, .cm-content ::selection':
@@ -41896,7 +41896,7 @@
                 '&.cm-focused .cm-matchingBracket, &.cm-focused .cm-nonmatchingBracket':
                   { backgroundColor: '#bad0f847' },
                 '.cm-gutters': {
-                  backgroundColor: $u,
+                  backgroundColor: Bu,
                   color: Pu,
                   border: 'none',
                 },
@@ -41906,14 +41906,14 @@
                   border: 'none',
                   color: '#ddd',
                 },
-                '.cm-tooltip': { border: 'none', backgroundColor: Bu },
+                '.cm-tooltip': { border: 'none', backgroundColor: $u },
                 '.cm-tooltip .cm-tooltip-arrow:before': {
                   borderTopColor: 'transparent',
                   borderBottomColor: 'transparent',
                 },
                 '.cm-tooltip .cm-tooltip-arrow:after': {
-                  borderTopColor: Bu,
-                  borderBottomColor: Bu,
+                  borderTopColor: $u,
+                  borderBottomColor: $u,
                 },
                 '.cm-tooltip-autocomplete': {
                   '& > ul > li[aria-selected]': {
@@ -41924,7 +41924,7 @@
               },
               { dark: !0 },
             ),
-            Nu = Fc.define([
+            Iu = Fc.define([
               { tag: Ka.keyword, color: Qu },
               {
                 tag: [
@@ -41983,7 +41983,7 @@
               },
               { tag: Ka.invalid, color: Hu },
             ]),
-            Iu = [_u, Jc(Nu)];
+            Nu = [_u, Jc(Iu)];
           var Yu = jr.theme({ '&': { backgroundColor: '#fff' } }, { dark: !1 }),
             qu = function (t) {
               void 0 === t && (t = {});
@@ -42000,14 +42000,14 @@
                 (e && a.unshift(Fr.of([Uh])),
                 o &&
                   ('boolean' == typeof o ? a.unshift(Su()) : a.unshift(Su(o))),
-                s && a.unshift(Bs(s)),
+                s && a.unshift($s(s)),
                 r)
               ) {
                 case 'light':
                   a.push(Yu);
                   break;
                 case 'dark':
-                  a.push(Iu);
+                  a.push(Nu);
                   break;
                 case 'none':
                   break;
@@ -42686,10 +42686,10 @@
             return r.default.useEffect(() => n._removeUnmounted()), l;
           }
           var L = (t) => /^\w*$/.test(t),
-            $ = (t) => p(t.replace(/["|']|\]/g, '').split(/\.|\[/)),
-            B = (t, e, n) => {
+            B = (t) => p(t.replace(/["|']|\]/g, '').split(/\.|\[/)),
+            $ = (t, e, n) => {
               let i = -1;
-              const r = L(e) ? [e] : $(e),
+              const r = L(e) ? [e] : B(e),
                 s = r.length,
                 o = s - 1;
               for (; ++i < s; ) {
@@ -42739,8 +42739,8 @@
                   };
                 if ((e(n, !0), t)) {
                   const t = m(v(s._options.defaultValues, n));
-                  B(s._defaultValues, n, t),
-                    g(v(s._formValues, n)) && B(s._formValues, n, t);
+                  $(s._defaultValues, n, t),
+                    g(v(s._formValues, n)) && $(s._formValues, n, t);
                 }
                 return () => {
                   (a ? t && !s._state.action : t) ? s.unregister(n) : e(n, !1);
@@ -42833,11 +42833,11 @@
                 },
               );
             },
-            N = (t, e, n = {}) =>
+            I = (t, e, n = {}) =>
               n.shouldFocus || g(n.shouldFocus)
                 ? n.focusName || `${t}.${g(n.focusIndex) ? e : n.focusIndex}.`
                 : '',
-            I = (t) => ({
+            N = (t) => ({
               isOnSubmit: !t || t === y,
               isOnBlur: 'onBlur' === t,
               isOnChange: t === b,
@@ -42866,7 +42866,7 @@
           };
           var X = (t, e, n) => {
               const i = p(v(t, n));
-              return B(i, 'root', e[n]), B(t, n, i), t;
+              return $(i, 'root', e[n]), $(t, n, i), t;
             },
             F = (t) => 'file' === t.type,
             G = (t) => 'function' == typeof t,
@@ -43077,7 +43077,7 @@
               [t[e], t[n]] = [t[n], t[e]];
             };
           function gt(t, e) {
-            const n = Array.isArray(e) ? e : L(e) ? [e] : $(e),
+            const n = Array.isArray(e) ? e : L(e) ? [e] : B(e),
               i =
                 1 === n.length
                   ? t
@@ -43273,8 +43273,8 @@
               },
               k = { values: Ot(), array: Ot(), state: Ot() },
               C = t.resetOptions && t.resetOptions.keepDirtyValues,
-              H = I(i.mode),
-              P = I(i.reValidateMode),
+              H = N(i.mode),
+              P = N(i.reValidateMode),
               E = i.criteriaMode === x,
               R = async (t) => {
                 if (M.isValid || t) {
@@ -43288,12 +43288,12 @@
                 if (r) {
                   const s = v(b, t, g(n) ? v(d, t) : n);
                   g(s) || (i && i.defaultChecked) || e
-                    ? B(b, t, e ? s : Ht(r._f))
+                    ? $(b, t, e ? s : Ht(r._f))
                     : K(t, s),
                     y.mount && R();
                 }
               },
-              $ = (t, e, n, i, s) => {
+              B = (t, e, n, i, s) => {
                 let o = !1,
                   a = !1;
                 const l = { name: t },
@@ -43305,14 +43305,14 @@
                     (o = a !== l.isDirty));
                   const n = h || bt(v(d, t), e);
                   (a = !h && v(r.dirtyFields, t)),
-                    n || h ? gt(r.dirtyFields, t) : B(r.dirtyFields, t, !0),
+                    n || h ? gt(r.dirtyFields, t) : $(r.dirtyFields, t, !0),
                     (l.dirtyFields = r.dirtyFields),
                     (o = o || (M.dirtyFields && a !== !n));
                 }
                 if (n) {
                   const e = v(r.touchedFields, t);
                   e ||
-                    (B(r.touchedFields, t, n),
+                    ($(r.touchedFields, t, n),
                     (l.touchedFields = r.touchedFields),
                     (o = o || (M.touchedFields && e !== n)));
                 }
@@ -43326,7 +43326,7 @@
                   (t.delayError && s
                     ? ((l = () =>
                         ((t, e) => {
-                          B(r.errors, t, e), k.state.next({ errors: r.errors });
+                          $(r.errors, t, e), k.state.next({ errors: r.errors });
                         })(e, s)),
                       (n = (t) => {
                         clearTimeout(S), (S = setTimeout(l, t));
@@ -43334,7 +43334,7 @@
                       n(t.delayError))
                     : (clearTimeout(S),
                       (n = null),
-                      s ? B(r.errors, e, s) : gt(r.errors, e)),
+                      s ? $(r.errors, e, s) : gt(r.errors, e)),
                   (s ? !bt(a, s) : a) || !V(o) || c)
                 ) {
                   const t = {
@@ -43355,7 +43355,7 @@
                     const r = {};
                     for (const n of t) {
                       const t = v(e, n);
-                      t && B(r, n, t._f);
+                      t && $(r, n, t._f);
                     }
                     return {
                       criteriaMode: n,
@@ -43389,7 +43389,7 @@
                         (v(a, t.name)
                           ? s
                             ? X(r.errors, a, t.name)
-                            : B(r.errors, t.name, a[t.name])
+                            : $(r.errors, t.name, a[t.name])
                           : gt(r.errors, t.name));
                     }
                     s && (await j(s, e, n));
@@ -43397,8 +43397,8 @@
                 }
                 return n.valid;
               },
-              _ = (t, e) => (t && e && B(b, t, e), !bt(rt(), d)),
-              N = (t, e, n) =>
+              _ = (t, e) => (t && e && $(b, t, e), !bt(rt(), d)),
+              I = (t, e, n) =>
                 Q(
                   t,
                   z,
@@ -43412,7 +43412,7 @@
                 if (i) {
                   const n = i._f;
                   n &&
-                    (!n.disabled && B(b, t, Vt(e, n)),
+                    (!n.disabled && $(b, t, Vt(e, n)),
                     (r = U(n.ref) && a(e) ? '' : e),
                     yt(n.ref)
                       ? [...n.ref.options].forEach(
@@ -43437,7 +43437,7 @@
                               k.values.next({ name: t, values: { ...b } })));
                 }
                 (n.shouldDirty || n.shouldTouch) &&
-                  $(t, r, n.shouldTouch, n.shouldDirty, !0),
+                  B(t, r, n.shouldTouch, n.shouldDirty, !0),
                   n.shouldValidate && it(t);
               },
               J = (t, e, n) => {
@@ -43454,7 +43454,7 @@
                 const s = v(c, t),
                   o = z.array.has(t),
                   l = m(n);
-                B(b, t, l),
+                $(b, t, l),
                   o
                     ? (k.array.next({ name: t, values: { ...b } }),
                       (M.isDirty || M.dirtyFields) &&
@@ -43510,11 +43510,11 @@
                         H,
                       ),
                     g = Y(s, z, m);
-                  B(b, s, u),
+                  $(b, s, u),
                     m
                       ? (a._f.onBlur && a._f.onBlur(t), n && n(0))
                       : a._f.onChange && a._f.onChange(t);
-                  const O = $(s, u, m, !1),
+                  const O = B(s, u, m, !1),
                     y = !V(O) || g;
                   if (
                     (!m &&
@@ -43555,7 +43555,7 @@
                     if (t)
                       for (const n of t) {
                         const t = v(e, n);
-                        t ? B(r.errors, n, t) : gt(r.errors, n);
+                        t ? $(r.errors, n, t) : gt(r.errors, n);
                       }
                     else r.errors = e;
                     return e;
@@ -43598,7 +43598,7 @@
               }),
               ot = (t, e, n) => {
                 const i = (v(c, t, { _f: {} })._f || {}).ref;
-                B(r.errors, t, { ...e, ref: i }),
+                $(r.errors, t, { ...e, ref: i }),
                   k.state.next({ name: t, errors: r.errors, isValid: !1 }),
                   n && n.shouldFocus && i && i.focus && i.focus();
               },
@@ -43627,14 +43627,14 @@
               }) => {
                 if (O(t)) {
                   const s = t ? void 0 : g(r) ? Ht(n ? n._f : v(i, e)._f) : r;
-                  B(b, e, s), $(e, s, !1, !1, !0);
+                  $(b, e, s), B(e, s, !1, !1, !0);
                 }
               },
               ht = (t, e = {}) => {
                 let n = v(c, t);
                 const r = O(e.disabled);
                 return (
-                  B(c, t, {
+                  $(c, t, {
                     ...(n || {}),
                     _f: {
                       ...(n && n._f ? n._f : { ref: { name: t } }),
@@ -43673,7 +43673,7 @@
                           s = xt(i),
                           o = n._f.refs || [];
                         if (s ? o.find((t) => t === i) : i === n._f.ref) return;
-                        B(c, t, {
+                        $(c, t, {
                           _f: {
                             ...n._f,
                             ...(s
@@ -43730,7 +43730,7 @@
                 if ((i.keepDefaultValues || (d = s), !i.keepValues)) {
                   if (i.keepDirtyValues || C)
                     for (const t of z.mount)
-                      v(r.dirtyFields, t) ? B(a, t, v(b, t)) : tt(t, v(a, t));
+                      v(r.dirtyFields, t) ? $(a, t, v(b, t)) : tt(t, v(a, t));
                   else {
                     if (u && g(n))
                       for (const t of z.mount) {
@@ -43796,7 +43796,7 @@
                 handleSubmit: dt,
                 setError: ot,
                 _executeSchema: W,
-                _getWatch: N,
+                _getWatch: I,
                 _getDirty: _,
                 _updateValid: R,
                 _removeUnmounted: () => {
@@ -43814,11 +43814,11 @@
                   if (i && n) {
                     if (((y.action = !0), o && Array.isArray(v(c, t)))) {
                       const e = n(v(c, t), i.argA, i.argB);
-                      s && B(c, t, e);
+                      s && $(c, t, e);
                     }
                     if (o && Array.isArray(v(r.errors, t))) {
                       const e = n(v(r.errors, t), i.argA, i.argB);
-                      s && B(r.errors, t, e),
+                      s && $(r.errors, t, e),
                         ((t, e) => {
                           !p(v(t, e)).length && gt(t, e);
                         })(r.errors, t);
@@ -43829,7 +43829,7 @@
                       Array.isArray(v(r.touchedFields, t))
                     ) {
                       const e = n(v(r.touchedFields, t), i.argA, i.argB);
-                      s && B(r.touchedFields, t, e);
+                      s && $(r.touchedFields, t, e);
                     }
                     M.dirtyFields && (r.dirtyFields = Ct(d, b)),
                       k.state.next({
@@ -43839,7 +43839,7 @@
                         errors: r.errors,
                         isValid: r.isValid,
                       });
-                  } else B(b, t, e);
+                  } else $(b, t, e);
                 },
                 _updateDisabledField: lt,
                 _getFieldArray: (e) =>
@@ -43919,8 +43919,8 @@
               handleSubmit: dt,
               watch: (t, e) =>
                 G(t)
-                  ? k.values.subscribe({ next: (n) => t(N(void 0, e), n) })
-                  : N(t, e, !0),
+                  ? k.values.subscribe({ next: (n) => t(I(void 0, e), n) })
+                  : I(t, e, !0),
               setValue: tt,
               getValues: rt,
               reset: mt,
@@ -43928,7 +43928,7 @@
                 v(c, t) &&
                   (g(e.defaultValue)
                     ? tt(t, v(d, t))
-                    : (tt(t, e.defaultValue), B(d, t, e.defaultValue)),
+                    : (tt(t, e.defaultValue), $(d, t, e.defaultValue)),
                   e.keepTouched || gt(r.touchedFields, t),
                   e.keepDirty ||
                     (gt(r.dirtyFields, t),
@@ -44051,7 +44051,7 @@
             }),
             (e.appendErrors = j),
             (e.get = v),
-            (e.set = B),
+            (e.set = $),
             (e.useController = D),
             (e.useFieldArray = function (t) {
               const e = k(),
@@ -44092,7 +44092,7 @@
                     Y(i, n._names) &&
                       n._subjects.state.next({ ...n._formState }),
                     d.current &&
-                      (!I(n._options.mode).isOnSubmit ||
+                      (!N(n._options.mode).isOnSubmit ||
                         n._formState.isSubmitted))
                   )
                     if (n._options.resolver)
@@ -44105,7 +44105,7 @@
                               (r.type !== e.type || r.message !== e.message))
                           : e && e.type) &&
                           (e
-                            ? B(n._formState.errors, i, e)
+                            ? $(n._formState.errors, i, e)
                             : gt(n._formState.errors, i),
                           n._subjects.state.next({
                             errors: n._formState.errors,
@@ -44182,7 +44182,7 @@
                     (t, e) => {
                       const r = Z(m(t)),
                         s = ut(n._getFieldArray(i), r);
-                      (n._names.focus = N(i, 0, e)),
+                      (n._names.focus = I(i, 0, e)),
                         (l.current = ut(l.current, r.map(_))),
                         u(s),
                         c(s),
@@ -44194,7 +44194,7 @@
                     (t, e) => {
                       const r = Z(m(t)),
                         s = lt(n._getFieldArray(i), r);
-                      (n._names.focus = N(i, s.length - 1, e)),
+                      (n._names.focus = I(i, s.length - 1, e)),
                         (l.current = lt(l.current, r.map(_))),
                         u(s),
                         c(s),
@@ -44216,7 +44216,7 @@
                     (t, e, r) => {
                       const s = Z(m(e)),
                         o = ft(n._getFieldArray(i), t, s);
-                      (n._names.focus = N(i, t, r)),
+                      (n._names.focus = I(i, t, r)),
                         (l.current = ft(l.current, t, s.map(_))),
                         u(o),
                         c(o),
@@ -45338,20 +45338,22 @@
             (e.default = ({
               items: t = [],
               onAddItem: e = () => {},
-              onRemoveItem: n = () => {},
-              showRemoveBtn: i = !0,
-              showAddBtn: h = !0,
-              selectedItemId: f,
-              setSelectedItemId: d,
-              searchValue: u,
-              onChangeSearchValue: m,
-              renderItems: p,
+              onUpdateItem: n = () => {},
+              onRemoveItem: i = () => {},
+              showRemoveBtn: h = !0,
+              showUpdateBtn: f = !0,
+              showAddBtn: d = !0,
+              selectedItemId: u,
+              setSelectedItemId: m,
+              searchValue: p,
+              onChangeSearchValue: g,
+              renderItems: v,
             }) => {
-              const g = !f,
-                v = t.reduce((t, e) => ((t[e.id] = (0, a.createRef)()), t), {});
+              const O = !u,
+                w = t.reduce((t, e) => ((t[e.id] = (0, a.createRef)()), t), {});
               return (
                 (0, a.useEffect)(() => {
-                  const t = v[f];
+                  const t = w[u];
                   t &&
                     setTimeout(() => {
                       t.current &&
@@ -45373,26 +45375,32 @@
                         children: [
                           (0, r.jsx)(l.default, {
                             'data-cy': 'searchInput',
-                            value: u,
-                            onChange: (t) => m(t.target.value, t),
+                            value: p,
+                            onChange: (t) => g(t.target.value, t),
                           }),
-                          h &&
+                          d &&
                             (0, r.jsx)(o.Button, {
                               'data-cy': 'onAddItem',
                               onClick: e,
                               icon: (0, r.jsx)(s.PlusSquareOutlined, {}),
                             }),
-                          i &&
+                          f &&
+                            (0, r.jsx)(o.Button, {
+                              'data-cy': 'showUpdateBtn',
+                              onClick: n,
+                              icon: (0, r.jsx)(s.EditOutlined, {}),
+                            }),
+                          h &&
                             (0, r.jsx)(o.Popconfirm, {
-                              disabled: g,
+                              disabled: O,
                               onConfirm: () => {
-                                n(f);
+                                i(u);
                               },
                               title:
                                 'Вы действительно хотите удалить этот элемент?',
                               children: (0, r.jsx)(o.Button, {
                                 'data-cy': 'removeItem',
-                                disabled: g,
+                                disabled: O,
                                 icon: (0, r.jsx)(s.DeleteOutlined, {}),
                               }),
                             }),
@@ -45402,7 +45410,11 @@
                     (0, r.jsx)(c.default, {
                       className: 'column__items',
                       children: (0, r.jsx)(o.List, {
-                        dataSource: t,
+                        dataSource:
+                          ((b = t),
+                          b
+                            .slice()
+                            .sort((t, e) => t.name.localeCompare(e.name))),
                         renderItem: (t) => {
                           return (0, r.jsx)(
                             'div',
@@ -45411,13 +45423,13 @@
                               tabIndex: 0,
                               role: 'button',
                               'data-cy': 'firstColumnItem',
-                              ref: v[t.id],
+                              ref: w[t.id],
                               className:
                                 'column__items__item ' +
                                 ((e = t.id),
-                                e.toString() === f ? 'active' : ''),
-                              onClick: () => d(t.id.toString()),
-                              children: p(t),
+                                e.toString() === u ? 'active' : ''),
+                              onClick: () => m(t.id.toString()),
+                              children: v(t),
                             },
                             t.id,
                           );
@@ -45428,6 +45440,7 @@
                   ],
                 })
               );
+              var b;
             });
         },
         3789: function (t, e, n) {
@@ -46847,7 +46860,7 @@
           const L = (function (t, e) {
             return (n) => new z(n, t, e);
           })(Q, T);
-          function $(t, e = 'option') {
+          function B(t, e = 'option') {
             return (n) => {
               let i = n.state.field(Q, !1);
               if (
@@ -46884,7 +46897,7 @@
               );
             };
           }
-          const B = (t) => {
+          const $ = (t) => {
               let e = t.state.field(Q, !1);
               return (
                 !(
@@ -47080,7 +47093,7 @@
                 },
               },
             ),
-            N = r.EditorView.baseTheme({
+            I = r.EditorView.baseTheme({
               '.cm-tooltip.cm-tooltip-autocomplete': {
                 '& > ul': {
                   fontFamily: 'monospace',
@@ -47191,7 +47204,7 @@
                 },
               },
             });
-          class I {
+          class N {
             constructor(t, e, n, i) {
               (this.field = t), (this.line = e), (this.from = n), (this.to = i);
             }
@@ -47258,7 +47271,7 @@
                     n.splice(e, 0, { seq: t, name: o }), (a = e);
                     for (let t of r) t.field >= a && t.field++;
                   }
-                  r.push(new I(a, i.length, e.index, e.index + o.length)),
+                  r.push(new N(a, i.length, e.index, e.index + o.length)),
                     (s =
                       s.slice(0, e.index) + o + s.slice(e.index + e[0].length));
                 }
@@ -47356,7 +47369,7 @@
                 let e = new G(a, 0),
                   n = (c.effects = [U.of(e)]);
                 void 0 === t.state.field(J, !1) &&
-                  n.push(i.StateEffect.appendConfig.of([J, ct, lt, N]));
+                  n.push(i.StateEffect.appendConfig.of([J, ct, lt, I]));
               }
               t.dispatch(t.state.update(c));
             };
@@ -47730,11 +47743,11 @@
           const Rt = [
               { key: 'Ctrl-Space', run: D },
               { key: 'Escape', run: W },
-              { key: 'ArrowDown', run: $(!0) },
-              { key: 'ArrowUp', run: $(!1) },
-              { key: 'PageDown', run: $(!0, 'page') },
-              { key: 'PageUp', run: $(!1, 'page') },
-              { key: 'Enter', run: B },
+              { key: 'ArrowDown', run: B(!0) },
+              { key: 'ArrowUp', run: B(!1) },
+              { key: 'PageDown', run: B(!0, 'page') },
+              { key: 'PageUp', run: B(!1, 'page') },
+              { key: 'Enter', run: $ },
             ],
             At = i.Prec.highest(
               r.keymap.computeN([w], (t) =>
@@ -47743,9 +47756,9 @@
             ),
             Qt = new WeakMap();
           (e.CompletionContext = o),
-            (e.acceptCompletion = B),
+            (e.acceptCompletion = $),
             (e.autocompletion = function (t = {}) {
-              return [Q, w.of(t), _, At, N];
+              return [Q, w.of(t), _, At, I];
             }),
             (e.clearSnippet = it),
             (e.closeBrackets = function () {
@@ -47839,7 +47852,7 @@
             }),
             (e.insertBracket = Mt),
             (e.insertCompletionText = u),
-            (e.moveCompletionSelection = $),
+            (e.moveCompletionSelection = B),
             (e.nextSnippetField = rt),
             (e.pickedCompletion = d),
             (e.prevSnippetField = st),
@@ -49118,7 +49131,7 @@
               let e = t.lastChild,
                 i = e && n.indexOf(e.name) > -1;
               return (t) =>
-                B(
+                $(
                   t,
                   !0,
                   1,
@@ -49163,7 +49176,7 @@
               for (;;) {
                 let n = t.resolve(e.from);
                 for (; n.parent && n.parent.from == n.from; ) n = n.parent;
-                if ($(n, t)) break;
+                if (B(n, t)) break;
                 e = this.state.doc.lineAt(n.from);
               }
               return this.lineIndent(e.from);
@@ -49172,11 +49185,11 @@
               return A(this.context.next, this.base, this.pos);
             }
           }
-          function $(t, e) {
+          function B(t, e) {
             for (let n = e; n; n = n.parent) if (t == n) return !0;
             return !1;
           }
-          function B(t, e, n, i, r) {
+          function $(t, e, n, i, r) {
             let s = t.textAfter,
               o = s.match(/^\s*/)[0].length,
               a = (i && s.slice(o, o + i.length) == i) || r == t.pos + o,
@@ -49234,13 +49247,13 @@
               return r;
             })(t, e, n);
           }
-          function N(t, e) {
+          function I(t, e) {
             let n = e.mapPos(t.from, 1),
               i = e.mapPos(t.to, -1);
             return n >= i ? void 0 : { from: n, to: i };
           }
-          const I = s.StateEffect.define({ map: N }),
-            Y = s.StateEffect.define({ map: N });
+          const N = s.StateEffect.define({ map: I }),
+            Y = s.StateEffect.define({ map: I });
           function q(t) {
             let e = [];
             for (let { head: n } of t.state.selection.ranges)
@@ -49253,7 +49266,7 @@
             update(t, e) {
               t = t.map(e.changes);
               for (let n of e.effects)
-                if (n.is(I) && !G(t, n.value.from, n.value.to)) {
+                if (n.is(N) && !G(t, n.value.from, n.value.to)) {
                   let { preparePlaceholder: i } = e.state.facet(ot),
                     r = i
                       ? o.Decoration.replace({
@@ -49338,7 +49351,7 @@
                 let n = _(t.state, e.from, e.to);
                 if (n)
                   return (
-                    t.dispatch({ effects: U(t.state, [I.of(n), tt(t, n)]) }), !0
+                    t.dispatch({ effects: U(t.state, [N.of(n), tt(t, n)]) }), !0
                   );
               }
               return !1;
@@ -49367,7 +49380,7 @@
               for (let i = 0; i < e.doc.length; ) {
                 let r = t.lineBlockAt(i),
                   s = _(e, r.from, r.to);
-                s && n.push(I.of(s)),
+                s && n.push(N.of(s)),
                   (i = (s ? t.lineBlockAt(s.to) : r).to + 1);
               }
               return (
@@ -49898,7 +49911,7 @@
                 n,
                 new (class extends r.Parser {
                   createParse(t, n, i) {
-                    return new Bt(e, t, n, i);
+                    return new $t(e, t, n, i);
                   }
                 })(),
                 [C.of((t, e) => this.getIndent(t, e))],
@@ -49980,7 +49993,7 @@
             }
             return null;
           }
-          function $t(t, e, n, i, s) {
+          function Bt(t, e, n, i, s) {
             if (s && n <= 0 && i >= e.length) return e;
             s || e.type != t.topNode || (s = !0);
             for (let o = e.children.length - 1; o >= 0; o--) {
@@ -49988,7 +50001,7 @@
                 c = e.positions[o],
                 l = e.children[o];
               if (c < i && l instanceof r.Tree) {
-                if (!(a = $t(t, l, n - c, i - c, s))) break;
+                if (!(a = Bt(t, l, n - c, i - c, s))) break;
                 return s
                   ? new r.Tree(
                       e.type,
@@ -50001,7 +50014,7 @@
             }
             return null;
           }
-          class Bt {
+          class $t {
             constructor(t, e, n, i) {
               (this.lang = t),
                 (this.input = e),
@@ -50024,7 +50037,7 @@
                       o = r <= n && s > n && Lt(t, i.tree, 0 - i.offset, n, s);
                     if (
                       o &&
-                      (e = $t(t, i.tree, n + i.offset, o.pos + i.offset, !1))
+                      (e = Bt(t, i.tree, n + i.offset, o.pos + i.offset, !1))
                     )
                       return { state: o.state, tree: e };
                   }
@@ -50184,8 +50197,8 @@
           const Wt = Object.create(null),
             jt = [r.NodeType.none],
             _t = new r.NodeSet(jt),
-            Nt = [],
-            It = Object.create(null),
+            It = [],
+            Nt = Object.create(null),
             Yt = Object.create(null);
           for (let [t, e] of [
             ['variable', 'variableName'],
@@ -50215,7 +50228,7 @@
           }
           const Xt = new qt(Wt);
           function Ft(t, e) {
-            Nt.indexOf(t) > -1 || (Nt.push(t), console.warn(e));
+            It.indexOf(t) > -1 || (It.push(t), console.warn(e));
           }
           function Gt(t, e) {
             let n = [];
@@ -50238,9 +50251,9 @@
             if (!n.length) return 0;
             let i = e.replace(/ /g, '_'),
               s = i + ' ' + n.map((t) => t.id),
-              o = It[s];
+              o = Nt[s];
             if (o) return o.id;
-            let c = (It[s] = r.NodeType.define({
+            let c = (Nt[s] = r.NodeType.define({
               id: jt.length,
               name: i,
               props: [a.styleTags({ [i]: n })],
@@ -50282,13 +50295,13 @@
               align: e = !0,
               units: n = 1,
             }) {
-              return (i) => B(i, e, n, t);
+              return (i) => $(i, e, n, t);
             }),
             (e.ensureSyntaxTree = g),
             (e.flatIndent = (t) => t.baseIndent),
             (e.foldAll = et),
             (e.foldCode = K),
-            (e.foldEffect = I),
+            (e.foldEffect = N),
             (e.foldGutter = function (t = {}) {
               let e = Object.assign(Object.assign({}, ft), t),
                 n = new dt(e, !0),
@@ -50342,7 +50355,7 @@
                       let i = F(t.state, e.from, e.to);
                       if (i) return t.dispatch({ effects: Y.of(i) }), !0;
                       let r = _(t.state, e.from, e.to);
-                      return !!r && (t.dispatch({ effects: I.of(r) }), !0);
+                      return !!r && (t.dispatch({ effects: N.of(r) }), !0);
                     },
                   }),
                 }),
@@ -50493,7 +50506,7 @@
                 if (i) e.push(Y.of(i), tt(t, i, !1));
                 else {
                   let i = it(t, n);
-                  i && e.push(I.of(i), tt(t, i));
+                  i && e.push(N.of(i), tt(t, i));
                 }
               }
               return (
@@ -51692,23 +51705,23 @@
               return new L(
                 t.combine || ((t) => t),
                 t.compareInput || ((t, e) => t === e),
-                t.compare || (t.combine ? (t, e) => t === e : $),
+                t.compare || (t.combine ? (t, e) => t === e : B),
                 !!t.static,
                 t.enables,
               );
             }
             of(t) {
-              return new B([], this, 0, t);
+              return new $([], this, 0, t);
             }
             compute(t, e) {
               if (this.isStatic)
                 throw new Error("Can't compute a static facet");
-              return new B(t, this, 1, e);
+              return new $(t, this, 1, e);
             }
             computeN(t, e) {
               if (this.isStatic)
                 throw new Error("Can't compute a static facet");
-              return new B(t, this, 2, e);
+              return new $(t, this, 2, e);
             }
             from(t, e) {
               return (
@@ -51716,12 +51729,12 @@
               );
             }
           }
-          function $(t, e) {
+          function B(t, e) {
             return (
               t == e || (t.length == e.length && t.every((t, n) => t === e[n]))
             );
           }
-          class B {
+          class $ {
             constructor(t, e, n, i) {
               (this.dependencies = t),
                 (this.facet = e),
@@ -51771,7 +51784,7 @@
                       this.dependencies.every((n) =>
                         n instanceof L
                           ? e.facet(n) === t.facet(n)
-                          : !(n instanceof N) ||
+                          : !(n instanceof I) ||
                             e.field(n, !1) == t.field(n, !1),
                       ) ||
                       (o ? D((a = n(t)), r, i) : i((a = n(t)), r))
@@ -51821,7 +51834,7 @@
                 let s = W(t, i),
                   c = r.config.facets[e.id],
                   l = r.facet(e);
-                if (c && !s && $(n, c)) return (t.values[o] = l), 0;
+                if (c && !s && B(n, c)) return (t.values[o] = l), 0;
                 let h = a(t);
                 return e.compare(h, l)
                   ? ((t.values[o] = l), 0)
@@ -51830,7 +51843,7 @@
             };
           }
           const _ = L.define({ static: !0 });
-          class N {
+          class I {
             constructor(t, e, n, i, r) {
               (this.id = t),
                 (this.createF = e),
@@ -51840,7 +51853,7 @@
                 (this.provides = void 0);
             }
             static define(t) {
-              let e = new N(
+              let e = new I(
                 T++,
                 t.create,
                 t.update,
@@ -51875,15 +51888,15 @@
               return this;
             }
           }
-          function I(t) {
+          function N(t) {
             return (e) => new q(e, t);
           }
           const Y = {
-            highest: I(0),
-            high: I(1),
-            default: I(2),
-            low: I(3),
-            lowest: I(4),
+            highest: N(0),
+            high: N(1),
+            default: N(2),
+            low: N(3),
+            lowest: N(4),
           };
           class q {
             constructor(t, e) {
@@ -51951,9 +51964,9 @@
                       let i = e.get(s.compartment) || s.inner;
                       n.set(s.compartment, i), t(i, o);
                     } else if (s instanceof q) t(s.inner, s.prec);
-                    else if (s instanceof N)
+                    else if (s instanceof I)
                       i[o].push(s), s.provides && t(s.provides, o);
-                    else if (s instanceof B)
+                    else if (s instanceof $)
                       i[o].push(s),
                         s.facet.extensions && t(s.facet.extensions, 2);
                     else {
@@ -51968,7 +51981,7 @@
                   i.reduce((t, e) => t.concat(e))
                 );
               })(t, e, s))
-                n instanceof N
+                n instanceof I
                   ? i.push(n)
                   : (r[n.facet.id] || (r[n.facet.id] = [])).push(n);
               let o = Object.create(null),
@@ -51982,7 +51995,7 @@
                   i = e[0].facet,
                   s = (l && l[t]) || [];
                 if (e.every((t) => 0 == t.type))
-                  if (((o[i.id] = (a.length << 1) | 1), $(s, e)))
+                  if (((o[i.id] = (a.length << 1) | 1), B(s, e)))
                     a.push(n.facet(i));
                   else {
                     let t = i.combine(e.map((t) => t.value));
@@ -52405,7 +52418,7 @@
               if (t)
                 for (let n in t) {
                   let i = t[n];
-                  i instanceof N &&
+                  i instanceof I &&
                     null != this.config.address[i.id] &&
                     (e[n] = i.spec.toJSON(this.field(t[n]), this));
                 }
@@ -53295,7 +53308,7 @@
             (e.SelectionRange = R),
             (e.StateEffect = lt),
             (e.StateEffectType = ct),
-            (e.StateField = N),
+            (e.StateField = I),
             (e.Text = n),
             (e.Transaction = ht),
             (e.codePointAt = y),
@@ -53840,8 +53853,8 @@
             Q = /MSIE \d/.test(E.userAgent),
             T = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(E.userAgent),
             L = !!(Q || T || A),
-            $ = !L && /gecko\/(\d+)/i.test(E.userAgent),
-            B = !L && /Chrome\/(\d+)/.exec(E.userAgent),
+            B = !L && /gecko\/(\d+)/i.test(E.userAgent),
+            $ = !L && /Chrome\/(\d+)/.exec(E.userAgent),
             D = 'webkitFontSmoothing' in R.documentElement.style,
             W = !L && /Apple Computer/.test(E.vendor),
             j = W && (/Mobile\/\w+/.test(E.userAgent) || E.maxTouchPoints > 2);
@@ -53851,12 +53864,12 @@
             linux: /Linux|X11/.test(E.platform),
             ie: L,
             ie_version: Q ? R.documentMode || 6 : T ? +T[1] : A ? +A[1] : 0,
-            gecko: $,
-            gecko_version: $
+            gecko: B,
+            gecko_version: B
               ? +(/Firefox\/(\d+)/.exec(E.userAgent) || [0, 0])[1]
               : 0,
-            chrome: !!B,
-            chrome_version: B ? +B[1] : 0,
+            chrome: !!$,
+            chrome_version: $ ? +$[1] : 0,
             ios: j,
             android: /Android\b/.test(E.userAgent),
             webkit: D,
@@ -53869,7 +53882,7 @@
                 ? 'tab-size'
                 : '-moz-tab-size',
           };
-          class N extends C {
+          class I extends C {
             constructor(t) {
               super(), (this.text = t);
             }
@@ -53892,7 +53905,7 @@
               return !(
                 8 & this.flags ||
                 (n &&
-                  (!(n instanceof N) ||
+                  (!(n instanceof I) ||
                     this.length - (e - t) + n.length > 256 ||
                     8 & n.flags)) ||
                 ((this.text =
@@ -53904,7 +53917,7 @@
               );
             }
             split(t) {
-              let e = new N(this.text.slice(t));
+              let e = new I(this.text.slice(t));
               return (
                 (this.text = this.text.slice(0, t)),
                 this.markDirty(),
@@ -53953,7 +53966,7 @@
               })(this.dom, t, e);
             }
           }
-          class I extends C {
+          class N extends C {
             constructor(t, e = [], n = 0) {
               super(), (this.mark = t), (this.children = e), (this.length = n);
               for (let t of e) t.setParent(this);
@@ -53986,7 +53999,7 @@
             merge(t, e, n, i, r, s) {
               return !(
                 (n &&
-                  (!(n instanceof I && n.mark.eq(this.mark)) ||
+                  (!(n instanceof N && n.mark.eq(this.mark)) ||
                     (t && r <= 0) ||
                     (e < this.length && s <= 0))) ||
                 (P(this, t, e, n ? n.children.slice() : [], r - 1, s - 1),
@@ -54010,7 +54023,7 @@
               return (
                 (this.length = t),
                 i > -1 && ((this.children.length = i), this.markDirty()),
-                new I(this.mark, e, s)
+                new N(this.mark, e, s)
               );
             }
             domAtPos(t) {
@@ -54193,9 +54206,9 @@
             let i,
               { children: r } = t;
             n > 0 &&
-            e instanceof I &&
+            e instanceof N &&
             r.length &&
-            (i = r[r.length - 1]) instanceof I &&
+            (i = r[r.length - 1]) instanceof N &&
             i.mark.eq(e.mark)
               ? F(i, e.children[0], n - 1)
               : (r.push(e), e.setParent(t)),
@@ -54240,7 +54253,7 @@
                   : (e[n] = t[n]);
             return e;
           }
-          N.prototype.children =
+          I.prototype.children =
             Y.prototype.children =
             q.prototype.children =
               k;
@@ -54375,7 +54388,7 @@
                   (this.prevAttrs = void 0)),
                 super.sync(t, e);
               let i = this.dom.lastChild;
-              for (; i && C.get(i) instanceof I; ) i = i.lastChild;
+              for (; i && C.get(i) instanceof N; ) i = i.lastChild;
               if (
                 !(
                   i &&
@@ -54385,7 +54398,7 @@
                       (null === (n = C.get(i)) || void 0 === n
                         ? void 0
                         : n.isEditable) ||
-                    (_.ios && this.children.some((t) => t instanceof N)))
+                    (_.ios && this.children.some((t) => t instanceof I)))
                 )
               ) {
                 let t = document.createElement('BR');
@@ -54397,7 +54410,7 @@
               let t,
                 e = 0;
               for (let n of this.children) {
-                if (!(n instanceof N) || /[^ -~]/.test(n.text)) return null;
+                if (!(n instanceof I) || /[^ -~]/.test(n.text)) return null;
                 let i = l(n.dom);
                 if (1 != i.length) return null;
                 (e += i[0].width), (t = i[0].height);
@@ -54822,7 +54835,7 @@
                 this.flushBuffer(e.slice(e.length - n)),
                   this.getLine().append(
                     ut(
-                      new N(this.text.slice(this.textOff, this.textOff + i)),
+                      new I(this.text.slice(this.textOff, this.textOff + i)),
                       e,
                     ),
                     n,
@@ -54911,7 +54924,7 @@
             }
           }
           function ut(t, e) {
-            for (let n of e) t = new I(n, [t], t.length);
+            for (let n of e) t = new N(n, [t], t.length);
             return t;
           }
           class mt extends rt {
@@ -55104,13 +55117,13 @@
               o
             );
           }
-          const $t = i.Facet.define();
-          function Bt(t) {
+          const Bt = i.Facet.define();
+          function $t(t) {
             let e = 0,
               n = 0,
               i = 0,
               r = 0;
-            for (let s of t.state.facet($t)) {
+            for (let s of t.state.facet(Bt)) {
               let o = s(t);
               o &&
                 (null != o.left && (e = Math.max(e, o.left)),
@@ -55215,8 +55228,8 @@
           (e.Direction = void 0),
             ((_t = e.Direction || (e.Direction = {}))[(_t.LTR = 0)] = 'LTR'),
             (_t[(_t.RTL = 1)] = 'RTL');
-          const Nt = e.Direction.LTR,
-            It = e.Direction.RTL;
+          const It = e.Direction.LTR,
+            Nt = e.Direction.RTL;
           function Yt(t) {
             let e = [];
             for (let n = 0; n < t.length; n++) e.push(1 << +t[n]);
@@ -55238,7 +55251,7 @@
           const Ut = /[\u0590-\u05f4\u0600-\u06ff\u0700-\u08ac\ufb50-\ufdff]/;
           class Kt {
             get dir() {
-              return this.level % 2 ? It : Nt;
+              return this.level % 2 ? Nt : It;
             }
             constructor(t, e, n) {
               (this.from = t), (this.to = e), (this.level = n);
@@ -55313,7 +55326,7 @@
                         : (m.from > c && o.push(new Kt(c, m.from, d)),
                           ne(
                             t,
-                            (m.direction == Nt) != !(d % 2) ? i + 1 : i,
+                            (m.direction == It) != !(d % 2) ? i + 1 : i,
                             r,
                             m.inner,
                             m.from,
@@ -55360,7 +55373,7 @@
                       : (m.to < c && o.push(new Kt(m.to, c, d)),
                         ne(
                           t,
-                          (m.direction == Nt) != !(d % 2) ? i + 1 : i,
+                          (m.direction == It) != !(d % 2) ? i + 1 : i,
                           r,
                           m.inner,
                           m.from,
@@ -55493,11 +55506,11 @@
               ee(t, r, s, e, n, i, o);
           }
           function ie(t, e, n) {
-            if (!t) return [new Kt(0, 0, e == It ? 1 : 0)];
-            if (e == Nt && !n.length && !Ut.test(t)) return re(t.length);
+            if (!t) return [new Kt(0, 0, e == Nt ? 1 : 0)];
+            if (e == It && !n.length && !Ut.test(t)) return re(t.length);
             if (n.length) for (; t.length > te.length; ) te[te.length] = 256;
             let i = [],
-              r = e == Nt ? 0 : 1;
+              r = e == It ? 0 : 1;
             return ne(t, r, r, n, 0, t.length, i), i;
           }
           function re(t) {
@@ -55623,7 +55636,7 @@
                         h = [];
                       for (let e = r.parentNode; ; e = e.parentNode) {
                         let n = C.get(e);
-                        if (n instanceof I) h.push({ node: e, deco: n.mark });
+                        if (n instanceof N) h.push({ node: e, deco: n.mark });
                         else {
                           if (
                             n instanceof nt ||
@@ -55777,9 +55790,9 @@
               n && this.fixCompositionDOM(n);
             }
             compositionView(t) {
-              let e = new N(t.text.nodeValue);
+              let e = new I(t.text.nodeValue);
               e.flags |= 8;
-              for (let { deco: n } of t.marks) e = new I(n, [e], e.length);
+              for (let { deco: n } of t.marks) e = new N(n, [e], e.length);
               let n = new nt();
               return n.append(e, 0), n;
             }
@@ -56003,7 +56016,7 @@
                 }
                 n = e;
               }
-              if (!(r instanceof N)) return null;
+              if (!(r instanceof I)) return null;
               let s = i.findClusterBreak(r.text, n);
               if (s == n) return null;
               let o = y(r.dom, n, s).getClientRects();
@@ -56151,7 +56164,7 @@
                   right: Math.max(r.right, n.right),
                   bottom: Math.max(r.bottom, n.bottom),
                 });
-              let s = Bt(this.view),
+              let s = $t(this.view),
                 o = {
                   left: r.left - s.left,
                   top: r.top - s.top,
@@ -56906,7 +56919,7 @@
                   right: this.view.win.innerWidth,
                   bottom: this.view.win.innerHeight,
                 },
-                a = Bt(this.view);
+                a = $t(this.view);
               t.clientX - a.left <= o.left + 6
                 ? (r = -Pe(o.left - t.clientX))
                 : t.clientX + a.right >= o.right - 6 &&
@@ -57154,8 +57167,8 @@
               }
               return !1;
             });
-          let $e = (t, e) => t >= e.top && t <= e.bottom,
-            Be = (t, e, n) => $e(e, n) && t >= n.left && t <= n.right;
+          let Be = (t, e) => t >= e.top && t <= e.bottom,
+            $e = (t, e, n) => Be(e, n) && t >= n.left && t <= n.right;
           function De(t, e, n, i) {
             let r = nt.find(t.docView, e);
             if (!r) return 1;
@@ -57163,9 +57176,9 @@
             if (0 == s) return 1;
             if (s == r.length) return -1;
             let o = r.coordsAt(s, -1);
-            if (o && Be(n, i, o)) return -1;
+            if (o && $e(n, i, o)) return -1;
             let a = r.coordsAt(s, 1);
-            return a && Be(n, i, a) ? 1 : o && $e(i, o) ? -1 : 1;
+            return a && $e(n, i, a) ? 1 : o && Be(i, o) ? -1 : 1;
           }
           function We(t, e) {
             let n = t.posAtCoords({ x: e.clientX, y: e.clientY }, !1);
@@ -57173,21 +57186,21 @@
           }
           const je = _.ie && _.ie_version <= 11;
           let _e = null,
-            Ne = 0,
-            Ie = 0;
+            Ie = 0,
+            Ne = 0;
           function Ye(t) {
             if (!je) return t.detail;
             let e = _e,
-              n = Ie;
+              n = Ne;
             return (
               (_e = t),
-              (Ie = Date.now()),
-              (Ne =
+              (Ne = Date.now()),
+              (Ie =
                 !e ||
                 (n > Date.now() - 400 &&
                   Math.abs(e.clientX - t.clientX) < 2 &&
                   Math.abs(e.clientY - t.clientY) < 2)
-                  ? (Ne + 1) % 3
+                  ? (Ie + 1) % 3
                   : 1)
             );
           }
@@ -59154,12 +59167,12 @@
               )
             );
           }
-          class $n {
+          class Bn {
             constructor(t, e) {
               (this.node = t), (this.offset = e), (this.pos = -1);
             }
           }
-          class Bn {
+          class $n {
             constructor(t, e, n, r) {
               (this.typeOver = r), (this.bounds = null), (this.text = '');
               let { impreciseHead: s, impreciseAnchor: o } = t.docView;
@@ -59182,8 +59195,8 @@
                           } = t.observer.selectionRange;
                           return (
                             n &&
-                              (e.push(new $n(n, i)),
-                              (r == n && s == i) || e.push(new $n(r, s))),
+                              (e.push(new Bn(n, i)),
+                              (r == n && s == i) || e.push(new Bn(r, s))),
                             e
                           );
                         })(t),
@@ -59808,7 +59821,7 @@
               t > -1 && (this.lastChange = Date.now()),
                 (this.view.inputState.lastFocusTime = 0),
                 (this.selectionChanged = !1);
-              let r = new Bn(this.view, t, e, n);
+              let r = new $n(this.view, t, e, n);
               return (
                 (this.view.docView.domChanged = {
                   newSel: r.newSel ? r.newSel.main : null,
@@ -59833,12 +59846,12 @@
                 'attributes' == t.type && (e.flags |= 4),
                 'childList' == t.type)
               ) {
-                let n = Nn(
+                let n = In(
                     e,
                     t.previousSibling || t.target.previousSibling,
                     -1,
                   ),
-                  i = Nn(e, t.nextSibling || t.target.nextSibling, 1);
+                  i = In(e, t.nextSibling || t.target.nextSibling, 1);
                 return {
                   from: n ? e.posAfter(n) : e.posAtStart,
                   to: i ? e.posBefore(i) : e.posAtEnd,
@@ -59898,7 +59911,7 @@
                 this.win.cancelAnimationFrame(this.flushingAndroidKey);
             }
           }
-          function Nn(t, e, n) {
+          function In(t, e, n) {
             for (; e; ) {
               let i = C.get(e);
               if (i && i.parent == t) return i;
@@ -59907,7 +59920,7 @@
             }
             return null;
           }
-          class In {
+          class Nn {
             get state() {
               return this.viewState.state;
             }
@@ -60285,7 +60298,7 @@
               let e = !0;
               for (let n of t)
                 for (let t of n.effects)
-                  t.is(In.announce) &&
+                  t.is(Nn.announce) &&
                     (e && (this.announceDOM.textContent = ''),
                     (e = !1),
                     (this.announceDOM.appendChild(
@@ -60294,7 +60307,7 @@
             }
             mountStyles() {
               this.styleModules = this.state.facet(Dt);
-              let t = this.state.facet(In.cspNonce);
+              let t = this.state.facet(Nn.cspNonce);
               r.StyleModule.mount(
                 this.root,
                 this.styleModules.concat(Rn).reverse(),
@@ -60597,30 +60610,30 @@
               );
             }
           }
-          (In.styleModule = Dt),
-            (In.inputHandler = bt),
-            (In.focusChangeEffect = yt),
-            (In.perLineTextDirection = xt),
-            (In.exceptionSink = Ot),
-            (In.updateListener = wt),
-            (In.editable = Ct),
-            (In.mouseSelectionStyle = vt),
-            (In.dragMovesSelection = gt),
-            (In.clickAddsSelectionRange = pt),
-            (In.decorations = At),
-            (In.atomicRanges = Qt),
-            (In.bidiIsolatedRanges = Tt),
-            (In.scrollMargins = $t),
-            (In.darkTheme = Cn),
-            (In.cspNonce = i.Facet.define({
+          (Nn.styleModule = Dt),
+            (Nn.inputHandler = bt),
+            (Nn.focusChangeEffect = yt),
+            (Nn.perLineTextDirection = xt),
+            (Nn.exceptionSink = Ot),
+            (Nn.updateListener = wt),
+            (Nn.editable = Ct),
+            (Nn.mouseSelectionStyle = vt),
+            (Nn.dragMovesSelection = gt),
+            (Nn.clickAddsSelectionRange = pt),
+            (Nn.decorations = At),
+            (Nn.atomicRanges = Qt),
+            (Nn.bidiIsolatedRanges = Tt),
+            (Nn.scrollMargins = Bt),
+            (Nn.darkTheme = Cn),
+            (Nn.cspNonce = i.Facet.define({
               combine: (t) => (t.length ? t[0] : ''),
             })),
-            (In.contentAttributes = Rt),
-            (In.editorAttributes = Et),
-            (In.lineWrapping = In.contentAttributes.of({
+            (Nn.contentAttributes = Rt),
+            (Nn.editorAttributes = Et),
+            (Nn.lineWrapping = Nn.contentAttributes.of({
               class: 'cm-lineWrapping',
             })),
-            (In.announce = i.StateEffect.define());
+            (Nn.announce = i.StateEffect.define());
           const Yn = 4096,
             qn = {};
           class Xn {
@@ -60679,7 +60692,7 @@
             );
           }
           const Kn = i.Prec.default(
-              In.domEventHandlers({
+              Nn.domEventHandlers({
                 keydown: (t, e) => ri(ei(e.state), t, e, 'editor'),
               }),
             ),
@@ -61205,7 +61218,7 @@
           fi &&
             ((vi['.cm-line'].caretColor = 'transparent !important'),
             (vi['.cm-content'] = { caretColor: 'transparent !important' }));
-          const Oi = i.Prec.highest(In.theme(vi)),
+          const Oi = i.Prec.highest(Nn.theme(vi)),
             wi = i.StateEffect.define({
               map: (t, e) => (null == t ? null : e.mapPos(t)),
             }),
@@ -61640,13 +61653,13 @@
                     : i.countColumn(r.text, t.state.tabSize, n - r.from);
             return { line: r.number, col: o, off: s };
           }
-          const $i = {
+          const Bi = {
               Alt: [18, (t) => !!t.altKey],
               Control: [17, (t) => !!t.ctrlKey],
               Shift: [16, (t) => !!t.shiftKey],
               Meta: [91, (t) => !!t.metaKey],
             },
-            Bi = { style: 'cursor: crosshair' },
+            $i = { style: 'cursor: crosshair' },
             Di = '-10000px';
           class Wi {
             constructor(t, e, n) {
@@ -61725,8 +61738,8 @@
                 };
               },
             }),
-            Ni = new WeakMap(),
-            Ii = Zt.fromClass(
+            Ii = new WeakMap(),
+            Ni = Zt.fromClass(
               class {
                 constructor(t) {
                   (this.view = t),
@@ -61921,7 +61934,7 @@
                       p = m ? 7 : 0,
                       g = u.right - u.left,
                       v =
-                        null !== (n = Ni.get(h)) && void 0 !== n
+                        null !== (n = Ii.get(h)) && void 0 !== n
                           ? n
                           : u.bottom - u.top,
                       O = h.offset || qi,
@@ -61947,7 +61960,7 @@
                         f.style.top = Di;
                         continue;
                       }
-                      Ni.set(h, v), (f.style.height = (v = x) / o + 'px');
+                      Ii.set(h, v), (f.style.height = (v = x) / o + 'px');
                     } else f.style.height && (f.style.height = '');
                     let z = y ? d.top - v - p - O.y : d.bottom + p + O.y,
                       S = b + g;
@@ -61996,7 +62009,7 @@
                 },
               },
             ),
-            Yi = In.baseTheme({
+            Yi = Nn.baseTheme({
               '.cm-tooltip': { zIndex: 100, boxSizing: 'border-box' },
               '&light .cm-tooltip': {
                 border: '1px solid #bbb',
@@ -62046,7 +62059,7 @@
               },
             }),
             qi = { x: 0, y: 0 },
-            Xi = i.Facet.define({ enables: [Ii, Yi] }),
+            Xi = i.Facet.define({ enables: [Ni, Yi] }),
             Fi = i.Facet.define();
           class Gi {
             static create(t) {
@@ -62206,7 +62219,7 @@
               } else o && t.dispatch({ effects: this.setHover.of(o) });
             }
             get tooltip() {
-              let t = this.view.plugin(Ii),
+              let t = this.view.plugin(Ni),
                 e = t
                   ? t.manager.tooltips.findIndex((t) => t.create == Gi.create)
                   : -1;
@@ -62360,7 +62373,7 @@
               },
               {
                 provide: (t) =>
-                  In.scrollMargins.of((e) => {
+                  Nn.scrollMargins.of((e) => {
                     let n = e.plugin(t);
                     return (
                       n && {
@@ -62577,7 +62590,7 @@
             },
             {
               provide: (t) =>
-                In.scrollMargins.of((n) => {
+                Nn.scrollMargins.of((n) => {
                   let i = n.plugin(t);
                   return i && 0 != i.gutters.length && i.fixed
                     ? n.textDirection == e.Direction.LTR
@@ -62868,7 +62881,7 @@
           (e.BidiSpan = Kt),
             (e.BlockInfo = nn),
             (e.Decoration = ot),
-            (e.EditorView = In),
+            (e.EditorView = Nn),
             (e.GutterMarker = ar),
             (e.MatchDecorator = zi),
             (e.RectangleMarker = si),
@@ -62878,7 +62891,7 @@
             (e.__test = Pr),
             (e.closeHoverTooltips = er),
             (e.crosshairCursor = function (t = {}) {
-              let [e, n] = $i[t.key || 'Alt'],
+              let [e, n] = Bi[t.key || 'Alt'],
                 i = Zt.fromClass(
                   class {
                     constructor(t) {
@@ -62905,14 +62918,14 @@
                 );
               return [
                 i,
-                In.contentAttributes.of((t) => {
+                Nn.contentAttributes.of((t) => {
                   var e;
                   return (
                     null === (e = t.plugin(i)) || void 0 === e
                       ? void 0
                       : e.isDown
                   )
-                    ? Bi
+                    ? $i
                     : null;
                 }),
               ];
@@ -62932,7 +62945,7 @@
               return i > -1 ? n.panels[i] : null;
             }),
             (e.getTooltip = function (t, e) {
-              let n = t.plugin(Ii);
+              let n = t.plugin(Ni);
               if (!n) return null;
               let i = n.manager.tooltips.indexOf(e);
               return i < 0 ? null : n.manager.tooltipViews[i];
@@ -63082,7 +63095,7 @@
               let e =
                 (null == t ? void 0 : t.eventFilter) ||
                 ((t) => t.altKey && 0 == t.button);
-              return In.mouseSelectionStyle.of((t, n) =>
+              return Nn.mouseSelectionStyle.of((t, n) =>
                 e(n)
                   ? (function (t, e) {
                       let n = Li(t, e),
@@ -63171,7 +63184,7 @@
               );
             }),
             (e.repositionTooltips = function (t) {
-              let e = t.plugin(Ii);
+              let e = t.plugin(Ni);
               e && e.maybeMeasure();
             }),
             (e.runScopeHandlers = function (t, e, n) {
@@ -64632,7 +64645,7 @@
                       }
                   }
                   c = !1;
-                } else if (i && (o = $(i.ranges, s.from, s.to))) c = 2 != o;
+                } else if (i && (o = B(i.ranges, s.from, s.to))) c = 2 != o;
                 else if (
                   !s.type.isAnonymous &&
                   (e = this.nest(s, this.input)) &&
@@ -64661,7 +64674,7 @@
                           new R(
                             e.parser,
                             t.length
-                              ? e.parser.startParse(this.input, I(o, t), t)
+                              ? e.parser.startParse(this.input, N(o, t), t)
                               : e.parser.startParse(''),
                             e.overlay
                               ? e.overlay.map(
@@ -64694,7 +64707,7 @@
                           0,
                           new R(
                             n.parser,
-                            n.parser.startParse(this.input, I(n.mounts, t), t),
+                            n.parser.startParse(this.input, N(n.mounts, t), t),
                             n.ranges.map(
                               (t) => new r(t.from - n.start, t.to - n.start),
                             ),
@@ -64709,14 +64722,14 @@
               }
             }
           }
-          function $(t, e, n) {
+          function B(t, e, n) {
             for (let i of t) {
               if (i.from >= n) break;
               if (i.to > e) return i.from <= e && i.to >= n ? 2 : 1;
             }
             return 0;
           }
-          function B(t, e, n, i, r, s) {
+          function $(t, e, n, i, r, s) {
             if (e < n) {
               let o = t.buffer[e + 1];
               i.push(t.slice(e, n, o)), r.push(o - s);
@@ -64738,7 +64751,7 @@
               let d = n[f],
                 m = [],
                 p = [];
-              B(o, i, d, m, p, c);
+              $(o, i, d, m, p, c);
               let g = a[d + 1],
                 v = a[d + 2];
               l.push(m.length);
@@ -64748,7 +64761,7 @@
               return (
                 m.push(O),
                 p.push(g - c),
-                B(o, a[d + 3], r, m, p, c),
+                $(o, a[d + 3], r, m, p, c),
                 new u(s, m, p, h)
               );
             })(0, a.length, c.none, 0, o.length, n.length - 1);
@@ -64879,7 +64892,7 @@
             }
             return i;
           }
-          function N(t, e, n, i) {
+          function I(t, e, n, i) {
             let s = 0,
               o = 0,
               a = !1,
@@ -64900,7 +64913,7 @@
             }
             return h;
           }
-          function I(t, e) {
+          function N(t, e) {
             let n = [];
             for (let { pos: i, mount: s, frag: o } of t) {
               let t = i + (s.overlay ? s.overlay[0].from : 0),
@@ -64908,7 +64921,7 @@
                 c = Math.max(o.from, t),
                 l = Math.min(o.to, a);
               if (s.overlay) {
-                let a = N(
+                let a = I(
                   e,
                   s.overlay.map((t) => new r(t.from + i, t.to + i)),
                   c,
@@ -67923,24 +67936,24 @@
                 t.classList.remove(e);
               });
           }
-          function $(t) {
+          function B(t) {
             return '.'.concat(t.split(' ').join('.'));
           }
-          var B = Object.freeze({
+          var $ = Object.freeze({
               __proto__: null,
               getElementWindow: R,
               getElementDocument: A,
               getOptions: Q,
               addClasses: T,
               removeClasses: L,
-              classNamesToQuery: $,
+              classNamesToQuery: B,
             }),
             D = R,
             W = A,
             j = Q,
             _ = T,
-            N = L,
-            I = $,
+            I = L,
+            N = B,
             Y = (function () {
               function t(e, n) {
                 void 0 === n && (n = {});
@@ -67996,7 +68009,7 @@
                       (i.scrollYTicking = !1);
                   }),
                   (this._onStopScrolling = function () {
-                    N(i.el, i.classNames.scrolling),
+                    I(i.el, i.classNames.scrolling),
                       i.options.autoHide &&
                         (i.hideScrollbar('x'), i.hideScrollbar('y')),
                       (i.isScrolling = !1);
@@ -68010,7 +68023,7 @@
                       i.onMouseEntered();
                   }),
                   (this._onMouseEntered = function () {
-                    N(i.el, i.classNames.mouseEntered),
+                    I(i.el, i.classNames.mouseEntered),
                       i.options.autoHide &&
                         (i.hideScrollbar('x'), i.hideScrollbar('y')),
                       (i.isMouseEntering = !1);
@@ -68148,7 +68161,7 @@
                       n = D(i.el);
                     t.preventDefault(),
                       t.stopPropagation(),
-                      N(i.el, i.classNames.dragging),
+                      I(i.el, i.classNames.dragging),
                       e.removeEventListener('mousemove', i.drag, !0),
                       e.removeEventListener('mouseup', i.onEndDrag, !0),
                       (i.removePreventClickId = n.setTimeout(function () {
@@ -68306,51 +68319,51 @@
                 (t.prototype.initDOM = function () {
                   var t, e;
                   (this.wrapperEl = this.el.querySelector(
-                    I(this.classNames.wrapper),
+                    N(this.classNames.wrapper),
                   )),
                     (this.contentWrapperEl =
                       this.options.scrollableNode ||
-                      this.el.querySelector(I(this.classNames.contentWrapper))),
+                      this.el.querySelector(N(this.classNames.contentWrapper))),
                     (this.contentEl =
                       this.options.contentNode ||
-                      this.el.querySelector(I(this.classNames.contentEl))),
+                      this.el.querySelector(N(this.classNames.contentEl))),
                     (this.offsetEl = this.el.querySelector(
-                      I(this.classNames.offset),
+                      N(this.classNames.offset),
                     )),
                     (this.maskEl = this.el.querySelector(
-                      I(this.classNames.mask),
+                      N(this.classNames.mask),
                     )),
                     (this.placeholderEl = this.findChild(
                       this.wrapperEl,
-                      I(this.classNames.placeholder),
+                      N(this.classNames.placeholder),
                     )),
                     (this.heightAutoObserverWrapperEl = this.el.querySelector(
-                      I(this.classNames.heightAutoObserverWrapperEl),
+                      N(this.classNames.heightAutoObserverWrapperEl),
                     )),
                     (this.heightAutoObserverEl = this.el.querySelector(
-                      I(this.classNames.heightAutoObserverEl),
+                      N(this.classNames.heightAutoObserverEl),
                     )),
                     (this.axis.x.track.el = this.findChild(
                       this.el,
                       ''
-                        .concat(I(this.classNames.track))
-                        .concat(I(this.classNames.horizontal)),
+                        .concat(N(this.classNames.track))
+                        .concat(N(this.classNames.horizontal)),
                     )),
                     (this.axis.y.track.el = this.findChild(
                       this.el,
                       ''
-                        .concat(I(this.classNames.track))
-                        .concat(I(this.classNames.vertical)),
+                        .concat(N(this.classNames.track))
+                        .concat(N(this.classNames.vertical)),
                     )),
                     (this.axis.x.scrollbar.el =
                       (null === (t = this.axis.x.track.el) || void 0 === t
                         ? void 0
-                        : t.querySelector(I(this.classNames.scrollbar))) ||
+                        : t.querySelector(N(this.classNames.scrollbar))) ||
                       null),
                     (this.axis.y.scrollbar.el =
                       (null === (e = this.axis.y.track.el) || void 0 === e
                         ? void 0
-                        : e.querySelector(I(this.classNames.scrollbar))) ||
+                        : e.querySelector(N(this.classNames.scrollbar))) ||
                       null),
                     this.options.autoHide ||
                       (_(this.axis.x.scrollbar.el, this.classNames.visible),
@@ -68581,7 +68594,7 @@
                   void 0 === t && (t = 'y'),
                     this.axis[t].isOverflowing &&
                       this.axis[t].scrollbar.isVisible &&
-                      (N(this.axis[t].scrollbar.el, this.classNames.visible),
+                      (I(this.axis[t].scrollbar.el, this.classNames.visible),
                       (this.axis[t].scrollbar.isVisible = !1));
                 }),
                 (t.prototype.hideNativeScrollbar = function () {
@@ -68607,14 +68620,14 @@
                         _(e.track.el, this.classNames.hover),
                         this.isWithinBounds(e.scrollbar.rect)
                           ? _(e.scrollbar.el, this.classNames.hover)
-                          : N(e.scrollbar.el, this.classNames.hover))
-                      : (N(e.track.el, this.classNames.hover),
+                          : I(e.scrollbar.el, this.classNames.hover))
+                      : (I(e.track.el, this.classNames.hover),
                         this.options.autoHide && this.hideScrollbar(t)));
                 }),
                 (t.prototype.onMouseLeaveForAxis = function (t) {
                   void 0 === t && (t = 'y'),
-                    N(this.axis[t].track.el, this.classNames.hover),
-                    N(this.axis[t].scrollbar.el, this.classNames.hover),
+                    I(this.axis[t].track.el, this.classNames.hover),
+                    I(this.axis[t].scrollbar.el, this.classNames.hover),
                     this.options.autoHide && this.hideScrollbar(t);
                 }),
                 (t.prototype.onDragStart = function (t, e) {
@@ -68784,7 +68797,7 @@
                   autoHide: !0,
                 }),
                 (t.getOptions = j),
-                (t.helpers = B),
+                (t.helpers = $),
                 t
               );
             })(),

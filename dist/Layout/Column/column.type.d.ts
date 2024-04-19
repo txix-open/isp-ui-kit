@@ -5,6 +5,7 @@ export interface ColumnProps<T extends {}> {
   searchValue: string;
   selectedItemId: string;
   showAddBtn?: boolean;
+  showUpdateBtn?: boolean;
   showRemoveBtn?: boolean;
   setSelectedItemId: (itemId: string) => void;
   onChangeSearchValue: (
@@ -12,6 +13,7 @@ export interface ColumnProps<T extends {}> {
     event: ChangeEvent<HTMLInputElement>,
   ) => void;
   onAddItem?: () => void;
+  onUpdateItem?: () => void;
   onRemoveItem?: (id: string) => void;
 }
 export type ColumnItem<T extends {}> = T & {
