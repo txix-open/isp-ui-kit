@@ -37,11 +37,18 @@ const meta: Meta<typeof Column> = {
     onAddItem: {
       description: 'callback-функция для добавления нового элемента списка',
     },
+    onUpdateItem: {
+      description: 'callback-функция для редактирования нового элемента списка',
+    },
     onChangeSearchValue: {
       description: 'callback-функция для обновления searchValue',
     },
     onRemoveItem: {
       description: 'callback-функция для удаления элемента массива',
+    },
+    showUpdateBtn: {
+      description:
+        'Показать/скрыть кнопку редактирования элемента массиваб элемента. Кнопка становится активной, при выбранном элементе',
     },
     showAddBtn: {
       description: 'Показать/скрыть кнопку добавления нового элемента',
@@ -93,6 +100,7 @@ export const WithElements: Story = {
       const updatedItems = list.filter((item) => item.id !== id);
       setList(updatedItems);
     };
+
     return (
       <Column
         {...args}
