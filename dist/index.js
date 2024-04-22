@@ -45387,7 +45387,7 @@
                           f &&
                             (0, r.jsx)(o.Button, {
                               'data-cy': 'showUpdateBtn',
-                              onClick: n,
+                              onClick: () => n(u),
                               icon: (0, r.jsx)(s.EditOutlined, {}),
                             }),
                           h &&
