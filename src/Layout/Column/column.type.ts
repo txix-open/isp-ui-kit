@@ -14,7 +14,7 @@ export interface ColumnProps<T extends {}> {
     event: ChangeEvent<HTMLInputElement>,
   ) => void;
   onAddItem?: () => void;
-  onUpdateItem?: () => void;
+  onUpdateItem?: (id: string) => void;
   onRemoveItem?: (id: string) => void;
 }
 
