@@ -82,7 +82,7 @@ const Column = <T extends {}>({
           {showUpdateBtn && (
             <Button
               data-cy="showUpdateBtn"
-              onClick={onUpdateItem}
+              onClick={() => onUpdateItem(selectedItemId)}
               icon={<EditOutlined />}
             />
           )}
