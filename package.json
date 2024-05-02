@@ -82,6 +82,10 @@
     "simplebar-react": "^3.2.4",
     "@codemirror/lang-javascript": "^6.2.1",
     "@codemirror/lang-json": "^6.0.1",
-    "@uiw/react-codemirror": "^4.21.21"
+    "@uiw/react-codemirror": "^4.21.21",
+    "flux": "^4.0.4",
+    "react-base16-styling": "^0.10.0",
+    "react-lifecycles-compat": "^3.0.4",
+    "react-textarea-autosize": "^6.1.0"
   }
 }
