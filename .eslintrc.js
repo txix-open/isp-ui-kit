@@ -6,11 +6,13 @@ module.exports = {
     'plugin:storybook/recommended',
   ],
   ignorePatterns: [
+    'ReactJsonView',
     'babel.config.js',
     '.eslintrc.js',
     '__tests__',
     'stories',
     'dist',
+    'webpack.config.js',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
