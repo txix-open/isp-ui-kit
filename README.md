@@ -1,15 +1,17 @@
 ## Команды
-`yarn install` - установка зависимостей
+`npm install --legacy-peer-deps` - установка зависимостей
 
-`yarn build` - Собрать пакет
+`npm build` - Собрать пакет
 
-`yarn storybook` -  Запустить storybook
+`npm storybook` -  Запустить storybook
 
 
-`yarn build-storybook` - Собрать storybook
+`npm build-storybook` - Собрать storybook
 
-`yarn pub` - сборка проекта, фиксирование версии, публикация пакета
+`npm pub` - сборка проекта, фиксирование версии, публикация пакета
 
+## Обновление версии
+Обязательно перед пушем новой версии. собрать команду через `npm build`
 
 ## Установка пакета в другие проекты
 
