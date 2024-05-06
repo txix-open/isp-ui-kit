@@ -13,6 +13,10 @@ const meta: Meta<typeof Column> = {
       'Компонент Column, служит базовым блоком для организации шаблона "Три колонки"',
   },
   argTypes: {
+    title: {
+      description:
+        'Заголовок колонки. При пустом значении заголовок будет скрыт',
+    },
     items: {
       description: 'Список элементов списка',
       control: false,
@@ -104,6 +108,7 @@ export const WithElements: Story = {
     return (
       <Column
         {...args}
+        title="Заголовок очень длинный"
         items={list}
         onAddItem={addItem}
         onRemoveItem={removeItemById}

@@ -42902,32 +42902,34 @@
           n(6133),
             (e.default = function (t) {
               var e,
-                n = t.items,
-                r = void 0 === n ? [] : n,
-                h = t.onAddItem,
-                u = void 0 === h ? function () {} : h,
-                f = t.onUpdateItem,
+                n = t.title,
+                r = void 0 === n ? '' : n,
+                h = t.items,
+                u = void 0 === h ? [] : h,
+                f = t.onAddItem,
                 d = void 0 === f ? function () {} : f,
-                p = t.onRemoveItem,
+                p = t.onUpdateItem,
                 m = void 0 === p ? function () {} : p,
-                g = t.showRemoveBtn,
-                v = void 0 === g || g,
-                O = t.showUpdateBtn,
+                g = t.onRemoveItem,
+                v = void 0 === g ? function () {} : g,
+                O = t.showRemoveBtn,
                 b = void 0 === O || O,
-                y = t.showAddBtn,
+                y = t.showUpdateBtn,
                 w = void 0 === y || y,
-                x = t.selectedItemId,
-                S = t.setSelectedItemId,
-                z = t.searchValue,
-                k = t.onChangeSearchValue,
-                M = t.renderItems,
-                C = !x,
-                P = r.reduce(function (t, e) {
+                x = t.showAddBtn,
+                S = void 0 === x || x,
+                z = t.selectedItemId,
+                k = t.setSelectedItemId,
+                M = t.searchValue,
+                C = t.onChangeSearchValue,
+                P = t.renderItems,
+                V = !z,
+                E = u.reduce(function (t, e) {
                   return (t[e.id] = (0, a.createRef)()), t;
                 }, {});
               return (
                 (0, a.useEffect)(function () {
-                  var t = P[x];
+                  var t = E[z];
                   t &&
                     setTimeout(function () {
                       t.current &&
@@ -42942,54 +42944,66 @@
                   'data-cy': 'firstColumn',
                   className: 'column',
                   children: [
-                    (0, i.jsx)('div', {
+                    (0, i.jsxs)('div', {
                       className: 'column__header',
-                      children: (0, i.jsxs)('div', {
-                        className: 'column__header__actions',
-                        children: [
-                          (0, i.jsx)(l.default, {
-                            'data-cy': 'searchInput',
-                            value: z,
-                            onChange: function (t) {
-                              return k(t.target.value, t);
-                            },
+                      children: [
+                        r &&
+                          (0, i.jsx)(s.Tooltip, {
+                            placement: 'topLeft',
+                            title: r,
+                            mouseEnterDelay: 1,
+                            children: (0, i.jsx)('h3', {
+                              className: 'column__header__title',
+                              children: r,
+                            }),
                           }),
-                          w &&
-                            (0, i.jsx)(s.Button, {
-                              'data-cy': 'onAddItem',
-                              onClick: u,
-                              icon: (0, i.jsx)(o.PlusSquareOutlined, {}),
-                            }),
-                          b &&
-                            (0, i.jsx)(s.Button, {
-                              'data-cy': 'showUpdateBtn',
-                              onClick: function () {
-                                return d(x);
+                        (0, i.jsxs)('div', {
+                          className: 'column__header__actions',
+                          children: [
+                            (0, i.jsx)(l.default, {
+                              'data-cy': 'searchInput',
+                              value: M,
+                              onChange: function (t) {
+                                return C(t.target.value, t);
                               },
-                              icon: (0, i.jsx)(o.EditOutlined, {}),
                             }),
-                          v &&
-                            (0, i.jsx)(s.Popconfirm, {
-                              disabled: C,
-                              onConfirm: function () {
-                                m(x);
-                              },
-                              title:
-                                'Вы действительно хотите удалить этот элемент?',
-                              children: (0, i.jsx)(s.Button, {
-                                'data-cy': 'removeItem',
-                                disabled: C,
-                                icon: (0, i.jsx)(o.DeleteOutlined, {}),
+                            S &&
+                              (0, i.jsx)(s.Button, {
+                                'data-cy': 'onAddItem',
+                                onClick: d,
+                                icon: (0, i.jsx)(o.PlusSquareOutlined, {}),
                               }),
-                            }),
-                        ],
-                      }),
+                            w &&
+                              (0, i.jsx)(s.Button, {
+                                'data-cy': 'showUpdateBtn',
+                                onClick: function () {
+                                  return m(z);
+                                },
+                                icon: (0, i.jsx)(o.EditOutlined, {}),
+                              }),
+                            b &&
+                              (0, i.jsx)(s.Popconfirm, {
+                                disabled: V,
+                                onConfirm: function () {
+                                  v(z);
+                                },
+                                title:
+                                  'Вы действительно хотите удалить этот элемент?',
+                                children: (0, i.jsx)(s.Button, {
+                                  'data-cy': 'removeItem',
+                                  disabled: V,
+                                  icon: (0, i.jsx)(o.DeleteOutlined, {}),
+                                }),
+                              }),
+                          ],
+                        }),
+                      ],
                     }),
                     (0, i.jsx)(c.default, {
                       className: 'column__items',
                       children: (0, i.jsx)(s.List, {
                         dataSource:
-                          ((e = r),
+                          ((e = u),
                           e.slice().sort(function (t, e) {
                             return t.name.localeCompare(e.name);
                           })),
@@ -43001,15 +43015,15 @@
                               tabIndex: 0,
                               role: 'button',
                               'data-cy': 'firstColumnItem',
-                              ref: P[t.id],
+                              ref: E[t.id],
                               className: 'column__items__item '.concat(
                                 ((e = t.id),
-                                e.toString() === x ? 'active' : ''),
+                                e.toString() === z ? 'active' : ''),
                               ),
                               onClick: function () {
-                                return S(t.id.toString());
+                                return k(t.id.toString());
                               },
-                              children: M(t),
+                              children: P(t),
                             },
                             t.id,
                           );
@@ -56163,7 +56177,7 @@
             s = n.n(o)()(i());
           s.push([
             t.id,
-            '.column{width:30%;min-width:250px;border:1px solid #d9d9d9}.column .column__items__item span{display:flex;width:100%;align-items:center}.column .column__items__item span svg{margin-bottom:3px}.column .column__items__item .ant-list-item-meta{margin-left:5px}.column .active{background-color:#d2d2d2}.column .simplebar-scrollbar::before{background-color:gray}.column__header{padding:8px;display:flex;flex-direction:column;gap:8px}.column__header__title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.column__header__actions{gap:8px;display:flex}.column__header__actions button{flex-shrink:0}.column__items{max-height:calc(100vh - 148px);padding:0 8px}.column__items__item{cursor:pointer}.column__items__item .ant-list-item-meta-title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}',
+            '.column{width:30%;min-width:250px;border:1px solid #d9d9d9}.column .column__items__item span{display:flex;width:100%;align-items:center}.column .column__items__item span svg{margin-bottom:3px}.column .column__items__item .ant-list-item-meta{margin-left:5px}.column .active{background-color:#d2d2d2}.column .simplebar-scrollbar::before{background-color:gray}.column__header{padding:8px;display:flex;flex-direction:column;gap:8px}.column__header__title{margin:0;padding:0;font-size:24px;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.column__header__actions{gap:8px;display:flex}.column__header__actions button{flex-shrink:0}.column__items{max-height:calc(100vh - 148px);padding:0 8px}.column__items__item{cursor:pointer}.column__items__item .ant-list-item-meta-title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}',
             '',
           ]);
           const a = s;

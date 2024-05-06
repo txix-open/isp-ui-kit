@@ -3,7 +3,7 @@ import {
   EditOutlined,
   PlusSquareOutlined,
 } from '@ant-design/icons';
-import { Button, List, Popconfirm } from 'antd';
+import { Button, List, Popconfirm, Tooltip } from 'antd';
 import { ChangeEvent, createRef, RefObject, useEffect } from 'react';
 import SimpleBar from 'simplebar-react';
 import { ColumnItem, ColumnProps } from './column.type';
@@ -12,6 +12,7 @@ import SearchInput from '../../SearchInput/SearchInput';
 import './column.scss';
 
 const Column = <T extends {}>({
+  title = '',
   items = [],
   onAddItem = () => {},
   onUpdateItem = () => {},
@@ -66,6 +67,11 @@ const Column = <T extends {}>({
   return (
     <section data-cy="firstColumn" className="column">
       <div className="column__header">
+        {title && (
+          <Tooltip placement="topLeft" title={title} mouseEnterDelay={1}>
+            <h3 className="column__header__title">{title}</h3>
+          </Tooltip>
+        )}
         <div className="column__header__actions">
           <SearchInput
             data-cy="searchInput"
