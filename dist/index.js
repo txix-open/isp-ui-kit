@@ -42976,6 +42976,7 @@
                             w &&
                               (0, i.jsx)(s.Button, {
                                 'data-cy': 'showUpdateBtn',
+                                disabled: V,
                                 onClick: function () {
                                   return m(z);
                                 },

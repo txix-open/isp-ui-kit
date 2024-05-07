@@ -88,6 +88,7 @@ const Column = <T extends {}>({
           {showUpdateBtn && (
             <Button
               data-cy="showUpdateBtn"
+              disabled={isDisabled}
               onClick={() => onUpdateItem(selectedItemId)}
               icon={<EditOutlined />}
             />
