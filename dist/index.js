@@ -43131,6 +43131,42 @@
               });
             });
         },
+        8048: function (t, e, n) {
+          'use strict';
+          var r =
+            (this && this.__rest) ||
+            function (t, e) {
+              var n = {};
+              for (var r in t)
+                Object.prototype.hasOwnProperty.call(t, r) &&
+                  e.indexOf(r) < 0 &&
+                  (n[r] = t[r]);
+              if (
+                null != t &&
+                'function' == typeof Object.getOwnPropertySymbols
+              ) {
+                var i = 0;
+                for (r = Object.getOwnPropertySymbols(t); i < r.length; i++)
+                  e.indexOf(r[i]) < 0 &&
+                    Object.prototype.propertyIsEnumerable.call(t, r[i]) &&
+                    (n[r[i]] = t[r[i]]);
+              }
+              return n;
+            };
+          Object.defineProperty(e, '__esModule', { value: !0 });
+          var i = n(5893);
+          n(6078),
+            (e.default = function (t) {
+              var e = t.children,
+                n = r(t, ['children']);
+              return (0, i.jsx)(
+                'section',
+                Object.assign({ className: 'three-columns' }, n, {
+                  children: e,
+                }),
+              );
+            });
+        },
         4847: function (t, e, n) {
           'use strict';
           var r =
@@ -43139,7 +43175,8 @@
               return t && t.__esModule ? t : { default: t };
             };
           Object.defineProperty(e, '__esModule', { value: !0 }),
-            (e.NotFoundPage =
+            (e.ThreeColumn =
+              e.NotFoundPage =
               e.ErrorPage =
               e.HomePage =
               e.EmptyData =
@@ -43194,6 +43231,13 @@
             enumerable: !0,
             get: function () {
               return r(h).default;
+            },
+          });
+          var u = n(8048);
+          Object.defineProperty(e, 'ThreeColumn', {
+            enumerable: !0,
+            get: function () {
+              return r(u).default;
             },
           });
         },
@@ -56252,6 +56296,20 @@
           ]);
           const a = s;
         },
+        5859: (t, e, n) => {
+          'use strict';
+          n.d(e, { Z: () => a });
+          var r = n(8081),
+            i = n.n(r),
+            o = n(3645),
+            s = n.n(o)()(i());
+          s.push([
+            t.id,
+            '.three-columns{display:flex;background:#fff;box-shadow:inset -1px 0px 0px #d9d9d9;height:100%}.three-columns .column__header{padding:16px 8px}.three-columns .column__header svg{fill:#40a9ff}.three-columns .ant-input-affix-wrapper .ant-input-prefix{margin-left:auto;position:absolute;right:5px;top:50%;transform:translateY(-50%);z-index:10;cursor:pointer}.three-columns .ant-input-affix-wrapper-focused .ant-input-prefix .anticon-search svg{display:none}.three-columns .ant-list-items .column__items__item .ant-list-item-meta-title{font-family:"Roboto",sans-serif;font-size:14px;line-height:22px;font-weight:400;color:var(--ant-primary-color);margin-left:5px}.three-columns .ant-list-items .column__items__item.active{background:#e6f7ff !important}.three-columns .ant-list-items .column__items__item.active .ant-list-item-meta-title{color:#1890ff}.three-columns .ant-list-items .column__items__item.active svg path{fill:#1890ff}',
+            '',
+          ]);
+          const a = s;
+        },
         7149: (t, e, n) => {
           'use strict';
           n.d(e, { Z: () => a });
@@ -64087,6 +64145,31 @@
             d = n(4589),
             p = n.n(d),
             m = n(6112),
+            g = {};
+          (g.styleTagTransform = p()),
+            (g.setAttributes = h()),
+            (g.insert = c().bind(null, 'head')),
+            (g.domAPI = s()),
+            (g.insertStyleElement = f()),
+            i()(m.Z, g);
+          const v = m.Z && m.Z.locals ? m.Z.locals : void 0;
+        },
+        6078: (t, e, n) => {
+          'use strict';
+          n.r(e), n.d(e, { default: () => v });
+          var r = n(3379),
+            i = n.n(r),
+            o = n(7795),
+            s = n.n(o),
+            a = n(569),
+            c = n.n(a),
+            l = n(3565),
+            h = n.n(l),
+            u = n(9216),
+            f = n.n(u),
+            d = n(4589),
+            p = n.n(d),
+            m = n(5859),
             g = {};
           (g.styleTagTransform = p()),
             (g.setAttributes = h()),
