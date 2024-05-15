@@ -78,34 +78,36 @@ const Column = <T extends {}>({
             value={searchValue}
             onChange={handleOnChange}
           />
-          {showAddBtn && (
-            <Button
-              data-cy="onAddItem"
-              onClick={onAddItem}
-              icon={<PlusSquareOutlined />}
-            />
-          )}
-          {showUpdateBtn && (
-            <Button
-              data-cy="showUpdateBtn"
-              disabled={isDisabled}
-              onClick={() => onUpdateItem(selectedItemId)}
-              icon={<EditOutlined />}
-            />
-          )}
-          {showRemoveBtn && (
-            <Popconfirm
-              disabled={isDisabled}
-              onConfirm={handleRemove}
-              title="Вы действительно хотите удалить этот элемент?"
-            >
+          <Button.Group className="button_group">
+            {showAddBtn && (
               <Button
-                data-cy="removeItem"
-                disabled={isDisabled}
-                icon={<DeleteOutlined />}
+                data-cy="onAddItem"
+                onClick={onAddItem}
+                icon={<PlusSquareOutlined />}
               />
-            </Popconfirm>
-          )}
+            )}
+            {showUpdateBtn && (
+              <Button
+                data-cy="showUpdateBtn"
+                disabled={isDisabled}
+                onClick={() => onUpdateItem(selectedItemId)}
+                icon={<EditOutlined />}
+              />
+            )}
+            {showRemoveBtn && (
+              <Popconfirm
+                disabled={isDisabled}
+                onConfirm={handleRemove}
+                title="Вы действительно хотите удалить этот элемент?"
+              >
+                <Button
+                  data-cy="removeItem"
+                  disabled={isDisabled}
+                  icon={<DeleteOutlined />}
+                />
+              </Popconfirm>
+            )}
+          </Button.Group>
         </div>
       </div>
       <SimpleBar className="column__items">
