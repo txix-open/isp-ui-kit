@@ -42967,35 +42967,40 @@
                                 return C(t.target.value, t);
                               },
                             }),
-                            S &&
-                              (0, i.jsx)(s.Button, {
-                                'data-cy': 'onAddItem',
-                                onClick: d,
-                                icon: (0, i.jsx)(o.PlusSquareOutlined, {}),
-                              }),
-                            w &&
-                              (0, i.jsx)(s.Button, {
-                                'data-cy': 'showUpdateBtn',
-                                disabled: V,
-                                onClick: function () {
-                                  return m(z);
-                                },
-                                icon: (0, i.jsx)(o.EditOutlined, {}),
-                              }),
-                            b &&
-                              (0, i.jsx)(s.Popconfirm, {
-                                disabled: V,
-                                onConfirm: function () {
-                                  v(z);
-                                },
-                                title:
-                                  'Вы действительно хотите удалить этот элемент?',
-                                children: (0, i.jsx)(s.Button, {
-                                  'data-cy': 'removeItem',
-                                  disabled: V,
-                                  icon: (0, i.jsx)(o.DeleteOutlined, {}),
-                                }),
-                              }),
+                            (0, i.jsxs)(s.Button.Group, {
+                              className: 'button_group',
+                              children: [
+                                S &&
+                                  (0, i.jsx)(s.Button, {
+                                    'data-cy': 'onAddItem',
+                                    onClick: d,
+                                    icon: (0, i.jsx)(o.PlusSquareOutlined, {}),
+                                  }),
+                                w &&
+                                  (0, i.jsx)(s.Button, {
+                                    'data-cy': 'showUpdateBtn',
+                                    disabled: V,
+                                    onClick: function () {
+                                      return m(z);
+                                    },
+                                    icon: (0, i.jsx)(o.EditOutlined, {}),
+                                  }),
+                                b &&
+                                  (0, i.jsx)(s.Popconfirm, {
+                                    disabled: V,
+                                    onConfirm: function () {
+                                      v(z);
+                                    },
+                                    title:
+                                      'Вы действительно хотите удалить этот элемент?',
+                                    children: (0, i.jsx)(s.Button, {
+                                      'data-cy': 'removeItem',
+                                      disabled: V,
+                                      icon: (0, i.jsx)(o.DeleteOutlined, {}),
+                                    }),
+                                  }),
+                              ],
+                            }),
                           ],
                         }),
                       ],
@@ -56222,7 +56227,7 @@
             s = n.n(o)()(i());
           s.push([
             t.id,
-            '.column{width:250px;border:1px solid #d9d9d9}.column .column__items__item span{display:flex;width:100%;align-items:center}.column .column__items__item span svg{margin-bottom:3px}.column .column__items__item .ant-list-item-meta{margin-left:5px}.column .active{background-color:#d2d2d2}.column .simplebar-scrollbar::before{background-color:gray}.column__header{padding:8px;display:flex;flex-direction:column;gap:8px}.column__header__title{margin:0;padding:0;font-size:17px;font-weight:bold;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.column__header__actions{gap:8px;display:flex}.column__header__actions button{flex-shrink:0}.column__items{max-height:calc(100vh - 148px);padding:0 8px}.column__items__item{cursor:pointer}.column__items__item .ant-list-item-meta-title{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}',
+            '.column{min-width:300px;border:1px solid #d9d9d9}.column__header{padding:8px;display:flex;flex-direction:column;gap:8px}.column__header__title{margin:0;padding:0;font-size:19px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-family:PT Sans,sans-serif;font-weight:500}.column__header__actions{gap:8px;display:flex}.column__header__actions .ant-input-affix-wrapper:hover svg{fill:#1890ff}.column__header__actions .ant-input-affix-wrapper .ant-input-prefix{margin-left:auto;position:absolute;right:5px;top:50%;transform:translateY(-50%);z-index:10;cursor:pointer}.column__header__actions .ant-input-affix-wrapper-focused .ant-input-prefix .anticon-search svg{display:none}.column__header__actions button{flex-shrink:0}.column .ant-list-items .column__items{max-height:calc(100vh - 75px);padding:0 8px}.column .ant-list-items .column__items__item{border-bottom:1px solid #e8e8e8;cursor:pointer}.column .ant-list-items .column__items__item span{display:flex;width:100%;align-items:center}.column .ant-list-items .column__items__item span svg{margin-bottom:3px}.column .ant-list-items .column__items__item:hover:not(.active){background:#fafafa !important}.column .ant-list-items .ant-list-item-meta-title{font-family:"Roboto",sans-serif;font-size:14px;line-height:22px;font-weight:400;color:var(--ant-primary-color);text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.column .ant-list-items .active{background:#e6f7ff !important}.column .ant-list-items .active svg path{fill:#1890ff}.column .ant-list-item{padding:8px;border-bottom:1px solid #e8e8e8;min-height:50px}.column .simplebar-content{padding:0 !important}.column .simplebar-scrollbar::before{background-color:gray}',
             '',
           ]);
           const a = s;
@@ -56236,7 +56241,7 @@
             s = n.n(o)()(i());
           s.push([
             t.id,
-            '.column-content{max-height:calc(100vh - 64px);width:100%}.column-content .simplebar-scrollbar::before{background-color:gray}',
+            '.column-content{max-height:100vh;width:100%}.column-content .simplebar-scrollbar::before{background-color:gray}',
             '',
           ]);
           const a = s;
@@ -56306,7 +56311,7 @@
             s = n.n(o)()(i());
           s.push([
             t.id,
-            '.three-columns{display:flex;background:#fff;box-shadow:inset -1px 0px 0px #d9d9d9;height:100%}.three-columns .column__header{padding:16px 8px}.three-columns .column__header svg{fill:#40a9ff}.three-columns .ant-input-affix-wrapper .ant-input-prefix{margin-left:auto;position:absolute;right:5px;top:50%;transform:translateY(-50%);z-index:10;cursor:pointer}.three-columns .ant-input-affix-wrapper-focused .ant-input-prefix .anticon-search svg{display:none}.three-columns .ant-list-items .column__items__item .ant-list-item-meta-title{font-family:"Roboto",sans-serif;font-size:14px;line-height:22px;font-weight:400;color:var(--ant-primary-color);margin-left:5px}.three-columns .ant-list-items .column__items__item.active{background:#e6f7ff !important}.three-columns .ant-list-items .column__items__item.active .ant-list-item-meta-title{color:#1890ff}.three-columns .ant-list-items .column__items__item.active svg path{fill:#1890ff}',
+            '.three-columns{display:flex;background:#fff;box-shadow:inset -1px 0px 0px #d9d9d9;height:100%}',
             '',
           ]);
           const a = s;
