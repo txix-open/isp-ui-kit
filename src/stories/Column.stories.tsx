@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Column } from '../Layout';
 import { ColumnItem } from '../Layout/Column/column.type';
 import { useState } from 'react';
+import { List, Tooltip } from 'antd';
 
 const meta: Meta<typeof Column> = {
   component: Column,
@@ -104,12 +105,21 @@ export const WithElements: Story = {
       const updatedItems = list.filter((item) => item.id !== id);
       setList(updatedItems);
     };
-
+    const renderColumnItems = (item: ColumnItem<any>) => {
+      return (
+        <List.Item>
+          <Tooltip mouseEnterDelay={1} title={item.name}>
+            <List.Item.Meta title={item.name} description={item.name} />
+          </Tooltip>
+        </List.Item>
+      );
+    };
     return (
       <Column
         {...args}
         title="Заголовок очень длинный"
         items={list}
+        renderItems={renderColumnItems}
         onAddItem={addItem}
         onRemoveItem={removeItemById}
         selectedItemId={selectedId}
