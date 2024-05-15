@@ -1,12 +1,14 @@
 .column {
   min-width: 300px;
   border: 1px solid #d9d9d9;
+  border-top: 0;
 
   &__header {
-    padding: 8px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border-bottom: 1px solid #e8e8e8;
 
     &__title {
       margin: 0;
@@ -57,12 +59,14 @@
     }
   }
 
+  &__items {
+    max-height: calc(100vh - 70px);
+    padding: 0 8px;
+  }
+
   .ant-list-items {
     .column {
       &__items {
-        max-height: calc(100vh - 75px);
-        padding: 0 8px;
-
         &__item {
           border-bottom: 1px solid #e8e8e8;
           cursor: pointer;
@@ -96,6 +100,13 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+    }
+
+    .ant-list-item-meta-description {
+      span {
+        display: inline;
+        align-items: center
+      }
     }
 
     .active {
