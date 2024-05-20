@@ -56254,7 +56254,7 @@
             s = n.n(o),
             a = n(1667),
             c = n.n(a),
-            l = new URL(n(1436), n.b),
+            l = new URL(n(6751), n.b),
             h = s()(i()),
             u = c()(l);
           h.push([
@@ -66174,7 +66174,7 @@
             }
           };
         },
-        1436: (t, e, n) => {
+        6751: (t, e, n) => {
           'use strict';
           t.exports = n.p + '4093d28bf8ed90820acc.svg';
         },
