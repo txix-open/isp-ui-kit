@@ -6,6 +6,7 @@ import {
 import { Button, List, Popconfirm, Tooltip } from 'antd';
 import { ChangeEvent, createRef, RefObject, useEffect } from 'react';
 import SimpleBar from 'simplebar-react';
+import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
 import SearchInput from '../../SearchInput/SearchInput';
 
@@ -65,7 +66,14 @@ const Column = <T extends {}>({
   }
 
   return (
-    <section data-cy="firstColumn" className="column">
+    <ResizableBox
+      minConstraints={[300, 0]}
+      className="column"
+      width={300}
+      resizeHandles={['e']}
+      axis="x"
+      data-cy="firstColumn"
+    >
       <div className="column__header">
         {title && (
           <Tooltip placement="topLeft" title={title} mouseEnterDelay={1}>
@@ -131,7 +139,7 @@ const Column = <T extends {}>({
           )}
         />
       </SimpleBar>
-    </section>
+    </ResizableBox>
   );
 };
 
