@@ -3,6 +3,14 @@
   border: 1px solid #d9d9d9;
   border-top: 0;
 
+  .react-resizable-handle-e {
+    right: -12px;
+    transform: initial;
+  }
+  .react-resizable-handle {
+    background-image: url("../../../assets/icons/resizable-icon.svg") !important;
+  }
+
   &__header {
     padding: 10px;
     display: flex;
