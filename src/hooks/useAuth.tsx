@@ -63,7 +63,10 @@ const useAuth = (): UseAuth => {
       .then(async (response) => {
         if (!response.ok) {
           setLoggedIn({ type: 'basic', value: true });
-          const errorData = await response.json();
+          const errorData = {
+            response: await response.json(),
+            status: response.status,
+          };
           return Promise.reject(errorData);
         }
         setLoggedIn({ type: 'basic', value: true });
@@ -83,7 +86,10 @@ const useAuth = (): UseAuth => {
       .then(async (response) => {
         if (!response.ok) {
           setLoggedIn({ type: 'basic', value: false });
-          const errorData = await response.json();
+          const errorData = {
+            response: await response.json(),
+            status: response.status,
+          };
           return Promise.reject(errorData);
         }
         setLoggedIn({ type: 'basic', value: false });
