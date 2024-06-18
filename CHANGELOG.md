@@ -1,3 +1,5 @@
+### 0.6.0
+- Изменен сборщик с webpack на rollup
 ### 0.5.6
 - Изменена resizable иконка у столбца
 - Изменен padding для column-item
