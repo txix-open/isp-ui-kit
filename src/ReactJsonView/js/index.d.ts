@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export interface ReactJsonViewProps {
   /**
    * This property contains your input JSON.
@@ -278,5 +276,5 @@ export type ThemeKeys =
   | 'tube'
   | 'twilight';
 
-declare const ReactJson: React.ComponentType<ReactJsonViewProps>;
-export default ReactJson;
+declare const ReactJsonView: React.ComponentType<ReactJsonViewProps>;
+export default ReactJsonView;
