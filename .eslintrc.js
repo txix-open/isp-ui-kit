@@ -13,6 +13,7 @@ module.exports = {
     'stories',
     'dist',
     'webpack.config.js',
+    'rollup.config.js',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
