@@ -4,6 +4,8 @@ import { ColumnItem } from '../Layout/Column/column.type';
 import { useState } from 'react';
 import { List, Tooltip } from 'antd';
 
+import './styleConst.css';
+
 const meta: Meta<typeof Column> = {
   component: Column,
   title: 'Layout/ThreeColumns/Column',
