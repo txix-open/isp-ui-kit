@@ -27730,7 +27730,7 @@ Ag(
   '.home-page{align-items:center;display:flex;font-size:calc(1.5vw + 1.5vh);height:100%;justify-content:center}',
 );
 Ag(
-  '.not-found-page{left:50%;max-width:300px;position:absolute;text-align:center;top:50%;transform:translate(-50%,-50%)}',
+  '.not-found-page{left:50%;max-width:300px;position:absolute;text-align:center;top:50%;transform:translate(-50%,-50%)}.not-found-page__children-wrapper{margin-top:16px}',
 );
 Ag(
   '.three-columns{background:#fff;box-shadow:inset -1px 0 0 #d9d9d9;display:flex;height:100%}',
@@ -27885,7 +27885,13 @@ var Gw = Object.freeze({
   NotFoundPage: ({ children: n = null }) =>
     t('section', {
       className: 'not-found-page',
-      children: [e('h2', { children: 'Такой страницы не существует' }), n],
+      children: [
+        e('h2', { children: 'Такой страницы не существует' }),
+        e('div', {
+          className: 'not-found-page__children-wrapper',
+          children: n,
+        }),
+      ],
     }),
   ThreeColumn: (t) => {
     var { children: n } = t,
