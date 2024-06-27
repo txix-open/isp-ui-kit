@@ -5,4 +5,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
   max-width: 300px;
+  &__children-wrapper{
+    margin-top: 16px;
+  }
 }
