@@ -1,3 +1,8 @@
+.not-found-page__layout {
+  height: 100vh;
+  background: var(--ant-layout-light-sider-bg);
+  color: var(--ant-layout-header-color);
+}
 .not-found-page {
   position: absolute;
   top: 50%;
