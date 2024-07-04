@@ -2,6 +2,8 @@ import { Layout, Result } from 'antd';
 import { FC } from 'react';
 import { ErrorPageProps } from './error-page';
 
+import './error-page.scss';
+
 const ErrorPage: FC<ErrorPageProps> = ({ children = null }) => (
   <Layout className="error-page">
     <Result
