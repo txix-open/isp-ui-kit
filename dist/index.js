@@ -27733,6 +27733,7 @@ jg(
 jg(
   '.home-page{align-items:center;display:flex;font-size:calc(1.5vw + 1.5vh);height:100%;justify-content:center}',
 );
+jg('.error-page{height:100vh}');
 jg(
   '.not-found-page__layout{background:var(--ant-layout-light-sider-bg);color:var(--ant-layout-header-color);height:100vh}.not-found-page{left:50%;max-width:300px;position:absolute;text-align:center;top:50%;transform:translate(-50%,-50%)}.not-found-page__children-wrapper{margin-top:16px}',
 );
