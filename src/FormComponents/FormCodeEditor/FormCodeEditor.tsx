@@ -18,11 +18,11 @@ export default <T extends FieldValues>({
     <Controller
       control={control}
       name={name}
-      render={({ field: { onChange } }) => (
+      render={({ field: { onChange, value } }) => (
         <CodeMirror
           editable={!disable}
           height={height}
-          value={'value'.toString()}
+          value={value.toString()}
           extensions={extension}
           onChange={onChange}
         />

@@ -21965,11 +21965,11 @@ var Tg = Object.freeze({
       return e(m, {
         control: t,
         name: n,
-        render: ({ field: { onChange: t } }) =>
+        render: ({ field: { onChange: t, value: n } }) =>
           e(Ag, {
             editable: !o,
             height: i,
-            value: 'value'.toString(),
+            value: n.toString(),
             extensions: s,
             onChange: t,
           }),
