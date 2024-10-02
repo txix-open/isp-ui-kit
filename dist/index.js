@@ -31011,7 +31011,6 @@ var SS = function (e) {
         width: '100%',
         padding: '3px 6px',
         fontFamily: 'monospace',
-        color: t.addKeyModal.color,
         border: 'none',
         boxSizing: 'border-box',
         borderRadius: '2px',
