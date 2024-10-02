@@ -331,7 +331,6 @@ const getDefaultThemeStyling = (theme) => {
       width: '100%',
       padding: '3px 6px',
       fontFamily: 'monospace',
-      color: colors.addKeyModal.color,
       border: 'none',
       boxSizing: 'border-box',
       borderRadius: '2px',
