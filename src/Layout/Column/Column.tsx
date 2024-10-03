@@ -14,6 +14,7 @@ import './column.scss';
 
 const Column = <T extends {}>({
   title = '',
+  searchPlaceholder = 'Найти элемент',
   items = [],
   onAddItem = () => {},
   onUpdateItem = () => {},
@@ -82,6 +83,7 @@ const Column = <T extends {}>({
         )}
         <div className="column__header__actions">
           <SearchInput
+            placeholder={searchPlaceholder}
             data-cy="searchInput"
             value={searchValue}
             onChange={handleOnChange}
