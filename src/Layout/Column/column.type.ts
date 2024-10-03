@@ -4,6 +4,7 @@ export interface ColumnProps<T extends {}> {
   title?: string;
   items: ColumnItem<T>[];
   renderItems: (item: T) => ReactElement;
+  searchPlaceholder?: string;
   searchValue: string;
   selectedItemId: string;
   showAddBtn?: boolean;
