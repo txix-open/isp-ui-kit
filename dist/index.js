@@ -27744,23 +27744,24 @@ var Hw = Object.freeze({
   __proto__: null,
   Column: ({
     title: n = '',
-    items: r = [],
-    onAddItem: i = () => {},
-    onUpdateItem: o = () => {},
-    onRemoveItem: s = () => {},
-    showRemoveBtn: a = !0,
-    showUpdateBtn: l = !0,
-    showAddBtn: d = !0,
-    selectedItemId: p,
-    setSelectedItemId: g,
-    searchValue: m,
-    onChangeSearchValue: O,
-    renderItems: b,
+    searchPlaceholder: r = 'Найти элемент',
+    items: i = [],
+    onAddItem: o = () => {},
+    onUpdateItem: s = () => {},
+    onRemoveItem: a = () => {},
+    showRemoveBtn: l = !0,
+    showUpdateBtn: d = !0,
+    showAddBtn: p = !0,
+    selectedItemId: g,
+    setSelectedItemId: m,
+    searchValue: O,
+    onChangeSearchValue: b,
+    renderItems: v,
   }) => {
-    const v = !p,
-      w = r.reduce((e, t) => ((e[t.id] = P()), e), {});
+    const w = !g,
+      x = i.reduce((e, t) => ((e[t.id] = P()), e), {});
     y(() => {
-      const e = w[p];
+      const e = x[g];
       e &&
         setTimeout(() => {
           e.current &&
@@ -27771,7 +27772,7 @@ var Hw = Object.freeze({
             });
         }, 100);
     }, []);
-    const x = (e) => e.toString() === p;
+    const S = (e) => e.toString() === g;
     return t(Fw, {
       minConstraints: [300, 0],
       className: 'column',
@@ -27797,36 +27798,37 @@ var Hw = Object.freeze({
               className: 'column__header__actions',
               children: [
                 e(Gw, {
+                  placeholder: r,
                   'data-cy': 'searchInput',
-                  value: m,
-                  onChange: (e) => O(e.target.value, e),
+                  value: O,
+                  onChange: (e) => b(e.target.value, e),
                 }),
                 t(h.Group, {
                   className: 'button_group',
                   children: [
-                    d &&
+                    p &&
                       e(h, {
                         'data-cy': 'onAddItem',
-                        onClick: i,
+                        onClick: o,
                         icon: e(cO, {}),
                       }),
-                    l &&
+                    d &&
                       e(h, {
                         'data-cy': 'showUpdateBtn',
-                        disabled: v,
-                        onClick: () => o(p),
+                        disabled: w,
+                        onClick: () => s(g),
                         icon: e(sO, {}),
                       }),
-                    a &&
+                    l &&
                       e(u, {
-                        disabled: v,
+                        disabled: w,
                         onConfirm: () => {
-                          s(p);
+                          a(g);
                         },
                         title: 'Вы действительно хотите удалить этот элемент?',
                         children: e(h, {
                           'data-cy': 'removeItem',
-                          disabled: v,
+                          disabled: w,
                           icon: e(rO, {}),
                         }),
                       }),
@@ -27840,7 +27842,7 @@ var Hw = Object.freeze({
           className: 'column__items',
           children: e(f, {
             dataSource:
-              ((S = r), S.slice().sort((e, t) => e.name.localeCompare(t.name))),
+              ((k = i), k.slice().sort((e, t) => e.name.localeCompare(t.name))),
             renderItem: (t) =>
               e(
                 'div',
@@ -27849,10 +27851,10 @@ var Hw = Object.freeze({
                   tabIndex: 0,
                   role: 'button',
                   'data-cy': 'firstColumnItem',
-                  ref: w[t.id],
-                  className: 'column__items__item ' + (x(t.id) ? 'active' : ''),
-                  onClick: () => g(t.id.toString()),
-                  children: b(t),
+                  ref: x[t.id],
+                  className: 'column__items__item ' + (S(t.id) ? 'active' : ''),
+                  onClick: () => m(t.id.toString()),
+                  children: v(t),
                 },
                 t.id,
               ),
@@ -27860,7 +27862,7 @@ var Hw = Object.freeze({
         }),
       ],
     });
-    var S;
+    var k;
   },
   ContentColumn: ({ children: t = null }) =>
     e(Hv, { className: 'column-content', children: t }),

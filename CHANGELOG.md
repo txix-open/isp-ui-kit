@@ -1,3 +1,5 @@
+### 0.8.0
+- Добавлен placeholder для SearchInput в компоненте Column
 ### 0.7.5
 - Обновлены стили в ReactJsonView
 ### 0.7.4
