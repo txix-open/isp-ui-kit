@@ -2,6 +2,7 @@ import { ColumnProps } from './column.type';
 import './column.scss';
 declare const Column: <T extends {}>({
   title,
+  searchPlaceholder,
   items,
   onAddItem,
   onUpdateItem,
