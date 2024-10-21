@@ -10,10 +10,10 @@
     "dist"
   ],
   "dependencies": {
-    "@codemirror/lang-javascript": "^6.2.1",
-    "@codemirror/lang-json": "^6.0.1",
+    "@monaco-editor/react": "^4.6.0",
     "@uiw/react-codemirror": "^4.21.21",
     "flux": "^4.0.4",
+    "monaco-editor": "^0.52.0",
     "react-base16-styling": "^0.10.0",
     "react-lifecycles-compat": "^3.0.4",
     "react-resizable": "^3.0.5",
