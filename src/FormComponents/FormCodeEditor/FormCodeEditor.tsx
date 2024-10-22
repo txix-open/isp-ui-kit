@@ -1,32 +1,29 @@
-import { javascript } from '@codemirror/lang-javascript';
-import { json } from '@codemirror/lang-json';
-import CodeMirror from '@uiw/react-codemirror';
 import { Controller, FieldValues } from 'react-hook-form';
+import Editor, { loader } from '@monaco-editor/react';
+import * as monaco from 'monaco-editor';
 import { FormCodeEditorProps } from './form-code-editor.type';
 
+loader.config({ monaco });
 export default <T extends FieldValues>({
   control,
   name,
-  language = 'javaScript',
   height = '400px',
-  disable,
-}: FormCodeEditorProps<T>) => {
-  const extension =
-    language === 'javaScript' ? [javascript({ jsx: true })] : [json()];
-
-  return (
-    <Controller
-      control={control}
-      name={name}
-      render={({ field: { onChange, value } }) => (
-        <CodeMirror
-          editable={!disable}
-          height={height}
-          value={value.toString()}
-          extensions={extension}
-          onChange={onChange}
-        />
-      )}
-    />
-  );
-};
+  disable = false,
+  language = 'javascript',
+  ...rest
+}: FormCodeEditorProps<T>) => (
+  <Controller
+    control={control}
+    name={name}
+    render={({ field: { onChange, value } }) => (
+      <Editor
+        options={{ readOnly: disable }}
+        height={height}
+        value={value}
+        language={language}
+        onChange={onChange}
+        {...rest}
+      />
+    )}
+  />
+);
