@@ -9,6 +9,7 @@ const meta: Meta<typeof FormCodeEditor> = {
     label: 'Название CodeEditor',
     name: 'CodeEditor',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
+    language: 'javascript',
   },
   parameters: {
     layout: 'centered',
@@ -49,7 +50,7 @@ export const CodeEditor: Story = {
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ width: '500px' }} onSubmit={handleSubmit(onSubmit)}>
         <FormCodeEditor {...args} />
       </form>
     );
