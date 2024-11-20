@@ -1,9 +1,0 @@
-export { default as FormCheckbox } from './FormCheckbox/FormCheckbox';
-export { default as FormCodeEditor } from './FormCodeEditor/FormCodeEditor';
-export { default as FormInput } from './FormInput/FormInput';
-export { default as FormInputNumber } from './FormInputNumber/FormInputNumber';
-export { default as FormInputPassword } from './FormInputPassword/FormInputPassword';
-export { default as FormRadioGroup } from './FormRadioGroup/FormRadioGroup';
-export { default as FormSelect } from './FormSelect/FormSelect';
-export { default as FormTextArea } from './FormTextArea/FormTextArea';
-export { default as FormTreeSelect } from './FormTreeSelect/FormTreeSelect';
