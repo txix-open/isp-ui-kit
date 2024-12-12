@@ -3,7 +3,14 @@ import Editor, { loader } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor';
 import { FormCodeEditorProps } from './form-code-editor.type';
 
-loader.config({ monaco });
+loader.config({
+  ...monaco,
+  'vs/nls': {
+    availableLanguages: {
+      '*': 'ru',
+    },
+  },
+});
 export default <T extends FieldValues>({
   control,
   name,
