@@ -1,3 +1,5 @@
+### 0.11.0
+- Добавлен компонент ConfigForm
 ### 0.10.1
 - Добавлена локаль в FormCodeEditor
 - Библиотека monaco-editor перенесена из dependencies в peerDependencies
