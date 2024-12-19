@@ -32,7 +32,10 @@ module.exports = {
   },
   // Fine tune rules
   rules: {
+    'jsx-a11y/label-has-associated-control': 'off',
+    'react/jsx-no-useless-fragment': 'off',
     'import/no-extraneous-dependencies': 'off',
+    '@typescript-eslint/no-shadow': 'off',
     'import/prefer-default-export': 'off',
     'no-param-reassign': [2, { props: false }],
     'react/button-has-type': 'off',
