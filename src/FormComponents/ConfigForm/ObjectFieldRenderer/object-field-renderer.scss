@@ -1,0 +1,46 @@
+.object-component {
+  width: 100%;
+  position: relative;
+  padding-top: 15px;
+
+  &__content {
+    overflow: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__empty-field {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__field {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    padding-bottom: 10px;
+
+    div {
+      min-width: 190px;
+      flex-grow: 1;
+    }
+
+    &__remove-btn {
+      flex-shrink: 0;
+    }
+  }
+
+  &__add-btn {
+    bottom: 16px;
+    right: 16px;
+    margin-top: 8px;
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    gap: 8px;
+  }
+}
