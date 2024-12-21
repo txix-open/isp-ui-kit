@@ -1,0 +1,21 @@
+.config-form {
+  padding: 10px;
+  height: 100%;
+  &__item {
+    margin-bottom: 8px;
+  }
+
+  &__content {
+    overflow-x: scroll;
+    height: calc(100vh - 70px);
+  }
+
+  &__control {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+  }
+  &__back_btn {
+    margin-right: 8px;
+  }
+}
