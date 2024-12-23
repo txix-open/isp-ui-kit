@@ -10,6 +10,7 @@ export interface ColumnProps<T extends {}> {
   showAddBtn?: boolean;
   showUpdateBtn?: boolean;
   showRemoveBtn?: boolean;
+  isSortByName?: boolean;
   setSelectedItemId: (itemId: string) => void;
   onChangeSearchValue: (
     value: string,
