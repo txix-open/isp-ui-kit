@@ -27,6 +27,7 @@ const Column = <T extends {}>({
   searchValue,
   onChangeSearchValue,
   renderItems,
+  isSortByName = true,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs: Record<string, RefObject<HTMLDivElement>> = items.reduce(
@@ -122,7 +123,7 @@ const Column = <T extends {}>({
       </div>
       <SimpleBar className="column__items">
         <List
-          dataSource={sortByName(items)}
+          dataSource={isSortByName ? sortByName(items) : items}
           renderItem={(item) => (
             <div
               aria-hidden="true"
