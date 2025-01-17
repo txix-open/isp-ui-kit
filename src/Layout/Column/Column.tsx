@@ -31,11 +31,11 @@ const Column = <T extends {}>({
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs: Record<string, RefObject<HTMLDivElement>> = items.reduce(
-    (acc: Record<string, RefObject<HTMLDivElement>>, value) => {
-      acc[value.id] = createRef<HTMLDivElement>();
-      return acc;
-    },
-    {},
+      (acc: Record<string, RefObject<HTMLDivElement>>, value) => {
+        acc[value.id] = createRef<HTMLDivElement>();
+        return acc;
+      },
+      {},
   );
 
   useEffect(() => {
