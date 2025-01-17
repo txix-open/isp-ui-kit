@@ -1,4 +1,4 @@
-//returns a string "type" of input object
+// returns a string "type" of input object
 export function toType(obj) {
   let type = getType(obj);
   // some extra disambiguation for numbers
@@ -6,7 +6,7 @@ export function toType(obj) {
     if (isNaN(obj)) {
       type = 'nan';
     } else if ((obj | 0) != obj) {
-      //bitwise OR produces integers
+      // bitwise OR produces integers
       type = 'float';
     } else {
       type = 'integer';
@@ -15,7 +15,7 @@ export function toType(obj) {
   return type;
 }
 
-//source: http://stackoverflow.com/questions/7390426/better-way-to-get-type-of-a-javascript-variable/7390612#7390612
+// source: http://stackoverflow.com/questions/7390426/better-way-to-get-type-of-a-javascript-variable/7390612#7390612
 function getType(obj) {
   return {}.toString
     .call(obj)
@@ -23,7 +23,16 @@ function getType(obj) {
     .toLowerCase();
 }
 
-//validation for base-16 themes
+export function escapeString(value) {
+  return value
+    .replace(/\\/g, '\\\\')
+    .replace(/\n/g, '\\n')
+    .replace(/\t/g, '\\t')
+    .replace(/\r/g, '\\r')
+    .replace(/\f/g, '\\f');
+}
+
+// validation for base-16 themes
 export function isTheme(theme) {
   const theme_keys = [
     'base00',
@@ -44,7 +53,7 @@ export function isTheme(theme) {
     'base0F',
   ];
   if (toType(theme) === 'object') {
-    for (var i = 0; i < theme_keys.length; i++) {
+    for (let i = 0; i < theme_keys.length; i++) {
       if (!(theme_keys[i] in theme)) {
         return false;
       }
