@@ -2,7 +2,7 @@ FROM node:20-alpine as builder
 
 WORKDIR /usr/src/app
 COPY . ./
-RUN npm install --legacy-peer-deps && npm run build-storybook
+RUN npm install && npm run build-storybook
 
 
 FROM nginx:alpine-slim
