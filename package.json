@@ -1,6 +1,6 @@
 {
   "name": "isp-ui-kit",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "description": "react ui lib for project",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -71,12 +71,6 @@
     "monaco-editor": "^0.52.2",
     "typescript": "^5.7.3"
   },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "npx eslint --fix"
-    ]
-  },
   "peerDependencies": {
     "antd": ">=5.12",
     "react": ">=18",
@@ -85,11 +79,19 @@
     "monaco-editor": "^0.52.0",
     "react-hook-form": "^7.54.0"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  },
   "scripts": {
     "build": "rollup -c",
-    "pub": "rollup -c && npm publish ",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   }
 }
