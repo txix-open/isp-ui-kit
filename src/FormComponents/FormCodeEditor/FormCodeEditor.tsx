@@ -11,6 +11,16 @@ loader.config({
     },
   },
 });
+
+const formatJSON = (val: string) => {
+  try {
+    const res = JSON.parse(val);
+    return JSON.stringify(res, null, 2);
+  } catch {
+    return val;
+  }
+};
+
 export default <T extends FieldValues>({
   control,
   name,
@@ -28,7 +38,7 @@ export default <T extends FieldValues>({
         height={height}
         value={value}
         language={language}
-        onChange={onChange}
+        onChange={(value) => onChange(value ? formatJSON(value) : '')}
         {...rest}
       />
     )}
