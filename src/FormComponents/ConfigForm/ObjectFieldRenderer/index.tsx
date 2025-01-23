@@ -76,7 +76,7 @@ export const ObjectFieldRenderer = ({
   ) => (
     <>
       {entries.map(([key, value], index) => (
-        <div key={key} className="object-component__field">
+        <div key={index} className="object-component__field">
           <Input
             data-testid={`object-component__key-${index}`}
             placeholder="Ключ"
