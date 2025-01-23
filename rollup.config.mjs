@@ -16,6 +16,7 @@ export default [
             format: 'esm',
             inlineDynamicImports: true,
         },
+        external: ['antd', '@ant-design/cssinjs', 'react', 'react-dom'],
         plugins: [
             del({targets: 'dist/*'}),
             babel({
