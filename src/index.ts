@@ -13,5 +13,5 @@ export {
   useAuth,
   getConfigProperty,
   ReactJsonView,
-  findRouteWithParents
+  findRouteWithParents,
 };
