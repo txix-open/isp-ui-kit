@@ -4,6 +4,7 @@ import SearchInput from './SearchInput/SearchInput';
 import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';
 import ReactJsonView from './ReactJsonView/js';
+import { findRouteWithParents } from './utils/layoutMenuUtils';
 
 export {
   FormComponents,
@@ -12,4 +13,5 @@ export {
   useAuth,
   getConfigProperty,
   ReactJsonView,
+  findRouteWithParents
 };
