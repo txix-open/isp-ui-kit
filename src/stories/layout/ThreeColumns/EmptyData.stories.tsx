@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { EmptyData } from '../Layout';
+import { EmptyData } from '../../../Layout';
 
 const meta: Meta<typeof EmptyData> = {
   component: EmptyData,

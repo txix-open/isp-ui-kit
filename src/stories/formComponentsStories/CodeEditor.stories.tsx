@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormCodeEditor } from '../FormComponents';
+import { FormCodeEditor } from '../../FormComponents';
 
 const meta: Meta<typeof FormCodeEditor> = {
   component: FormCodeEditor,
