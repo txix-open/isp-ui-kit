@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SearchInput from '../SearchInput/SearchInput';
+import SearchInput from '../../SearchInput/SearchInput';
 
 const meta: Meta<typeof SearchInput> = {
+  title: 'Components/SearchInput',
   component: SearchInput,
   parameters: {
     layout: 'centered',

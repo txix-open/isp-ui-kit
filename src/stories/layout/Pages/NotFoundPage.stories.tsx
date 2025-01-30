@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { HomePage, NotFoundPage } from '../Layout';
+import { HomePage, NotFoundPage } from '../../../Layout';
 import { Button } from 'antd';
 
 const meta: Meta<typeof NotFoundPage> = {
   component: NotFoundPage,
-  title: 'Layout/Pages/Not Found Page',
+  title: 'Layout/Pages/NotFoundPage',
   args: {},
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'Приветственная страница',
+    componentSubtitle: 'Компонент для отображения страницы "Страница не найдена". Применяется для обработки запросов к несуществующим маршрутам.',
   },
   argTypes: {
     children: {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ErrorPage } from '../Layout';
+import { ErrorPage } from '../../../Layout';
 import { Button } from 'antd';
 
 const meta: Meta<typeof ErrorPage> = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NoData } from '../Layout';
+import { NoData } from '../../../Layout';
 
 const meta: Meta<typeof NoData> = {
   component: NoData,

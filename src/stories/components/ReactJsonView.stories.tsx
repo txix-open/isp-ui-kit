@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'; // @ts-ignore
-import ReactJsonView from '../ReactJsonView/js';
+import ReactJsonView from '../../ReactJsonView/js';
 
 const json = {
   string: 'this is a test string',
@@ -17,7 +17,7 @@ const json = {
 
 const meta: Meta<typeof ReactJsonView> = {
   component: ReactJsonView,
-  title: 'Компоненты/ReactJsonView',
+  title: 'Components/ReactJsonView',
   argTypes: {
     src: {
       description: 'Данные для отрисовки',
