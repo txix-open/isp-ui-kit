@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { HomePage } from '../Layout';
+import { HomePage } from '../../../Layout';
 
 const meta: Meta<typeof HomePage> = {
   component: HomePage,

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LayoutMenu } from '../Layout';
+import { LayoutMenu } from '../../Layout';
 
 const meta: Meta<typeof LayoutMenu> = {
   component: LayoutMenu,

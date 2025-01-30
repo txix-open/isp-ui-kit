@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Column } from '../Layout';
-import { ColumnItem } from '../Layout/Column/column.type';
+import { Column } from '../../../Layout';
+import { ColumnItem } from '../../../Layout/Column/column.type';
 import { useState } from 'react';
 import { List, Tooltip } from 'antd';
 
-import './styleConst.css';
+import '../../styleConst.css';
 
 const meta: Meta<typeof Column> = {
   component: Column,

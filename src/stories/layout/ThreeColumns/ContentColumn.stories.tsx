@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ContentColumn } from '../Layout';
+import { ContentColumn } from '../../../Layout';
 
 const meta: Meta<typeof ContentColumn> = {
   component: ContentColumn,
   title: 'Layout/ThreeColumns/ContentColumn',
   parameters: {
+    hidden: true,
     layout: 'centered',
     componentSubtitle:
       'Компонент ContentColumn, служит оберткой контента для организации шаблона "Три колонки" ',

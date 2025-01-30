@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormInput } from '../FormComponents';
+import { FormCheckbox } from '../../FormComponents';
 
-const meta: Meta<typeof FormInput> = {
-  component: FormInput,
-  title: 'FormComponents/FormInput',
+const meta: Meta<typeof FormCheckbox> = {
+  component: FormCheckbox,
+  title: 'FormComponents/FormCheckbox',
   args: {
-    label: 'Название Input',
-    name: 'input',
+    label: 'Название checkbox',
+    name: 'checkbox',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Input, который поддерживает react-hook-form',
+        component: 'Компонент Checkbox, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +28,7 @@ const meta: Meta<typeof FormInput> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к Input',
+      description: 'Подпись к checkbox',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,34 +41,33 @@ const meta: Meta<typeof FormInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormInput>;
+type Story = StoryObj<typeof FormCheckbox>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const Input: Story = {
+export const Checkbox: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput {...args} />
+        <FormCheckbox {...args} />
       </form>
     );
   },
 };
-
 export const Validation: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('input', {
+    control.setError('checkbox', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput {...args} />
+        <FormCheckbox {...args} />
       </form>
     );
   },

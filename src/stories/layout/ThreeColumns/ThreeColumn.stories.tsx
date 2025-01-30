@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ThreeColumn } from '../Layout';
+import { ThreeColumn } from '../../../Layout';
 
 const meta: Meta<typeof ThreeColumn> = {
   component: ThreeColumn,

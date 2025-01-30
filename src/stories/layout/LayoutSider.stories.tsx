@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LayoutMenu, LayoutSider } from '../Layout';
+import { LayoutMenu, LayoutSider } from '../../Layout';
 import { useState } from 'react';
 
 const menuConfig = [

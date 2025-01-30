@@ -1,24 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormSelect } from '../FormComponents';
+import { FormTreeSelect } from '../../FormComponents';
 
-const meta: Meta<typeof FormSelect> = {
-  component: FormSelect,
-  title: 'FormComponents/FormSelect',
+const meta: Meta<typeof FormTreeSelect> = {
+  component: FormTreeSelect,
+  title: 'FormComponents/FormTreeSelect',
   args: {
-    label: 'Название Select',
-    name: 'Select',
-    rules: { required: { value: true, message: 'Поле не может быть пустым' } },
-    options: [
-      { value: 'id-1', label: 'name 1' },
-      { value: 'id-2', label: 'name 2' },
+    label: 'Название TreeSelect',
+    name: 'TreeSelect',
+    treeData: [
+      {
+        value: 'name',
+        title: 'name',
+        selectable: false,
+        children: [
+          {
+            value: 'name1.1',
+            title: 'name1.1',
+            selectable: false,
+            children: [],
+          },
+        ],
+      },
+      { value: 'name2', title: 'name2', selectable: false, children: [] },
     ],
+    rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Select, который поддерживает react-hook-form',
+        component: 'Компонент TreeSelect, который поддерживает react-hook-form',
       },
     },
   },
@@ -32,7 +44,7 @@ const meta: Meta<typeof FormSelect> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к Select',
+      description: 'Подпись к TreeSelect',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -40,25 +52,22 @@ const meta: Meta<typeof FormSelect> = {
     controlClassName: {
       description: 'Имя класса для компонента формы',
     },
-    options: {
-      description: ' Ожидает массив объектов {value: "id", label: "Заголовок"}',
-    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FormSelect>;
+type Story = StoryObj<typeof FormTreeSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const Select: Story = {
+export const TreeSelect: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSelect {...args} />
+        <FormTreeSelect {...args} />
       </form>
     );
   },
@@ -68,13 +77,13 @@ export const Validation: Story = {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('Select', {
+    control.setError('TreeSelect', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSelect {...args} />
+        <FormTreeSelect {...args} />
       </form>
     );
   },

@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormTextArea } from '../FormComponents';
+import { FormInput } from '../../FormComponents';
 
-const meta: Meta<typeof FormTextArea> = {
-  component: FormTextArea,
-  title: 'FormComponents/FormTextArea',
+const meta: Meta<typeof FormInput> = {
+  component: FormInput,
+  title: 'FormComponents/FormInput',
   args: {
-    label: 'Название TextArea',
-    name: 'TextArea',
+    label: 'Название Input',
+    name: 'input',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент TextArea, который поддерживает react-hook-form',
+        component: 'Компонент Input, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +28,7 @@ const meta: Meta<typeof FormTextArea> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к TextArea',
+      description: 'Подпись к Input',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,33 +41,34 @@ const meta: Meta<typeof FormTextArea> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormTextArea>;
+type Story = StoryObj<typeof FormInput>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const TextArea: Story = {
+export const Input: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormTextArea {...args} />
+        <FormInput {...args} />
       </form>
     );
   },
 };
+
 export const Validation: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('TextArea', {
+    control.setError('input', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormTextArea {...args} />
+        <FormInput {...args} />
       </form>
     );
   },
