@@ -34,7 +34,9 @@ const LayoutMenu = ({
     return menuConfigs.map((item: ConfigMenuItemType) => ({
       label: item.label,
       key: item.key,
-      className: onHideMenuItem(item.permissions),
+      className: item.className
+        ? item.className + `${onHideMenuItem(item.permissions)}`
+        : onHideMenuItem(item.permissions),
       icon: item.icon,
       children:
         item.children && item.children.length > 0
