@@ -4,6 +4,7 @@ export interface ConfigMenuItemType {
   route?: string;
   label: string;
   key: string;
+  className?: string;
   permissions: string | string[];
   icon?: ReactNode;
   children?: ConfigMenuItemType[];
