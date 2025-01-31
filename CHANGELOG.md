@@ -1,3 +1,5 @@
+### 0.12.3
+- Добавлено необязательное поле className в ConfigMenuItemType
 ### 0.12.2
 - Добавлены node-polyfill
 ### 0.12.1
