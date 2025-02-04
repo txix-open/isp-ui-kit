@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Menu } from 'antd';
 
 import {
@@ -16,17 +16,17 @@ const LayoutMenu = ({
   onClickItem: handleItemChange,
   currentPath,
 }: LayoutMenuPropsType) => {
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
   const [selectedMenuKeys, setSelectedMenuKeys] = useState<string[]>([]);
 
+  const menuKey = useMemo(() => currentPath.split('/')[1], [currentPath]);
+  const routeWithParents = useMemo(
+    () => findRouteWithParents(menuKey, menuConfig),
+    [menuKey, menuConfig],
+  );
+
   useEffect(() => {
-    const menuKey = currentPath.split('/')[1];
-    const routeWithParents = findRouteWithParents(menuKey, menuConfig);
-    if (routeWithParents) {
-      const { route, parentKeys } = routeWithParents;
-      setSelectedMenuKeys([route.key]);
-      setOpenKeys(parentKeys);
-      return;
+    if (routeWithParents?.route) {
+      setSelectedMenuKeys([routeWithParents.route.key]);
     }
   }, [currentPath]);
 
@@ -47,8 +47,7 @@ const LayoutMenu = ({
 
   return (
     <Menu
-      onOpenChange={(keys) => setOpenKeys(keys)}
-      openKeys={openKeys}
+      defaultOpenKeys={routeWithParents?.parentKeys || []}
       selectedKeys={selectedMenuKeys}
       onClick={handleItemChange}
       theme="light"
