@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { FieldValues, useForm } from 'react-hook-form';
 import { ArrayFieldRenderer } from './ArrayFieldRenderer';
 import { RenderFieldByType } from './RenderFieldByType';
-import { ObjectFieldRenderer } from './ObjectFieldRenderer';
+import FormObjectMap from '../FormObjectMap/FormObjectMap';
 import { ConfigFormType, FieldConfigType, FieldType } from './config-form.type';
 
 export default <T extends FieldValues>({
@@ -28,7 +28,7 @@ export default <T extends FieldValues>({
         return (
           <div key={field.id}>
             <label>{field.label}</label>
-            <ObjectFieldRenderer control={control} name={field.name} />
+            <FormObjectMap control={control} name={field.name} />
           </div>
         );
       case FieldType.ARRAY:
