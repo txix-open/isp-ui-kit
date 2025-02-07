@@ -8,3 +8,4 @@ export { default as FormSelect } from './FormSelect/FormSelect';
 export { default as FormTextArea } from './FormTextArea/FormTextArea';
 export { default as FormTreeSelect } from './FormTreeSelect/FormTreeSelect';
 export { default as ConfigForm } from './ConfigForm/ConfigForm';
+export { default as FormObjectMap } from './FormObjectMap/FormObjectMap';

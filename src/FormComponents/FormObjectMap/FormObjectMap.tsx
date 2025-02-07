@@ -3,12 +3,12 @@ import { Button, Input } from 'antd';
 import { useEffect, useState } from 'react';
 import { Controller, useController } from 'react-hook-form';
 
-import './object-field-renderer.scss';
+import './form-object-map.scss';
 import {
   FieldEsiPropsType,
   ObjectEntriesValueType,
   ObjectFieldRendererPropsType,
-} from '../config-form.type';
+} from '../ConfigForm';
 
 export const ObjectFieldRenderer = ({
   name,
@@ -128,3 +128,5 @@ export const ObjectFieldRenderer = ({
     />
   );
 };
+
+export default ObjectFieldRenderer;
