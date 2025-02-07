@@ -1,0 +1,38 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { useForm } from 'react-hook-form';
+import { FormObjectMap } from '../../FormComponents';
+
+const meta: Meta<typeof FormObjectMap> = {
+  component: FormObjectMap,
+  title: 'FormComponents/FormObjectMap',
+  args: {
+    name: 'objectField',
+  },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Компонент FormObjectMap для отрисовки объектов',
+      },
+    },
+  },
+  argTypes: {},
+};
+
+export default meta;
+
+type Story = StoryObj<typeof FormObjectMap>;
+const onSubmit = (data: unknown) => console.log(data);
+
+export const Objectmap: Story = {
+  render: (args) => {
+    const methods = useForm();
+    const { control, handleSubmit } = methods;
+    args.control = control;
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormObjectMap {...args} />
+      </form>
+    );
+  },
+};
