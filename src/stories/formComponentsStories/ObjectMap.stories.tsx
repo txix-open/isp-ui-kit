@@ -16,7 +16,16 @@ const meta: Meta<typeof FormObjectMap> = {
       },
     },
   },
-  argTypes: {},
+  argTypes: {
+    control: {
+      control: false,
+      description: 'параметр, получаемый из react-hook-form',
+    },
+    name: {
+      control: false,
+      description: 'Путь до поля в структуре',
+    },
+  },
 };
 
 export default meta;
