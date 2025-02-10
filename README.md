@@ -21,6 +21,21 @@
 npm install isp-ui-kit
 ```
 
+Дополнительные библиотеки, необходимые для работы библиотеки, исходя из peerDependencies:
+
+```bash
+npm install @monaco-editor/react monaco-editor antd react react-dom react-hook-form
+```
+
+```
+   "@monaco-editor/react": "^4.6.0",
+    "antd": ">=5.12",
+    "monaco-editor": "^0.52.0",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "react-hook-form": "^7.54.0"
+```
+
 ## Возможные проблемы
 
 ### 1. Не подгружаются стили
