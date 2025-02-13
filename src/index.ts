@@ -5,6 +5,7 @@ import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';
 import ReactJsonView from './ReactJsonView/js';
 import { findRouteWithParents } from './utils/layoutMenuUtils';
+import ConfigTable from './components/ConfigTable/ConfigTable';
 
 export {
   FormComponents,
@@ -14,4 +15,5 @@ export {
   getConfigProperty,
   ReactJsonView,
   findRouteWithParents,
+  ConfigTable,
 };

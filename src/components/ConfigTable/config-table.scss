@@ -1,0 +1,28 @@
+.config-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+
+    &__search {
+      min-width: 100px;
+      width: 45%;
+    }
+
+    &__btn {
+      margin-left: auto;
+    }
+  }
+
+  &__table {
+    .ant-table-row {
+      cursor: pointer;
+    }
+  }
+}
