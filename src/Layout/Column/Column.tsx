@@ -8,7 +8,7 @@ import { ChangeEvent, createRef, RefObject, useEffect } from 'react';
 import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
-import SearchInput from '../../SearchInput/SearchInput';
+import SearchInput from '../../components/SearchInput/SearchInput';
 
 import './column.scss';
 
@@ -31,11 +31,11 @@ const Column = <T extends {}>({
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs: Record<string, RefObject<HTMLDivElement>> = items.reduce(
-      (acc: Record<string, RefObject<HTMLDivElement>>, value) => {
-        acc[value.id] = createRef<HTMLDivElement>();
-        return acc;
-      },
-      {},
+    (acc: Record<string, RefObject<HTMLDivElement>>, value) => {
+      acc[value.id] = createRef<HTMLDivElement>();
+      return acc;
+    },
+    {},
   );
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import * as FormComponents from './FormComponents';
 import * as Layout from './Layout';
-import SearchInput from './SearchInput/SearchInput';
+import SearchInput from './components/SearchInput/SearchInput';
 import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';
 import ReactJsonView from './ReactJsonView/js';
