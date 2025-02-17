@@ -1,6 +1,6 @@
 import { ChangeEvent, ReactElement, ReactNode } from 'react';
 
-export interface ColumnProps<T extends {}> {
+export interface ColumnProps<T extends object> {
   title?: string;
   items: ColumnItem<T>[];
   renderItems: (item: T) => ReactElement;
