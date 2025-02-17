@@ -12,7 +12,7 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 
 import './column.scss';
 
-const Column = <T extends {}>({
+const Column = <T extends object>({
   title = '',
   searchPlaceholder = 'Найти элемент',
   items = [],

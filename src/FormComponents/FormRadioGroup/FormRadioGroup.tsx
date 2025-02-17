@@ -40,7 +40,6 @@ export default <T extends FieldValues>({
       validateStatus={error && 'error'}
       help={error && error.message}
     >
-      {/* @ts-ignore */}
       <Radio.Group {...rest} {...field}>
         {renderItems()}
       </Radio.Group>
