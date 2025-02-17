@@ -17,7 +17,6 @@ export default <T extends FieldValues>({
   } = useController({ name, control, rules });
 
   return (
-    // @ts-ignore
     <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
         className="form-tree-select"
@@ -26,7 +25,6 @@ export default <T extends FieldValues>({
         validateStatus={error && 'error'}
         help={error && error.message}
       >
-        {/* @ts-ignore */}
         <TreeSelect {...rest} {...field} />
       </Form.Item>
     </div>

@@ -15,7 +15,6 @@ export default <T extends FieldValues>({
     fieldState: { error },
   } = useController({ name, control, rules });
   return (
-    // @ts-ignore
     <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
         labelCol={{ span: 24 }}

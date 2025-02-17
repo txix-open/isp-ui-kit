@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'; // @ts-ignore
-import ReactJsonView from '../../ReactJsonView/js';
+import ReactJsonView from '../../components/ReactJsonView/js';
 
 const json = {
   string: 'this is a test string',

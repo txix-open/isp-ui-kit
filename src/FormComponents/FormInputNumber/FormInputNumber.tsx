@@ -24,7 +24,6 @@ export default <T extends FieldValues>({
         validateStatus={error && 'error'}
         help={error && error.message}
       >
-        {/* @ts-ignore */}
         <InputNumber {...rest} {...field} autoComplete="off" />
       </Form.Item>
     </div>
