@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { ConfigForm } from '../../FormComponents';
-import { FieldType, InputType } from '../../FormComponents/ConfigForm';
+import {
+  FieldType,
+  InputType,
+} from '../../FormComponents/ConfigForm/config-form.type';
 import '../styles.scss';
 
 const meta: Meta<typeof ConfigForm> = {
