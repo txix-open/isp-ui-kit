@@ -14,13 +14,11 @@ export * from './FormComponents/formTypes';
 
 import * as Layout from './Layout';
 export * from './Layout/Column/column.type';
-export * from './Layout/ContentColumn/content-column';
 export * from './Layout/ErrorPage/error-page';
 export * from './Layout/HomePage/home-page';
 export * from './Layout/LayoutMenu/layout-menu';
 export * from './Layout/LayoutSider/layout-sider';
 export * from './Layout/NotFoundPage/not-found-page';
-export * from './Layout/ThreeColumn/three-column.type';
 
 import ReactJsonView from './components/ReactJsonView/js';
 import ConfigTable from './components/ConfigTable/ConfigTable';

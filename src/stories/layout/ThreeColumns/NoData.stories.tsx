@@ -7,11 +7,11 @@ const meta: Meta<typeof NoData> = {
   parameters: {
     layout: 'centered',
     componentSubtitle:
-      'Вспомогательный компонент ContentColumn, для отображения надписи "Нет данных"',
+      'Вспомогательный компонент для Column, для отображения надписи "Нет данных"',
     docs: {
       description: {
         component:
-          'Может передаваться в ContentColumn для отрисовки соответствующего сообщения',
+          'Может использоваться для отрисовки соответствующего сообщения',
       },
     },
   },
