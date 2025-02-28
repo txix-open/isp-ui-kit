@@ -10,6 +10,9 @@ export * from './FormComponents/FormRadioGroup/form-radio-group.type';
 export * from './FormComponents/FormSelect/form-select.type';
 export * from './FormComponents/FormTextArea/form-text-area.type';
 export * from './FormComponents/FormTreeSelect/form-tree-select.type';
+export * from './FormComponents/FormDatePicker/form-date-picker.type';
+export * from './FormComponents/FormRangeDatePicker/form-range-date-picker.type';
+
 export * from './FormComponents/formTypes';
 
 import * as Layout from './Layout';

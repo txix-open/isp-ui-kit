@@ -10,3 +10,5 @@ export { default as FormTreeSelect } from './FormTreeSelect/FormTreeSelect';
 export { default as ConfigForm } from './ConfigForm/ConfigForm';
 export { default as FormObjectMap } from './FormObjectMap/FormObjectMap';
 export { default as FormArrayMap } from './FormArrayMap/FormArrayMap';
+export { default as FormDatePicker } from './FormDatePicker/FormDatePicker';
+export { default as FormRangeDatePicker } from './FormRangeDatePicker/FormRangeDatePicker';
