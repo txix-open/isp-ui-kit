@@ -13,6 +13,7 @@
     "dist"
   ],
   "dependencies": {
+    "dayjs": "^1.11.13",
     "react-base16-styling": "~0.10.0",
     "react-lifecycles-compat": "~3.0.4",
     "react-resizable": "^3.0.5",
