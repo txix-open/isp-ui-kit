@@ -11,6 +11,7 @@ export default <T extends FieldValues>({
   rules,
   label,
   controlClassName = '',
+  formItemProps,
   ...rest
 }: FormTextAreaProps<T>) => {
   const {
@@ -26,6 +27,7 @@ export default <T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         <TextArea {...rest} {...field} />
       </Form.Item>

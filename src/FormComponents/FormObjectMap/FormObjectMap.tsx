@@ -8,7 +8,7 @@ import {
   FieldEsiPropsType,
   ObjectEntriesValueType,
   ObjectFieldRendererPropsType,
-} from '../ConfigForm';
+} from '../ConfigForm/config-form.type';
 
 export const ObjectFieldRenderer = ({
   name,

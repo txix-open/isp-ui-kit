@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Controller, useController } from 'react-hook-form';
+import { Controller, FieldValues, useController } from 'react-hook-form';
 import { Button, Input, Form } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { FormArrayMapProps } from './form-array-map.type';
 
 import './form-array-map.scss';
 
-const FormArrayMap = ({
+const FormArrayMap = <T extends FieldValues>({
   name,
   control,
   label,
   controlClassName = '',
-}: FormArrayMapProps) => {
+  formItemProps,
+}: FormArrayMapProps<T>) => {
   const [entries, setEntries] = useState<unknown[]>([]);
   const {
     field: { value },
@@ -69,6 +70,7 @@ const FormArrayMap = ({
                       ? `${label}-${index + 1}`
                       : `Элемент массива-${index + 1}`
                   }
+                  {...formItemProps}
                 >
                   <div className="form-array-map__wrapper">
                     <Input

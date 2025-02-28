@@ -14,6 +14,7 @@ export default function FormRangeDatePicker<T extends FieldValues>({
   controlClassName = '',
   format,
   saveDateFormat,
+  formItemProps,
   ...rest
 }: FormRangeDatePickerProps<T>) {
   const {
@@ -40,6 +41,7 @@ export default function FormRangeDatePicker<T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         <RangePicker
           locale={ru}
