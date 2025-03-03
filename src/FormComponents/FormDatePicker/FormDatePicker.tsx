@@ -12,6 +12,7 @@ export default function FormDatePicker<T extends FieldValues>({
   controlClassName = '',
   format,
   saveDateFormat,
+  formItemProps,
   ...rest
 }: FormDatePickerProps<T>) {
   const {
@@ -29,6 +30,7 @@ export default function FormDatePicker<T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         <DatePicker
           locale={ru}

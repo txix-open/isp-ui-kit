@@ -8,6 +8,7 @@ export default <T extends FieldValues>({
   name,
   rules,
   label,
+  formItemProps,
   ...rest
 }: FormInputPasswordProps<T>) => {
   const {
@@ -21,6 +22,7 @@ export default <T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         {/* @ts-ignore */}
         <Input.Password {...rest} {...field} autoComplete="new-password" />

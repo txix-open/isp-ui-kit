@@ -9,6 +9,7 @@ export default <T extends FieldValues>({
   rules,
   label,
   controlClassName = '',
+  formItemProps,
   ...rest
 }: FormInputProps<T>) => {
   const {
@@ -24,6 +25,7 @@ export default <T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         {/* @ts-ignore */}
         <Input {...rest} {...field} autoComplete="off" />

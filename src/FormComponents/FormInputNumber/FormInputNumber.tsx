@@ -9,6 +9,7 @@ export default <T extends FieldValues>({
   rules,
   label,
   controlClassName = '',
+  formItemProps,
   ...rest
 }: FormInputNumberProps<T>) => {
   const {
@@ -23,6 +24,7 @@ export default <T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         <InputNumber {...rest} {...field} autoComplete="off" />
       </Form.Item>

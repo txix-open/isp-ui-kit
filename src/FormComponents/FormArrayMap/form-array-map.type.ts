@@ -1,8 +1,5 @@
-import { Control } from 'react-hook-form';
+import { FieldValues } from 'react-hook-form';
+import { FormComponentProps } from '../formTypes';
 
-export interface FormArrayMapProps {
-  name: string;
-  control: Control<any>;
-  label?: string;
-  controlClassName: string;
-}
+export type FormArrayMapProps<TFormValues extends FieldValues> =
+  FormComponentProps<TFormValues>;
