@@ -9,6 +9,7 @@ export default <T extends FieldValues>({
   name,
   label,
   rules,
+  formItemProps,
   ...rest
 }: FormTreeSelectProps<T>) => {
   const {
@@ -24,6 +25,7 @@ export default <T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         <TreeSelect {...rest} {...field} />
       </Form.Item>

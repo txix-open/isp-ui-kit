@@ -1,3 +1,7 @@
+### 0.15.1
+- Добавлена поддержка пропсов для Form.Item
+### 0.15.0
+- Добавлены компоненты FormDatePicker, FormRangeDatePicker
 ### 0.14.1
 - Удалены компоненты, которые не используются ThreeColumn и ContentColumn
 ### 0.14.0
