@@ -10,6 +10,7 @@ export default <T extends FieldValues>({
   rules,
   type = 'radio',
   items,
+  formItemProps,
   ...rest
 }: FormRadioGroupProps<T>) => {
   const {
@@ -39,6 +40,7 @@ export default <T extends FieldValues>({
       label={label}
       validateStatus={error && 'error'}
       help={error && error.message}
+      {...formItemProps}
     >
       <Radio.Group {...rest} {...field}>
         {renderItems()}

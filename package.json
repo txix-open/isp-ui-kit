@@ -1,6 +1,6 @@
 {
   "name": "isp-ui-kit",
-  "version": "0.14.1",
+  "version": "0.15.1",
   "description": "react ui lib for project",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,6 +13,7 @@
     "dist"
   ],
   "dependencies": {
+    "dayjs": "^1.11.13",
     "react-base16-styling": "~0.10.0",
     "react-lifecycles-compat": "~3.0.4",
     "react-resizable": "^3.0.5",

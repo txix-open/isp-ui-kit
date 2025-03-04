@@ -7,6 +7,7 @@ export default function FormCheckbox<T extends FieldValues>({
   name,
   label,
   rules,
+  formItemProps,
   ...rest
 }: FormCheckboxGroupProps<T>) {
   const {
@@ -19,6 +20,7 @@ export default function FormCheckbox<T extends FieldValues>({
       valuePropName="checked"
       validateStatus={error && 'error'}
       help={error && error.message}
+      {...formItemProps}
     >
       <Checkbox {...rest} checked={field.value} {...field}>
         {label}

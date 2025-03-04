@@ -9,6 +9,7 @@ export default <T extends FieldValues>({
   label,
   mode,
   rules,
+  formItemProps,
   ...rest
 }: FormSelectProps<T>) => {
   const {
@@ -23,6 +24,7 @@ export default <T extends FieldValues>({
         label={label}
         validateStatus={error && 'error'}
         help={error && error.message}
+        {...formItemProps}
       >
         <Select data-cy="form-select" mode={mode} {...rest} {...field} />
       </Form.Item>
