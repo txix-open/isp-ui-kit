@@ -12,3 +12,4 @@ export { default as FormObjectMap } from './FormObjectMap/FormObjectMap';
 export { default as FormArrayMap } from './FormArrayMap/FormArrayMap';
 export { default as FormDatePicker } from './FormDatePicker/FormDatePicker';
 export { default as FormRangeDatePicker } from './FormRangeDatePicker/FormRangeDatePicker';
+export { default as FormAutoComplete } from './FormAutoComplete/FormAutoComplete';
