@@ -6,6 +6,7 @@ export { default as FormInputPassword } from './FormInputPassword/FormInputPassw
 export { default as FormRadioGroup } from './FormRadioGroup/FormRadioGroup';
 export { default as FormSelect } from './FormSelect/FormSelect';
 export { default as FormTextArea } from './FormTextArea/FormTextArea';
+export { default as FormSecretTextArea } from './FormSecretTextArea/FormSecretTextArea';
 export { default as FormTreeSelect } from './FormTreeSelect/FormTreeSelect';
 export { default as ConfigForm } from './ConfigForm/ConfigForm';
 export { default as FormObjectMap } from './FormObjectMap/FormObjectMap';
