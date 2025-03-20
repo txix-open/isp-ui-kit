@@ -95,7 +95,7 @@ export const Example: Story = {
           currentPath="/"
           menuConfig={args.menuConfig}
           onClickItem={() => null}
-          onHideMenuItem={() => ''}
+          onHideMenuItem={() => false}
         />
       </div>
     );
