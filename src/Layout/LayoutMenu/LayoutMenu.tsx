@@ -31,22 +31,27 @@ const LayoutMenu = ({
   }, [currentPath]);
 
   const getMenuItems = (menuConfigs: ConfigMenuItemType[]): MenuItemType[] => {
-    return menuConfigs.map((item: ConfigMenuItemType) => ({
-      label: item.label,
-      key: item.key,
-      className: item.className
-        ? item.className + `${onHideMenuItem(item.permissions)}`
-        : onHideMenuItem(item.permissions),
-      icon: item.icon,
-      children:
-        item.children && item.children.length > 0
+    return menuConfigs.map((item) => {
+      const isHidden = onHideMenuItem(item.permissions);
+      const itemClassName = [item.className, isHidden ? 'hide-item' : '']
+        .filter(Boolean)
+        .join(' ');
+
+      return {
+        label: item.label,
+        key: item.key,
+        icon: item.icon,
+        className: itemClassName,
+        children: item.children?.length
           ? getMenuItems(item.children)
           : undefined,
-    }));
+      };
+    });
   };
 
   return (
     <Menu
+      className="layout-menu"
       defaultOpenKeys={routeWithParents?.parentKeys || []}
       selectedKeys={selectedMenuKeys}
       onClick={handleItemChange}

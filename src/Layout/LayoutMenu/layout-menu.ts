@@ -19,7 +19,7 @@ export interface MenuItemType {
 }
 
 export interface LayoutMenuPropsType {
-  onHideMenuItem: (value: string | string[]) => string;
+  onHideMenuItem: (value: string | string[]) => boolean;
   menuConfig: ConfigMenuItemType[];
   onClickItem: ({ key }: { key: string }) => void;
   currentPath: string;
