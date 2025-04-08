@@ -1,6 +1,6 @@
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Controller, useController } from 'react-hook-form';
 
 import './form-object-map.scss';
@@ -52,6 +52,18 @@ export const ObjectFieldRenderer = ({
       return i === index ? [entry[0], newValue] : entry;
     });
 
+  const handleBlur = (
+    index: number,
+    e: React.FocusEvent<HTMLInputElement>,
+    onChange: (el: ObjectEntriesValueType) => void,
+    num: number,
+  ) => {
+    const trimmedValue = e.target.value.trim();
+    const updatedEntries = getUpdatedEntries(index, trimmedValue, num);
+    setEntries(updatedEntries);
+    onChange(entriesToObject(updatedEntries));
+  };
+
   const handleChangeKey = (
     index: number,
     newKey: string,
@@ -82,12 +94,14 @@ export const ObjectFieldRenderer = ({
             placeholder="Ключ"
             value={key}
             onChange={(e) => handleChangeKey(index, e.target.value, onChange)}
+            onBlur={(e) => handleBlur(index, e, onChange, 0)}
           />
           <Input
             data-testid={`object-component__value-${index}`}
             placeholder="Значение"
             value={value}
             onChange={(e) => handleChangeValue(index, e.target.value, onChange)}
+            onBlur={(e) => handleBlur(index, e, onChange, 1)}
           />
           <Button
             data-testid={`object-component__remove-btn-${index}`}
