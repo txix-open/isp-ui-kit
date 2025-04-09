@@ -53,6 +53,17 @@ const FormArrayMap = <T extends FieldValues>({
     onChange(updatedEntries.filter((entry) => entry !== ''));
   };
 
+  const handleBlur = (
+    index: number,
+    e: React.FocusEvent<HTMLInputElement>,
+    onChange: (el: unknown[]) => void,
+  ) => {
+    const trimmedValue = e.target.value.trim();
+    const updatedEntries = getUpdatedEntries(index, trimmedValue);
+    setEntries(updatedEntries);
+    onChange(updatedEntries.filter((entry) => entry !== ''));
+  };
+
   return (
     <div>
       {entries.map((item, index) => (
@@ -77,6 +88,7 @@ const FormArrayMap = <T extends FieldValues>({
                       onChange={(e) =>
                         handleChange(index, e.target.value, field.onChange)
                       }
+                      onBlur={(e) => handleBlur(index, e, field.onChange)}
                       value={String(item)}
                       placeholder="Значение"
                     />

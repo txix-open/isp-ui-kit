@@ -19,6 +19,12 @@ export default <T extends FieldValues>({
     fieldState: { error },
   } = useController({ name, control, rules });
 
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    const trimmedValue = e.target.value.trim();
+    field.onChange(trimmedValue);
+    field.onBlur();
+  };
+
   return (
     <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
@@ -29,7 +35,7 @@ export default <T extends FieldValues>({
         help={error && error.message}
         {...formItemProps}
       >
-        <TextArea {...rest} {...field} />
+        <TextArea {...rest} {...field} onBlur={handleBlur} />
       </Form.Item>
     </div>
   );

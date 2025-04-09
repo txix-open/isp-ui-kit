@@ -27,6 +27,12 @@ export default <T extends FieldValues>({
     setIsMasked((prev) => !prev);
   };
 
+  const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    const trimmedValue = e.target.value.trim();
+    field.onChange(trimmedValue);
+    field.onBlur();
+  };
+
   return (
     <div
       className={`form-secret-textarea ${rules?.required ? 'requiredInput' : ''}`}
@@ -43,6 +49,7 @@ export default <T extends FieldValues>({
           <TextArea
             {...rest}
             {...field}
+            onBlur={handleBlur}
             value={field.value || ''}
             className={isMasked ? 'form-secret-textarea__masked' : ''}
             autoComplete="new-password"
