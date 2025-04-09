@@ -17,6 +17,12 @@ export default <T extends FieldValues>({
     fieldState: { error },
   } = useController({ name, control, rules });
 
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const trimmedValue = e.target.value.trim();
+    field.onChange(trimmedValue);
+    field.onBlur();
+  };
+
   return (
     <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
@@ -28,7 +34,7 @@ export default <T extends FieldValues>({
         {...formItemProps}
       >
         {/* @ts-ignore */}
-        <Input {...rest} {...field} autoComplete="off" />
+        <Input {...rest} {...field} onBlur={handleBlur} autoComplete="off" />
       </Form.Item>
     </div>
   );

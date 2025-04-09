@@ -15,6 +15,13 @@ export default <T extends FieldValues>({
     field,
     fieldState: { error },
   } = useController({ name, control, rules });
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const trimmedValue = e.target.value.trim();
+    field.onChange(trimmedValue);
+    field.onBlur();
+  };
+
   return (
     <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
       <Form.Item
@@ -25,7 +32,12 @@ export default <T extends FieldValues>({
         {...formItemProps}
       >
         {/* @ts-ignore */}
-        <Input.Password {...rest} {...field} autoComplete="new-password" />
+        <Input.Password
+          {...rest}
+          {...field}
+          onBlur={handleBlur}
+          autoComplete="new-password"
+        />
       </Form.Item>
     </div>
   );
