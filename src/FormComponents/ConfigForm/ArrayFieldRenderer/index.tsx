@@ -4,10 +4,11 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { RenderFieldByType } from '../RenderFieldByType';
 import './array-field-renderer.scss';
 import { InputType, SettingsType } from '../config-form.type';
+import { ReactNode } from 'react';
 
 interface ArrayFieldRendererProps {
   name: string;
-  label: string;
+  label: ReactNode;
   inputType: InputType;
   control: Control<any>;
   settings: SettingsType;
