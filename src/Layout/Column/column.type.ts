@@ -1,7 +1,7 @@
 import { ChangeEvent, ReactElement, ReactNode } from 'react';
 
 export interface ColumnProps<T extends object> {
-  title?: string;
+  title?: ReactNode;
   items: ColumnItem<T>[];
   renderItems: (item: T) => ReactElement;
   searchPlaceholder?: string;

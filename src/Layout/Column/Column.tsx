@@ -9,6 +9,7 @@ import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
 import SearchInput from '../../components/SearchInput/SearchInput';
+import { pluralize } from '../../utils/columnUtils';
 
 import './column.scss';
 
@@ -37,6 +38,7 @@ const Column = <T extends object>({
     },
     {},
   );
+  const itemsCount = items.length;
 
   useEffect(() => {
     const currentRef = refs[selectedItemId];
@@ -78,9 +80,18 @@ const Column = <T extends object>({
     >
       <div className="column__header">
         {title && (
-          <Tooltip placement="topLeft" title={title} mouseEnterDelay={1}>
-            <h3 className="column__header__title">{title}</h3>
-          </Tooltip>
+          <div className="column__header__wrap">
+            <Tooltip placement="topLeft" title={title} mouseEnterDelay={1}>
+              <h3 className="column__header__wrap__title">{title}</h3>
+            </Tooltip>
+            {itemsCount > 0 && (
+              <span className="column__header__wrap__count">
+                {itemsCount +
+                  ' ' +
+                  pluralize(itemsCount, ['элемент', 'элемента', 'элементов'])}
+              </span>
+            )}
+          </div>
         )}
         <div className="column__header__actions">
           <SearchInput
