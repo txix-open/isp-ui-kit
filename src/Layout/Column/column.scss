@@ -101,6 +101,11 @@
 
         &__label {
           color: rgba(0, 0, 0, 0.45);
+
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          line-height: 1;
           margin-right: 4px;
           white-space: nowrap;
           flex-shrink: 0;
@@ -113,6 +118,10 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
+      }
+
+      &__button {
+        flex-shrink: 0;
       }
     }
   }

@@ -10,7 +10,6 @@ export interface ColumnProps<T extends object> {
   showAddBtn?: boolean;
   showUpdateBtn?: boolean;
   showRemoveBtn?: boolean;
-  isSortByName?: boolean;
   columnKey?: string;
   setSelectedItemId: (itemId: string) => void;
   onChangeSearchValue: (
@@ -20,6 +19,7 @@ export interface ColumnProps<T extends object> {
   onAddItem?: () => void;
   onUpdateItem?: (id: string) => void;
   onRemoveItem?: (id: string) => void;
+  sortableFields?: SortItemType<T>[];
 }
 
 export type ColumnItem<T extends {}> = T & {
@@ -27,3 +27,5 @@ export type ColumnItem<T extends {}> = T & {
   id: string | number;
   icon?: ReactNode;
 };
+
+export type SortItemType<T> = { value: keyof T; label: string };
