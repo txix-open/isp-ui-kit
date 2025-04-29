@@ -2,15 +2,16 @@ import {
   DeleteOutlined,
   EditOutlined,
   PlusSquareOutlined,
+  SortAscendingOutlined,
+  SortDescendingOutlined,
 } from '@ant-design/icons';
-import { Button, List, Popconfirm, Tooltip } from 'antd';
-import { ChangeEvent, createRef, RefObject, useEffect, useState } from 'react';
+import { Button, List, Popconfirm, Tooltip, Select, Space } from 'antd';
+import { createRef, RefObject, useEffect, useMemo, useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { pluralize } from '../../utils/columnUtils';
-
 import './column.scss';
 
 const Column = <T extends object>({
@@ -23,7 +24,7 @@ const Column = <T extends object>({
   showRemoveBtn = true,
   showUpdateBtn = true,
   showAddBtn = true,
-  isSortByName = true,
+  sortableFields = [],
   selectedItemId,
   setSelectedItemId,
   searchValue,
@@ -31,15 +32,18 @@ const Column = <T extends object>({
   renderItems,
   columnKey,
 }: ColumnProps<T>) => {
+  const [sortBy, setSortBy] = useState<keyof ColumnItem<T>>('name');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+
   const isDisabled = !selectedItemId;
-  const refs: Record<string, RefObject<HTMLDivElement>> = items.reduce(
-    (acc: Record<string, RefObject<HTMLDivElement>>, value) => {
-      acc[value.id] = createRef<HTMLDivElement>();
-      return acc;
-    },
-    {},
+  const refs = useMemo(
+    () =>
+      items.reduce((acc: Record<string, RefObject<HTMLDivElement>>, item) => {
+        acc[item.id] = createRef<HTMLDivElement>();
+        return acc;
+      }, {}),
+    [items],
   );
-  const itemsCount = items.length;
   const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
 
   useEffect(() => {
@@ -58,32 +62,48 @@ const Column = <T extends object>({
 
   useEffect(() => {
     const currentRef = refs[selectedItemId];
-    if (currentRef) {
+    if (currentRef?.current) {
       setTimeout(() => {
-        if (currentRef.current) {
-          currentRef.current.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-            inline: 'nearest',
-          });
-        }
+        currentRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        });
       }, 100);
     }
-  }, []);
+  }, [selectedItemId, refs]);
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) =>
-    onChangeSearchValue(e.target.value, e);
+  const handleSortChange = (
+    newSortBy: keyof ColumnItem<T>,
+    newDirection: 'asc' | 'desc',
+  ) => {
+    setSortBy(newSortBy);
+    setSortDirection(newDirection);
+  };
 
-  const handleRemove = () => {
-    onRemoveItem(selectedItemId);
+  const sortItems = (arr: ColumnItem<T>[]) => {
+    return arr.slice().sort((a, b) => {
+      const valueA = a[sortBy];
+      const valueB = b[sortBy];
+
+      if (typeof valueA === 'string' && typeof valueB === 'string') {
+        return sortDirection === 'asc'
+          ? valueA.localeCompare(valueB)
+          : valueB.localeCompare(valueA);
+      }
+
+      if (typeof valueA === 'number' && typeof valueB === 'number') {
+        return sortDirection === 'asc' ? valueA - valueB : valueB - valueA;
+      }
+
+      return sortDirection === 'asc'
+        ? String(valueA).localeCompare(String(valueB))
+        : String(valueB).localeCompare(String(valueA));
+    });
   };
 
   const checkIsActive = (id: string | number): boolean =>
     id.toString() === selectedItemId;
-
-  function sortByName(arr: ColumnItem<T>[]) {
-    return arr.slice().sort((a, b) => a.name.localeCompare(b.name));
-  }
 
   return (
     <ResizableBox
@@ -110,11 +130,11 @@ const Column = <T extends object>({
             <Tooltip placement="topLeft" title={title} mouseEnterDelay={1}>
               <h3 className="column__header__wrap__title">{title}</h3>
             </Tooltip>
-            {itemsCount > 0 && (
+            {items.length > 0 && (
               <span className="column__header__wrap__count">
-                {itemsCount +
+                {items.length +
                   ' ' +
-                  pluralize(itemsCount, ['элемент', 'элемента', 'элементов'])}
+                  pluralize(items.length, ['элемент', 'элемента', 'элементов'])}
               </span>
             )}
           </div>
@@ -124,9 +144,9 @@ const Column = <T extends object>({
             placeholder={searchPlaceholder}
             data-cy="searchInput"
             value={searchValue}
-            onChange={handleOnChange}
+            onChange={(e) => onChangeSearchValue(e.target.value, e)}
           />
-          <Button.Group className="button_group">
+          <Space.Compact block className="button_group">
             {showAddBtn && (
               <Button
                 data-cy="onAddItem"
@@ -145,7 +165,7 @@ const Column = <T extends object>({
             {showRemoveBtn && (
               <Popconfirm
                 disabled={isDisabled}
-                onConfirm={handleRemove}
+                onConfirm={() => onRemoveItem(selectedItemId)}
                 title="Вы действительно хотите удалить этот элемент?"
               >
                 <Button
@@ -155,12 +175,96 @@ const Column = <T extends object>({
                 />
               </Popconfirm>
             )}
-          </Button.Group>
+          </Space.Compact>
         </div>
+        {sortableFields.length > 0 && (
+          <div className="column__header__sort-controls">
+            <div className="column__header__sort-controls__sort-select">
+              <span className="column__header__sort-controls__sort-select__label">
+                Сортировка
+              </span>
+              <Select
+                variant="borderless"
+                size="small"
+                value={String(sortBy)}
+                onChange={(value) =>
+                  handleSortChange(value as keyof T, sortDirection)
+                }
+                options={sortableFields.map((field) => ({
+                  value: field.value,
+                  label: field.label,
+                }))}
+              />
+            </div>
+            <Button
+              size="small"
+              icon={
+                sortDirection === 'asc' ? (
+                  <SortDescendingOutlined />
+                ) : (
+                  <SortAscendingOutlined />
+                )
+              }
+              onClick={() =>
+                handleSortChange(
+                  sortBy,
+                  sortDirection === 'asc' ? 'desc' : 'asc',
+                )
+              }
+            />
+          </div>
+          // <Collapse
+          //   className="column__header__sort-controls"
+          //   ghost
+          //   items={[
+          //     {
+          //       key: '1',
+          //       label: (
+          //         <div className="column__header__sort-controls__label">
+          //           Сортировка
+          //         </div>
+          //       ),
+          //       children: (
+          //         <>
+          //           <div className="column__header__sort-controls__buttons">
+          //             <Select
+          //               size="small"
+          //               value={String(sortBy)}
+          //               onChange={(value) =>
+          //                 handleSortChange(value as keyof T, sortDirection)
+          //               }
+          //               options={sortableFields.map((field) => ({
+          //                 value: field.value,
+          //                 label: field.label,
+          //               }))}
+          //             />
+          //             <Button
+          //               size="small"
+          //               icon={
+          //                 sortDirection === 'asc' ? (
+          //                   <SortDescendingOutlined />
+          //                 ) : (
+          //                   <SortAscendingOutlined />
+          //                 )
+          //               }
+          //               onClick={() =>
+          //                 handleSortChange(
+          //                   sortBy,
+          //                   sortDirection === 'asc' ? 'desc' : 'asc',
+          //                 )
+          //               }
+          //             />
+          //           </div>
+          //         </>
+          //       ),
+          //     },
+          //   ]}
+          // />
+        )}
       </div>
       <SimpleBar className="column__items">
         <List
-          dataSource={isSortByName ? sortByName(items) : items}
+          dataSource={sortItems(items)}
           renderItem={(item) => (
             <div
               aria-hidden="true"
@@ -173,6 +277,9 @@ const Column = <T extends object>({
                 checkIsActive(item.id) ? 'active' : ''
               }`}
               onClick={() => setSelectedItemId(item.id.toString())}
+              onKeyDown={(e) =>
+                e.key === 'Enter' && setSelectedItemId(item.id.toString())
+              }
             >
               {renderItems(item)}
             </div>
