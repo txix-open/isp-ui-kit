@@ -18,7 +18,11 @@ const LayoutMenu = ({
 }: LayoutMenuPropsType) => {
   const [selectedMenuKeys, setSelectedMenuKeys] = useState<string[]>([]);
 
-  const menuKey = useMemo(() => currentPath.split('/')[1], [currentPath]);
+  const menuKey = useMemo(() => {
+    const segments = currentPath.replace(/^\/+/, '').split('/');
+    return segments[0];
+  }, [currentPath]);
+
   const routeWithParents = useMemo(
     () => findRouteWithParents(menuKey, menuConfig),
     [menuKey, menuConfig],
