@@ -4,7 +4,7 @@ import {
   PlusSquareOutlined,
 } from '@ant-design/icons';
 import { Button, List, Popconfirm, Tooltip } from 'antd';
-import { ChangeEvent, createRef, RefObject, useEffect } from 'react';
+import { ChangeEvent, createRef, RefObject, useEffect, useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
@@ -23,12 +23,13 @@ const Column = <T extends object>({
   showRemoveBtn = true,
   showUpdateBtn = true,
   showAddBtn = true,
+  isSortByName = true,
   selectedItemId,
   setSelectedItemId,
   searchValue,
   onChangeSearchValue,
   renderItems,
-  isSortByName = true,
+  columnKey,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs: Record<string, RefObject<HTMLDivElement>> = items.reduce(
@@ -39,6 +40,21 @@ const Column = <T extends object>({
     {},
   );
   const itemsCount = items.length;
+  const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
+
+  useEffect(() => {
+    const initColumnWidth = () => {
+      const segments = window.location.pathname.replace(/^\/+/, '').split('/');
+      const path = segments[0];
+      const storageKey = columnKey ? `${path}_${columnKey}` : path;
+      const storedWidth = localStorage.getItem(storageKey);
+      if (storedWidth) {
+        setCurrentColumnWidth(Number(storedWidth));
+      }
+    };
+
+    initColumnWidth();
+  }, [columnKey]);
 
   useEffect(() => {
     const currentRef = refs[selectedItemId];
@@ -73,10 +89,20 @@ const Column = <T extends object>({
     <ResizableBox
       minConstraints={[300, 0]}
       className="column"
-      width={300}
+      width={currentColumnWidth}
       resizeHandles={['e']}
       axis="x"
       data-cy="firstColumn"
+      handle={<span className="custom-resize-handle" />}
+      onResizeStop={(_, { size }) => {
+        setCurrentColumnWidth(size.width);
+        const segments = window.location.pathname
+          .replace(/^\/+/, '')
+          .split('/');
+        const path = segments[0];
+        const storageKey = columnKey ? `${path}_${columnKey}` : path;
+        localStorage.setItem(storageKey, size.width.toString());
+      }}
     >
       <div className="column__header">
         {title && (
