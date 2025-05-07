@@ -11,6 +11,7 @@ export interface ColumnProps<T extends object> {
   showUpdateBtn?: boolean;
   showRemoveBtn?: boolean;
   isSortByName?: boolean;
+  columnKey?: string;
   setSelectedItemId: (itemId: string) => void;
   onChangeSearchValue: (
     value: string,
