@@ -126,6 +126,10 @@ export const WithElements: Story = {
         onRemoveItem={removeItemById}
         selectedItemId={selectedId}
         setSelectedItemId={onSelected}
+        sortableFields={[
+          { label: 'айди', value: 'id' },
+          { label: 'Наименование очень длинное', value: 'name' },
+        ]}
       />
     );
   },
