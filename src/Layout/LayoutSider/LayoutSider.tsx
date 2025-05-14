@@ -3,6 +3,8 @@ import { LayoutSiderPropsType } from './layout-sider';
 
 const { Sider } = Layout;
 
+import './layout-sider.scss';
+
 const LayoutSider = ({
   collapsed,
   children,
@@ -10,6 +12,7 @@ const LayoutSider = ({
 }: LayoutSiderPropsType) => {
   return (
     <Sider
+      className="layout-sider"
       width="250px"
       data-cy="layout-sider"
       theme="light"
