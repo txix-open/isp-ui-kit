@@ -30,7 +30,7 @@
       &__count {
         display: flex;
         align-items: center;
-        color: rgba(0, 0, 0, 0.45);
+        color: var(--ant-color-text-tertiary);
       }
 
       &__title {
@@ -100,7 +100,7 @@
         min-width: 0;
 
         &__label {
-          color: rgba(0, 0, 0, 0.45);
+          color: var(--ant-color-text-tertiary);
 
           display: flex;
           align-items: center;
