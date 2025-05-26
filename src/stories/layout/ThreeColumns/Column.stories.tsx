@@ -32,6 +32,20 @@ const meta: Meta<typeof Column> = {
     renderItems: {
       description: 'Функция рендера элементов списка',
     },
+    sortableFields: {
+      description: [
+        'Список полей, по которым доступна сортировка в таблице.',
+        '',
+        'Каждый элемент представляет собой объект с полями:',
+        '- `label`: отображаемое название поля',
+        '- `value`: ключ, соответствующий `item.id`, по которому осуществляется сортировка',
+      ].join('\n'),
+      table: {
+        type: {
+          summary: 'Array<{ label: string; value: string }>',
+        },
+      },
+    },
     searchValue: {
       description: 'Значение поля поиска',
     },
