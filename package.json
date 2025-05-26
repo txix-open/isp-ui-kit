@@ -1,6 +1,6 @@
 {
   "name": "isp-ui-kit",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "description": "react ui lib for project",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
