@@ -70,17 +70,21 @@ const Column = <T extends object>({
   }, [columnKey]);
 
   useEffect(() => {
+    if (!selectedItemId) {
+      return;
+    }
+
     const currentRef = refs[selectedItemId];
     if (currentRef?.current) {
       setTimeout(() => {
         currentRef.current?.scrollIntoView({
           behavior: 'smooth',
-          block: 'start',
+          block: 'center',
           inline: 'nearest',
         });
       }, 100);
     }
-  }, [selectedItemId, refs]);
+  }, [selectedItemId]);
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
