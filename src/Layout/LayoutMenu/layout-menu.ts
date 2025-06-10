@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface ConfigMenuItemType {
-  route?: string;
+  route?: string | string[];
   label: string;
   key: string;
   className?: string;
