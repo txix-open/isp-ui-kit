@@ -31,14 +31,11 @@ const Column = <T extends object>({
   onChangeSearchValue,
   renderItems,
   columnKey,
+  sortValue,
+  onChangeSortValue,
+  directionValue,
+  onChangeDirectionValue,
 }: ColumnProps<T>) => {
-  const [sortBy, setSortBy] = useState<keyof ColumnItem<T> | undefined>(
-    undefined,
-  );
-  const [sortDirection, setSortDirection] = useState<
-    'asc' | 'desc' | undefined
-  >(undefined);
-
   const isDisabled = !selectedItemId;
   const refs = useMemo(
     () =>
@@ -88,34 +85,33 @@ const Column = <T extends object>({
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
-      setSortBy(undefined);
-      setSortDirection(undefined);
+      onChangeSortValue?.(undefined);
+      onChangeDirectionValue?.(undefined);
     } else {
-      setSortBy(value as keyof ColumnItem<T>);
-      setSortDirection(sortDirection || 'asc');
+      onChangeSortValue?.(value as keyof T);
+      onChangeDirectionValue?.(directionValue || 'asc');
     }
   };
 
   const sortItems = (arr: ColumnItem<T>[]) => {
-    if (!sortBy || !sortDirection) {
+    if (!sortValue || !directionValue) {
       return arr;
     }
 
     return arr.slice().sort((a, b) => {
-      const valueA = a[sortBy];
-      const valueB = b[sortBy];
-
+      const valueA = a[sortValue];
+      const valueB = b[sortValue];
       if (typeof valueA === 'string' && typeof valueB === 'string') {
-        return sortDirection === 'asc'
+        return directionValue === 'asc'
           ? valueA.localeCompare(valueB)
           : valueB.localeCompare(valueA);
       }
 
       if (typeof valueA === 'number' && typeof valueB === 'number') {
-        return sortDirection === 'asc' ? valueA - valueB : valueB - valueA;
+        return directionValue === 'asc' ? valueA - valueB : valueB - valueA;
       }
 
-      return sortDirection === 'asc'
+      return directionValue === 'asc'
         ? String(valueA).localeCompare(String(valueB))
         : String(valueB).localeCompare(String(valueA));
     });
@@ -206,7 +202,7 @@ const Column = <T extends object>({
                 placeholder="Выберите поле"
                 variant="borderless"
                 size="small"
-                value={sortBy ? String(sortBy) : 'default'}
+                value={sortValue ? String(sortValue) : 'default'}
                 onChange={handleSortChange}
                 options={sortOptions}
               />
@@ -215,15 +211,19 @@ const Column = <T extends object>({
               className="column__header__sort-controls__button"
               size="small"
               icon={
-                sortDirection === 'asc' ? (
+                directionValue === 'asc' ? (
                   <SortDescendingOutlined />
                 ) : (
                   <SortAscendingOutlined />
                 )
               }
-              disabled={!sortBy}
+              disabled={!sortValue}
               onClick={() =>
-                setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+                onChangeDirectionValue
+                  ? onChangeDirectionValue(
+                      directionValue === 'asc' ? 'desc' : 'asc',
+                    )
+                  : null
               }
             />
           </div>
