@@ -6,22 +6,26 @@ export const findRouteWithParents = (
   parentKeys: string[] = [],
 ): { route: ConfigMenuItemType; parentKeys: string[] } | null => {
   for (const route of routers) {
-    if (route.key === key) {
+    const routePaths = Array.isArray(route.route)
+      ? route.route
+      : route.route
+        ? [route.route]
+        : [];
+
+    if (route.key === key || routePaths.includes(key)) {
       return { route, parentKeys };
     }
-    if (route && route.children && route.children.length > 0) {
-      const routeWithParents = findRouteWithParents(key, route.children, [
+
+    if (route.children?.length) {
+      const childResult = findRouteWithParents(key, route.children, [
         ...parentKeys,
         route.key,
       ]);
-      if (routeWithParents) {
-        const { route: childRoute, parentKeys: childParentKeys } =
-          routeWithParents;
-        if (childRoute) {
-          return { route: childRoute, parentKeys: childParentKeys };
-        }
+      if (childResult) {
+        return childResult;
       }
     }
   }
+
   return null;
 };
