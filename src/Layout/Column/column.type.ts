@@ -20,6 +20,10 @@ export interface ColumnProps<T extends object> {
   onUpdateItem?: (id: string) => void;
   onRemoveItem?: (id: string) => void;
   sortableFields?: SortItemType<T>[];
+  sortValue?: keyof T;
+  onChangeSortValue?: (value: keyof T | undefined) => void;
+  directionValue?: string;
+  onChangeDirectionValue?: (value: string | undefined) => void;
 }
 
 export type ColumnItem<T extends {}> = T & {
