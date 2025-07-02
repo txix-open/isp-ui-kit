@@ -80,6 +80,7 @@ export interface FormConfigType {
 export interface ObjectFieldRendererPropsType {
   name: string;
   control: Control<any>;
+  disabled?: boolean;
 }
 
 export type FieldEsiPropsType = string[][];

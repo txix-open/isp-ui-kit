@@ -13,6 +13,7 @@ import {
 export const ObjectFieldRenderer = ({
   name,
   control,
+  disabled = false,
 }: ObjectFieldRendererPropsType) => {
   const [entries, setEntries] = useState<FieldEsiPropsType>([]);
   const {
@@ -90,6 +91,7 @@ export const ObjectFieldRenderer = ({
       {entries.map(([key, value], index) => (
         <div key={index} className="object-component__field">
           <Input
+            disabled={disabled}
             data-testid={`object-component__key-${index}`}
             placeholder="Ключ"
             value={key}
@@ -97,6 +99,7 @@ export const ObjectFieldRenderer = ({
             onBlur={(e) => handleBlur(index, e, onChange, 0)}
           />
           <Input
+            disabled={disabled}
             data-testid={`object-component__value-${index}`}
             placeholder="Значение"
             value={value}
@@ -104,6 +107,7 @@ export const ObjectFieldRenderer = ({
             onBlur={(e) => handleBlur(index, e, onChange, 1)}
           />
           <Button
+            disabled={disabled}
             data-testid={`object-component__remove-btn-${index}`}
             className="object-component__field__remove-btn"
             danger
@@ -129,6 +133,7 @@ export const ObjectFieldRenderer = ({
               Добавить ключ
             </span>
             <Button
+              disabled={disabled}
               data-testid="object-component__add-btn"
               className="object-component__add-btn__btn"
               onClick={handleAddField}
