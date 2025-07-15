@@ -24,6 +24,7 @@ export interface ColumnProps<T extends object> {
   onChangeSortValue?: (value: keyof T | undefined) => void;
   directionValue?: string;
   onChangeDirectionValue?: (value: string | undefined) => void;
+  loading?: boolean;
 }
 
 export type ColumnItem<T extends {}> = T & {

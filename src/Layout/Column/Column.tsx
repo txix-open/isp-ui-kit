@@ -35,6 +35,7 @@ const Column = <T extends object>({
   onChangeSortValue,
   directionValue,
   onChangeDirectionValue,
+  loading = false,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useMemo(
@@ -184,6 +185,7 @@ const Column = <T extends object>({
                 title="Вы действительно хотите удалить этот элемент?"
               >
                 <Button
+                  loading={loading}
                   data-cy="removeItem"
                   disabled={isDisabled}
                   icon={<DeleteOutlined />}
