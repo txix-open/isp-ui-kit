@@ -6,19 +6,19 @@ const { Sider } = Layout;
 import './layout-sider.scss';
 
 const LayoutSider = ({
-  collapsed,
   children,
-  onCollapse,
+  theme = 'light',
+  collapsible = true,
+  ...rest
 }: LayoutSiderPropsType) => {
   return (
     <Sider
+      {...rest}
       className="layout-sider"
       width="250px"
       data-cy="layout-sider"
-      theme="light"
-      collapsible
-      collapsed={collapsed}
-      onCollapse={(value: boolean) => onCollapse(value)}
+      theme={theme}
+      collapsible={collapsible}
     >
       {children}
     </Sider>

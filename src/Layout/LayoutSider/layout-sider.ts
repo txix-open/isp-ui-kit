@@ -1,7 +1,3 @@
-import { ReactNode } from 'react';
+import { SiderProps } from 'antd';
 
-export interface LayoutSiderPropsType {
-  collapsed: boolean;
-  onCollapse: (value: boolean) => void;
-  children: ReactNode;
-}
+export interface LayoutSiderPropsType extends SiderProps {}
