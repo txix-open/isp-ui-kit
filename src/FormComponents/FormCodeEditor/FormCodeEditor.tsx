@@ -38,7 +38,18 @@ export default <T extends FieldValues>({
         height={height}
         value={value}
         language={language}
-        onChange={(value) => onChange(value ? formatJSON(value) : '')}
+        onChange={(value) => onChange(value)}
+        onMount={(editor) => {
+          editor.onDidBlurEditorWidget(() => {
+            const currentValue = editor.getValue();
+            const formattedValue = formatJSON(currentValue);
+
+            if (formattedValue !== currentValue) {
+              onChange(formattedValue);
+              editor.setValue(formattedValue);
+            }
+          });
+        }}
         {...rest}
       />
     )}
