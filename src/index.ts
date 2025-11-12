@@ -13,6 +13,7 @@ export * from './FormComponents/FormTreeSelect/form-tree-select.type';
 export * from './FormComponents/FormDatePicker/form-date-picker.type';
 export * from './FormComponents/FormRangeDatePicker/form-range-date-picker.type';
 export * from './FormComponents/FormAutoComplete/form-auto-complete.type';
+export * from './FormComponents/FormSwitch/form-switch.type';
 
 export * from './FormComponents/formTypes';
 
