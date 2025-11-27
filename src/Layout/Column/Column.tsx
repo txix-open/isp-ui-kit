@@ -5,7 +5,15 @@ import {
   SortAscendingOutlined,
   SortDescendingOutlined,
 } from '@ant-design/icons';
-import { Button, List, Popconfirm, Tooltip, Select, Space } from 'antd';
+import {
+  Button,
+  List,
+  Popconfirm,
+  Tooltip,
+  Select,
+  Space,
+  Collapse,
+} from 'antd';
 import { createRef, RefObject, useEffect, useMemo, useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
@@ -13,6 +21,8 @@ import { ColumnItem, ColumnProps } from './column.type';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { pluralize } from '../../utils/columnUtils';
 import './column.scss';
+
+const { Panel } = Collapse;
 
 const Column = <T extends object>({
   title = '',
@@ -36,6 +46,8 @@ const Column = <T extends object>({
   directionValue,
   onChangeDirectionValue,
   loadingRemove = false,
+  groupBy,
+  renderHeaderGroup,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useMemo(
@@ -47,6 +59,7 @@ const Column = <T extends object>({
     [items],
   );
   const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
+  const [activeGroupKeys, setActiveGroupKeys] = useState<string[]>([]);
 
   const sortOptions = useMemo(() => {
     const defaultOption = { value: 'default', label: 'По умолчанию' };
@@ -66,6 +79,68 @@ const Column = <T extends object>({
 
     initColumnWidth();
   }, [columnKey]);
+
+  const groupedItems = useMemo(() => {
+    if (!groupBy) {
+      return { grouped: {}, ungrouped: items };
+    }
+
+    const grouped: Record<string, ColumnItem<T>[]> = {};
+    const ungrouped: ColumnItem<T>[] = [];
+
+    items.forEach((item) => {
+      const groupKey = item[groupBy];
+      if (groupKey !== undefined && groupKey !== null && groupKey !== '') {
+        const key = String(groupKey);
+        if (!grouped[key]) {
+          grouped[key] = [];
+        }
+        grouped[key].push(item);
+      } else {
+        ungrouped.push(item);
+      }
+    });
+
+    return { grouped, ungrouped };
+  }, [items, groupBy]);
+
+  const findActiveItemGroup = useMemo(() => {
+    if (!selectedItemId || !groupBy) return null;
+
+    const activeItem = items.find(
+      (item) => item.id.toString() === selectedItemId,
+    );
+    if (!activeItem) return null;
+
+    const groupKey = activeItem[groupBy];
+    return groupKey ? String(groupKey) : null;
+  }, [selectedItemId, items, groupBy]);
+
+  useEffect(() => {
+    let groupsToOpen: string[] = [];
+
+    if (searchValue && groupBy) {
+      const groupsWithSearchResults = Object.keys(groupedItems.grouped).filter(
+        (groupKey) => {
+          const groupItems = groupedItems.grouped[groupKey];
+          return groupItems.some((item) =>
+            JSON.stringify(item)
+              .toLowerCase()
+              .includes(searchValue.toLowerCase()),
+          );
+        },
+      );
+      groupsToOpen = [...groupsToOpen, ...groupsWithSearchResults];
+    }
+
+    if (findActiveItemGroup && !groupsToOpen.includes(findActiveItemGroup)) {
+      groupsToOpen.push(findActiveItemGroup);
+    }
+
+    groupsToOpen = [...new Set(groupsToOpen)];
+
+    setActiveGroupKeys(groupsToOpen);
+  }, [searchValue, groupBy, items, findActiveItemGroup]);
 
   useEffect(() => {
     if (!selectedItemId) {
@@ -120,6 +195,46 @@ const Column = <T extends object>({
 
   const checkIsActive = (id: string | number): boolean =>
     id.toString() === selectedItemId;
+
+  const sortedGroupedItems = useMemo(() => {
+    const { grouped, ungrouped } = groupedItems;
+
+    const sortedGroupKeys = Object.keys(grouped).sort();
+    const sortedGroups: Record<string, ColumnItem<T>[]> = {};
+
+    sortedGroupKeys.forEach((key) => {
+      sortedGroups[key] = sortItems(grouped[key]);
+    });
+
+    return {
+      grouped: sortedGroups,
+      ungrouped: sortItems(ungrouped),
+    };
+  }, [groupedItems, sortValue, directionValue]);
+
+  const handleCollapseChange = (keys: string | string[]) => {
+    setActiveGroupKeys(Array.isArray(keys) ? keys : [keys]);
+  };
+
+  const renderItem = (item: ColumnItem<T>) => (
+    <div
+      aria-hidden="true"
+      tabIndex={0}
+      role="button"
+      data-cy="firstColumnItem"
+      ref={refs[item.id]}
+      key={item.id}
+      className={`column__items__item ${
+        checkIsActive(item.id) ? 'active' : ''
+      }`}
+      onClick={() => setSelectedItemId(item.id.toString())}
+      onKeyDown={(e) =>
+        e.key === 'Enter' && setSelectedItemId(item.id.toString())
+      }
+    >
+      {renderItems(item)}
+    </div>
+  );
 
   return (
     <ResizableBox
@@ -232,28 +347,35 @@ const Column = <T extends object>({
         )}
       </div>
       <SimpleBar className="column__items">
-        <List
-          dataSource={sortItems(items)}
-          renderItem={(item) => (
-            <div
-              aria-hidden="true"
-              tabIndex={0}
-              role="button"
-              data-cy="firstColumnItem"
-              ref={refs[item.id]}
-              key={item.id}
-              className={`column__items__item ${
-                checkIsActive(item.id) ? 'active' : ''
-              }`}
-              onClick={() => setSelectedItemId(item.id.toString())}
-              onKeyDown={(e) =>
-                e.key === 'Enter' && setSelectedItemId(item.id.toString())
-              }
-            >
-              {renderItems(item)}
-            </div>
-          )}
-        />
+        {groupBy && Object.keys(sortedGroupedItems.grouped).length > 0 && (
+          <Collapse
+            activeKey={activeGroupKeys}
+            onChange={handleCollapseChange}
+            className="column__groups"
+          >
+            {Object.entries(sortedGroupedItems.grouped).map(
+              ([groupKey, groupItems]) => (
+                <Panel
+                  key={groupKey}
+                  header={
+                    renderHeaderGroup
+                      ? renderHeaderGroup(groupKey, groupItems)
+                      : `${groupKey} (${groupItems.length})`
+                  }
+                >
+                  <List dataSource={groupItems} renderItem={renderItem} />
+                </Panel>
+              ),
+            )}
+          </Collapse>
+        )}
+
+        {sortedGroupedItems.ungrouped.length > 0 && (
+          <List
+            dataSource={sortedGroupedItems.ungrouped}
+            renderItem={renderItem}
+          />
+        )}
       </SimpleBar>
     </ResizableBox>
   );

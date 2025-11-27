@@ -25,6 +25,8 @@ export interface ColumnProps<T extends object> {
   directionValue?: string;
   onChangeDirectionValue?: (value: string | undefined) => void;
   loadingRemove?: boolean;
+  groupBy?: keyof T;
+  renderHeaderGroup?: (groupKey: string, items: ColumnItem<T>[]) => ReactNode;
 }
 
 export type ColumnItem<T extends {}> = T & {
