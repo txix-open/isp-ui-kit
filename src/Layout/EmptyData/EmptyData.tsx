@@ -1,8 +1,10 @@
+import { EmptyDataPropsType } from './empty-data.type';
+
 import './empty-data.scss';
 
-const EmptyData = () => (
+const EmptyData = ({ content }: EmptyDataPropsType) => (
   <div className="empty-data">
-    <h1>Выберите элемент</h1>
+    {content ? content : <h1>Выберите элемент</h1>}
   </div>
 );
 
