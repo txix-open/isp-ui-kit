@@ -1,4 +1,3 @@
-
 ## Команды
 
 - `npm install` — установка зависимостей
@@ -9,6 +8,7 @@
 ## Обновление версии
 
 Для обновления версии необходимо:
+
 1. Поднять версию в `package.json`.
 2. Прописать изменения в `CHANGELOG.md`.
 3. Пакет автоматически добавится в npm после сборки на сервере.
@@ -40,17 +40,19 @@ npm install @monaco-editor/react monaco-editor antd react react-dom react-hook-f
 
 ### 1. Не подгружаются стили
 
-Для поддержки смены светлой/темной темы используются **CSS переменные**. Чтобы они работали в проекте, необходимо добавить `antd-конфиг`:
+Для поддержки смены светлой/темной темы используются **CSS переменные**. Чтобы они работали в проекте, необходимо
+добавить `antd-конфиг` и ОБЯЗАТЕЛЬНО обернуть в Layout от antd:
 
 ```js
-<ConfigProvider theme={{ cssVar: true }} locale={ruRu}>
-  <App />
+<ConfigProvider theme={{cssVar: true}} locale={ruRu}>
+    <App/>
 </ConfigProvider>
 ```
 
 ### 2. Ошибка импорта Vite
 
 Ошибка:
+
 ```
 TypeError: Super expression must either be null or a function
 ```
