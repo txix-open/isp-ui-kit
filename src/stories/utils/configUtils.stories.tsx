@@ -51,7 +51,7 @@ const passwordLoginEnabled = getConfigProperty('ENABLE_PASSWORD_LOGIN', true)
 export default meta;
 type Story = StoryObj<typeof ConfigDemo>;
 
-export const DefaultBehavior: Story = {
+export const Example: Story = {
   args: {
     property: 'ключ свойства',
     defaultValue: 'default_value',

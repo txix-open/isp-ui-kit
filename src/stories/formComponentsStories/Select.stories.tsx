@@ -51,7 +51,7 @@ export default meta;
 type Story = StoryObj<typeof FormSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const Select: Story = {
+export const Example: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

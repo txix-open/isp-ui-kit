@@ -51,7 +51,7 @@ type Story = StoryObj<typeof FormAutoComplete>;
 
 const onSubmit = (data: unknown) => console.log(data);
 
-export const AutoComplete: Story = {
+export const Example: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

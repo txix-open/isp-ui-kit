@@ -188,7 +188,7 @@ type Story = StoryObj<typeof ConfigForm>;
 
 const onSubmit = (data: unknown) => console.log('Form Submitted:', data);
 
-export const Default: Story = {
+export const Example: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

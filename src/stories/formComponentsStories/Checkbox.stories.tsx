@@ -44,7 +44,7 @@ export default meta;
 type Story = StoryObj<typeof FormCheckbox>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const Checkbox: Story = {
+export const Example: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

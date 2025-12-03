@@ -45,7 +45,7 @@ export default meta;
 type Story = StoryObj<typeof FormInputNumber>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const InputNumber: Story = {
+export const Example: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
