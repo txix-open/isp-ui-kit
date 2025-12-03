@@ -4,6 +4,7 @@ import { FormObjectMap } from '../../FormComponents';
 
 const meta: Meta<typeof FormObjectMap> = {
   component: FormObjectMap,
+  tags: ['autodocs'],
   title: 'FormComponents/FormObjectMap',
   args: {
     name: 'objectField',

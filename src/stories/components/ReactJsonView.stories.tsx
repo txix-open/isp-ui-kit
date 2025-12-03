@@ -18,6 +18,7 @@ const json = {
 const meta: Meta<typeof ReactJsonView> = {
   component: ReactJsonView,
   title: 'Components/ReactJsonView',
+  tags: ['autodocs'],
   argTypes: {
     src: {
       description: 'Данные для отрисовки',

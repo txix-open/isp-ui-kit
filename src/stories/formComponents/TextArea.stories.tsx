@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormSecretTextArea } from '../../FormComponents';
+import { FormTextArea } from '../../FormComponents';
 
-const meta: Meta<typeof FormSecretTextArea> = {
-  component: FormSecretTextArea,
-  title: 'FormComponents/FormSecretTextArea',
+const meta: Meta<typeof FormTextArea> = {
+  component: FormTextArea,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormTextArea',
   args: {
-    label: 'Название SecretTextArea',
+    label: 'Название TextArea',
     name: 'TextArea',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
@@ -14,8 +15,7 @@ const meta: Meta<typeof FormSecretTextArea> = {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Компонент SecretTextArea, который поддерживает react-hook-form',
+        component: 'Компонент TextArea, который поддерживает react-hook-form',
       },
     },
   },
@@ -42,7 +42,7 @@ const meta: Meta<typeof FormSecretTextArea> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormSecretTextArea>;
+type Story = StoryObj<typeof FormTextArea>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -52,7 +52,7 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSecretTextArea {...args} />
+        <FormTextArea {...args} />
       </form>
     );
   },
@@ -62,13 +62,13 @@ export const Validation: Story = {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('SecretTextArea', {
+    control.setError('TextArea', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSecretTextArea {...args} />
+        <FormTextArea {...args} />
       </form>
     );
   },

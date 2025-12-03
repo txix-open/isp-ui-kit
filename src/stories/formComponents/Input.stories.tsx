@@ -4,6 +4,7 @@ import { FormInput } from '../../FormComponents';
 
 const meta: Meta<typeof FormInput> = {
   component: FormInput,
+  tags: ['autodocs'],
   title: 'FormComponents/FormInput',
   args: {
     label: 'Название Input',

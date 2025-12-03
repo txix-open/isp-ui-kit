@@ -3,6 +3,7 @@ import { HomePage } from '../../../Layout';
 
 const meta: Meta<typeof HomePage> = {
   component: HomePage,
+  tags: ['autodocs'],
   title: 'Layout/Pages/HomePage',
   args: {},
   parameters: {

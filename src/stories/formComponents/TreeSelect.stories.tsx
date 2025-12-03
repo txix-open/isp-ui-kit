@@ -1,34 +1,37 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormRadioGroup } from '../../FormComponents';
+import { FormTreeSelect } from '../../FormComponents';
 
-const meta: Meta<typeof FormRadioGroup> = {
-  component: FormRadioGroup,
-  title: 'FormComponents/FormRadioGroup',
+const meta: Meta<typeof FormTreeSelect> = {
+  component: FormTreeSelect,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormTreeSelect',
   args: {
-    label: 'Название RadioGroup',
-    name: 'RadioGroup',
-    rules: { required: { value: true, message: 'Поле не может быть пустым' } },
-    items: [
+    label: 'Название TreeSelect',
+    name: 'TreeSelect',
+    treeData: [
       {
-        value: '1',
-        label: 'Первый элемент',
+        value: 'name',
+        title: 'name',
+        selectable: false,
+        children: [
+          {
+            value: 'name1.1',
+            title: 'name1.1',
+            selectable: false,
+            children: [],
+          },
+        ],
       },
-      {
-        value: '2',
-        label: 'Второй элемент',
-      },
-      {
-        value: '3',
-        label: 'Третий элемент',
-      },
+      { value: 'name2', title: 'name2', selectable: false, children: [] },
     ],
+    rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент RadioGroup, который поддерживает react-hook-form',
+        component: 'Компонент TreeSelect, который поддерживает react-hook-form',
       },
     },
   },
@@ -42,7 +45,7 @@ const meta: Meta<typeof FormRadioGroup> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к RadioGroup',
+      description: 'Подпись к TreeSelect',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -50,19 +53,12 @@ const meta: Meta<typeof FormRadioGroup> = {
     controlClassName: {
       description: 'Имя класса для компонента формы',
     },
-    items: {
-      description:
-        " Ожидает массив объектов { label: 'Заголовок', value: boolean }",
-    },
-    type: {
-      description: 'Radio или Button',
-    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FormRadioGroup>;
+type Story = StoryObj<typeof FormTreeSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -72,7 +68,7 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormRadioGroup {...args} />
+        <FormTreeSelect {...args} />
       </form>
     );
   },
@@ -82,13 +78,13 @@ export const Validation: Story = {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('RadioGroup', {
+    control.setError('TreeSelect', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormRadioGroup {...args} />
+        <FormTreeSelect {...args} />
       </form>
     );
   },

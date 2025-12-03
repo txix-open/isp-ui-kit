@@ -13,12 +13,12 @@ const LayoutSider = ({
 }: LayoutSiderPropsType) => {
   return (
     <Sider
-      {...rest}
-      className="layout-sider"
       width="250px"
+      className="layout-sider"
       data-cy="layout-sider"
       theme={theme}
       collapsible={collapsible}
+      {...rest}
     >
       {children}
     </Sider>

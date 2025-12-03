@@ -1,34 +1,35 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormCodeEditor } from '../../FormComponents';
+import { FormCheckbox } from '../../FormComponents';
 
-const meta: Meta<typeof FormCodeEditor> = {
-  component: FormCodeEditor,
-  title: 'FormComponents/FormCodeEditor',
+const meta: Meta<typeof FormCheckbox> = {
+  component: FormCheckbox,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormCheckbox',
   args: {
-    label: 'Название CodeEditor',
-    name: 'CodeEditor',
+    label: 'Название checkbox',
+    name: 'checkbox',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
-    language: 'javascript',
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент CodeEditor, который поддерживает react-hook-form',
+        component: 'Компонент Checkbox, который поддерживает react-hook-form',
       },
     },
   },
   argTypes: {
     control: {
-      control: true,
+      control: false,
       description: 'параметр, получаемый из react-hook-form',
     },
     name: {
+      control: false,
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к CodeEditor',
+      description: 'Подпись к checkbox',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,7 +42,7 @@ const meta: Meta<typeof FormCodeEditor> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormCodeEditor>;
+type Story = StoryObj<typeof FormCheckbox>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -50,8 +51,24 @@ export const Example: Story = {
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
-      <form style={{ width: '500px' }} onSubmit={handleSubmit(onSubmit)}>
-        <FormCodeEditor {...args} />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormCheckbox {...args} />
+      </form>
+    );
+  },
+};
+export const Validation: Story = {
+  render: (args) => {
+    const methods = useForm();
+    const { control, handleSubmit } = methods;
+    args.control = control;
+    control.setError('checkbox', {
+      type: 'required',
+      message: args.rules!.required!.message,
+    });
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormCheckbox {...args} />
       </form>
     );
   },

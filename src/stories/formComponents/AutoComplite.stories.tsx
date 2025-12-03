@@ -4,6 +4,7 @@ import { FormAutoComplete } from '../../FormComponents';
 
 const meta: Meta<typeof FormAutoComplete> = {
   component: FormAutoComplete,
+  tags: ['autodocs'],
   title: 'FormComponents/FormAutoComplete',
   args: {
     label: 'Название AutoComplete',

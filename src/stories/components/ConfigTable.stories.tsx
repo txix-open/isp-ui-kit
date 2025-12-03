@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const meta: Meta<typeof ConfigTable> = {
   title: 'Components/ConfigTable',
+  tags: ['autodocs'],
   component: ConfigTable,
   parameters: {
     layout: 'centered',

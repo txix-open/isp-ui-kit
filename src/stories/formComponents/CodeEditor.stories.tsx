@@ -1,33 +1,38 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormArrayMap } from '../../FormComponents';
+import { FormCodeEditor } from '../../FormComponents';
 
-const meta: Meta<typeof FormArrayMap> = {
-  component: FormArrayMap,
-  title: 'FormComponents/FormArrayMap',
+const meta: Meta<typeof FormCodeEditor> = {
+  component: FormCodeEditor,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormCodeEditor',
   args: {
-    name: 'arrayField',
+    label: 'Название CodeEditor',
+    name: 'CodeEditor',
+    rules: { required: { value: true, message: 'Поле не может быть пустым' } },
+    language: 'javascript',
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Компонент FormArrayMap для отрисовки массива примитивов. Отдает строки',
+        component: 'Компонент CodeEditor, который поддерживает react-hook-form',
       },
     },
   },
   argTypes: {
     control: {
-      control: false,
+      control: true,
       description: 'параметр, получаемый из react-hook-form',
     },
     name: {
-      control: false,
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к Input',
+      description: 'Подпись к CodeEditor',
+    },
+    rules: {
+      description: 'Правила валидации поля',
     },
     controlClassName: {
       description: 'Имя класса для компонента формы',
@@ -37,7 +42,7 @@ const meta: Meta<typeof FormArrayMap> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormArrayMap>;
+type Story = StoryObj<typeof FormCodeEditor>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -46,8 +51,8 @@ export const Example: Story = {
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormArrayMap {...args} />
+      <form style={{ width: '500px' }} onSubmit={handleSubmit(onSubmit)}>
+        <FormCodeEditor {...args} />
       </form>
     );
   },

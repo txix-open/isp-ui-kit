@@ -1,21 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormInputNumber } from '../../FormComponents';
+import { FormSelect } from '../../FormComponents';
 
-const meta: Meta<typeof FormInputNumber> = {
-  component: FormInputNumber,
-  title: 'FormComponents/FormInputNumber',
+const meta: Meta<typeof FormSelect> = {
+  component: FormSelect,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormSelect',
   args: {
-    label: 'Название InputNumber',
-    name: 'InputNumber',
+    label: 'Название Select',
+    name: 'Select',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
+    options: [
+      { value: 'id-1', label: 'name 1' },
+      { value: 'id-2', label: 'name 2' },
+    ],
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Компонент InputNumber, который поддерживает react-hook-form',
+        component: 'Компонент Select, который поддерживает react-hook-form',
       },
     },
   },
@@ -29,7 +33,7 @@ const meta: Meta<typeof FormInputNumber> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к InputNumber',
+      description: 'Подпись к Select',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -37,12 +41,15 @@ const meta: Meta<typeof FormInputNumber> = {
     controlClassName: {
       description: 'Имя класса для компонента формы',
     },
+    options: {
+      description: ' Ожидает массив объектов {value: "id", label: "Заголовок"}',
+    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FormInputNumber>;
+type Story = StoryObj<typeof FormSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -52,24 +59,23 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInputNumber {...args} />
+        <FormSelect {...args} />
       </form>
     );
   },
 };
-
 export const Validation: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('InputNumber', {
+    control.setError('Select', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInputNumber {...args} />
+        <FormSelect {...args} />
       </form>
     );
   },

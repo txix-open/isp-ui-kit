@@ -1,20 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormCheckbox } from '../../FormComponents';
+import { FormDatePicker } from '../../FormComponents';
 
-const meta: Meta<typeof FormCheckbox> = {
-  component: FormCheckbox,
-  title: 'FormComponents/FormCheckbox',
+const meta: Meta<typeof FormDatePicker> = {
+  component: FormDatePicker,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormDatePicker',
   args: {
-    label: 'Название checkbox',
-    name: 'checkbox',
+    label: 'Название DatePicker',
+    name: 'datePicker',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Checkbox, который поддерживает react-hook-form',
+        component: 'Компонент DatePicker, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +29,7 @@ const meta: Meta<typeof FormCheckbox> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к checkbox',
+      description: 'Подпись к DatePicker',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,7 +42,7 @@ const meta: Meta<typeof FormCheckbox> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormCheckbox>;
+type Story = StoryObj<typeof FormDatePicker>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -51,23 +52,24 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormDatePicker {...args} />
       </form>
     );
   },
 };
+
 export const Validation: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('checkbox', {
+    control.setError('input', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormDatePicker {...args} />
       </form>
     );
   },

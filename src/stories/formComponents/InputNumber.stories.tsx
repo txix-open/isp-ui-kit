@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormInputPassword } from '../../FormComponents';
+import { FormInputNumber } from '../../FormComponents';
 
-const meta: Meta<typeof FormInputPassword> = {
-  component: FormInputPassword,
-  title: 'FormComponents/FormInputPassword',
+const meta: Meta<typeof FormInputNumber> = {
+  component: FormInputNumber,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormInputNumber',
   args: {
-    label: 'Название InputPassword',
-    name: 'InputPassword',
+    label: 'Название InputNumber',
+    name: 'InputNumber',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
@@ -42,7 +43,7 @@ const meta: Meta<typeof FormInputPassword> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormInputPassword>;
+type Story = StoryObj<typeof FormInputNumber>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -52,7 +53,7 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInputPassword {...args} />
+        <FormInputNumber {...args} />
       </form>
     );
   },
@@ -63,13 +64,13 @@ export const Validation: Story = {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('InputPassword', {
+    control.setError('InputNumber', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInputPassword {...args} />
+        <FormInputNumber {...args} />
       </form>
     );
   },

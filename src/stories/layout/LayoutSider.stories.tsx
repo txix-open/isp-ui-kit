@@ -55,6 +55,7 @@ const menuConfig = [
 const meta: Meta<typeof LayoutSider> = {
   component: LayoutSider,
   title: 'Layout/LayoutSider',
+  tags: ['autodocs'],
   parameters: {
     layout: 'left',
     componentSubtitle: 'Компонент LayoutSider для оборачивания меню',
@@ -84,14 +85,53 @@ export default meta;
 type Story = StoryObj<typeof LayoutSider>;
 
 export const Example: Story = {
-  render: () => {
-    const [collapsed, setCollapsed] = useState(true);
-    const onCollapse = (value: boolean) => {
-      setCollapsed(value);
-    };
+  name: 'Базовый пример',
+  render: () => (
+    <LayoutSider theme="light">
+      <LayoutMenu
+        currentPath="/"
+        menuConfig={menuConfig}
+        onClickItem={() => null}
+        onHideMenuItem={() => ''}
+      />
+    </LayoutSider>
+  ),
+};
 
+export const NonCollapsible: Story = {
+  name: 'Не сворачиваемый',
+  render: () => (
+    <LayoutSider collapsible={false}>
+      <LayoutMenu
+        currentPath="/"
+        menuConfig={menuConfig}
+        onClickItem={() => null}
+        onHideMenuItem={() => ''}
+      />
+    </LayoutSider>
+  ),
+};
+
+export const CustomWidth: Story = {
+  name: 'Пользовательская ширина',
+  render: () => (
+    <LayoutSider width="450px">
+      <LayoutMenu
+        currentPath="/"
+        menuConfig={menuConfig}
+        onClickItem={() => null}
+        onHideMenuItem={() => ''}
+      />
+    </LayoutSider>
+  ),
+};
+
+export const CollapsibleExample: Story = {
+  name: 'Сворачиваемый',
+  render: () => {
+    const [collapsed, setCollapsed] = useState(false);
     return (
-      <LayoutSider collapsed={collapsed} onCollapse={onCollapse}>
+      <LayoutSider collapsed={collapsed} onCollapse={setCollapsed}>
         <LayoutMenu
           currentPath="/"
           menuConfig={menuConfig}

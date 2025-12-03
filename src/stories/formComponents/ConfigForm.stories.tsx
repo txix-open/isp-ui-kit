@@ -9,6 +9,7 @@ import '../styles.scss';
 
 const meta: Meta<typeof ConfigForm> = {
   component: ConfigForm,
+  tags: ['autodocs'],
   title: 'FormComponents/RenderFormFields',
   args: {
     config: {

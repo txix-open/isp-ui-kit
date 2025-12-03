@@ -1,36 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormTreeSelect } from '../../FormComponents';
+import { FormSwitch } from '../../FormComponents';
 
-const meta: Meta<typeof FormTreeSelect> = {
-  component: FormTreeSelect,
-  title: 'FormComponents/FormTreeSelect',
+const meta: Meta<typeof FormSwitch> = {
+  component: FormSwitch,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormSwitch',
   args: {
-    label: 'Название TreeSelect',
-    name: 'TreeSelect',
-    treeData: [
-      {
-        value: 'name',
-        title: 'name',
-        selectable: false,
-        children: [
-          {
-            value: 'name1.1',
-            title: 'name1.1',
-            selectable: false,
-            children: [],
-          },
-        ],
-      },
-      { value: 'name2', title: 'name2', selectable: false, children: [] },
-    ],
+    label: 'Название switch',
+    name: 'switch',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент TreeSelect, который поддерживает react-hook-form',
+        component: 'Компонент Switch, который поддерживает react-hook-form',
       },
     },
   },
@@ -44,7 +29,7 @@ const meta: Meta<typeof FormTreeSelect> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к TreeSelect',
+      description: 'Подпись к switch',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -57,7 +42,7 @@ const meta: Meta<typeof FormTreeSelect> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormTreeSelect>;
+type Story = StoryObj<typeof FormSwitch>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -67,7 +52,7 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormTreeSelect {...args} />
+        <FormSwitch {...args} />
       </form>
     );
   },
@@ -77,13 +62,13 @@ export const Validation: Story = {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('TreeSelect', {
+    control.setError('switch', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormTreeSelect {...args} />
+        <FormSwitch {...args} />
       </form>
     );
   },

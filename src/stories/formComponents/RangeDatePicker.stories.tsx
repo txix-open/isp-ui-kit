@@ -1,20 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormSwitch } from '../../FormComponents';
+import { FormRangeDatePicker } from '../../FormComponents';
 
-const meta: Meta<typeof FormSwitch> = {
-  component: FormSwitch,
-  title: 'FormComponents/FormSwitch',
+const meta: Meta<typeof FormRangeDatePicker> = {
+  component: FormRangeDatePicker,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormRangeDatePicker',
   args: {
-    label: 'Название switch',
-    name: 'switch',
+    label: 'Название FormRangeDatePicker',
+    name: 'datePicker',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Switch, который поддерживает react-hook-form',
+        component:
+          'Компонент RangeDatePicker, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +30,7 @@ const meta: Meta<typeof FormSwitch> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к switch',
+      description: 'Подпись к RangeDatePicker',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,7 +43,7 @@ const meta: Meta<typeof FormSwitch> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormSwitch>;
+type Story = StoryObj<typeof FormRangeDatePicker>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
@@ -51,23 +53,24 @@ export const Example: Story = {
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSwitch {...args} />
+        <FormRangeDatePicker {...args} />
       </form>
     );
   },
 };
+
 export const Validation: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('switch', {
+    control.setError('input', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSwitch {...args} />
+        <FormRangeDatePicker {...args} />
       </form>
     );
   },

@@ -1,0 +1,282 @@
+import { Meta, Canvas, ArgTypes, Source } from '@storybook/addon-docs/blocks';
+import * as ColumnStories from './Column.stories';
+
+<Meta of={ColumnStories} />
+
+# Компонент `Column`
+
+### Описание
+Компонент **`Column`** предназначен для отображения вертикальных списков в составе интерфейсов с многоколоночной структурой (например, «Три колонки»). Он поддерживает:
+
+- Выбор активного элемента
+- Поиск по содержимому
+- Управление элементами (добавление, редактирование, удаление)
+- Кастомную визуализацию элементов через `renderItems`
+- Сохранение ширины колонки между сессиями (`localStorage`)
+- Отображение подсказок (`Tooltip`) для усечённых имён
+
+---
+
+### Пример: пустая колонка
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.Empty} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.Empty} />
+    </div>
+</div>
+
+---
+
+### Пример: колонка с элементами
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.WithElements} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.WithElements} />
+    </div>
+</div>
+
+---
+
+### Пример: активный элемент
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.ActiveElement} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.ActiveElement} />
+    </div>
+</div>
+
+---
+
+### Пример: удаление с состоянием загрузки
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.LoadingRemove} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.LoadingRemove} />
+    </div>
+</div>
+
+---
+
+### Пример: колонка с поиском
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.WithSearch} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.WithSearch} />
+    </div>
+</div>
+
+---
+
+### Пример: колонка с сортировкой
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.WithSorting} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.WithSorting} />
+    </div>
+</div>
+
+---
+
+### Пример: полнофункциональная колонка
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.FullFeaturedColumn} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.FullFeaturedColumn} />
+    </div>
+</div>
+
+---
+
+### Пример: кастомный рендер элемента
+
+<div style={{
+    display: "flex",
+    width: "100%",
+    gap: "24px",
+    alignItems: "flex-start"
+}}>
+    <div style={{ flex: 1 }}>
+        <Canvas of={ColumnStories.CustomRenderItem} />
+    </div>
+
+    <div style={{ flex: 1 }}>
+        <Source of={ColumnStories.CustomRenderItem} />
+    </div>
+</div>
+
+---
+
+### Пропсы
+
+<ArgTypes of={ColumnStories.Empty} />
+
+> 💡 Все пропсы, кроме `items` и `title`, опциональны.
+> Для полного контроля над отображением используйте `renderItems`.
+
+---
+
+### Особенности реализации
+
+- **Ресайз колонки**: ширина сохраняется в `localStorage` и восстанавливается при перезагрузке.
+- **Работа с длинными текстами**: имена элементов автоматически обрезаются, а полный текст отображается в `Tooltip`.
+- **Гибкость отрисовки**: через `renderItems` можно подключить любой UI-компонент (например, `List`, `Card`, `Typography.Text` и т.д.).
+- **Интеграция с состоянием**: `selectedItemId` и `setSelectedItemId` позволяют легко синхронизировать выбор с внешним состоянием.
+- **Сортировка и поиск**: полностью управляются извне, что даёт максимальную гибкость (например, для интеграции с API или глобальным состоянием).
+
+---
+
+### Как использовать в реальном приложении
+
+Компонент `Column` **не управляет состоянием сам** — всё состояние (выбор, поиск, сортировка, данные) должно управляться в родительском компоненте. Вот типовой шаблон для интеграции:
+
+<details>
+    ```tsx
+    import { useState, useCallback } from 'react';
+    import { Column } from './Column';
+    import { List, Tooltip } from 'antd';
+
+    // Тип элемента
+    interface Item {
+    id: string;
+    name: string;
+}
+
+    // Функция рендера элемента
+    const renderItems = (item: Item) => (
+    <List.Item>
+        <Tooltip title={item.name} mouseEnterDelay={0.5}>
+            <List.Item.Meta title={item.name} />
+        </Tooltip>
+    </List.Item>
+    );
+
+    const MyThreeColumnLayout = () => {
+    // Исходные данные
+    const [items, setItems] = useState<Item[]>([
+{ id: '1', name: 'Проект Alpha' },
+{ id: '2', name: 'Задача Beta' },
+{ id: '3', name: 'Отчёт Gamma' },
+    ]);
+
+    // Состояние UI
+    const [selectedItemId, setSelectedItemId] = useState<string>();
+    const [searchValue, setSearchValue] = useState('');
+    const [sortValue, setSortValue] = useState<keyof Item>();
+    const [directionValue, setDirectionValue] = useState<'asc' | 'desc'>('asc');
+
+    // Фильтрация
+    const filteredItems = items.filter(item =>
+    item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    // Обработчики
+    const handleAdd = useCallback(() => {
+    const newId = `item-${Date.now()}`;
+    setItems(prev => [...prev, { id: newId, name: 'Новый элемент' }]);
+}, []);
+
+    const handleUpdate = useCallback((id: string) => {
+    setItems(prev =>
+    prev.map(item =>
+    item.id === id ? { ...item, name: `${item.name} (изменено)` } : item
+    )
+    );
+}, []);
+
+    const handleRemove = useCallback(async (id: string) => {
+    // Эмуляция API-запроса
+    await new Promise(r => setTimeout(r, 500));
+    setItems(prev => prev.filter(item => item.id !== id));
+    if (selectedItemId === id) setSelectedItemId(undefined);
+}, [selectedItemId]);
+
+    return (
+    <div style={{ display: 'flex', gap: '16px', height: '500px' }}>
+    <Column
+        title="Элементы"
+        items={filteredItems}
+        selectedItemId={selectedItemId}
+        setSelectedItemId={setSelectedItemId}
+        searchValue={searchValue}
+        onChangeSearchValue={setSearchValue}
+        sortValue={sortValue}
+        onChangeSortValue={setSortValue}
+        directionValue={directionValue}
+        onChangeDirectionValue={setDirectionValue}
+        renderItems={renderItems}
+        sortableFields={[{ label: 'Название', value: 'name' }]}
+        onAddItem={handleAdd}
+        onUpdateItem={handleUpdate}
+        onRemoveItem={handleRemove}
+        searchPlaceholder="Поиск элементов..."
+    />
+</div>
+    );
+};
+
+export default MyThreeColumnLayout;
+```
+</details>

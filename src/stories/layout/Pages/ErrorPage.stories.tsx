@@ -4,6 +4,7 @@ import { Button } from 'antd';
 
 const meta: Meta<typeof ErrorPage> = {
   component: ErrorPage,
+  tags: ['autodocs'],
   title: 'Layout/Pages/ErrorPage',
   args: {},
   parameters: {

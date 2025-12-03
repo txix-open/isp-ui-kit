@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta  title="Layout/LayoutMenu/Интеграция с React Router" />
+
+## 🔗 Интеграция с React Router (v6+)
+
+Ниже приведён полноценный пример работы `LayoutMenu` вместе с `react-router-dom`.
+
+Компонент:
+- использует `useNavigate()` для переходов;
+- читает `location.pathname` для подсветки активного пункта;
+- работает как реальное левое меню в приложении.
+
+### ВАЖНО
+ ключ в `menuConfig` и routePath должны совпадать по имени. `key: 'test'` `routePath: '/test'`
+
+```tsx
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { LayoutMenu } from 'isp-ui-kit';
+import { useMemo } from 'react';
+
+const menuConfig = [
+  { key: 'dashboard', label: 'Дашборд', permissions: [] },
+  { key: 'users', label: 'Пользователи', permissions: [] },
+  {
+    key: 'settings',
+    label: 'Настройки',
+    permissions: [],
+    children: [
+      { key: 'profile', label: 'Профиль', permissions: [] },
+      { key: 'security', label: 'Безопасность', permissions: [] },
+    ],
+  },
+];
+
+const AppMenu = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const currentPath = useMemo(
+    () => location.pathname.replace(/^\/+/, ''), // убираем слеш
+    [location.pathname]
+  );
+
+  return (
+    <LayoutMenu
+      currentPath={currentPath}
+      menuConfig={menuConfig}
+      onHideMenuItem={() => false}
+      onClickItem={(info) => {
+        navigate(`/${info.key}`);
+      }}
+    />
+  );
+};
+
+const Dashboard = () => <h2>Дашборд</h2>;
+const Users = () => <h2>Пользователи</h2>;
+const Profile = () => <h2>Профиль</h2>;
+const Security = () => <h2>Безопасность</h2>;
+
+export const RouterExample = () => (
+  <BrowserRouter>
+    <div style={{ display: 'flex', height: '100vh' }}>
+      {/* Меню слева */}
+      <div style={{ width: 260, borderRight: '1px solid #eee' }}>
+        <AppMenu />
+      </div>
+
+      {/* Контент справа */}
+      <div style={{ padding: 24, flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/security" element={<Security />} />
+        </Routes>
+      </div>
+    </div>
+  </BrowserRouter>
