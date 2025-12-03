@@ -4,6 +4,7 @@ import { FormAutoComplete } from '../../FormComponents';
 
 const meta: Meta<typeof FormAutoComplete> = {
   component: FormAutoComplete,
+  tags: ['autodocs'],
   title: 'FormComponents/FormAutoComplete',
   args: {
     label: 'Название AutoComplete',
@@ -52,6 +53,7 @@ type Story = StoryObj<typeof FormAutoComplete>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
@@ -65,6 +67,7 @@ export const Example: Story = {
 };
 
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

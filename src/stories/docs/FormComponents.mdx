@@ -13,6 +13,70 @@ import { FormComponents } from 'isp-ui-kit'
 const { FormInput, FormTextArea } = FormComponents
 ```
 
+### Пример в коде
+
+
+```tsx
+import { FormComponents } from 'isp-ui-kit'
+import { useForm } from 'react-hook-form'
+
+const { FormInput } = FormComponents
+
+export const RabbitForm = () => {
+  const { handleSubmit, control, formState: { errors } } = useForm({
+    mode: 'onChange'
+  })
+
+  const submitForm = (data) => {
+    console.log('data', data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(submitForm)}>
+      <FormInput
+        data-cy="rabbitModalForm__input__name"
+        rules={{
+          required: { value: true, message: 'Поле не может быть пустым' },
+          minLength: { value: 3, message: 'Минимум 3 символа' },
+        }}
+        label="Наименование"
+        control={control}
+        name="name"
+      />
+
+      <FormInput
+        data-cy="rabbitModalForm__input__description"
+        rules={{
+          validate: (value) => {
+            if (!value) return 'Описание обязательно'
+            if (value.length < 5) return 'Минимум 5 символов'
+            return true
+          }
+        }}
+        label="Описание"
+        control={control}
+        name="description"
+      />
+
+      <button
+        type="submit"
+        data-cy="rabbitModalForm__submitButton"
+        style={{ marginTop: 16 }}
+      >
+        Сохранить
+      </button>
+
+      {/* Пример вывода ошибок */}
+      <div style={{ color: 'red', marginTop: 12 }}>
+        {errors.name?.message}
+        {errors.description?.message}
+      </div>
+    </form>
+  )
+}
+
+```
+
 ## Компоненты
 
 ### **[FormCheckbox](?path=/story/formcomponents-formcheckbox--example)**

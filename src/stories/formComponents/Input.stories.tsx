@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormRangeDatePicker } from '../../FormComponents';
+import { FormInput } from '../../FormComponents';
 
-const meta: Meta<typeof FormRangeDatePicker> = {
-  component: FormRangeDatePicker,
-  title: 'FormComponents/FormRangeDatePicker',
+const meta: Meta<typeof FormInput> = {
+  component: FormInput,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormInput',
   args: {
-    label: 'Название FormRangeDatePicker',
-    name: 'datePicker',
+    label: 'Название Input',
+    name: 'input',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Компонент RangeDatePicker, который поддерживает react-hook-form',
+        component: 'Компонент Input, который поддерживает react-hook-form',
       },
     },
   },
@@ -29,7 +29,7 @@ const meta: Meta<typeof FormRangeDatePicker> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к RangeDatePicker',
+      description: 'Подпись к Input',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -42,23 +42,25 @@ const meta: Meta<typeof FormRangeDatePicker> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormRangeDatePicker>;
+type Story = StoryObj<typeof FormInput>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormRangeDatePicker {...args} />
+        <FormInput {...args} />
       </form>
     );
   },
 };
 
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
@@ -69,7 +71,7 @@ export const Validation: Story = {
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormRangeDatePicker {...args} />
+        <FormInput {...args} />
       </form>
     );
   },

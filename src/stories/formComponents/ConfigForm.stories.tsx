@@ -9,7 +9,8 @@ import '../styles.scss';
 
 const meta: Meta<typeof ConfigForm> = {
   component: ConfigForm,
-  title: 'FormComponents/RenderFormFields',
+  tags: ['autodocs'],
+  title: 'FormComponents/ConfigForm',
   args: {
     config: {
       name: 'RenderFields',
@@ -189,6 +190,7 @@ type Story = StoryObj<typeof ConfigForm>;
 const onSubmit = (data: unknown) => console.log('Form Submitted:', data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
@@ -202,6 +204,7 @@ export const Example: Story = {
 };
 
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { handleSubmit, setError } = methods;

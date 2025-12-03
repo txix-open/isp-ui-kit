@@ -4,6 +4,7 @@ import { FormTreeSelect } from '../../FormComponents';
 
 const meta: Meta<typeof FormTreeSelect> = {
   component: FormTreeSelect,
+  tags: ['autodocs'],
   title: 'FormComponents/FormTreeSelect',
   args: {
     label: 'Название TreeSelect',
@@ -61,6 +62,7 @@ type Story = StoryObj<typeof FormTreeSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
@@ -73,6 +75,7 @@ export const Example: Story = {
   },
 };
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

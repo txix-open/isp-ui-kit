@@ -4,6 +4,7 @@ import { FormArrayMap } from '../../FormComponents';
 
 const meta: Meta<typeof FormArrayMap> = {
   component: FormArrayMap,
+  tags: ['autodocs'],
   title: 'FormComponents/FormArrayMap',
   args: {
     name: 'arrayField',
@@ -41,6 +42,7 @@ type Story = StoryObj<typeof FormArrayMap>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

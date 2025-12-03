@@ -3,6 +3,7 @@ import { NoData } from '../../../Layout';
 
 const meta: Meta<typeof NoData> = {
   component: NoData,
+  tags: ['autodocs'],
   title: 'Layout/ThreeColumns/NoData',
   parameters: {
     layout: 'centered',

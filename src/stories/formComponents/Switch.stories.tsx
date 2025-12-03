@@ -4,6 +4,7 @@ import { FormSwitch } from '../../FormComponents';
 
 const meta: Meta<typeof FormSwitch> = {
   component: FormSwitch,
+  tags: ['autodocs'],
   title: 'FormComponents/FormSwitch',
   args: {
     label: 'Название switch',
@@ -45,6 +46,7 @@ type Story = StoryObj<typeof FormSwitch>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
@@ -57,6 +59,7 @@ export const Example: Story = {
   },
 };
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
