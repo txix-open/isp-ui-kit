@@ -2,7 +2,7 @@ import React from 'react';
 import dispatcher from './../helpers/dispatcher';
 
 import CopyToClipboard from './CopyToClipboard';
-import { toType } from './../helpers/util';
+import { toType } from '../helpers/util';
 
 //icons
 import {
@@ -20,7 +20,7 @@ export default class extends React.PureComponent {
     const { size, theme, displayObjectSize } = this.props;
     if (displayObjectSize) {
       return (
-        <span class="object-size" {...Theme(theme, 'object-size')}>
+        <span className="object-size" {...Theme(theme, 'object-size')}>
           {size} item{size === 1 ? '' : 's'}
         </span>
       );
@@ -31,9 +31,9 @@ export default class extends React.PureComponent {
     const { theme, namespace, name, src, rjvId, depth } = this.props;
 
     return (
-      <span class="click-to-add" style={{ verticalAlign: 'top' }}>
+      <span className="click-to-add" style={{ verticalAlign: 'top' }}>
         <Add
-          class="click-to-add-icon"
+          className="click-to-add-icon"
           {...Theme(theme, 'addVarIcon')}
           onClick={() => {
             const request = {
@@ -73,9 +73,9 @@ export default class extends React.PureComponent {
       return;
     }
     return (
-      <span class="click-to-remove">
+      <span className="click-to-remove">
         <Remove
-          class="click-to-remove-icon"
+          className="click-to-remove-icon"
           {...Theme(theme, 'removeVarIcon')}
           onClick={() => {
             dispatcher.dispatch({
@@ -109,7 +109,7 @@ export default class extends React.PureComponent {
     return (
       <div
         {...Theme(theme, 'object-meta-data', { cursor: 'pointer' })}
-        class="object-meta-data"
+        className="object-meta-data"
         onClick={(e) => {
           e.stopPropagation();
         }}

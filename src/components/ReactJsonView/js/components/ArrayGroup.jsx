@@ -67,7 +67,7 @@ export default class extends React.PureComponent {
 
     return (
       <div
-        class="object-key-val"
+        className="object-key-val"
         {...Theme(theme, jsvRoot ? 'jsv-root' : 'objectKeyVal', {
           paddingLeft: object_padding_left,
         })}
@@ -80,7 +80,7 @@ export default class extends React.PureComponent {
         {[...Array(groups)].map((_, i) => (
           <div
             key={i}
-            class="object-key-val array-group"
+            className="object-key-val array-group"
             {...Theme(theme, 'objectKeyVal', {
               marginLeft: 6,
               paddingLeft: array_group_padding_left,
@@ -88,7 +88,7 @@ export default class extends React.PureComponent {
           >
             <span {...Theme(theme, 'brace-row')}>
               <div
-                class="icon-container"
+                className="icon-container"
                 {...Theme(theme, 'icon-container')}
                 onClick={(e) => {
                   this.toggleCollapsed(i);
@@ -117,14 +117,17 @@ export default class extends React.PureComponent {
                   onClick={(e) => {
                     this.toggleCollapsed(i);
                   }}
-                  class="array-group-brace"
+                  className="array-group-brace"
                 >
                   [
                   <div
                     {...Theme(theme, 'array-group-meta-data')}
-                    class="array-group-meta-data"
+                    className="array-group-meta-data"
                   >
-                    <span class="object-size" {...Theme(theme, 'object-size')}>
+                    <span
+                      className="object-size"
+                      {...Theme(theme, 'object-size')}
+                    >
                       {i * size}
                       {' - '}
                       {i * size + size > src.length

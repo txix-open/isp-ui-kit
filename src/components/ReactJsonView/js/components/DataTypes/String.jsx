@@ -1,5 +1,6 @@
 import React from 'react';
 import DataTypeLabel from './DataTypeLabel';
+import { toType } from '../../helpers/util';
 
 //theme
 import Theme from './../../themes/getStyle';
@@ -26,7 +27,6 @@ export default class extends React.PureComponent {
         collapsed: !this.state.collapsed,
       },
       () => {
-        // will be called after setState takes effect.
         AttributeStore.set(
           this.props.rjvId,
           this.props.namespace,
@@ -38,42 +38,37 @@ export default class extends React.PureComponent {
   };
 
   render() {
-    const type_name = 'function';
-    const { props } = this;
+    const type_name = 'string';
     const { collapsed } = this.state;
+    const { props } = this;
+    const { collapseStringsAfterLength, theme } = props;
+    let { value } = props;
+    let collapsible = toType(collapseStringsAfterLength) === 'integer';
+    let style = { style: { cursor: 'default' } };
+
+    if (collapsible && value.length > collapseStringsAfterLength) {
+      style.style.cursor = 'pointer';
+      if (this.state.collapsed) {
+        value = (
+          <span>
+            {value.substring(0, collapseStringsAfterLength)}
+            <span {...Theme(theme, 'ellipsis')}> ...</span>
+          </span>
+        );
+      }
+    }
 
     return (
-      <div {...Theme(props.theme, 'function')}>
+      <div {...Theme(theme, 'string')}>
         <DataTypeLabel type_name={type_name} {...props} />
         <span
-          {...Theme(props.theme, 'function-value')}
-          class="rjv-function-container"
+          className="string-value"
+          {...style}
           onClick={this.toggleCollapsed}
         >
-          {this.getFunctionDisplay(collapsed)}
+          "{value}"
         </span>
       </div>
     );
   }
-
-  getFunctionDisplay = (collapsed) => {
-    const { props } = this;
-    if (collapsed) {
-      return (
-        <span>
-          {this.props.value
-            .toString()
-            .slice(9, -1)
-            .replace(/\{[\s\S]+/, '')}
-          <span class="function-collapsed" style={{ fontWeight: 'bold' }}>
-            <span>{'{'}</span>
-            <span {...Theme(props.theme, 'ellipsis')}>...</span>
-            <span>{'}'}</span>
-          </span>
-        </span>
-      );
-    } else {
-      return this.props.value.toString().slice(9, -1);
-    }
-  };
 }
