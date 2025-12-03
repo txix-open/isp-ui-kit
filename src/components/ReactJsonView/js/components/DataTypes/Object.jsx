@@ -1,6 +1,6 @@
 import React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
-import { toType } from './../../helpers/util';
+import { toType } from '../../helpers/util';
 import dispatcher from './../../helpers/dispatcher';
 
 //data type components
@@ -26,7 +26,7 @@ import ObjectName from './../ObjectName';
 import AttributeStore from './../../stores/ObjectAttributes';
 
 //icons
-import { CollapsedIcon, ExpandedIcon } from './../ToggleIcons';
+import { CollapsedIcon, ExpandedIcon } from '../ToggleIcons';
 import { CheckCircle, Edit, RemoveCircle as Remove } from './../icons';
 
 //theme
@@ -121,9 +121,9 @@ class RjvObject extends React.PureComponent {
 
   getObjectContent = (depth, src, props) => {
     return (
-      <div class="pushed-content object-container">
+      <div className="pushed-content object-container">
         <div
-          class="object-content"
+          className="object-content"
           {...Theme(this.props.theme, 'pushed-content')}
         >
           {this.state.editMode
@@ -144,7 +144,7 @@ class RjvObject extends React.PureComponent {
       return (
         <div
           {...Theme(this.props.theme, 'ellipsis')}
-          class="node-ellipsis"
+          className="node-ellipsis"
           onClick={this.toggleCollapsed}
         >
           ...
@@ -182,7 +182,7 @@ class RjvObject extends React.PureComponent {
         title={'Edit Key'}
       >
         <Edit
-          class="click-to-edit-icon"
+          className="click-to-edit-icon"
           {...Theme(theme, 'editVarIcon')}
           onClick={(e) => {
             e.stopPropagation();
@@ -398,7 +398,7 @@ class RjvObject extends React.PureComponent {
           type="text"
           inputRef={(input) => input && input.focus()}
           value={editValue}
-          class="variable-editor"
+          className="variable-editor"
           onChange={(event) => {
             const value = event.target.value;
             const detected = parseInput(value);
@@ -433,14 +433,14 @@ class RjvObject extends React.PureComponent {
         />
         <div {...Theme(theme, 'edit-icon-container')}>
           <Remove
-            class="edit-cancel"
+            className="edit-cancel"
             {...Theme(theme, 'cancel-icon')}
             onClick={() => {
               this.setState({ editMode: false });
             }}
           />
           <CheckCircle
-            class="edit-check string-value"
+            className="edit-check string-value"
             {...Theme(theme, 'check-icon')}
             onClick={() => {
               this.submitEdit(true);
@@ -462,7 +462,7 @@ class RjvObject extends React.PureComponent {
           <div {...Theme(theme, 'detected-row')}>
             {detected}
             <CheckCircle
-              class="edit-check detected"
+              className="edit-check detected"
               style={{
                 verticalAlign: 'top',
                 paddingLeft: '3px',
@@ -594,12 +594,12 @@ class RjvObject extends React.PureComponent {
     const { src, theme } = this.props;
     return (
       <div
-        class="click-to-edit"
+        className="click-to-edit"
         style={{ verticalAlign: 'top' }}
         title={'Edit Value'}
       >
         <Edit
-          class="click-to-edit-icon"
+          className="click-to-edit-icon"
           {...Theme(theme, 'editVarIcon')}
           onClick={() => {
             this.prepopInput(src);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { toType } from './../helpers/util';
+import { toType } from '../helpers/util';
 import stringifyVariable from './../helpers/stringifyVariable';
 
 //clibboard icon
@@ -66,13 +66,13 @@ export default class extends React.PureComponent {
     if (this.state.copied) {
       return (
         <span>
-          <Clippy class="copy-icon" {...Theme(theme, 'copy-icon')} />
+          <Clippy className="copy-icon" {...Theme(theme, 'copy-icon')} />
           <span {...Theme(theme, 'copy-icon-copied')}>✔</span>
         </span>
       );
     }
 
-    return <Clippy class="copy-icon" {...Theme(theme, 'copy-icon')} />;
+    return <Clippy className="copy-icon" {...Theme(theme, 'copy-icon')} />;
   };
 
   clipboardValue = (value) => {
@@ -96,7 +96,7 @@ export default class extends React.PureComponent {
     }
 
     return (
-      <span class="copy-to-clipboard-container" title="Copy to clipboard">
+      <span className="copy-to-clipboard-container" title="Copy to clipboard">
         <span
           style={{
             ...style,

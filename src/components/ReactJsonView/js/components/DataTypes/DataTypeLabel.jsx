@@ -8,7 +8,7 @@ export default class extends React.PureComponent {
     const { rjvId, type_name, displayDataTypes, theme } = this.props;
     if (displayDataTypes) {
       return (
-        <span class="data-type-label" {...Theme(theme, 'data-type-label')}>
+        <span className="data-type-label" {...Theme(theme, 'data-type-label')}>
           {type_name}
         </span>
       );
