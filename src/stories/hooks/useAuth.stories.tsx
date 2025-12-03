@@ -132,5 +132,6 @@ export default meta;
 
 type Story = StoryObj<typeof useAuth>;
 export const BasicAuth: Story = {
+  name: 'Пример аутентификации',
   render: (args) => <BasicAuthExample />,
 };

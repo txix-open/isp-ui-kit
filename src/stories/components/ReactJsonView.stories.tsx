@@ -18,6 +18,7 @@ const json = {
 const meta: Meta<typeof ReactJsonView> = {
   component: ReactJsonView,
   title: 'Components/ReactJsonView',
+  tags: ['autodocs'],
   argTypes: {
     src: {
       description: 'Данные для отрисовки',
@@ -218,6 +219,7 @@ export default meta;
 type Story = StoryObj<typeof ReactJsonView>;
 
 export const JsonView: Story = {
+  name: 'Пример',
   render: (args) => {
     return (
       <div>

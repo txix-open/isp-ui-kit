@@ -4,6 +4,7 @@ import { FormCodeEditor } from '../../FormComponents';
 
 const meta: Meta<typeof FormCodeEditor> = {
   component: FormCodeEditor,
+  tags: ['autodocs'],
   title: 'FormComponents/FormCodeEditor',
   args: {
     label: 'Название CodeEditor',
@@ -45,6 +46,7 @@ type Story = StoryObj<typeof FormCodeEditor>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

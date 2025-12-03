@@ -4,6 +4,7 @@ import { FormInputPassword } from '../../FormComponents';
 
 const meta: Meta<typeof FormInputPassword> = {
   component: FormInputPassword,
+  tags: ['autodocs'],
   title: 'FormComponents/FormInputPassword',
   args: {
     label: 'Название InputPassword',
@@ -46,6 +47,7 @@ type Story = StoryObj<typeof FormInputPassword>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
@@ -59,6 +61,7 @@ export const Example: Story = {
 };
 
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

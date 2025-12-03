@@ -1,21 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormSecretTextArea } from '../../FormComponents';
+import { FormSelect } from '../../FormComponents';
 
-const meta: Meta<typeof FormSecretTextArea> = {
-  component: FormSecretTextArea,
-  title: 'FormComponents/FormSecretTextArea',
+const meta: Meta<typeof FormSelect> = {
+  component: FormSelect,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormSelect',
   args: {
-    label: 'Название SecretTextArea',
-    name: 'TextArea',
+    label: 'Название Select',
+    name: 'Select',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
+    options: [
+      { value: 'id-1', label: 'name 1' },
+      { value: 'id-2', label: 'name 2' },
+    ],
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component:
-          'Компонент SecretTextArea, который поддерживает react-hook-form',
+        component: 'Компонент Select, который поддерживает react-hook-form',
       },
     },
   },
@@ -29,7 +33,7 @@ const meta: Meta<typeof FormSecretTextArea> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к TextArea',
+      description: 'Подпись к Select',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -37,38 +41,43 @@ const meta: Meta<typeof FormSecretTextArea> = {
     controlClassName: {
       description: 'Имя класса для компонента формы',
     },
+    options: {
+      description: ' Ожидает массив объектов {value: "id", label: "Заголовок"}',
+    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FormSecretTextArea>;
+type Story = StoryObj<typeof FormSelect>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSecretTextArea {...args} />
+        <FormSelect {...args} />
       </form>
     );
   },
 };
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('SecretTextArea', {
+    control.setError('Select', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSecretTextArea {...args} />
+        <FormSelect {...args} />
       </form>
     );
   },

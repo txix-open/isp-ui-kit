@@ -3,6 +3,7 @@ import { EmptyData } from '../../../Layout';
 
 const meta: Meta<typeof EmptyData> = {
   component: EmptyData,
+  tags: ['autodocs'],
   title: 'Layout/ThreeColumns/EmptyData',
   parameters: {
     layout: 'centered',

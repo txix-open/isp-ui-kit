@@ -1,20 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormTextArea } from '../../FormComponents';
+import { FormDatePicker } from '../../FormComponents';
 
-const meta: Meta<typeof FormTextArea> = {
-  component: FormTextArea,
-  title: 'FormComponents/FormTextArea',
+const meta: Meta<typeof FormDatePicker> = {
+  component: FormDatePicker,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormDatePicker',
   args: {
-    label: 'Название TextArea',
-    name: 'TextArea',
+    label: 'Название DatePicker',
+    name: 'datePicker',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент TextArea, который поддерживает react-hook-form',
+        component: 'Компонент DatePicker, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +29,7 @@ const meta: Meta<typeof FormTextArea> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к TextArea',
+      description: 'Подпись к DatePicker',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,33 +42,36 @@ const meta: Meta<typeof FormTextArea> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormTextArea>;
+type Story = StoryObj<typeof FormDatePicker>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormTextArea {...args} />
+        <FormDatePicker {...args} />
       </form>
     );
   },
 };
+
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('TextArea', {
+    control.setError('input', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormTextArea {...args} />
+        <FormDatePicker {...args} />
       </form>
     );
   },
