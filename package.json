@@ -2,8 +2,20 @@
   "name": "isp-ui-kit",
   "version": "0.24.2",
   "description": "react ui lib for project",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "license": "MIT",
   "repository": {
     "url": "https://github.com/txix-open/isp-ui-kit"
@@ -42,7 +54,6 @@
     "@typescript-eslint/eslint-plugin": "^8.48.1",
     "@typescript-eslint/parser": "^8.48.1",
     "antd": "^5.23.1",
-    "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
@@ -57,11 +68,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.67.0",
-    "react-test-renderer": "^18.3.1",
     "rollup": "^4.53.3",
     "rollup-plugin-delete": "^3.0.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-polyfill-node": "^0.13.0",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.94.2",
     "storybook": "^10.1.4",
