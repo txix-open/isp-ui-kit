@@ -19,7 +19,7 @@ export default class extends React.PureComponent {
     return (
       <div {...Theme(props.theme, 'date')}>
         <DataTypeLabel type_name={type_name} {...props} />
-        <span class="date-value" {...Theme(props.theme, 'date-value')}>
+        <span className="date-value" {...Theme(props.theme, 'date-value')}>
           {props.value.toLocaleTimeString('en-us', display_options)}
         </span>
       </div>

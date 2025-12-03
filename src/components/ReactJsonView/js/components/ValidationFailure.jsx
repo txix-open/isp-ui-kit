@@ -1,5 +1,5 @@
 import React from 'react';
-import dispatcher from './../helpers/dispatcher';
+import dispatcher from '../helpers/dispatcher';
 import ObjectAttributes from './../stores/ObjectAttributes';
 
 import { Add as Clear } from './icons';
@@ -14,7 +14,7 @@ export default class extends React.PureComponent {
 
     return active ? (
       <div
-        class="validation-failure"
+        className="validation-failure"
         {...Theme(theme, 'validation-failure')}
         onClick={() => {
           dispatcher.dispatch({

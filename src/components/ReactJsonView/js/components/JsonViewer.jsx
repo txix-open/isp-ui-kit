@@ -16,8 +16,8 @@ export default class extends React.PureComponent {
     }
 
     return (
-      <div class="pretty-json-container object-container">
-        <div class="object-content">
+      <div className="pretty-json-container object-container">
+        <div className="object-content">
           <ObjectComponent
             namespace={namespace}
             depth={0}

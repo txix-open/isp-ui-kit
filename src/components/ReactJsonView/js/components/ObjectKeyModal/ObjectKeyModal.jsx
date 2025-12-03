@@ -26,7 +26,7 @@ export default class extends React.PureComponent {
     const valid = isValid(input);
     return (
       <div
-        class="key-modal-request"
+        className="key-modal-request"
         {...Theme(theme, 'key-modal-request')}
         onClick={this.closeModal}
       >
@@ -40,7 +40,7 @@ export default class extends React.PureComponent {
           <div style={{ position: 'relative' }}>
             <input
               {...Theme(theme, 'key-modal-input')}
-              class="key-modal-input"
+              className="key-modal-input"
               ref={(el) => el && el.focus()}
               spellCheck={false}
               value={input}
@@ -61,7 +61,7 @@ export default class extends React.PureComponent {
             {valid ? (
               <CheckCircle
                 {...Theme(theme, 'key-modal-submit')}
-                class="key-modal-submit"
+                className="key-modal-submit"
                 onClick={(e) => this.submit()}
               />
             ) : null}
@@ -69,7 +69,7 @@ export default class extends React.PureComponent {
           <span {...Theme(theme, 'key-modal-cancel')}>
             <Cancel
               {...Theme(theme, 'key-modal-cancel-icon')}
-              class="key-modal-cancel"
+              className="key-modal-cancel"
               onClick={() => {
                 dispatcher.dispatch({
                   rjvId: rjvId,
