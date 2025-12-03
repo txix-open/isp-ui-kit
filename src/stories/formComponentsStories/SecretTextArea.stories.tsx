@@ -45,7 +45,7 @@ export default meta;
 type Story = StoryObj<typeof FormSecretTextArea>;
 const onSubmit = (data: unknown) => console.log(data);
 
-export const TextArea: Story = {
+export const Example: Story = {
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
