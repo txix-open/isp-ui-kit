@@ -15,14 +15,19 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo',
     },
+    docs: {
+      toc: true,
+    },
     options: {
       storySort: {
         order: [
           'Введение',
+          'Layout',
+          ['Описание', 'Pages', 'ThreeColumns'],
           'Components',
           'FormComponents',
+          ['Описание', 'ConfigForm'],
           'Hooks',
-          'Layout',
           'Utils',
           '*',
         ],

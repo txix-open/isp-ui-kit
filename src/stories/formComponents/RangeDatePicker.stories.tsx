@@ -1,20 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormCheckbox } from '../../FormComponents';
+import { FormRangeDatePicker } from '../../FormComponents';
 
-const meta: Meta<typeof FormCheckbox> = {
-  component: FormCheckbox,
-  title: 'FormComponents/FormCheckbox',
+const meta: Meta<typeof FormRangeDatePicker> = {
+  component: FormRangeDatePicker,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormRangeDatePicker',
   args: {
-    label: 'Название checkbox',
-    name: 'checkbox',
+    label: 'Название FormRangeDatePicker',
+    name: 'datePicker',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Checkbox, который поддерживает react-hook-form',
+        component:
+          'Компонент RangeDatePicker, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +30,7 @@ const meta: Meta<typeof FormCheckbox> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к checkbox',
+      description: 'Подпись к RangeDatePicker',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,33 +43,36 @@ const meta: Meta<typeof FormCheckbox> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormCheckbox>;
+type Story = StoryObj<typeof FormRangeDatePicker>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormRangeDatePicker {...args} />
       </form>
     );
   },
 };
+
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('checkbox', {
+    control.setError('input', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
+        <FormRangeDatePicker {...args} />
       </form>
     );
   },

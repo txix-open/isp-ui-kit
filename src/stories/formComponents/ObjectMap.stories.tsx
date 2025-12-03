@@ -4,6 +4,7 @@ import { FormObjectMap } from '../../FormComponents';
 
 const meta: Meta<typeof FormObjectMap> = {
   component: FormObjectMap,
+  tags: ['autodocs'],
   title: 'FormComponents/FormObjectMap',
   args: {
     name: 'objectField',
@@ -34,6 +35,7 @@ type Story = StoryObj<typeof FormObjectMap>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;

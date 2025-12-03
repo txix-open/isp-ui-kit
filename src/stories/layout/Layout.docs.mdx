@@ -1,0 +1,101 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta  title="Layout/Интеграция с React Router" />
+
+## 🔗 Интеграция с React Router (v6+)
+
+Ниже приведён полноценный пример работы `LayoutMenu` вместе с `react-router-dom`.
+
+Компонент:
+- использует `useNavigate()` для переходов;
+- читает `location.pathname` для подсветки активного пункта;
+- работает как реальное левое меню в приложении.
+
+### ВАЖНО
+ ключ в `menuConfig` и routePath должны совпадать по имени. `key: 'test'` `routePath: '/test'`
+
+### App.tsx
+
+```tsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LayoutComponent from './LayoutComponent';
+
+// Страницы
+const Dashboard = () => <h2>Дашборд</h2>;
+const Users = () => <h2>Пользователи</h2>;
+const Profile = () => <h2>Профиль</h2>;
+const Security = () => <h2>Безопасность</h2>;
+
+export const App = () => (
+  <BrowserRouter>
+    <Routes>
+      {/* Обёртываем все защищённые/основные маршруты в LayoutComponent */}
+      <Route path="/" element={<LayoutComponent />}>
+        <Route index element={<Dashboard />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="users" element={<Users />} />
+        <Route path="settings/profile" element={<Profile />} />
+        <Route path="settings/security" element={<Security />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
+```
+### Layout.tsx
+```tsx
+import { Layout } from 'antd';
+import { Layout as LayoutUi } from 'isp-ui-kit';
+import { useState } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+
+// Меню — вынесено отдельно или импортируется
+const menuConfig = [
+  { key: '/dashboard', label: 'Дашборд', permissions: [] },
+  { key: '/users', label: 'Пользователи', permissions: [] },
+  {
+    key: '/settings',
+    label: 'Настройки',
+    permissions: [],
+    children: [
+      { key: '/settings/profile', label: 'Профиль', permissions: [] },
+      { key: '/settings/security', label: 'Безопасность', permissions: [] },
+    ],
+  },
+];
+
+const { Content } = Layout;
+const { LayoutSider, LayoutMenu } = LayoutUi;
+
+function LayoutComponent() {
+  const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleItemChange = ({ key }: { key: string }) => {
+    navigate(key);
+  };
+
+  return (
+    <Layout className="layout" data-cy="homePage" style={{ minHeight: '100vh' }}>
+      <LayoutSider
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+      >
+        <LayoutMenu
+          currentPath={location.pathname}
+          onClickItem={handleItemChange}
+          onHideMenuItem={() => false}
+          menuConfig={menuConfig}
+        />
+      </LayoutSider>
+      <Layout className="site-layout" style={{ marginLeft: collapsed ? 80 : 260 }}>
+        <Content className="site-layout__content" style={{ padding: '24px' }}>
+          <Outlet />
+        </Content>
+      </Layout>
+    </Layout>
+  );
+}
+
+export default LayoutComponent;
+```

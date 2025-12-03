@@ -4,11 +4,13 @@ import { Button } from 'antd';
 
 const meta: Meta<typeof NotFoundPage> = {
   component: NotFoundPage,
+  tags: ['autodocs'],
   title: 'Layout/Pages/NotFoundPage',
   args: {},
   parameters: {
     layout: 'centered',
-    componentSubtitle: 'Компонент для отображения страницы "Страница не найдена". Применяется для обработки запросов к несуществующим маршрутам.',
+    componentSubtitle:
+      'Компонент для отображения страницы "Страница не найдена". Применяется для обработки запросов к несуществующим маршрутам.',
   },
   argTypes: {
     children: {
@@ -23,6 +25,7 @@ export default meta;
 type Story = StoryObj<typeof HomePage>;
 
 export const Example: Story = {
+  name: 'Пример',
   args: {
     children: <Button>Домой</Button>,
   },

@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import {Meta, Canvas} from '@storybook/addon-docs/blocks';
+import * as LayoutStories from '../layout/Layout.stories.tsx';
 
 <Meta title="Layout/Описание"/>
+
 
 # Layout
 Компоненты для построения макета страниц
@@ -13,7 +15,35 @@ const { Column, NotFoundPage } = Layout
 
 ## Интерфейс "Три колонки"
 Компоненты для построения колончатого интерфейса
-### [Column](?path=/story/layout-threecolumns-column--empty)
+### [Column](?path=/story/layout-threecolumns-column--docs)
+
+
+
+Для корректной работы стилей внутри Column:
+1. Необходимо обязательно включить CSS vars для antd config
+```jsx
+<ConfigProvider theme={{cssVar: true}} locale={ruRu}>
+    <App/>
+</ConfigProvider>
+```
+
+2. Добавить поддержку scrollbars и resize
+
+```jsx
+import 'react-resizable/css/styles.css'
+import 'simplebar-react/dist/simplebar.min.css'
+```
+
+3. Обернуть приложение в Layout от antd
+```jsx
+import {Layout} from 'antd'
+
+<Layout>
+    <Column/>
+    <div>Content</div>
+</Layout>
+```
+
 - [Empty](?path=/story/layout-threecolumns-column--empty): Базовый пример компонента Column без содержимого. Подходит для демонстрации структуры или настройки макета.
 - [With Elements](?path=/story/layout-threecolumns-column--with-elements): Пример компонента Column с элементами. Подходит для отображения данных или других вложенных компонентов.
 
@@ -21,11 +51,14 @@ const { Column, NotFoundPage } = Layout
 
 ### [EmptyData](?path=/story/layout-threecolumns-emptydata--example)
 Компонент, используемый для отображения пустых данных. Применяется для сценариев, когда нет данных для отображения.
+<Canvas of={LayoutStories.CombinedColumnWithEmptyData} />
 
 ---
 
 ### [NoData](?path=/story/layout-threecolumns-nodata--example)
 Вариация компонента для работы с отсутствующими данными. Полезен для создания пользовательских сообщений или заглушек.
+
+<Canvas of={LayoutStories.CombinedLayout} />
 
 ---
 
@@ -48,7 +81,7 @@ const { Column, NotFoundPage } = Layout
 ---
 ## Компоненты
 
-### [LayoutSider](?path=/story/layout-layoutsider--example)
+### [LayoutSider](?path=/docs/layout-layoutsider--docs)
 Компонент для оборачивания меню
 
 ### [LayoutMenu](?path=/story/layout-layoutmenu--example)

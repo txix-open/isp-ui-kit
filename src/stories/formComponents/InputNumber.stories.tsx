@@ -1,20 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
-import { FormInput } from '../../FormComponents';
+import { FormInputNumber } from '../../FormComponents';
 
-const meta: Meta<typeof FormInput> = {
-  component: FormInput,
-  title: 'FormComponents/FormInput',
+const meta: Meta<typeof FormInputNumber> = {
+  component: FormInputNumber,
+  tags: ['autodocs'],
+  title: 'FormComponents/FormInputNumber',
   args: {
-    label: 'Название Input',
-    name: 'input',
+    label: 'Название InputNumber',
+    name: 'InputNumber',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Input, который поддерживает react-hook-form',
+        component:
+          'Компонент InputNumber, который поддерживает react-hook-form',
       },
     },
   },
@@ -28,7 +30,7 @@ const meta: Meta<typeof FormInput> = {
       description: 'Путь до поля в структуре',
     },
     label: {
-      description: 'Подпись к Input',
+      description: 'Подпись к InputNumber',
     },
     rules: {
       description: 'Правила валидации поля',
@@ -41,34 +43,36 @@ const meta: Meta<typeof FormInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof FormInput>;
+type Story = StoryObj<typeof FormInputNumber>;
 const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
+  name: 'Пример',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput {...args} />
+        <FormInputNumber {...args} />
       </form>
     );
   },
 };
 
 export const Validation: Story = {
+  name: 'Валидация',
   render: (args) => {
     const methods = useForm();
     const { control, handleSubmit } = methods;
     args.control = control;
-    control.setError('input', {
+    control.setError('InputNumber', {
       type: 'required',
       message: args.rules!.required!.message,
     });
     return (
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput {...args} />
+        <FormInputNumber {...args} />
       </form>
     );
   },
