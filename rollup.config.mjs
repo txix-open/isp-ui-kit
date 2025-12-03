@@ -7,47 +7,56 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import image from '@rollup/plugin-image';
 import { babel } from '@rollup/plugin-babel';
 import del from 'rollup-plugin-delete';
-import nodePolyfills from 'rollup-plugin-polyfill-node';
 
 export default [
   {
     input: 'src/index.ts',
-    output: {
-      file: 'dist/index.js',
-      format: 'esm',
-      inlineDynamicImports: true,
-    },
-    external: ['antd', '@ant-design/cssinjs', 'react', 'react-dom'],
+    output: [
+      {
+        file: 'dist/index.cjs.js',
+        format: 'cjs',
+        sourcemap: true,
+      },
+      {
+        file: 'dist/index.esm.js',
+        format: 'esm',
+        sourcemap: true,
+      },
+    ],
     plugins: [
       del({ targets: 'dist/*' }),
-      babel({
-        babelHelpers: 'bundled',
-        exclude: 'node_modules/**',
-      }),
       peerDepsExternal(),
       resolve({
-        extensions: ['.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        preferBuiltins: false,
       }),
       commonjs(),
+      image(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
+        extract: false,
+        minimize: true,
+        inject: true,
         use: {
           sass: {
             silenceDeprecations: ['legacy-js-api'],
           },
         },
       }),
+      babel({
+        babelHelpers: 'bundled',
+        exclude: 'node_modules/**',
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }),
       terser({
         compress: {
-          drop_console: true,
+          drop_console: ['log', 'info'],
           drop_debugger: true,
         },
         output: {
           comments: false,
         },
       }),
-      image(),
-      nodePolyfills(),
     ],
   },
 ];
