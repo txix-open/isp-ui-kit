@@ -7,7 +7,6 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import image from '@rollup/plugin-image';
 import { babel } from '@rollup/plugin-babel';
 import del from 'rollup-plugin-delete';
-import nodePolyfills from 'rollup-plugin-polyfill-node';
 
 export default [
   {
@@ -26,7 +25,8 @@ export default [
       }),
       peerDepsExternal(),
       resolve({
-        extensions: ['.js', '.jsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        preferBuiltins: false
       }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
@@ -47,7 +47,6 @@ export default [
         },
       }),
       image(),
-      nodePolyfills(),
     ],
   },
 ];
