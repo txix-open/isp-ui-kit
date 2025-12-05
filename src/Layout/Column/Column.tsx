@@ -13,6 +13,7 @@ import {
   Select,
   Space,
   Collapse,
+  Skeleton,
 } from 'antd';
 import { createRef, RefObject, useEffect, useMemo, useState } from 'react';
 import SimpleBar from 'simplebar-react';
@@ -48,6 +49,7 @@ const Column = <T extends object>({
   loadingRemove = false,
   groupBy,
   renderHeaderGroup,
+  isLoading,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useMemo(
@@ -280,7 +282,9 @@ const Column = <T extends object>({
         e.key === 'Enter' && setSelectedItemId(item.id.toString())
       }
     >
-      {renderItems(item)}
+      <Skeleton loading={isLoading} active>
+        {renderItems(item)}
+      </Skeleton>
     </div>
   );
 
@@ -461,7 +465,7 @@ const Column = <T extends object>({
         )}
       </div>
       <SimpleBar className="column__items">
-        {items.length > 0 && renderContent}
+        {!isLoading && items.length > 0 && renderContent}
       </SimpleBar>
     </ResizableBox>
   );
