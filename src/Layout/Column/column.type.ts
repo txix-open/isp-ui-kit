@@ -27,6 +27,7 @@ export interface ColumnProps<T extends object> {
   loadingRemove?: boolean;
   groupBy?: keyof T;
   renderHeaderGroup?: (groupKey: string, items: ColumnItem<T>[]) => ReactNode;
+  isLoading?: boolean;
 }
 
 export type ColumnItem<T extends {}> = T & {

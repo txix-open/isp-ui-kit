@@ -13,6 +13,7 @@ import {
   Select,
   Space,
   Collapse,
+  Skeleton,
 } from 'antd';
 import { createRef, RefObject, useEffect, useMemo, useState } from 'react';
 import SimpleBar from 'simplebar-react';
@@ -48,6 +49,7 @@ const Column = <T extends object>({
   loadingRemove = false,
   groupBy,
   renderHeaderGroup,
+  isLoading,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useMemo(
@@ -232,7 +234,9 @@ const Column = <T extends object>({
         e.key === 'Enter' && setSelectedItemId(item.id.toString())
       }
     >
-      {renderItems(item)}
+      <Skeleton loading={isLoading} active>
+        {renderItems(item)}
+      </Skeleton>
     </div>
   );
 
@@ -347,28 +351,30 @@ const Column = <T extends object>({
         )}
       </div>
       <SimpleBar className="column__items">
-        {groupBy && Object.keys(sortedGroupedItems.grouped).length > 0 && (
-          <Collapse
-            activeKey={activeGroupKeys}
-            onChange={handleCollapseChange}
-            className="column__groups"
-          >
-            {Object.entries(sortedGroupedItems.grouped).map(
-              ([groupKey, groupItems]) => (
-                <Panel
-                  key={groupKey}
-                  header={
-                    renderHeaderGroup
-                      ? renderHeaderGroup(groupKey, groupItems)
-                      : `${groupKey} (${groupItems.length})`
-                  }
-                >
-                  <List dataSource={groupItems} renderItem={renderItem} />
-                </Panel>
-              ),
-            )}
-          </Collapse>
-        )}
+        {!isLoading &&
+          groupBy &&
+          Object.keys(sortedGroupedItems.grouped).length > 0 && (
+            <Collapse
+              activeKey={activeGroupKeys}
+              onChange={handleCollapseChange}
+              className="column__groups"
+            >
+              {Object.entries(sortedGroupedItems.grouped).map(
+                ([groupKey, groupItems]) => (
+                  <Panel
+                    key={groupKey}
+                    header={
+                      renderHeaderGroup
+                        ? renderHeaderGroup(groupKey, groupItems)
+                        : `${groupKey} (${groupItems.length})`
+                    }
+                  >
+                    <List dataSource={groupItems} renderItem={renderItem} />
+                  </Panel>
+                ),
+              )}
+            </Collapse>
+          )}
 
         {sortedGroupedItems.ungrouped.length > 0 && (
           <List
