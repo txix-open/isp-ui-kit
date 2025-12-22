@@ -190,6 +190,31 @@
     }
   }
 
+  .ant-collapse-content-box {
+    padding: 0 !important;
+  }
+
+  .ant-collapse-item {
+    border-bottom: none;
+
+    .ant-collapse-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--ant-layout-light-sider-bg);
+      border-bottom: 1px solid #f0f0f0;
+      padding: 8px 16px;
+    }
+
+    .ant-collapse-content {
+      border-top: none;
+
+      .ant-collapse-content-box {
+        padding: 0;
+      }
+    }
+  }
+
   .ant-list-item {
     padding: 8px 12px;
     border-bottom: 1px solid var(--ant-color-border) !important;
