@@ -5,7 +5,16 @@ import {
   SortAscendingOutlined,
   SortDescendingOutlined,
 } from '@ant-design/icons';
-import { Button, List, Popconfirm, Tooltip, Select, Space } from 'antd';
+import {
+  Button,
+  List,
+  Popconfirm,
+  Tooltip,
+  Select,
+  Space,
+  Collapse,
+  Skeleton,
+} from 'antd';
 import { createRef, RefObject, useEffect, useMemo, useState } from 'react';
 import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
@@ -13,6 +22,8 @@ import { ColumnItem, ColumnProps } from './column.type';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import { pluralize } from '../../utils/columnUtils';
 import './column.scss';
+
+const { Panel } = Collapse;
 
 const Column = <T extends object>({
   title = '',
@@ -36,6 +47,9 @@ const Column = <T extends object>({
   directionValue,
   onChangeDirectionValue,
   loadingRemove = false,
+  groupBy,
+  renderHeaderGroup,
+  isLoading,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useMemo(
@@ -47,6 +61,7 @@ const Column = <T extends object>({
     [items],
   );
   const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
+  const [activeGroupKeys, setActiveGroupKeys] = useState<string[]>([]);
 
   const sortOptions = useMemo(() => {
     const defaultOption = { value: 'default', label: 'По умолчанию' };
@@ -66,6 +81,116 @@ const Column = <T extends object>({
 
     initColumnWidth();
   }, [columnKey]);
+
+  const groupedItems = useMemo(() => {
+    if (!groupBy) {
+      return { grouped: {}, ungrouped: items };
+    }
+
+    const grouped: Record<string, ColumnItem<T>[]> = {};
+    const ungrouped: ColumnItem<T>[] = [];
+
+    items.forEach((item) => {
+      const groupKey = item[groupBy];
+      if (groupKey !== undefined && groupKey !== null && groupKey !== '') {
+        const key = String(groupKey);
+        if (!grouped[key]) {
+          grouped[key] = [];
+        }
+        grouped[key].push(item);
+      } else {
+        ungrouped.push(item);
+      }
+    });
+
+    return { grouped, ungrouped };
+  }, [items, groupBy]);
+
+  const shouldShowGroups = useMemo(() => {
+    if (!groupBy) return false;
+
+    const hasGroups = Object.keys(groupedItems.grouped).length > 0;
+    const hasUngrouped = groupedItems.ungrouped.length > 0;
+
+    return (
+      hasGroups &&
+      (hasUngrouped || Object.keys(groupedItems.grouped).length > 1)
+    );
+  }, [groupBy, groupedItems]);
+
+  const findActiveItemGroup = useMemo(() => {
+    if (!selectedItemId || !groupBy) return null;
+
+    const activeItem = items.find(
+      (item) => item.id.toString() === selectedItemId,
+    );
+    if (!activeItem) return null;
+
+    const groupKey = activeItem[groupBy];
+    return groupKey ? String(groupKey) : null;
+  }, [selectedItemId, items, groupBy]);
+
+  const findActiveItemIsUngrouped = useMemo(() => {
+    if (!selectedItemId || !groupBy) return false;
+
+    const activeItem = items.find(
+      (item) => item.id.toString() === selectedItemId,
+    );
+    if (!activeItem) return false;
+
+    const groupKey = activeItem[groupBy];
+    return groupKey === undefined || groupKey === null || groupKey === '';
+  }, [selectedItemId, items, groupBy]);
+
+  useEffect(() => {
+    if (!shouldShowGroups) return;
+
+    const allGroupKeys = Object.keys(groupedItems.grouped);
+    const hasUngrouped = groupedItems.ungrouped.length > 0;
+
+    let groupsToOpen: string[] = [...allGroupKeys];
+    if (hasUngrouped) {
+      groupsToOpen.push('noGroup');
+    }
+
+    if (searchValue && groupBy) {
+      groupsToOpen = groupsToOpen.filter((groupKey) => {
+        if (groupKey === 'noGroup') {
+          return groupedItems.ungrouped.some((item) =>
+            JSON.stringify(item)
+              .toLowerCase()
+              .includes(searchValue.toLowerCase()),
+          );
+        }
+        const groupItems = groupedItems.grouped[groupKey];
+        return groupItems.some((item) =>
+          JSON.stringify(item)
+            .toLowerCase()
+            .includes(searchValue.toLowerCase()),
+        );
+      });
+    }
+
+    if (findActiveItemGroup && !groupsToOpen.includes(findActiveItemGroup)) {
+      groupsToOpen.push(findActiveItemGroup);
+    }
+
+    if (findActiveItemIsUngrouped && !groupsToOpen.includes('noGroup')) {
+      groupsToOpen.push('noGroup');
+    }
+
+    groupsToOpen = [...new Set(groupsToOpen)];
+
+    setActiveGroupKeys(groupsToOpen);
+  }, [
+    searchValue,
+    groupBy,
+    items,
+    findActiveItemGroup,
+    findActiveItemIsUngrouped,
+    groupedItems.ungrouped.length,
+    shouldShowGroups,
+  ]);
 
   useEffect(() => {
     if (!selectedItemId) {
@@ -120,6 +245,114 @@ const Column = <T extends object>({
 
   const checkIsActive = (id: string | number): boolean =>
     id.toString() === selectedItemId;
+
+  const sortedGroupedItems = useMemo(() => {
+    const { grouped, ungrouped } = groupedItems;
+
+    const sortedGroupKeys = Object.keys(grouped).sort();
+    const sortedGroups: Record<string, ColumnItem<T>[]> = {};
+
+    sortedGroupKeys.forEach((key) => {
+      sortedGroups[key] = sortItems(grouped[key]);
+    });
+
+    return {
+      grouped: sortedGroups,
+      ungrouped: sortItems(ungrouped),
+    };
+  }, [groupedItems, sortValue, directionValue]);
+
+  const handleCollapseChange = (keys: string | string[]) => {
+    setActiveGroupKeys(Array.isArray(keys) ? keys : [keys]);
+  };
+
+  const renderItem = (item: ColumnItem<T>) => (
+    <div
+      aria-hidden="true"
+      tabIndex={0}
+      role="button"
+      data-cy="firstColumnItem"
+      ref={refs[item.id]}
+      key={item.id}
+      className={`column__items__item ${
+        checkIsActive(item.id) ? 'active' : ''
+      }`}
+      onClick={() => setSelectedItemId(item.id.toString())}
+      onKeyDown={(e) =>
+        e.key === 'Enter' && setSelectedItemId(item.id.toString())
+      }
+    >
+      <Skeleton loading={isLoading} active>
+        {renderItems(item)}
+      </Skeleton>
+    </div>
+  );
+
+  const renderContent = useMemo(() => {
+    if (!shouldShowGroups) {
+      const allItems = [...sortedGroupedItems.ungrouped];
+      Object.values(sortedGroupedItems.grouped).forEach((groupItems) => {
+        allItems.push(...groupItems);
+      });
+
+      return <List dataSource={allItems} renderItem={renderItem} />;
+    }
+
+    const panels = [];
+
+    if (Object.keys(sortedGroupedItems.grouped).length > 0) {
+      Object.entries(sortedGroupedItems.grouped).forEach(
+        ([groupKey, groupItems]) => {
+          panels.push(
+            <Panel
+              key={groupKey}
+              header={
+                renderHeaderGroup
+                  ? renderHeaderGroup(groupKey, groupItems)
+                  : `${groupKey} (${groupItems.length})`
+              }
+            >
+              <List dataSource={groupItems} renderItem={renderItem} />
+            </Panel>,
+          );
+        },
+      );
+    }
+
+    if (sortedGroupedItems.ungrouped.length > 0) {
+      panels.push(
+        <Panel
+          key="noGroup"
+          header={`Без группы (${sortedGroupedItems.ungrouped.length})`}
+        >
+          <List
+            dataSource={sortedGroupedItems.ungrouped}
+            renderItem={renderItem}
+          />
+        </Panel>,
+      );
+    }
+
+    return (
+      <Collapse
+        activeKey={activeGroupKeys}
+        onChange={handleCollapseChange}
+        className="column__groups"
+        defaultActiveKey={
+          sortedGroupedItems.ungrouped.length > 0 ? ['noGroup'] : []
+        }
+      >
+        {panels}
+      </Collapse>
+    );
+  }, [
+    shouldShowGroups,
+    sortedGroupedItems,
+    groupBy,
+    renderHeaderGroup,
+    renderItem,
+    activeGroupKeys,
+  ]);
 
   return (
     <ResizableBox
@@ -232,28 +465,7 @@ const Column = <T extends object>({
         )}
       </div>
       <SimpleBar className="column__items">
-        <List
-          dataSource={sortItems(items)}
-          renderItem={(item) => (
-            <div
-              aria-hidden="true"
-              tabIndex={0}
-              role="button"
-              data-cy="firstColumnItem"
-              ref={refs[item.id]}
-              key={item.id}
-              className={`column__items__item ${
-                checkIsActive(item.id) ? 'active' : ''
-              }`}
-              onClick={() => setSelectedItemId(item.id.toString())}
-              onKeyDown={(e) =>
-                e.key === 'Enter' && setSelectedItemId(item.id.toString())
-              }
-            >
-              {renderItems(item)}
-            </div>
-          )}
-        />
+        {!isLoading && items.length > 0 && renderContent}
       </SimpleBar>
     </ResizableBox>
   );
