@@ -26,7 +26,19 @@ export default <T extends FieldValues>({
         help={error && error.message}
         {...formItemProps}
       >
-        <Select data-cy="form-select" mode={mode} {...rest} {...field} />
+        <Select
+          data-cy="form-select"
+          mode={mode}
+          {...rest}
+          {...field}
+          onChange={(value, option) => {
+            const finalValue = value === undefined ? null : value;
+            field.onChange(finalValue);
+            if (rest.onChange) {
+              rest.onChange(finalValue, option);
+            }
+          }}
+        />
       </Form.Item>
     </div>
   );
