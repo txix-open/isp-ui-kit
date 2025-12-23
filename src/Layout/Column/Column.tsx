@@ -49,6 +49,7 @@ const Column = <T extends object>({
   loadingRemove = false,
   groupBy,
   renderHeaderGroup,
+  sortGroups,
   isLoading,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
@@ -249,7 +250,9 @@ const Column = <T extends object>({
   const sortedGroupedItems = useMemo(() => {
     const { grouped, ungrouped } = groupedItems;
 
-    const sortedGroupKeys = Object.keys(grouped).sort();
+    const sortedGroupKeys = Object.keys(grouped).sort(
+      sortGroups || ((a, b) => a.localeCompare(b)),
+    );
     const sortedGroups: Record<string, ColumnItem<T>[]> = {};
 
     sortedGroupKeys.forEach((key) => {

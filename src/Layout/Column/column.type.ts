@@ -27,6 +27,7 @@ export interface ColumnProps<T extends object> {
   loadingRemove?: boolean;
   groupBy?: keyof T;
   renderHeaderGroup?: (groupKey: string, items: ColumnItem<T>[]) => ReactNode;
+  sortGroups?: (a: string, b: string) => number;
   isLoading?: boolean;
 }
 
