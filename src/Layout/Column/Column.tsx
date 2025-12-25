@@ -63,6 +63,7 @@ const Column = <T extends object>({
   );
   const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
   const [activeGroupKeys, setActiveGroupKeys] = useState<string[]>([]);
+  const [isCollapse, setIsCollapse] = useState<boolean>(false);
 
   const sortOptions = useMemo(() => {
     const defaultOption = { value: 'default', label: 'По умолчанию' };
@@ -119,7 +120,7 @@ const Column = <T extends object>({
     );
   }, [groupBy, groupedItems]);
 
-  const findActiveItemGroup = useMemo(() => {
+  const findSelectedItemGroup = useMemo(() => {
     if (!selectedItemId || !groupBy) return null;
 
     const activeItem = items.find(
@@ -128,69 +129,111 @@ const Column = <T extends object>({
     if (!activeItem) return null;
 
     const groupKey = activeItem[groupBy];
-    return groupKey ? String(groupKey) : null;
+    if (groupKey === undefined || groupKey === null || groupKey === '') {
+      return 'noGroup';
+    }
+    return String(groupKey);
   }, [selectedItemId, items, groupBy]);
 
-  const findActiveItemIsUngrouped = useMemo(() => {
-    if (!selectedItemId || !groupBy) return false;
+  const groupsWithSearchResults = useMemo(() => {
+    if (!searchValue || !groupBy) return new Set<string>();
 
-    const activeItem = items.find(
-      (item) => item.id.toString() === selectedItemId,
-    );
-    if (!activeItem) return false;
+    const result = new Set<string>();
+    const searchLower = searchValue.toLowerCase();
 
-    const groupKey = activeItem[groupBy];
-    return groupKey === undefined || groupKey === null || groupKey === '';
-  }, [selectedItemId, items, groupBy]);
+    Object.entries(groupedItems.grouped).forEach(([groupKey, groupItems]) => {
+      const hasMatch = groupItems.some((item) =>
+        JSON.stringify(item).toLowerCase().includes(searchLower),
+      );
+      if (hasMatch) {
+        result.add(groupKey);
+      }
+    });
+
+    if (groupedItems.ungrouped.length > 0) {
+      const hasMatchInUngrouped = groupedItems.ungrouped.some((item) =>
+        JSON.stringify(item).toLowerCase().includes(searchLower),
+      );
+      if (hasMatchInUngrouped) {
+        result.add('noGroup');
+      }
+    }
+
+    return result;
+  }, [searchValue, groupBy, groupedItems]);
 
   useEffect(() => {
     if (!shouldShowGroups) return;
 
-    const allGroupKeys = Object.keys(groupedItems.grouped);
-    const hasUngrouped = groupedItems.ungrouped.length > 0;
+    if (
+      activeGroupKeys.length === 0 &&
+      !isCollapse &&
+      (!searchValue || searchValue.trim() === '')
+    ) {
+      const allGroupKeys = Object.keys(groupedItems.grouped);
+      const hasUngrouped = groupedItems.ungrouped.length > 0;
 
-    let groupsToOpen: string[] = [...allGroupKeys];
-    if (hasUngrouped) {
-      groupsToOpen.push('noGroup');
+      const groupsToOpen: string[] = [...allGroupKeys];
+      if (hasUngrouped) {
+        groupsToOpen.push('noGroup');
+      }
+
+      if (groupsToOpen.length > 0) {
+        setActiveGroupKeys(groupsToOpen);
+        return;
+      }
     }
 
-    if (searchValue && groupBy) {
-      groupsToOpen = groupsToOpen.filter((groupKey) => {
-        if (groupKey === 'noGroup') {
-          return groupedItems.ungrouped.some((item) =>
-            JSON.stringify(item)
-              .toLowerCase()
-              .includes(searchValue.toLowerCase()),
-          );
+    if (groupBy) {
+      if (searchValue && searchValue.trim() !== '') {
+        const groupsToOpen = Array.from(groupsWithSearchResults);
+        const currentKeys = JSON.stringify([...activeGroupKeys].sort());
+        const newKeys = JSON.stringify([...groupsToOpen].sort());
+
+        if (currentKeys !== newKeys) {
+          if (groupsToOpen.length > 0) {
+            setActiveGroupKeys(groupsToOpen);
+            setIsCollapse(false);
+          } else {
+            setActiveGroupKeys([]);
+          }
         }
-        const groupItems = groupedItems.grouped[groupKey];
-        return groupItems.some((item) =>
-          JSON.stringify(item)
-            .toLowerCase()
-            .includes(searchValue.toLowerCase()),
-        );
-      });
+        return;
+      } else if ((!searchValue || searchValue === '') && !isCollapse) {
+        const allGroupKeys = Object.keys(groupedItems.grouped);
+        const hasUngrouped = groupedItems.ungrouped.length > 0;
+
+        const groupsToOpen: string[] = [...allGroupKeys];
+        if (hasUngrouped) {
+          groupsToOpen.push('noGroup');
+        }
+
+        const currentKeys = JSON.stringify([...activeGroupKeys].sort());
+        const newKeys = JSON.stringify([...groupsToOpen].sort());
+
+        if (currentKeys !== newKeys) {
+          setActiveGroupKeys(groupsToOpen);
+        }
+        return;
+      }
     }
 
-    if (findActiveItemGroup && !groupsToOpen.includes(findActiveItemGroup)) {
-      groupsToOpen.push(findActiveItemGroup);
+    if (
+      findSelectedItemGroup &&
+      !isCollapse &&
+      !activeGroupKeys.includes(findSelectedItemGroup)
+    ) {
+      setActiveGroupKeys((prev) => [...prev, findSelectedItemGroup]);
     }
-
-    if (findActiveItemIsUngrouped && !groupsToOpen.includes('noGroup')) {
-      groupsToOpen.push('noGroup');
-    }
-
-    groupsToOpen = [...new Set(groupsToOpen)];
-
-    setActiveGroupKeys(groupsToOpen);
   }, [
+    shouldShowGroups,
+    activeGroupKeys.length,
+    isCollapse,
+    groupedItems,
     searchValue,
     groupBy,
-    items,
-    findActiveItemGroup,
-    findActiveItemIsUngrouped,
-    groupedItems.ungrouped.length,
-    shouldShowGroups,
+    groupsWithSearchResults,
+    findSelectedItemGroup,
   ]);
 
   useEffect(() => {
@@ -266,7 +309,30 @@ const Column = <T extends object>({
   }, [groupedItems, sortValue, directionValue]);
 
   const handleCollapseChange = (keys: string | string[]) => {
+    const newKeys = Array.isArray(keys) ? keys : [keys];
     setActiveGroupKeys(Array.isArray(keys) ? keys : [keys]);
+
+    const allPossibleGroups = [
+      ...Object.keys(groupedItems.grouped),
+      ...(groupedItems.ungrouped.length > 0 ? ['noGroup'] : []),
+    ];
+
+    switch (true) {
+      case newKeys.length === 0 && allPossibleGroups.length > 0:
+        setIsCollapse(true);
+        break;
+
+      case newKeys.length > 0 && newKeys.length < allPossibleGroups.length:
+        setIsCollapse(true);
+        break;
+
+      case newKeys.length === allPossibleGroups.length:
+        setIsCollapse(false);
+        break;
+
+      default:
+        break;
+    }
   };
 
   const renderItem = (item: ColumnItem<T>) => (
@@ -341,9 +407,6 @@ const Column = <T extends object>({
         activeKey={activeGroupKeys}
         onChange={handleCollapseChange}
         className="column__groups"
-        defaultActiveKey={
-          sortedGroupedItems.ungrouped.length > 0 ? ['noGroup'] : []
-        }
       >
         {panels}
       </Collapse>
