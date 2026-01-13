@@ -136,7 +136,7 @@ const Column = <T extends object>({
 
     Object.entries(groupedItems.grouped).forEach(([groupKey, groupItems]) => {
       const hasMatch = groupItems.some((item) =>
-        item.toString().toLowerCase().includes(searchValue.toLowerCase()),
+        item.name.toString().toLowerCase().includes(searchValue.toLowerCase()),
       );
       if (hasMatch) {
         result.add(groupKey);
@@ -145,7 +145,7 @@ const Column = <T extends object>({
 
     if (groupedItems.ungrouped.length > 0) {
       const hasMatchInUngrouped = groupedItems.ungrouped.some((item) =>
-        item.toString().toLowerCase().includes(searchValue.toLowerCase()),
+        item.name.toString().toLowerCase().includes(searchValue.toLowerCase()),
       );
       if (hasMatchInUngrouped) {
         result.add('noGroup');
