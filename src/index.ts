@@ -34,6 +34,7 @@ export * from './components/SearchInput/search-input.type';
 import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';
 import { findRouteWithParents } from './utils/layoutMenuUtils';
+export * from './utils/textsUtils';
 
 export {
   SearchInput,
