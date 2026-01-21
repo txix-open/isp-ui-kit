@@ -253,7 +253,7 @@ const Column = <T extends object>({
     };
 
     scrollToElement();
-  }, [selectedItemId, refs, activeGroupKeys]);
+  }, [selectedItemId, refs]);
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
