@@ -233,7 +233,7 @@ const Column = <T extends object>({
   ]);
 
   useEffect(() => {
-    if (!selectedItemId) {
+    if (!selectedItemId || isLoading) {
       return;
     }
 
@@ -246,14 +246,14 @@ const Column = <T extends object>({
             block: 'center',
             inline: 'nearest',
           });
-        }, 500);
+        }, 300);
       } else {
         requestAnimationFrame(scrollToElement);
       }
     };
 
     scrollToElement();
-  }, [selectedItemId, refs]);
+  }, [selectedItemId, refs, activeGroupKeys]);
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
@@ -529,7 +529,11 @@ const Column = <T extends object>({
         )}
       </div>
       <SimpleBar className="column__items">
-        {!isLoading && items.length > 0 && renderContent}
+        {isLoading && items.length === 0 ? (
+          <Skeleton active />
+        ) : (
+          items.length > 0 && renderContent
+        )}
       </SimpleBar>
     </ResizableBox>
   );
