@@ -246,14 +246,14 @@ const Column = <T extends object>({
             block: 'center',
             inline: 'nearest',
           });
-        }, 500);
+        }, 300);
       } else {
         requestAnimationFrame(scrollToElement);
       }
     };
 
     scrollToElement();
-  }, [selectedItemId, refs]);
+  }, [selectedItemId, refs, activeGroupKeys]);
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
