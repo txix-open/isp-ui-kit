@@ -233,7 +233,7 @@ const Column = <T extends object>({
   ]);
 
   useEffect(() => {
-    if (!selectedItemId) {
+    if (!selectedItemId || isLoading) {
       return;
     }
 
@@ -529,7 +529,11 @@ const Column = <T extends object>({
         )}
       </div>
       <SimpleBar className="column__items">
-        {!isLoading && items.length > 0 && renderContent}
+        {isLoading && items.length === 0 ? (
+          <Skeleton active />
+        ) : (
+          items.length > 0 && renderContent
+        )}
       </SimpleBar>
     </ResizableBox>
   );
