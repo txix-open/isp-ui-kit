@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import type { MenuProps } from 'antd';
 
 export interface ConfigMenuItemType {
   route?: string | string[];
@@ -10,13 +11,7 @@ export interface ConfigMenuItemType {
   children?: ConfigMenuItemType[];
 }
 
-export interface MenuItemType {
-  label: string;
-  key: string;
-  className?: string;
-  icon?: ReactNode;
-  children?: MenuItemType[];
-}
+export type MenuItemType = Required<MenuProps>['items'][number];
 
 export interface LayoutMenuPropsType {
   onHideMenuItem: (value: string | string[]) => boolean;
