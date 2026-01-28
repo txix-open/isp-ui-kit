@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
-import dispatcher from './../helpers/dispatcher';
-import { toType } from './../helpers/util';
+import dispatcher from '../helpers/dispatcher';
+import { toType } from '../helpers/util';
 import lodash from 'lodash';
 
 //store persistent display attributes for objects and arrays

@@ -3,6 +3,7 @@ import { HomePage } from '../../../Layout';
 
 const meta: Meta<typeof HomePage> = {
   component: HomePage,
+  tags: ['autodocs'],
   title: 'Layout/Pages/HomePage',
   args: {},
   parameters: {
@@ -26,6 +27,7 @@ export default meta;
 type Story = StoryObj<typeof HomePage>;
 
 export const Example: Story = {
+  name: 'Пример',
   args: {
     children: 'Добро пожаловать',
     backgroundImage: 'https://picsum.photos/200/300',

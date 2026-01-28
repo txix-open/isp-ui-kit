@@ -1,4 +1,4 @@
-import * as FormComponents from './FormComponents';
+export * from './FormComponents';
 export * from './FormComponents/ConfigForm/config-form.type';
 export * from './FormComponents/FormArrayMap/form-array-map.type';
 export * from './FormComponents/FormCheckbox/form-checkbox.type';
@@ -17,7 +17,7 @@ export * from './FormComponents/FormSwitch/form-switch.type';
 
 export * from './FormComponents/formTypes';
 
-import * as Layout from './Layout';
+export * from './Layout';
 export * from './Layout/Column/column.type';
 export * from './Layout/ErrorPage/error-page';
 export * from './Layout/HomePage/home-page';
@@ -34,11 +34,10 @@ export * from './components/SearchInput/search-input.type';
 import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';
 import { findRouteWithParents } from './utils/layoutMenuUtils';
+export * from './utils/textsUtils';
 
 export {
-  FormComponents,
   SearchInput,
-  Layout,
   useAuth,
   getConfigProperty,
   ReactJsonView,

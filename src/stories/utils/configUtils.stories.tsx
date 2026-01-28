@@ -21,17 +21,19 @@ const ConfigDemo = ({
 const meta: Meta<typeof ConfigDemo> = {
   title: 'Utils/getConfigProperty',
   component: ConfigDemo,
+  decorators: [
+    (Story) => {
+      (window as any).config = {
+        featureToggle: true,
+        complexObject: { name: 'Real', nested: { value: 42 } },
+      };
+      return <Story />;
+    },
+  ],
   parameters: {
     docs: {
       description: {
-        component: `
-Возвращает значение из конфига проекта. Если значение не будет найдено вернется значение по умолчанию
-\`\`\`tsx
-import { getConfigProperty } from 'isp-ui-kit'
-
-const passwordLoginEnabled = getConfigProperty('ENABLE_PASSWORD_LOGIN', true)
-\`\`\`
-        `,
+        component: `\nФункция возвращает значение из глобального window.config. Если ключ отсутствует, возвращается значение по умолчанию.\n\nПример:\n\n\`\`\`tsx\nimport { getConfigProperty } from 'isp-ui-kit'\n\nconst passwordLoginEnabled = getConfigProperty('ENABLE_PASSWORD_LOGIN', true)\n\`\`\`\n        `,
       },
     },
   },
@@ -42,8 +44,7 @@ const passwordLoginEnabled = getConfigProperty('ENABLE_PASSWORD_LOGIN', true)
     },
     defaultValue: {
       control: 'text',
-      description:
-        'Значение по умолчанию, которое вернется если ключ в конфиге отсутствует',
+      description: 'Значение по умолчанию, если ключ отсутствует',
     },
   },
 };
@@ -51,21 +52,24 @@ const passwordLoginEnabled = getConfigProperty('ENABLE_PASSWORD_LOGIN', true)
 export default meta;
 type Story = StoryObj<typeof ConfigDemo>;
 
-export const DefaultBehavior: Story = {
+export const Example: Story = {
+  name: 'Пример',
   args: {
-    property: 'ключ свойства',
+    property: 'sampleKey',
     defaultValue: 'default_value',
   },
 };
 
 export const PropertyExists: Story = {
+  name: 'Свойство существует',
   args: {
     property: 'featureToggle',
-    defaultValue: false,
+    defaultValue: 'default_value',
   },
 };
 
 export const PropertyAbsent: Story = {
+  name: 'Свойство отсутствует',
   args: {
     property: 'nonExistentProp',
     defaultValue: [1, 2, 3],
@@ -73,6 +77,7 @@ export const PropertyAbsent: Story = {
 };
 
 export const ComplexDataTypes: Story = {
+  name: 'Сложные данные',
   args: {
     property: 'complexObject',
     defaultValue: { name: 'Default', nested: { value: 100 } },

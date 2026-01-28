@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Menu } from 'antd';
+import type { MenuProps } from 'antd';
 
 import {
   ConfigMenuItemType,
@@ -34,8 +35,10 @@ const LayoutMenu = ({
     }
   }, [currentPath]);
 
-  const getMenuItems = (menuConfigs: ConfigMenuItemType[]): MenuItemType[] => {
-    return menuConfigs.map((item) => {
+  const getMenuItems = (
+    menuConfigs: ConfigMenuItemType[],
+  ): MenuProps['items'] => {
+    return menuConfigs.map((item): MenuItemType => {
       const isHidden = onHideMenuItem(item.permissions);
       const itemClassName = [item.className, isHidden ? 'hide-item' : '']
         .filter(Boolean)
