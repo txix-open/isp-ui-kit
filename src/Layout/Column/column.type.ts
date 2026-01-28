@@ -2,6 +2,7 @@ import { ChangeEvent, ReactElement, ReactNode } from 'react';
 
 export interface ColumnProps<T extends object> {
   title?: ReactNode;
+  isTooltipHeader?: boolean;
   items: ColumnItem<T>[];
   renderItems: (item: T) => ReactElement;
   searchPlaceholder?: string;
