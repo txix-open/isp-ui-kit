@@ -1,0 +1,208 @@
+import {Meta, Canvas} from '@storybook/addon-docs/blocks';
+
+import * as Stories from './TextUtils.stories';
+
+<Meta title="Utils/TextUtils/Описание"/>
+
+# TextUtils
+
+Набор легковесных утилит для работы с текстами (server texts).
+
+**Ключевые принципы:**
+- данные хранятся **вне библиотеки**
+- никакого стора и жёсткого контекста
+- строгая типизация ключей
+- подходит для UI-kit
+
+---
+
+## TextDictionary
+
+```ts
+export type TextDictionary = Record<string, string>
+```
+Пример словаря текстов:
+```ts
+const texts = {
+  'table.empty': 'Нет данных',
+  'finishPage.deputyLength': '{{firstDeputy}} и еще {{deputiesLength}}',
+} as const
+```
+## TextParams
+
+Тип параметров для подстановки значений в тексте.
+```tsx
+export type TextParams = Record<string, string | number>
+```
+
+Подстановка выполняется по шаблону:
+
+`{{param}}`
+
+### getText
+
+Утилита для получения текста по ключу с поддержкой fallback и параметров.
+
+```ts
+getText(
+  texts: TextDictionary | undefined,
+  key: string,
+  fallback?: string,
+  params?: TextParams
+): string
+```
+
+## Параметры:
+
+`texts` — словарь текстов (может быть undefined)
+
+`key` — ключ текста
+
+`fallback` — значение по умолчанию, если ключ отсутствует
+
+`params` — параметры для подстановки (`{{param}}`)
+
+Возвращает: `string`
+
+## Пример:
+```ts
+getText(texts, 'table.empty', 'Нет данных')
+```
+
+### createTextGetter
+Фабрика, создающая функцию getText, привязанную к конкретному словарю.
+```ts
+createTextGetter<T extends TextDictionary>(
+texts: T | undefined
+): (
+key: keyof T,
+fallback?: string,
+params?: TextParams
+) => string
+```
+```ts
+const getText = createTextGetter(texts)
+```
+## Зачем нужна:
+* избавляет от передачи texts в каждом вызове
+* обеспечивает строгую типизацию ключей
+* упрощает использование в компонентах
+
+
+## Использование
+
+```ts
+getText('table.empty')
+```
+
+```ts
+getText(
+  'finishPage.deputyLength',
+  '',
+  {
+    firstDeputy: 'Иванов И.И.',
+    deputiesLength: 3,
+  }
+)
+
+```
+## Пример
+<Canvas of={Stories.BasicGetText}/>
+
+### verifyTextKey
+
+Проверяет, существует ли ключ в словаре.
+```ts
+verifyTextKey(
+texts: TextDictionary | undefined,
+key: string
+): boolean
+```
+
+## Возвращает:
+
+**true** — ключ существует
+
+**false** — ключ отсутствует
+
+### createTextVerifier
+Фабрика для создания функции проверки ключей.
+```ts
+createTextVerifier<T extends TextDictionary>(
+texts: T | undefined
+): (key: keyof T) => boolean
+```
+
+Используется совместно с `createTextGetter`.
+
+## Параметры в тексте
+Поддерживается подстановка параметров в формате `{{param}}`.
+```ts
+getText(
+  'finishPage.deputyLength',
+  '',
+  {
+    firstDeputy: 'Иванов И.И.',
+    deputiesLength: 2,
+  }
+)
+
+```
+
+## Пример
+<Canvas of={Stories.WithParams}/>
+
+### Fallback
+Если словарь ещё не загружен или ключ отсутствует, можно указать fallback.
+
+```ts
+getText('table.empty', 'Fallback текст')
+```
+## Пример
+<Canvas of={Stories.Fallback}/>
+
+## verifyTextKey
+
+Фабрика для проверки существования ключа в словаре.
+```ts
+const verify = createTextVerifier(texts)
+
+verify('table.empty') // true
+verify('unknown.key') // false
+```
+Используется для:
+
+* дебага
+* аналитики
+* логирования
+* условного рендера
+
+## Пример
+<Canvas of={Stories.VerifyKey}/>
+
+### Использование с React Context
+
+Если необходимо сохранить старый (useContext), можно создать тонкий адаптер:
+```ts
+const TextsContext = createContext<{
+getText: ReturnType<typeof createTextGetter>
+} | null>(null)
+
+<TextsContext.Provider value={{ getText }}>
+    <App />
+</TextsContext.Provider>
+
+const { getText } = useContext(TextsContext)
+```
+## Пример
+
+```
+const Child = () => {
+  const ctx = useContext(TextsContext);
+  if (!ctx) return null;
+
+  return <div>{ctx.getText('table.empty')}</div>;
+};
+```
+
+<Canvas of={Stories.WithContext}/>

@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Переход на версию 1.0.0"/>
+
+# Переход на версию 1.0.0
+
+## Что изменилось
+
+В версии 1.0.0 изменен способ импорта: все компоненты, хуки и утилиты подключаются из корня библиотеки.
+Глубокие импорты из подпапок `dist` больше не используются.
+
+## Шаги перехода
+
+1. Обновите пакет до версии 1.0.0:
+
+```bash
+npm install isp-ui-kit@^1.0.0
+```
+
+2. Проверьте, что установлены peerDependencies:
+
+```bash
+npm install @monaco-editor/react monaco-editor antd react react-dom react-hook-form
+```
+
+```
+"@monaco-editor/react": "^4.6.0",
+"antd": ">=5.12",
+"monaco-editor": "^0.52.0",
+"react": ">=18",
+"react-dom": ">=18",
+"react-hook-form": "^7.54.0"
+```
+
+3. Обновите импорты на корневые.
+
+### Пример: было → стало
+
+#### было
+```tsx
+import { FormComponents } from 'isp-ui-kit';
+
+const { FormInput, FormRadioGroup, FormSelect } = FormComponents;
+```
+
+#### стало
+```tsx
+import { FormInput, FormRadioGroup, FormSelect } from 'isp-ui-kit';
+```
+
+## Проверка
+
+- Запустите сборку или Storybook, чтобы убедиться, что импорты обновлены и нет ошибок:
+

@@ -1,0 +1,163 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="FormComponents/Описание" />
+
+# FormComponents
+
+Набор компонентов, представляющий собой обертки над Ant Design с использованием `react-hook-form`. Обеспечивает простую интеграцию форм с возможностями валидации и управления состоянием.
+
+#### Импорт компонентов
+```tsx
+import { FormComponents } from 'isp-ui-kit'
+
+const { FormInput, FormTextArea } = FormComponents
+```
+
+### Пример в коде
+
+
+```tsx
+import { FormComponents } from 'isp-ui-kit'
+import { useForm } from 'react-hook-form'
+
+const { FormInput } = FormComponents
+
+export const RabbitForm = () => {
+  const { handleSubmit, control, formState: { errors } } = useForm({
+    mode: 'onChange'
+  })
+
+  const submitForm = (data) => {
+    console.log('data', data)
+  }
+
+  return (
+    <form onSubmit={handleSubmit(submitForm)}>
+      <FormInput
+        data-cy="rabbitModalForm__input__name"
+        rules={{
+          required: { value: true, message: 'Поле не может быть пустым' },
+          minLength: { value: 3, message: 'Минимум 3 символа' },
+        }}
+        label="Наименование"
+        control={control}
+        name="name"
+      />
+
+      <FormInput
+        data-cy="rabbitModalForm__input__description"
+        rules={{
+          validate: (value) => {
+            if (!value) return 'Описание обязательно'
+            if (value.length < 5) return 'Минимум 5 символов'
+            return true
+          }
+        }}
+        label="Описание"
+        control={control}
+        name="description"
+      />
+
+      <button
+        type="submit"
+        data-cy="rabbitModalForm__submitButton"
+        style={{ marginTop: 16 }}
+      >
+        Сохранить
+      </button>
+
+      {/* Пример вывода ошибок */}
+      <div style={{ color: 'red', marginTop: 12 }}>
+        {errors.name?.message}
+        {errors.description?.message}
+      </div>
+    </form>
+  )
+}
+
+```
+
+## Компоненты
+
+### **[FormCheckbox](?path=/story/formcomponents-formcheckbox--example)**
+Компонент для работы с чекбоксами. Упрощает управление состоянием и интеграцию с `react-hook-form`.
+
+---
+
+### **[FormCodeEditor](?path=/story/formcomponents-formcodeeditor--example)**
+Компонент для редактирования кода с использованием редактора `monaco`. Подходит для задач, где требуется ввод или редактирование сложных структур данных или кода.
+
+---
+
+### **[RenderFormFields](?path=/story/formcomponents-renderformfields--example)**
+Компонент для динамического рендеринга полей формы. Используется для создания форм на основе переданных конфигураций.
+
+---
+
+### **[FormInput](?path=/story/formcomponents-forminput--example)**
+Обертка над стандартным `Input` из Ant Design. Упрощает управление текстовым вводом в формах.
+
+---
+
+### **[FormInputNumber](?path=/story/formcomponents-forminputnumber--example)**
+Компонент для ввода числовых данных. Поддерживает все возможности `InputNumber` из Ant Design.
+
+---
+
+### **[FormInputPassword](?path=/story/formcomponents-forminputpassword--example)**
+Обертка для ввода пароля. Основана на компоненте `Input.Password` из Ant Design.
+
+---
+
+### **[FormRadioGroup](?path=/story/formcomponents-formradiogroup--example)**
+Компонент для работы с радиогруппами. Интеграция с `react-hook-form` позволяет легко управлять выбором значений.
+
+---
+
+### **[FormSelect](?path=/story/formcomponents-formselect--example)**
+Компонент для создания выпадающих списков. Упрощает выбор значений из списка с возможностью кастомизации.
+
+---
+
+### **[FormTextArea](?path=/story/formcomponents-formtextarea--example)**
+Обертка над `Input.TextArea` из Ant Design. Используется для ввода больших текстовых данных.
+
+---
+
+### **[FormSecretTextArea](?path=/story/formcomponents-formsecrettextarea--example)**
+Обертка над `Input.TextArea` с функциональностью `Input.Password`
+
+---
+
+### **[FormTreeSelect](?path=/story/formcomponents-formtreeselect--example)**
+Компонент для выбора значений из древовидной структуры. Удобен для работы с вложенными данными.
+
+---
+
+### **[FormObjectMap](?path=/story/formcomponents-formobjectmap--example)**
+Компонент для отрисовки объектов.
+
+---
+
+### **[FormArrayMap](?path=/story/formcomponents-formarraymap--example)**
+Компонент для отрисовки массива примитивов (строк).
+
+---
+### **[FormDatePicker](?path=/story/formcomponents-formdatepicker--example)**
+Компонент DatePicker.
+
+---
+### **[FormRangeDatePicker](?path=/story/formcomponents-formrangedatepicker--example)**
+Компонент RangeDatePicker.
+
+---
+
+### **[FormAutoComplete](?path=/story/formcomponents-formautocomplete--example)**
+Компонент для отрисовки произвольных значений с дефолтными опциями.
+
+---
+
+### **[FormSwitch](?path=/story/formcomponents-formswitch--example)**
+Компонент Switch.
+
+---
