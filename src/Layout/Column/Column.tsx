@@ -27,6 +27,8 @@ const { Panel } = Collapse;
 
 const Column = <T extends object>({
   title = '',
+  extraTitle,
+  tooltipTitle,
   searchPlaceholder = 'Найти элемент',
   items = [],
   onAddItem = () => {},
@@ -440,9 +442,20 @@ const Column = <T extends object>({
       <div className="column__header">
         {title && (
           <div className="column__header__wrap">
-            <Tooltip placement="topLeft" title={title} mouseEnterDelay={1}>
-              <h3 className="column__header__wrap__title">{title}</h3>
-            </Tooltip>
+            <div className="column__header__wrap__text">
+              <Tooltip
+                placement="topLeft"
+                title={tooltipTitle ? tooltipTitle : title}
+                mouseEnterDelay={1}
+              >
+                <h3 className="column__header__wrap__text__title">{title}</h3>
+              </Tooltip>
+              {extraTitle && (
+                <div className="column__header__wrap__text__extra">
+                  {extraTitle}
+                </div>
+              )}
+            </div>
             {items.length > 0 && (
               <span className="column__header__wrap__count">
                 {items.length +
