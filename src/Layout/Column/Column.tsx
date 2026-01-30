@@ -15,7 +15,14 @@ import {
   Collapse,
   Skeleton,
 } from 'antd';
-import { createRef, RefObject, useEffect, useMemo, useState } from 'react';
+import {
+  createRef,
+  RefObject,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import SimpleBar from 'simplebar-react';
 import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
@@ -55,14 +62,14 @@ const Column = <T extends object>({
   isLoading,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
-  const refs = useMemo(
-    () =>
-      items.reduce((acc: Record<string, RefObject<HTMLDivElement>>, item) => {
-        acc[item.id] = createRef<HTMLDivElement>();
-        return acc;
-      }, {}),
-    [items, selectedItemId],
-  );
+  const refs = useRef<Record<string, RefObject<HTMLDivElement>>>({});
+  const getItemRef = (id: string | number) => {
+    const key = String(id);
+    if (!refs.current[key]) {
+      refs.current[key] = createRef<HTMLDivElement>();
+    }
+    return refs.current[key];
+  };
   const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
   const [activeGroupKeys, setActiveGroupKeys] = useState<string[]>([]);
   const [isCollapse, setIsCollapse] = useState<boolean>(false);
@@ -240,7 +247,7 @@ const Column = <T extends object>({
     }
 
     const scrollToElement = () => {
-      const currentRef = refs[selectedItemId];
+      const currentRef = refs.current[selectedItemId];
       if (currentRef?.current) {
         setTimeout(() => {
           currentRef.current?.scrollIntoView({
@@ -255,7 +262,7 @@ const Column = <T extends object>({
     };
 
     scrollToElement();
-  }, [selectedItemId, refs]);
+  }, [selectedItemId, isLoading]);
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
@@ -345,7 +352,7 @@ const Column = <T extends object>({
       tabIndex={0}
       role="button"
       data-cy="firstColumnItem"
-      ref={refs[item.id]}
+      ref={getItemRef(item.id)}
       key={item.id}
       className={`column__items__item ${
         checkIsActive(item.id) ? 'active' : ''
