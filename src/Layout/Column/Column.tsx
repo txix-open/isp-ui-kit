@@ -60,6 +60,8 @@ const Column = <T extends object>({
   renderHeaderGroup,
   sortGroups,
   isLoading,
+  removeConfirmDescription = null,
+  onOpenChange = undefined,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useRef<Record<string, RefObject<HTMLDivElement>>>({});
@@ -500,6 +502,8 @@ const Column = <T extends object>({
                 disabled={isDisabled}
                 onConfirm={() => onRemoveItem(selectedItemId)}
                 title="Вы действительно хотите удалить этот элемент?"
+                description={removeConfirmDescription}
+                onOpenChange={onOpenChange}
               >
                 <Button
                   loading={loadingRemove}
