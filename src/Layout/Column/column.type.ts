@@ -31,6 +31,8 @@ export interface ColumnProps<T extends object> {
   renderHeaderGroup?: (groupKey: string, items: ColumnItem<T>[]) => ReactNode;
   sortGroups?: (a: string, b: string) => number;
   isLoading?: boolean;
+  removeConfirmDescription?: ReactNode;
+  onOpenChange?: (open: boolean) => void;
 }
 
 export type ColumnItem<T extends {}> = T & {
