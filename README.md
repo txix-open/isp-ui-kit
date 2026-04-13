@@ -13,6 +13,48 @@
 2. Прописать изменения в `CHANGELOG.md`.
 3. Пакет автоматически добавится в npm после сборки на сервере.
 
+### Автоматическое обновление проектов
+
+В репозитории представлен скрипт `update-isp-ui-kit.sh` для автоматического обновления версии пакета во всех проектах.
+
+#### Использование
+
+```bash
+# Обновить до текущей версии
+./update-isp-ui-kit.sh
+
+# С обновлением patch версии проекта
+./update-isp-ui-kit.sh --project-patch
+
+# С обновлением minor версии проекта
+./update-isp-ui-kit.sh --project-minor
+
+# С обновлением major версии проекта
+./update-isp-ui-kit.sh --project-major
+```
+
+#### Настройка
+
+Перед первым запуском необходимо настроить конфигурацию:
+
+1. Создайте файл `.env` на основе примера:
+
+#### Пример `.env`
+
+```bash
+# Directory where projects are located
+PROJECTS_DIR=/projects-path
+
+# List of projects to update (comma-separated)
+PROJECTS=project1,project2,project3
+```
+
+2. Отредактируйте `.env`, указав:
+   - `PROJECTS_DIR` — путь к директории с проектами
+   - `PROJECTS` — список проектов через запятую
+
+> **Важно:** Убедитесь, что скрипт имеет права на выполнение: `chmod +x update-isp-ui-kit.sh`
+
 ## Установка пакета в другие проекты
 
 Для установки пакета выполните:
@@ -44,8 +86,8 @@ npm install @monaco-editor/react monaco-editor antd react react-dom react-hook-f
 добавить `antd-конфиг` и ОБЯЗАТЕЛЬНО обернуть в Layout от antd:
 
 ```js
-<ConfigProvider theme={{cssVar: true}} locale={ruRu}>
-    <App/>
+<ConfigProvider theme={{ cssVar: true }} locale={ruRu}>
+  <App />
 </ConfigProvider>
 ```
 
