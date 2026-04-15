@@ -61,10 +61,13 @@ for project in "${PROJECTS_ARRAY[@]}"; do
         cd "$PROJECTS_DIR/$project"
         
         if grep -q "isp-ui-kit" package.json 2>/dev/null; then
-            # 1. Поднимаем версию в package.json
+            # 1. Поднимаем версию в package.json (обновляем существующую запись)
             cat package.json | jq --arg ver "$NEW_VERSION" '
-                if .dependencies then .dependencies["isp-ui-kit"] = $ver end |
-                if .devDependencies then .devDependencies["isp-ui-kit"] = $ver end
+                if .dependencies and .dependencies["isp-ui-kit"] then 
+                    .dependencies["isp-ui-kit"] = $ver 
+                elif .devDependencies and .devDependencies["isp-ui-kit"] then 
+                    .devDependencies["isp-ui-kit"] = $ver 
+                end
             ' > package.json.tmp && mv package.json.tmp package.json
             
             # 2. Делаем npm install
