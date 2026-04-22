@@ -62,6 +62,7 @@ const Column = <T extends object>({
   isLoading,
   removeConfirmDescription = null,
   onOpenChange = undefined,
+  disableRemovePopconfirm = false,
 }: ColumnProps<T>) => {
   const isDisabled = !selectedItemId;
   const refs = useRef<Record<string, RefObject<HTMLDivElement>>>({});
@@ -497,22 +498,31 @@ const Column = <T extends object>({
                 icon={<EditOutlined />}
               />
             )}
-            {showRemoveBtn && (
-              <Popconfirm
-                disabled={isDisabled}
-                onConfirm={() => onRemoveItem(selectedItemId)}
-                title="Вы действительно хотите удалить этот элемент?"
-                description={removeConfirmDescription}
-                onOpenChange={onOpenChange}
-              >
+            {showRemoveBtn &&
+              (disableRemovePopconfirm ? (
                 <Button
                   loading={loadingRemove}
                   data-cy="removeItem"
                   disabled={isDisabled}
+                  onClick={() => onRemoveItem(selectedItemId)}
                   icon={<DeleteOutlined />}
                 />
-              </Popconfirm>
-            )}
+              ) : (
+                <Popconfirm
+                  disabled={isDisabled}
+                  onConfirm={() => onRemoveItem(selectedItemId)}
+                  title="Вы действительно хотите удалить этот элемент?"
+                  description={removeConfirmDescription}
+                  onOpenChange={onOpenChange}
+                >
+                  <Button
+                    loading={loadingRemove}
+                    data-cy="removeItem"
+                    disabled={isDisabled}
+                    icon={<DeleteOutlined />}
+                  />
+                </Popconfirm>
+              ))}
           </Space.Compact>
         </div>
         {sortableFields.length > 0 && (

@@ -33,6 +33,7 @@ export interface ColumnProps<T extends object> {
   isLoading?: boolean;
   removeConfirmDescription?: ReactNode;
   onOpenChange?: (open: boolean) => void;
+  disableRemovePopconfirm?: boolean;
 }
 
 export type ColumnItem<T extends {}> = T & {
