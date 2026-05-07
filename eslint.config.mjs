@@ -36,6 +36,7 @@ export default [
       'eslint.config.mjs',
       '.prettierrc.js',
       '.storybook',
+      'storybook-static',
       'dist',
       'rollup.config.mjs',
     ],
