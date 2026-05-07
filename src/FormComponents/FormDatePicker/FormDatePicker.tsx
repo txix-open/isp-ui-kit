@@ -37,7 +37,7 @@ export default function FormDatePicker<T extends FieldValues>({
           format={dateFormat}
           value={value ? dayjs(value) : undefined}
           onChange={(date) => {
-            const formattedDate = date
+            const formattedDate = dayjs.isDayjs(date)
               ? dayjs(date).tz('Europe/Moscow').format(defaultSaveDateFormat)
               : undefined;
 
