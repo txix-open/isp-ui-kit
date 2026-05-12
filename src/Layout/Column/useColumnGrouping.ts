@@ -116,28 +116,30 @@ export const useColumnGrouping = <T extends object>({
     if (groupBy) {
       if (searchValue && searchValue.trim() !== '') {
         const groupsToOpen = Array.from(groupsWithSearchResults);
-        if (!areSameStringSets(activeGroupKeys, groupsToOpen)) {
-          if (groupsToOpen.length > 0) {
-            setActiveGroupKeys(groupsToOpen);
-            setIsCollapse(true);
-          }
+        const shouldUpdate = !areSameStringSets(activeGroupKeys, groupsToOpen) && groupsToOpen.length > 0;
+        
+        if (shouldUpdate) {
+          setActiveGroupKeys(groupsToOpen);
+          setIsCollapse(true);
         }
         return;
       }
 
       const isSearchCleared =
         prevSearchValueRef.current.trim() !== '' && searchValue.trim() === '';
-      if (!searchValue || searchValue.trim() === '') {
-        if (isSearchCleared) {
-          if (isCollapse) {
-            setIsCollapse(false);
-          }
-          if (!areSameStringSets(activeGroupKeys, allGroupKeys)) {
-            setActiveGroupKeys(allGroupKeys);
-          }
-        }
+    if (!searchValue || searchValue.trim() === '') {
+      if (!isSearchCleared) {
         return;
       }
+    
+      if (isCollapse) {
+        setIsCollapse(false);
+      }
+      
+      if (!areSameStringSets(activeGroupKeys, allGroupKeys)) {
+        setActiveGroupKeys(allGroupKeys);
+      }
+    }
     }
 
     if (
