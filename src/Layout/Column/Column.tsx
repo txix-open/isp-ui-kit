@@ -1,4 +1,5 @@
 import { Skeleton } from 'antd';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import {
   createRef,
   RefObject,
@@ -49,7 +50,11 @@ const Column = <T extends object>({
   removeConfirmDescription = null,
   onOpenChange = undefined,
   disableRemovePopconfirm = false,
+  isCollapsible = true,
 }: ColumnProps<T>) => {
+  const DEFAULT_COLUMN_WIDTH = 300;
+  const COLLAPSED_WIDTH = 0;
+  const MIN_COLUMN_WIDTH = 200;
   const isDisabled = !selectedItemId;
   const refs = useRef<Record<string, RefObject<HTMLDivElement | null>>>({});
   const getItemRef = (id: string | number) => {
@@ -59,7 +64,11 @@ const Column = <T extends object>({
     }
     return refs.current[key];
   };
-  const [currentColumnWidth, setCurrentColumnWidth] = useState<number>(300);
+  const [currentColumnWidth, setCurrentColumnWidth] =
+    useState<number>(DEFAULT_COLUMN_WIDTH);
+  const [lastExpandedWidth, setLastExpandedWidth] =
+    useState<number>(DEFAULT_COLUMN_WIDTH);
+  const isCollapsed = currentColumnWidth === COLLAPSED_WIDTH;
 
   const sortOptions = useMemo(() => {
     const defaultOption = { value: 'default', label: 'По умолчанию' };
@@ -69,9 +78,37 @@ const Column = <T extends object>({
   useEffect(() => {
     const storedWidth = localStorage.getItem(toStorageKey(columnKey));
     if (storedWidth) {
-      setCurrentColumnWidth(Number(storedWidth));
+      const parsedWidth = Number(storedWidth);
+      setCurrentColumnWidth(
+        Number.isNaN(parsedWidth) ? DEFAULT_COLUMN_WIDTH : parsedWidth,
+      );
     }
   }, [columnKey]);
+
+  const setAndStoreWidth = (width: number) => {
+    setCurrentColumnWidth(width);
+    localStorage.setItem(toStorageKey(columnKey), width.toString());
+  };
+
+  const toggleCollapsed = () => {
+    if (!isCollapsible) {
+      return;
+    }
+
+    if (isCollapsed) {
+      const nextWidth =
+        lastExpandedWidth >= MIN_COLUMN_WIDTH
+          ? lastExpandedWidth
+          : DEFAULT_COLUMN_WIDTH;
+      setAndStoreWidth(nextWidth);
+      return;
+    }
+
+    if (currentColumnWidth >= MIN_COLUMN_WIDTH) {
+      setLastExpandedWidth(currentColumnWidth);
+    }
+    setAndStoreWidth(COLLAPSED_WIDTH);
+  };
 
   const {
     shouldShowGroups,
@@ -148,16 +185,46 @@ const Column = <T extends object>({
 
   return (
     <ResizableBox
-      minConstraints={[300, 0]}
-      className="column"
+      minConstraints={[isCollapsed ? COLLAPSED_WIDTH : MIN_COLUMN_WIDTH, 0]}
+      className={`column ${isCollapsed ? 'collapsed' : ''}`}
       width={currentColumnWidth}
       resizeHandles={['e']}
       axis="x"
       data-cy="firstColumn"
-      handle={<span className="custom-resize-handle" />}
+      handle={
+        <span
+          className="custom-resize-handle"
+          role="button"
+          tabIndex={0}
+          aria-label={isCollapsed ? 'Expand column' : 'Collapse column'}
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleCollapsed();
+          }}
+          onKeyDown={(e) => e.key === 'Enter' && toggleCollapsed()}
+        >
+          <span className="custom-resize-handle__thumb" />
+          {isCollapsible && (
+            <button
+              type="button"
+              className="custom-resize-handle__toggle"
+              aria-label={isCollapsed ? 'Expand column' : 'Collapse column'}
+              onMouseDown={(e) => e.stopPropagation()}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleCollapsed();
+              }}
+            >
+              {isCollapsed ? <RightOutlined /> : <LeftOutlined />}
+            </button>
+          )}
+        </span>
+      }
       onResizeStop={(_, { size }) => {
-        setCurrentColumnWidth(size.width);
-        localStorage.setItem(toStorageKey(columnKey), size.width.toString());
+        setAndStoreWidth(size.width);
+        if (size.width >= MIN_COLUMN_WIDTH) {
+          setLastExpandedWidth(size.width);
+        }
       }}
     >
       <div className="column__header">
