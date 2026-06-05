@@ -34,6 +34,7 @@ export interface ColumnProps<T extends object> {
   removeConfirmDescription?: ReactNode;
   onOpenChange?: (open: boolean) => void;
   disableRemovePopconfirm?: boolean;
+  isCollapsible?: boolean;
 }
 
 export type ColumnItem<T extends {}> = T & {
