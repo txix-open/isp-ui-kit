@@ -6,6 +6,10 @@
   overflow: visible;
   transition: width 220ms ease, border-color 220ms ease;
 
+  &.resizing {
+    transition: border-color 220ms ease;
+  }
+
   .custom-resize-handle {
     position: absolute;
     top: 0;
