@@ -68,6 +68,7 @@ const Column = <T extends object>({
     useState<number>(DEFAULT_COLUMN_WIDTH);
   const [lastExpandedWidth, setLastExpandedWidth] =
     useState<number>(DEFAULT_COLUMN_WIDTH);
+  const [isResizing, setIsResizing] = useState(false);
   const isCollapsed = currentColumnWidth === COLLAPSED_WIDTH;
 
   const sortOptions = useMemo(() => {
@@ -186,7 +187,9 @@ const Column = <T extends object>({
   return (
     <ResizableBox
       minConstraints={[isCollapsed ? COLLAPSED_WIDTH : MIN_COLUMN_WIDTH, 0]}
-      className={`column ${isCollapsed ? 'collapsed' : ''}`}
+      className={`column ${isCollapsed ? 'collapsed' : ''} ${
+        isResizing ? 'resizing' : ''
+      }`}
       width={currentColumnWidth}
       resizeHandles={['e']}
       axis="x"
@@ -220,7 +223,9 @@ const Column = <T extends object>({
           )}
         </span>
       }
+      onResizeStart={() => setIsResizing(true)}
       onResizeStop={(_, { size }) => {
+        setIsResizing(false);
         setAndStoreWidth(size.width);
         if (size.width >= MIN_COLUMN_WIDTH) {
           setLastExpandedWidth(size.width);
