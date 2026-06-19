@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/OpenSans-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/OpenSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/OpenSans-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/OpenSans-Bold.woff2') format('woff2');
+}
+
+body {
+  margin: 0;
+  background: #fafbfe;
+  color: #5d616f;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.pcs-kit-story {
+  min-height: 100vh;
+  background: #fafbfe;
+  color: #5d616f;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.pcs-kit-story--table-view {
+  --app-content-width: 100%;
+  --app-content-gutter: 32px;
+}
+
+.pcs-kit-story__export-status {
+  padding: 0 32px 24px;
+  color: #5d616f;
+  font-size: 14px;
+  line-height: 20px;
+}

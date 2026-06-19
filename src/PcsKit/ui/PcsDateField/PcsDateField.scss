@@ -1,0 +1,123 @@
+.pcs-date-field-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pcs-date-field {
+  &.ant-picker {
+    --pcs-date-field-height: 40px;
+    --pcs-date-field-inner-height: 38px;
+    --pcs-date-field-padding: 0 8px 0 10px;
+    --pcs-date-field-radius: 4px;
+    --pcs-date-field-font-size: 12px;
+    --pcs-date-field-line-height: 18px;
+
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    height: var(--pcs-date-field-height);
+    min-height: var(--pcs-date-field-height);
+    padding: var(--pcs-date-field-padding);
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e7eaf3;
+    border-radius: var(--pcs-date-field-radius);
+    box-shadow: none;
+    color: #5d616f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: var(--pcs-date-field-font-size);
+    font-weight: 600;
+    line-height: var(--pcs-date-field-line-height);
+    letter-spacing: 0;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: border-color 0.2s;
+    appearance: none;
+
+    &.pcs-date-field--sm {
+      --pcs-date-field-height: 34px;
+      --pcs-date-field-inner-height: 32px;
+      --pcs-date-field-padding: 0 8px 0 10px;
+      --pcs-date-field-radius: 4px;
+      --pcs-date-field-font-size: 12px;
+      --pcs-date-field-line-height: 17px;
+    }
+
+    &.pcs-date-field--md {
+      --pcs-date-field-height: 40px;
+      --pcs-date-field-inner-height: 38px;
+      --pcs-date-field-padding: 0 8px 0 10px;
+      --pcs-date-field-radius: 4px;
+      --pcs-date-field-font-size: 12px;
+      --pcs-date-field-line-height: 18px;
+    }
+
+    &.pcs-date-field--lg {
+      --pcs-date-field-height: 44px;
+      --pcs-date-field-inner-height: 42px;
+      --pcs-date-field-padding: 0 10px 0 15px;
+      --pcs-date-field-radius: 4px;
+      --pcs-date-field-font-size: 14px;
+      --pcs-date-field-line-height: 19px;
+    }
+
+    &:hover {
+      border-color: #e7eaf3;
+    }
+
+    &.ant-picker-focused {
+      border-color: #4d99f5;
+      outline: none;
+      box-shadow: none;
+    }
+
+    &.pcs-date-field--error {
+      border-color: #ff596d;
+    }
+  }
+
+  .ant-picker-input {
+    height: var(--pcs-date-field-inner-height);
+  }
+
+  .ant-picker-input > input {
+    height: var(--pcs-date-field-inner-height);
+    padding: 0;
+    color: #5d616f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: var(--pcs-date-field-font-size);
+    font-weight: 600;
+    line-height: var(--pcs-date-field-line-height);
+    letter-spacing: 0;
+
+    &::placeholder {
+      color: #95a3b4;
+    }
+  }
+
+  .ant-picker-suffix {
+    margin-left: 6px;
+    color: #95a3b4;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+}
+
+.pcs-date-field-error {
+  color: #ff596d;
+  font-size: 12px;
+}
+
+.pcs-date-field-dropdown {
+  .ant-picker-panel-container {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}
