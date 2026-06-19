@@ -1,0 +1,122 @@
+.pcs-bottom-menu {
+  z-index: 1;
+  display: inline-flex;
+  gap: 16px;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+  height: 68px;
+  align-items: stretch;
+  padding: 7px 16px 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #3f51b5;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  scrollbar-width: thin;
+
+  &--fixed {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+  }
+
+  &__action {
+    display: inline-flex;
+    flex: 0 0 72px;
+    min-width: 0;
+  }
+
+  &__item {
+    display: grid;
+    width: 72px;
+    min-width: 72px;
+    height: 100%;
+    align-items: start;
+    justify-items: center;
+    grid-template-rows: 29px 24px;
+    row-gap: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: inherit;
+    appearance: none;
+
+    &:hover:not(:disabled),
+    &:focus-visible:not(:disabled) {
+      color: #ffffff;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.45);
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.6;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #ffffff;
+    line-height: 0;
+
+    svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      color: inherit;
+      fill: currentColor;
+    }
+
+    [fill] {
+      fill: currentColor;
+    }
+
+    [stroke] {
+      stroke: currentColor;
+    }
+  }
+
+  &__loader {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: pcs-bottom-menu-loader 0.8s linear infinite;
+  }
+
+  &__label {
+    display: flex;
+    min-height: 24px;
+    align-items: flex-start;
+    justify-content: center;
+    color: currentColor;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 0;
+    word-break: normal;
+  }
+}
+
+@keyframes pcs-bottom-menu-loader {
+  to {
+    transform: rotate(360deg);
+  }
+}

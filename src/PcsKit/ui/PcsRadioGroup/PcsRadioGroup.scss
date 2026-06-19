@@ -1,0 +1,115 @@
+.pcs-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__option {
+    --pcs-radio-group-size: 20px;
+    --pcs-radio-group-marker-size: 10px;
+    --pcs-radio-group-border-width: 2px;
+    --pcs-radio-group-font-size: 12px;
+    --pcs-radio-group-line-height: 18px;
+
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 0;
+    color: #5d616f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: var(--pcs-radio-group-font-size);
+    font-weight: 600;
+    line-height: var(--pcs-radio-group-line-height);
+    cursor: pointer;
+
+    &--sm {
+      --pcs-radio-group-size: 18px;
+      --pcs-radio-group-marker-size: 8px;
+      --pcs-radio-group-border-width: 2px;
+      --pcs-radio-group-font-size: 12px;
+      --pcs-radio-group-line-height: 18px;
+    }
+
+    &--md {
+      --pcs-radio-group-size: 20px;
+      --pcs-radio-group-marker-size: 10px;
+      --pcs-radio-group-border-width: 2px;
+      --pcs-radio-group-font-size: 12px;
+      --pcs-radio-group-line-height: 18px;
+    }
+
+    &--lg {
+      --pcs-radio-group-size: 24px;
+      --pcs-radio-group-marker-size: 12px;
+      --pcs-radio-group-border-width: 2px;
+      --pcs-radio-group-font-size: 14px;
+      --pcs-radio-group-line-height: 20px;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &__native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  &__control {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: var(--pcs-radio-group-size);
+    height: var(--pcs-radio-group-size);
+    flex: 0 0 var(--pcs-radio-group-size);
+    align-items: center;
+    justify-content: center;
+    background: #fbfcfe;
+    border: var(--pcs-radio-group-border-width) solid #e7eaf3;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+
+  &__marker {
+    display: block;
+    width: var(--pcs-radio-group-marker-size);
+    height: var(--pcs-radio-group-marker-size);
+    background: #ff596d;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  &__label {
+    min-width: 0;
+    color: #5d616f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: var(--pcs-radio-group-font-size);
+    font-weight: 600;
+    line-height: var(--pcs-radio-group-line-height);
+    letter-spacing: 0;
+    word-wrap: break-word;
+    user-select: none;
+  }
+
+  &__option:hover &__control {
+    background-color: #f3f7fd;
+  }
+
+  &__native:checked + &__control &__marker {
+    opacity: 1;
+  }
+
+  &__native:focus-visible + &__control {
+    outline: 2px solid #4d99f5;
+    outline-offset: 2px;
+  }
+}

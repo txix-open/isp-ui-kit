@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="PcsKit/Описание" />
+
+# PcsKit
+
+`PcsKit` — набор интерфейсных компонентов для рабочих страниц со списками,
+фильтрами, поиском, действиями и формовыми контролами. Компоненты лежат в
+`src/PcsKit` и экспортируются из корня пакета `isp-ui-kit`.
+
+#### Импорт компонентов
+
+```tsx
+import {
+  PcsButton,
+  PcsSearch,
+  PcsTable,
+  PcsTableView,
+  PcsTextField,
+} from 'isp-ui-kit';
+```
+
+## Группы компонентов
+
+### **[Actions](?path=/story/pcskit-actions--button-variants)**
+
+Кнопки, иконки, переключатели, чекбоксы, радиогруппы и нижнее меню действий.
+Раздел показывает базовые состояния: варианты, disabled/loading и inline-меню.
+
+---
+
+### **[Fields](?path=/story/pcskit-fields--text-and-select)**
+
+Поля ввода и выбора: текст, textarea, select, multiselect, date/date-range,
+number-range и tag input. Stories сделаны управляемыми, чтобы сразу видеть
+контракт `value` / `onChange`.
+
+---
+
+### **[TableView](?path=/story/pcskit-tableview--workspace-list)**
+
+Составная страница списка: `PcsSearch`, `PcsFilter`, `PcsSelectedFilterTags`,
+`PcsExport`, `PcsTable` и `PcsBottomMenu` внутри `PcsTableView`.
+
+---
+
+### **[Modal](?path=/story/pcskit-modal--default-modal)**
+
+Модальное окно с кастомным footer и confirm-вариантом. Раздел показывает
+типовой способ открыть окно из кнопки и передать footer-кнопки через `PcsButton`.
+
+## Когда использовать
+
+- `PcsTableView` — когда нужна законченная страница списка с тулбаром.
+- `PcsTable` — когда нужен только табличный блок без поиска и фильтров.
+- `PcsFilter` и `PcsSelectedFilterTags` — когда фильтры управляются внешним состоянием.
+- `PcsTextField`, `PcsSelectField`, `PcsDateField` и похожие контролы — когда нужен PCS-визуальный стиль без привязки к `react-hook-form`.
+- `PcsButton`, `PcsIconButton`, `PcsBottomMenu` — для действий в карточках, таблицах и модальных окнах.

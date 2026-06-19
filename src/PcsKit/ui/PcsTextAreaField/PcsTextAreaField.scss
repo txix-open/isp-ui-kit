@@ -1,0 +1,65 @@
+.pcs-textarea-field-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pcs-textarea-field-label {
+  color: #95a3b4;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.pcs-textarea-field {
+  background-color: #ffffff;
+  border: 1px solid #e7eaf3;
+  border-radius: 4px;
+  color: #5d616f;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px !important;
+  letter-spacing: 0;
+  padding: 10px;
+  transition: border-color 0.2s;
+
+  &:hover,
+  &:focus {
+    border-color: #4d99f5;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: #95a3b4;
+  }
+
+  &--error {
+    border-color: #ff596d;
+    color: #ff596d;
+
+    &::placeholder {
+      color: #ff596d;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: #ff596d;
+      box-shadow: none;
+    }
+  }
+
+  &:disabled {
+    background-color: #ffffff;
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.pcs-textarea-field-error {
+  color: #ff596d;
+  font-size: 12px;
+}
