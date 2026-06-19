@@ -1,0 +1,212 @@
+.pcs-filter {
+  &__overlay {
+    width: 485px;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  &__button {
+    display: inline-flex;
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: #f4f6fb;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+
+    &:hover,
+    &:focus {
+      background: #e7eaf3;
+      outline: none;
+    }
+  }
+
+  &__trigger {
+    display: inline-flex;
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+
+    &:hover,
+    &:focus {
+      background: #f4f6fb;
+      outline: none;
+    }
+  }
+
+  &__dropdown {
+    box-sizing: border-box;
+    width: 485px;
+    padding: 0 30px 20px;
+    background: #ffffff;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px 0 #e7eaf3;
+
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+
+  &__form {
+    .ant-form-item {
+      padding: 20px 0;
+      margin-bottom: 0;
+      border-bottom: 1px solid #e7eaf3;
+
+      &:last-of-type {
+        border-bottom: 1px solid #e7eaf3;
+      }
+    }
+
+    .ant-form-item-row {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 134px 266px;
+      grid-template-rows: 34px auto;
+      grid-column-gap: 30px;
+      align-items: start;
+    }
+
+    .ant-form-item-label {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      align-self: center;
+      width: 100%;
+      min-width: 0;
+      padding: 0;
+      text-align: left;
+
+      > label {
+        color: #95a3b4;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+        white-space: normal;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    .ant-form-item-control {
+      grid-column: 2 / 3;
+      grid-row: 1 / -1;
+      width: 266px;
+      max-width: 266px;
+      min-width: 0;
+    }
+
+    .ant-form-item-control-input,
+    .ant-form-item-control-input-content {
+      width: 266px;
+      min-height: 34px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  &__reset {
+    padding: 7px 0 8px;
+    background: transparent;
+    border: 0;
+    color: #5d616f;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+    appearance: none;
+
+    &:hover {
+      color: #5d616f;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__action {
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    min-width: 116px;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 15px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+
+    &--silver {
+      background-color: #eef4fc;
+      border-color: #eef4fc;
+      color: #5d616f;
+
+      &:hover,
+      &:focus {
+        background-color: #e2e8ef;
+        border-color: #e2e8ef;
+      }
+    }
+
+    &--lightblue {
+      background-color: #4d99f5;
+      border-color: #4d99f5;
+      color: #ffffff;
+
+      &:hover,
+      &:focus {
+        background-color: #4991e9;
+        border-color: #4991e9;
+      }
+
+      &:disabled {
+        background-color: #4d99f5;
+        border-color: #4d99f5;
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+}

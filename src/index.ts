@@ -1,3 +1,4 @@
+export * from './PcsKit';
 export * from './FormComponents';
 export * from './FormComponents/ConfigForm/config-form.type';
 export * from './FormComponents/FormArrayMap/form-array-map.type';
