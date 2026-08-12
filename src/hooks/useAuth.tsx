@@ -13,6 +13,11 @@ export interface AuthResponse {
 
 export interface SudirRequest {
   authCode: string;
+  clientName: string;
+}
+
+export interface SudirLoginResponse {
+  loginUrl: string;
 }
 
 export interface IsLogged {
@@ -30,6 +35,11 @@ interface UseAuth {
   ) => Promise<AuthResponse>;
   logout: (path: string, headers?: Record<string, string>) => Promise<void>;
   sudirLogin: (
+    path: string,
+    data: SudirRequest,
+    headers?: Record<string, string>,
+  ) => Promise<SudirLoginResponse>;
+  sudirLogout: (
     path: string,
     data: SudirRequest,
     headers?: Record<string, string>,
@@ -103,7 +113,7 @@ const useAuth = (): UseAuth => {
     path: string,
     data: SudirRequest,
     headers: Record<string, string> = {},
-  ) => {
+  ): Promise<SudirLoginResponse> => {
     setIsLoading(true);
     return fetch(path, {
       method: 'POST',
@@ -124,12 +134,38 @@ const useAuth = (): UseAuth => {
       .finally(() => setIsLoading(false));
   };
 
+  const sudirLogout = async (
+    path: string,
+    data: SudirRequest,
+    headers: Record<string, string> = {},
+  ) => {
+    setIsLoading(true);
+    return fetch(path, {
+      method: 'POST',
+      headers: { ...headers },
+      body: JSON.stringify(data),
+    })
+      .then(async (response) => {
+        if (!response.ok) {
+          setLoggedIn({ type: 'basic', value: false });
+
+          const errorData = await response.json();
+          return Promise.reject(errorData);
+        }
+        setLoggedIn({ type: 'basic', value: false });
+        return response.json();
+      })
+      .then((responseData) => responseData)
+      .finally(() => setIsLoading(false));
+  };
+
   return {
     isLogged,
     isLoading,
     login,
     logout,
     sudirLogin,
+    sudirLogout,
   };
 };
 
