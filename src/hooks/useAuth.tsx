@@ -11,17 +11,17 @@ export interface AuthResponse {
   token: string;
 }
 
-export interface SudirRequest {
+export interface OAuthRequest {
   authCode: string;
   clientName: string;
 }
 
-export interface SudirLoginResponse {
+export interface OAuthLoginResponse {
   loginUrl: string;
 }
 
 export interface IsLogged {
-  type: 'basic' | 'sudir';
+  type: 'basic' | 'oAuth';
   value: boolean;
 }
 
@@ -34,21 +34,21 @@ interface UseAuth {
     headers?: Record<string, string>,
   ) => Promise<AuthResponse>;
   logout: (path: string, headers?: Record<string, string>) => Promise<void>;
-  sudirLogin: (
+  oAuthLogin: (
     path: string,
-    data: SudirRequest,
+    data: OAuthRequest,
     headers?: Record<string, string>,
-  ) => Promise<SudirLoginResponse>;
-  sudirLogout: (
+  ) => Promise<OAuthLoginResponse>;
+  oAuthLogout: (
     path: string,
-    data: SudirRequest,
+    data: OAuthRequest,
     headers?: Record<string, string>,
   ) => Promise<void>;
 }
 
 const useAuth = (): UseAuth => {
   const [isLogged, setLoggedIn] = useState<{
-    type: 'basic' | 'sudir';
+    type: 'basic' | 'oAuth';
     value: boolean;
   }>({
     type: 'basic',
@@ -109,11 +109,11 @@ const useAuth = (): UseAuth => {
       .finally(() => setIsLoading(false));
   };
 
-  const sudirLogin = async (
+  const oAuthLogin = async (
     path: string,
-    data: SudirRequest,
+    data: OAuthRequest,
     headers: Record<string, string> = {},
-  ): Promise<SudirLoginResponse> => {
+  ): Promise<OAuthLoginResponse> => {
     setIsLoading(true);
     return fetch(path, {
       method: 'POST',
@@ -122,21 +122,21 @@ const useAuth = (): UseAuth => {
     })
       .then(async (response) => {
         if (!response.ok) {
-          setLoggedIn({ type: 'sudir', value: true });
+          setLoggedIn({ type: 'oAuth', value: true });
 
           const errorData = await response.json();
           return Promise.reject(errorData);
         }
-        setLoggedIn({ type: 'sudir', value: true });
+        setLoggedIn({ type: 'oAuth', value: true });
         return response.json();
       })
       .then((responseData) => responseData)
       .finally(() => setIsLoading(false));
   };
 
-  const sudirLogout = async (
+  const oAuthLogout = async (
     path: string,
-    data: SudirRequest,
+    data: OAuthRequest,
     headers: Record<string, string> = {},
   ) => {
     setIsLoading(true);
@@ -164,8 +164,8 @@ const useAuth = (): UseAuth => {
     isLoading,
     login,
     logout,
-    sudirLogin,
-    sudirLogout,
+    oAuthLogin,
+    oAuthLogout,
   };
 };
 
