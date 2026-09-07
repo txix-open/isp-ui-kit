@@ -79,9 +79,9 @@ const meta: Meta<typeof useAuth> = {
 
 ## Возвращаемые значения из хука \`useAuth\`
 ### 1. **isLogged**
-- **Тип:** \`{ type: 'basic' | 'sudir'; value: boolean }\`
+- **Тип:** \`{ type: 'basic' | 'oAuth'; value: boolean }\`
 - **Описание:** Объект, содержащий информацию о текущем состоянии аутентификации.
-  - **\`type\`**: Тип аутентификации (например, \`basic\` для обычной аутентификации с email/паролем или \`sudir\` для аутентификации через код Sudir).
+  - **\`type\`**: Тип аутентификации (например, \`basic\` для обычной аутентификации с email/паролем или \`oAuth\` для аутентификации через код OAuth).
   - **\`value\`**: Логическое значение, показывающее, авторизован ли пользователь (\`true\` — авторизован, \`false\` — не авторизован).
 
 ### 2. **isLoading**
@@ -105,9 +105,9 @@ const meta: Meta<typeof useAuth> = {
     - \`headers\`: Необязательные заголовки для запроса.
   - **Возвращаемое значение:** Промис, который завершает запрос на выход (не возвращает данные).
 
-### 5. **sudirLogin**
-- **Тип:** \`(path: string, data: SudirRequest, headers?: Record<string, string>) => Promise<void>\`
-- **Описание:** Функция для выполнения аутентификации через Sudir с использованием кода авторизации.
+### 5. **oAuthLogin**
+- **Тип:** \`(path: string, data: OAuthRequest, headers?: Record<string, string>) => Promise<void>\`
+- **Описание:** Функция для выполнения аутентификации через OAuth с использованием кода авторизации.
   - **Параметры:**
     - \`path\`: Путь для API запроса.
     - \`data\`: Данные для аутентификации (например, код авторизации).
@@ -121,7 +121,7 @@ import { useState } from 'react';
 import { useAuth } from 'isp-ui-kit'
 
 const AuthExample = () => {
-  const { isLogged, isLoading, login, logout, sudirLogin } = useAuth();
+  const { isLogged, isLoading, login, logout, oAuthLogin } = useAuth();
 }
         `,
       },
