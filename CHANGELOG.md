@@ -1,3 +1,5 @@
+### 2.3.1
+- Обновлена версия node для github actions
 ### 2.3.0
 - Добавлен oAuthLogout в хук useAuth
 - обновление на OAuth
