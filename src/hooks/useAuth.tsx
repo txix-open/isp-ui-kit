@@ -12,12 +12,16 @@ export interface AuthResponse {
 }
 
 export interface OAuthRequest {
-  authCode: string;
+  authCode?: string;
   clientName: string;
 }
 
 export interface OAuthLoginResponse {
   loginUrl: string;
+}
+
+export interface OAuthLogoutResponse {
+  logoutUrl: string;
 }
 
 export interface IsLogged {
@@ -43,7 +47,7 @@ interface UseAuth {
     path: string,
     data: OAuthRequest,
     headers?: Record<string, string>,
-  ) => Promise<void>;
+  ) => Promise<OAuthLogoutResponse>;
 }
 
 const useAuth = (): UseAuth => {
@@ -138,7 +142,7 @@ const useAuth = (): UseAuth => {
     path: string,
     data: OAuthRequest,
     headers: Record<string, string> = {},
-  ) => {
+  ): Promise<OAuthLogoutResponse> => {
     setIsLoading(true);
     return fetch(path, {
       method: 'POST',
