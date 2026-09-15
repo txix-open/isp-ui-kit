@@ -1,9 +1,8 @@
 import { Collapse, List, Skeleton } from 'antd';
+import type { CollapseProps } from 'antd';
 import { ReactNode } from 'react';
 import { ColumnItem, GroupedItems } from './column.type';
 import { NO_GROUP_KEY } from './column.utils';
-
-const { Panel } = Collapse;
 
 type ColumnContentProps<T extends object> = {
   shouldShowGroups: boolean;
@@ -39,39 +38,29 @@ const ColumnContent = <T extends object>({
     return <List dataSource={allItems} renderItem={renderItem} />;
   }
 
-  const panels: ReactNode[] = [];
-
-  if (Object.keys(sortedGroupedItems.grouped).length > 0) {
-    Object.entries(sortedGroupedItems.grouped).forEach(
-      ([groupKey, groupItems]) => {
-        panels.push(
-          <Panel
-            key={groupKey}
-            header={
-              renderHeaderGroup
-                ? renderHeaderGroup(groupKey, groupItems)
-                : `${groupKey} (${groupItems.length})`
-            }
-          >
-            <List dataSource={groupItems} renderItem={renderItem} />
-          </Panel>,
-        );
-      },
-    );
-  }
+  const items: NonNullable<CollapseProps['items']> = Object.entries(
+    sortedGroupedItems.grouped,
+  ).map(([groupKey, groupItems]) => ({
+    key: groupKey,
+    className: 'column__group',
+    label: renderHeaderGroup
+      ? renderHeaderGroup(groupKey, groupItems)
+      : `${groupKey} (${groupItems.length})`,
+    children: <List dataSource={groupItems} renderItem={renderItem} />,
+  }));
 
   if (sortedGroupedItems.ungrouped.length > 0) {
-    panels.push(
-      <Panel
-        key={NO_GROUP_KEY}
-        header={`Без группы (${sortedGroupedItems.ungrouped.length})`}
-      >
+    items.push({
+      key: NO_GROUP_KEY,
+      className: 'column__group',
+      label: `Без группы (${sortedGroupedItems.ungrouped.length})`,
+      children: (
         <List
           dataSource={sortedGroupedItems.ungrouped}
           renderItem={renderItem}
         />
-      </Panel>,
-    );
+      ),
+    });
   }
 
   return (
@@ -79,9 +68,13 @@ const ColumnContent = <T extends object>({
       activeKey={activeGroupKeys}
       onChange={onCollapseChange}
       className="column__groups"
-    >
-      {panels}
-    </Collapse>
+      items={items}
+      bordered={false}
+      classNames={{ header: 'column__group-header' }}
+      styles={{
+        body: { padding: 0, background: 'var(--ant-color-bg-container)' },
+      }}
+    />
   );
 };
 
