@@ -18,6 +18,7 @@ import ColumnContent from './ColumnContent';
 import { toStorageKey } from './column.utils';
 import { useColumnGrouping } from './useColumnGrouping';
 import './column.scss';
+import ColumnSearchControls from './ColumnSearchControls';
 
 const Column = <T extends object>({
   title = '',
@@ -51,6 +52,9 @@ const Column = <T extends object>({
   onOpenChange = undefined,
   disableRemovePopconfirm = false,
   isCollapsible = true,
+  searchFields = [],
+  searchFieldValue,
+  onChangeSearchField = () => {},
 }: ColumnProps<T>) => {
   const DEFAULT_COLUMN_WIDTH = 300;
   const COLLAPSED_WIDTH = 0;
@@ -159,6 +163,10 @@ const Column = <T extends object>({
     }
   };
 
+  const handleSearchChange = (value: string) => {
+    onChangeSearchField(value);
+  };
+
   const checkIsActive = (id: string | number): boolean =>
     id.toString() === selectedItemId;
 
@@ -255,6 +263,12 @@ const Column = <T extends object>({
           disableRemovePopconfirm={disableRemovePopconfirm}
           removeConfirmDescription={removeConfirmDescription}
           onOpenChange={onOpenChange}
+        />
+        <ColumnSearchControls
+          searchFields={searchFields}
+          searchFieldValue={searchFieldValue}
+          searchOptions={searchFields}
+          onSearchChange={handleSearchChange}
         />
         <ColumnSortControls
           sortableFields={sortableFields}
