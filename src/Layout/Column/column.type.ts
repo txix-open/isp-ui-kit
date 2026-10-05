@@ -35,6 +35,9 @@ export interface ColumnProps<T extends object> {
   onOpenChange?: (open: boolean) => void;
   disableRemovePopconfirm?: boolean;
   isCollapsible?: boolean;
+  searchFields?: SortItemType<T>[];
+  searchFieldValue?: string;
+  onChangeSearchField?: (value: string) => void;
 }
 
 export type ColumnItem<T extends {}> = T & {
@@ -80,6 +83,13 @@ export type ColumnSortControlsProps<T extends object> = {
   sortOptions: { value: string | keyof T; label: string }[];
   onChangeDirectionValue?: (value: string | undefined) => void;
   onSortChange: (value: string) => void;
+};
+
+export type ColumnSearchControlsProps<T extends object> = {
+  searchFields?: SortItemType<T>[];
+  searchFieldValue?: string;
+  searchOptions: { value: string | keyof T; label: string }[];
+  onSearchChange: (value: string) => void;
 };
 
 export type GroupedItems<T extends object> = {
