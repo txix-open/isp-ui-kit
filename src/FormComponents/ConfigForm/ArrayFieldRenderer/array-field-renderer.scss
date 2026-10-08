@@ -12,3 +12,26 @@
     margin-left: 8px;
   }
 }
+.config-form__array {
+  .edit-field {
+    align-items: flex-start;
+    gap: 8px;
+
+    &__label {
+      padding-top: 5px;
+      margin-right: 0;
+    }
+
+    > .kit-base-field {
+      flex: 1;
+    }
+
+    > button {
+      flex: none;
+    }
+  }
+
+  > .edit-field__btn {
+    margin-left: 0;
+  }
+}

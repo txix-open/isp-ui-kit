@@ -2,20 +2,26 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Описание" />
 
-# Components
+# Компоненты данных
 
-Набор компонентов, представляющий собой обертки над Ant Design с использованием `react-hook-form`. Обеспечивает простую интеграцию форм с возможностями валидации и управления состоянием.
+Поиск, таблица и просмотр JSON. Эти компоненты не требуют React Hook Form: состояние данных, запросы и действия задаёт приложение.
 
-#### Импорт компонентов
 ```tsx
-import { ReactJsonView } from 'isp-ui-kit'
+import { SearchInput, ConfigTable, ReactJsonView } from 'isp-ui-kit';
 ```
 
 ## [SearchInput](?path=/docs/components-searchinput--docs)
-Компонент для реализации поискового поля. Основан на Input из Ant Design с поддержкой react-hook-form. Обеспечивает быструю интеграцию фильтрации и поиска в формах.
 
-## [ReactJsonView](?path=/docs/components-reactjsonview--docs)
-Компонент для визуализации JSON-данных. Основан на библиотеке react-json-view с расширенными возможностями: кастомизация тем, управление вложенными структурами и улучшенная подсветка синтаксиса. Подходит для отладки и отображения сложных данных.
+Текстовое поле Ant Design с иконкой поиска и очисткой. Передавайте `value` и `onChange` для управляемого ввода; размер, disabled, readOnly и status задаются через Input props. Компонент не фильтрует данные и не добавляет debounce: приложение определяет, когда выполнять поиск.
 
 ## [ConfigTable](?path=/docs/components-configtable--docs)
-Обёртка над Antd Table с конфигурируемыми колонками, поиском и API-совместимостью.
+
+Ant Design Table с панелью поиска и кнопкой добавления. Приложение передаёт `columns`, `dataSource`, `rowKey` и обработчики. `onSearch` получает запрос после Enter или кнопки поиска; загрузку, фильтрацию и серверную пагинацию реализует приложение.
+
+`appearance="modern"` используется по умолчанию, `appearance="classic"` сохраняет прежнее оформление. Счётчики задаются через `totalItemsCount` и `filteredItemsCount`; действия для выбранных строк — через `selectionActions` вместе с `rowSelection.selectedRowKeys`.
+
+## [ReactJsonView](?path=/docs/components-reactjsonview--docs)
+
+Отдельный legacy-компонент для просмотра и редактирования JSON с локальными расширениями. Он сохраняет собственную реализацию, API и оформление и исключён из редизайна. Его возможности и примеры описаны на странице компонента.
+
+[Что изменилось и как перейти на обновлённый кит](?path=/docs/редизайн-переход-на-обновлённый-кит--docs).

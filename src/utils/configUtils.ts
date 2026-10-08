@@ -5,6 +5,8 @@ declare global {
 }
 
 export const getConfigProperty = (property: string, defaultValue: any) =>
-  window.config && Object.hasOwn(window.config, property)
+  typeof window !== 'undefined' &&
+  window.config &&
+  Object.hasOwn(window.config, property)
     ? window.config[property]
     : defaultValue;

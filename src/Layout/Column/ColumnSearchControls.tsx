@@ -18,6 +18,7 @@ const ColumnSearchControls = <T extends object>({
           Поиск
         </span>
         <Select
+          aria-label="Поле поиска"
           placeholder="Выберите поле"
           variant="borderless"
           size="small"

@@ -2,162 +2,112 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="FormComponents/Описание" />
 
-# FormComponents
+# Поля и формы
 
-Набор компонентов, представляющий собой обертки над Ant Design с использованием `react-hook-form`. Обеспечивает простую интеграцию форм с возможностями валидации и управления состоянием.
+Поля соединяют Ant Design с React Hook Form: значение и ошибки принадлежат форме, а оформление остаётся базовым Ant Design. Используйте прямые именованные импорты из пакета.
 
-#### Импорт компонентов
-```tsx
-import { FormComponents } from 'isp-ui-kit'
-
-const { FormInput, FormTextArea } = FormComponents
-```
-
-### Пример в коде
-
+## Подключение в приложении
 
 ```tsx
-import { FormComponents } from 'isp-ui-kit'
-import { useForm } from 'react-hook-form'
+import { useState } from 'react';
+import { Button } from 'antd';
+import { useForm } from 'react-hook-form';
+import { FormInput, FormTextArea } from 'isp-ui-kit';
 
-const { FormInput } = FormComponents
+type Values = { name: string; description: string };
 
-export const RabbitForm = () => {
-  const { handleSubmit, control, formState: { errors } } = useForm({
-    mode: 'onChange'
-  })
-
-  const submitForm = (data) => {
-    console.log('data', data)
-  }
+export function ServiceForm() {
+  const [saved, setSaved] = useState<Values | null>(null);
+  const { control, handleSubmit, reset } = useForm<Values>({
+    mode: 'onChange',
+    defaultValues: { name: '', description: '' },
+  });
 
   return (
-    <form onSubmit={handleSubmit(submitForm)}>
+    <form onSubmit={handleSubmit((values) => setSaved(values))}>
       <FormInput
-        data-cy="rabbitModalForm__input__name"
-        rules={{
-          required: { value: true, message: 'Поле не может быть пустым' },
-          minLength: { value: 3, message: 'Минимум 3 символа' },
-        }}
-        label="Наименование"
         control={control}
         name="name"
-      />
-
-      <FormInput
-        data-cy="rabbitModalForm__input__description"
+        label="Название сервиса"
         rules={{
-          validate: (value) => {
-            if (!value) return 'Описание обязательно'
-            if (value.length < 5) return 'Минимум 5 символов'
-            return true
-          }
+          required: { value: true, message: 'Введите название' },
+          minLength: { value: 3, message: 'Минимум 3 символа' },
         }}
-        label="Описание"
+        formItemProps={{ extra: 'Название для отображения в списке' }}
+      />
+      <FormTextArea
         control={control}
         name="description"
+        label="Описание"
+        rows={3}
       />
-
-      <button
-        type="submit"
-        data-cy="rabbitModalForm__submitButton"
-        style={{ marginTop: 16 }}
-      >
+      <Button type="primary" htmlType="submit">
         Сохранить
-      </button>
-
-      {/* Пример вывода ошибок */}
-      <div style={{ color: 'red', marginTop: 12 }}>
-        {errors.name?.message}
-        {errors.description?.message}
-      </div>
+      </Button>
+      <Button
+        htmlType="button"
+        onClick={() => {
+          reset();
+          setSaved(null);
+        }}
+      >
+        Сбросить
+      </Button>
+      {saved && (
+        <pre aria-label="Сохранённые данные">
+          {JSON.stringify(saved, null, 2)}
+        </pre>
+      )}
     </form>
-  )
+  );
 }
-
 ```
 
-## Компоненты
+Ошибки отображаются рядом с полем; повторно выводить `formState.errors` для этого не требуется. Начальные значения задаются через `defaultValues`, загрузка другой записи — через `reset`, отдельное изменение — через `setValue`. Не передавайте независимый value вместо значения React Hook Form.
 
-### **[FormCheckbox](?path=/story/formcomponents-formcheckbox--example)**
-Компонент для работы с чекбоксами. Упрощает управление состоянием и интеграцию с `react-hook-form`.
+## Общие свойства полей
 
----
+- `control` — объект из useForm; `name` — путь в данных, например `service.name`.
+- `label` — подпись. `controlClassName` относится к Form.Item, обычный className — к контролу.
+- `rules` — правила React Hook Form. Обязательность задаётся как `required: { value: true, message: '...' }`.
+- `formItemProps` — оформление Form.Item, подсказки `help` и `extra`. У полей с подписью в Form.Item свойство `formItemProps.label` имеет приоритет над label; у Checkbox label остаётся текстом рядом с флажком. Сообщение ошибки формы — над help. `formItemProps.required` меняет визуальную обязательность, а проверка задаётся через rules.
+- `forwardEvents` по умолчанию false сохраняет прежнее поведение callbacks конкретного поля. true добавляет вызов ранее перекрытых обработчиков после обработчиков формы. У Select пользовательский onChange работает и без этой опции. У дат переданный onChange в прежнем режиме заменяет внутреннее сохранение; true объединяет их.
+- `trimOnBlur` есть у текстовых полей и AutoComplete: true по умолчанию обрезает крайние пробелы при потере фокуса, false сохраняет ввод дословно. У чисел, выбора и дат этой опции нет.
 
-### **[FormCodeEditor](?path=/story/formcomponents-formcodeeditor--example)**
-Компонент для редактирования кода с использованием редактора `monaco`. Подходит для задач, где требуется ввод или редактирование сложных структур данных или кода.
+Эти общие правила относятся к одиночным полям. У ConfigForm, FormArrayMap и FormObjectMap свои интерфейсы и ограничения, описанные ниже и на страницах компонентов.
 
----
+## Текст и числа
 
-### **[RenderFormFields](?path=/story/formcomponents-renderformfields--example)**
-Компонент для динамического рендеринга полей формы. Используется для создания форм на основе переданных конфигураций.
+- [FormInput](?path=/docs/formcomponents-forminput--docs) — однострочный текст.
+- [FormTextArea](?path=/docs/formcomponents-formtextarea--docs) — многострочный текст, rows и autoSize.
+- [FormInputNumber](?path=/docs/formcomponents-forminputnumber--docs) — число, min/max, шаг и форматирование; stringMode задаётся приложением.
+- [FormInputPassword](?path=/docs/formcomponents-forminputpassword--docs) — пароль с переключением видимости; обрезку пробелов можно отключить.
+- [FormSecretTextArea](?path=/docs/formcomponents-formsecrettextarea--docs) — многострочный текст с визуальным маскированием. Маскирование не шифрует и не меняет значение.
 
----
+## Выбор и переключатели
 
-### **[FormInput](?path=/story/formcomponents-forminput--example)**
-Обертка над стандартным `Input` из Ant Design. Упрощает управление текстовым вводом в формах.
+- [FormSelect](?path=/docs/formcomponents-formselect--docs) — одиночный или множественный выбор; очистка одиночного значения сохраняет null.
+- [FormAutoComplete](?path=/docs/formcomponents-formautocomplete--docs) — свободный текст с подсказками, а не ограниченный выбор из списка.
+- [FormTreeSelect](?path=/docs/formcomponents-formtreeselect--docs) — выбор из treeData с вложенными узлами.
+- [FormCheckbox](?path=/docs/formcomponents-formcheckbox--docs) и [FormSwitch](?path=/docs/formcomponents-formswitch--docs) — boolean.
+- [FormRadioGroup](?path=/docs/formcomponents-formradiogroup--docs) — одно значение items.value; type="radio" или type="button".
 
----
+## Даты
 
-### **[FormInputNumber](?path=/story/formcomponents-forminputnumber--example)**
-Компонент для ввода числовых данных. Поддерживает все возможности `InputNumber` из Ant Design.
+- [FormDatePicker](?path=/docs/formcomponents-formdatepicker--docs) — дата в виде строки в модели формы.
+- [FormRangeDatePicker](?path=/docs/formcomponents-formrangedatepicker--docs) — массив строк начала и конца периода.
 
----
+По умолчанию показ — DD.MM.YYYY, хранение — YYYY-MM-DDTHH:mm:ssZ в Europe/Moscow. `format` меняет отображение, `saveDateFormat` — сохраняемую строку; очистка даёт undefined. Начальные значения передавайте в формате хранения, а не как объекты Dayjs.
 
-### **[FormInputPassword](?path=/story/formcomponents-forminputpassword--example)**
-Обертка для ввода пароля. Основана на компоненте `Input.Password` из Ant Design.
+## Конфигурации и сложные данные
 
----
+- [ConfigForm](?path=/docs/formcomponents-configform--docs) — строит форму по config.fields; начальные значения берёт из data[0]. Одиночные значения используют id, массивы и словари — name. Не все правила конфигурации реализованы: ограничения смотрите на странице компонента.
+- [FormArrayMap](?path=/docs/formcomponents-formarraymap--docs) — массив редактируемых строк. Добавленная пустая строка остаётся черновиком, пустые значения исключаются при редактировании; числа после редактирования становятся строками.
+- [FormObjectMap](?path=/docs/formcomponents-formobjectmap--docs) — словарь строковых ключей и значений. Пустой ключ исключается, при повторении ключа остаётся значение последней строки.
+- [FormCodeEditor](?path=/docs/formcomponents-formcodeeditor--docs) — Monaco с загрузкой, ошибкой и повторной попыткой. Подключение Monaco и workers выполняется один раз в приложении; на странице есть примеры интеграции.
 
-### **[FormRadioGroup](?path=/story/formcomponents-formradiogroup--example)**
-Компонент для работы с радиогруппами. Интеграция с `react-hook-form` позволяет легко управлять выбором значений.
+## Проверка и совместимость
 
----
+Истории «Валидация» у одиночных полей заранее устанавливают демонстрационную ошибку через setError. Кнопка «Проверить и отправить» запускает реальные rules, «Сбросить» очищает форму. Примеры не отправляют данные на сервер.
 
-### **[FormSelect](?path=/story/formcomponents-formselect--example)**
-Компонент для создания выпадающих списков. Упрощает выбор значений из списка с возможностью кастомизации.
-
----
-
-### **[FormTextArea](?path=/story/formcomponents-formtextarea--example)**
-Обертка над `Input.TextArea` из Ant Design. Используется для ввода больших текстовых данных.
-
----
-
-### **[FormSecretTextArea](?path=/story/formcomponents-formsecrettextarea--example)**
-Обертка над `Input.TextArea` с функциональностью `Input.Password`
-
----
-
-### **[FormTreeSelect](?path=/story/formcomponents-formtreeselect--example)**
-Компонент для выбора значений из древовидной структуры. Удобен для работы с вложенными данными.
-
----
-
-### **[FormObjectMap](?path=/story/formcomponents-formobjectmap--example)**
-Компонент для отрисовки объектов.
-
----
-
-### **[FormArrayMap](?path=/story/formcomponents-formarraymap--example)**
-Компонент для отрисовки массива примитивов (строк).
-
----
-### **[FormDatePicker](?path=/story/formcomponents-formdatepicker--example)**
-Компонент DatePicker.
-
----
-### **[FormRangeDatePicker](?path=/story/formcomponents-formrangedatepicker--example)**
-Компонент RangeDatePicker.
-
----
-
-### **[FormAutoComplete](?path=/story/formcomponents-formautocomplete--example)**
-Компонент для отрисовки произвольных значений с дефолтными опциями.
-
----
-
-### **[FormSwitch](?path=/story/formcomponents-formswitch--example)**
-Компонент Switch.
-
----
+[Сравнение с Ant Design](?path=/story/редизайн-базовые-поля--comparison), [проверка прежних вызовов](?path=/story/редизайн-совместимость-полей--defaults-and-options) и [руководство по переходу](?path=/docs/редизайн-переход-на-обновлённый-кит--docs).

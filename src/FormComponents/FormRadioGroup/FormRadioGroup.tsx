@@ -1,12 +1,15 @@
-import { Form, Radio } from 'antd';
+import { Radio } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormRadioGroupProps } from './form-radio-group.type';
+import BaseField from '../BaseField/BaseField';
 import { LabelItem } from '../formTypes';
 
 export default <T extends FieldValues>({
+  forwardEvents = false,
   control,
   name,
   label,
+  controlClassName,
   rules,
   type = 'radio',
   items,
@@ -35,16 +38,41 @@ export default <T extends FieldValues>({
     });
 
   return (
-    <Form.Item
-      labelCol={{ span: 24 }}
+    <BaseField
+      id={rest.id}
       label={label}
-      validateStatus={error && 'error'}
-      help={error && error.message}
-      {...formItemProps}
+      required={Boolean(rules?.required?.value)}
+      error={error}
+      controlClassName={controlClassName}
+      formItemProps={formItemProps}
+      describedBy={rest['aria-describedby']}
     >
-      <Radio.Group {...rest} {...field}>
-        {renderItems()}
-      </Radio.Group>
-    </Form.Item>
+      {(accessibility) => (
+        <Radio.Group
+          {...rest}
+          {...field}
+          {...accessibility}
+          role="radiogroup"
+          ref={(node) =>
+            field.ref({
+              focus: () =>
+                node
+                  ?.querySelector<HTMLInputElement>('input:not(:disabled)')
+                  ?.focus(),
+            })
+          }
+          onChange={(event) => {
+            field.onChange(event);
+            if (forwardEvents) rest.onChange?.(event);
+          }}
+          onBlur={(event) => {
+            field.onBlur();
+            if (forwardEvents) rest.onBlur?.(event);
+          }}
+        >
+          {renderItems()}
+        </Radio.Group>
+      )}
+    </BaseField>
   );
 };

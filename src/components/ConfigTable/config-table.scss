@@ -3,6 +3,8 @@
   flex-direction: column;
   padding: 20px;
   height: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 
   &__header {
     display: flex;
@@ -20,9 +22,98 @@
     }
   }
 
-  &__table {
-    .ant-table-row {
-      cursor: pointer;
+  &--modern {
+    padding: 16px;
+    border: 1px solid var(--ant-color-border-secondary, #f0f0f0);
+    border-radius: 12px;
+    background: var(--ant-color-bg-container, #fff);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 4%);
+
+    .config-table-wrapper__header {
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      margin-bottom: 16px;
+    }
+
+    .config-table-wrapper__header__search {
+      flex: 1 1 280px;
+      width: auto;
+      min-width: 0;
+      max-width: 560px;
+
+      .ant-input-prefix {
+        color: var(--ant-color-text-tertiary, #8c8c8c);
+        margin-inline-end: 8px;
+      }
+    }
+
+    .config-table-wrapper__header__btn {
+      max-width: 100%;
+      height: auto;
+      min-height: 32px;
+      white-space: normal;
+      text-align: start;
+    }
+
+    .config-table-wrapper__table {
+      min-width: 0;
+
+      .ant-table-thead > tr > th {
+        background: var(--ant-color-fill-quaternary, #fafafa);
+        color: var(--ant-color-text-secondary, #595959);
+        font-weight: 600;
+      }
+
+      .ant-table-tbody > tr > td {
+        vertical-align: top;
+      }
+
+      .ant-table-cell {
+        overflow-wrap: anywhere;
+      }
+
+      .ant-table-row-selected > td {
+        background: var(--ant-control-item-bg-active, #e6f4ff);
+      }
+
+      .ant-pagination {
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 0;
+      }
+
+      .ant-pagination-total-text {
+        margin-inline-end: auto;
+        color: var(--ant-color-text-secondary, #595959);
+      }
+    }
+  }
+
+  &--classic &__table .ant-table-row {
+    cursor: pointer;
+  }
+}
+
+.config-table-wrapper--modern {
+  .config-table-wrapper__summary {
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--ant-color-text-secondary, #595959);
+  }
+
+  .config-table-wrapper__selection {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: var(--ant-control-item-bg-active, #e6f4ff);
+
+    > span {
+      margin-inline-end: auto;
     }
   }
 }

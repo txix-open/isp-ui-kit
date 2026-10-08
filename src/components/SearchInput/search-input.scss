@@ -1,0 +1,20 @@
+.kit-search {
+  border-radius: 8px;
+
+  .ant-input-prefix {
+    color: var(--ant-color-text-tertiary, #8c8c8c);
+    margin-inline-end: 8px;
+  }
+
+  &:not(.ant-input-affix-wrapper-disabled):not(.ant-input-status-error):not(
+      .ant-input-status-warning
+    ):hover {
+    border-color: var(--ant-color-primary-border-hover, #91caff);
+  }
+
+  &.ant-input-affix-wrapper-focused:not(.ant-input-status-error):not(
+      .ant-input-status-warning
+    ) {
+    box-shadow: 0 0 0 2px var(--ant-control-outline, rgb(5 145 255 / 10%));
+  }
+}

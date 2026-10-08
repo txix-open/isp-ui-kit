@@ -1,208 +1,123 @@
-import {Meta, Canvas} from '@storybook/addon-docs/blocks';
-
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 import * as Stories from './TextUtils.stories';
 
-<Meta title="Utils/TextUtils/Описание"/>
+<Meta title="Utils/TextUtils/Описание" />
 
-# TextUtils
+# Тексты приложения
 
-Набор легковесных утилит для работы с текстами (server texts).
+Функции получают словарь от приложения. Они не загружают тексты, не создают store и не требуют React Context. Конкретный словарь сохраняет типизацию ключей; `Record<string, string>` позволяет работать с динамическими ключами.
 
-**Ключевые принципы:**
-- данные хранятся **вне библиотеки**
-- никакого стора и жёсткого контекста
-- строгая типизация ключей
-- подходит для UI-kit
+```tsx
+import {
+  getText,
+  createTextGetter,
+  verifyTextKey,
+  createTextVerifier,
+  type TextDictionary,
+  type TextParams,
+} from 'isp-ui-kit';
 
----
-
-## TextDictionary
-
-```ts
-export type TextDictionary = Record<string, string>
-```
-Пример словаря текстов:
-```ts
 const texts = {
   'table.empty': 'Нет данных',
-  'finishPage.deputyLength': '{{firstDeputy}} и еще {{deputiesLength}}',
-} as const
-```
-## TextParams
+  'table.count': 'Всего: {{count}}',
+  'table.note': '',
+} as const satisfies TextDictionary;
+const params: TextParams = { count: String(3) };
 
-Тип параметров для подстановки значений в тексте.
+const empty = getText(texts, 'table.empty'); // 'Нет данных'
+const count = getText(texts, 'table.count', '', params); // 'Всего: 3'
+```
+
+TextDictionary — `Record<string, string>`; TextParams — `Record<string, string>`. Числа преобразуйте в строки явно. Функции не выполняют склонение, плюрализацию, форматирование дат или HTML-экранирование. Отображайте результат как обычный React-текст.
+
+## getText
+
+`getText(texts, key, fallback?, params?): string` возвращает текст по ключу. Если словарь отсутствует, результат — fallback или пустая строка. Если словарь есть, отсутствующее собственное свойство или nullish значение заменяется fallback, затем пустой строкой. Существующая пустая строка сохраняется и не заменяется fallback.
+
+При переданных params все совпадения шаблона подставляются в текст, в том числе в fallback, если словарь существует. При texts=undefined fallback возвращается сразу, **без подстановки**. Неизвестные параметры остаются в тексте.
+
+Имена параметров и значения подставляются буквально: точки и скобки в именах не имеют смысла регулярного выражения, `$&` в значении остаётся текстом. Учитываются только собственные свойства params.
+
+## createTextGetter
+
+`createTextGetter(texts)` возвращает функцию `(key, fallback?, params?) => string` с тем же поведением getText. С конкретным словарём TypeScript ограничивает key его известными ключами.
+
 ```tsx
-export type TextParams = Record<string, string | number>
+import { createTextGetter, type TextDictionary } from 'isp-ui-kit';
+
+const texts = {
+  'table.empty': 'Нет данных',
+  'table.count': 'Всего: {{count}}',
+} as const;
+const text = createTextGetter(texts);
+const count = text('table.count', '', { count: String(3) });
+// text('unknown.key') — ошибка TypeScript для этого словаря.
+
+// Для словаря с сервера допускаются произвольные строковые ключи.
+const serverTexts: TextDictionary = { 'table.empty': 'Нет данных' };
+const dynamicText = createTextGetter(serverTexts);
+const fallback = dynamicText('unknown.key', 'Текст по умолчанию');
+
+// До загрузки словаря fallback работает без подстановки параметров.
+const pendingText = createTextGetter<TextDictionary>(undefined);
+const loading = pendingText('table.empty', 'Тексты загружаются');
 ```
 
-Подстановка выполняется по шаблону:
+Фабрика привязывается к переданному словарю. При загрузке другого словаря создайте новую функцию; она не подписывается на изменения внешней переменной.
 
-`{{param}}`
-
-### getText
-
-Утилита для получения текста по ключу с поддержкой fallback и параметров.
-
-```ts
-getText(
-  texts: TextDictionary | undefined,
-  key: string,
-  fallback?: string,
-  params?: TextParams
-): string
-```
-
-## Параметры:
-
-`texts` — словарь текстов (может быть undefined)
-
-`key` — ключ текста
-
-`fallback` — значение по умолчанию, если ключ отсутствует
-
-`params` — параметры для подстановки (`{{param}}`)
-
-Возвращает: `string`
-
-## Пример:
-```ts
-getText(texts, 'table.empty', 'Нет данных')
-```
-
-### createTextGetter
-Фабрика, создающая функцию getText, привязанную к конкретному словарю.
-```ts
-createTextGetter<T extends TextDictionary>(
-texts: T | undefined
-): (
-key: keyof T,
-fallback?: string,
-params?: TextParams
-) => string
-```
-```ts
-const getText = createTextGetter(texts)
-```
-## Зачем нужна:
-* избавляет от передачи texts в каждом вызове
-* обеспечивает строгую типизацию ключей
-* упрощает использование в компонентах
-
-
-## Использование
-
-```ts
-getText('table.empty')
-```
-
-```ts
-getText(
-  'finishPage.deputyLength',
-  '',
-  {
-    firstDeputy: 'Иванов И.И.',
-    deputiesLength: 3,
-  }
-)
-
-```
-## Пример
-<Canvas of={Stories.BasicGetText}/>
-
-### verifyTextKey
-
-Проверяет, существует ли ключ в словаре.
-```ts
-verifyTextKey(
-texts: TextDictionary | undefined,
-key: string
-): boolean
-```
-
-## Возвращает:
-
-**true** — ключ существует
-
-**false** — ключ отсутствует
-
-### createTextVerifier
-Фабрика для создания функции проверки ключей.
-```ts
-createTextVerifier<T extends TextDictionary>(
-texts: T | undefined
-): (key: keyof T) => boolean
-```
-
-Используется совместно с `createTextGetter`.
-
-## Параметры в тексте
-Поддерживается подстановка параметров в формате `{{param}}`.
-```ts
-getText(
-  'finishPage.deputyLength',
-  '',
-  {
-    firstDeputy: 'Иванов И.И.',
-    deputiesLength: 2,
-  }
-)
-
-```
-
-## Пример
-<Canvas of={Stories.WithParams}/>
-
-### Fallback
-Если словарь ещё не загружен или ключ отсутствует, можно указать fallback.
-
-```ts
-getText('table.empty', 'Fallback текст')
-```
-## Пример
-<Canvas of={Stories.Fallback}/>
+<Canvas of={Stories.BasicGetText} />
+<Canvas of={Stories.WithParams} />
+<Canvas of={Stories.Fallback} />
 
 ## verifyTextKey
 
-Фабрика для проверки существования ключа в словаре.
-```ts
-const verify = createTextVerifier(texts)
+`verifyTextKey(texts, key): boolean` проверяет собственное свойство словаря и возвращает Boolean его значения. Это проверка непустого текста: существующая пустая строка даёт false. Свойства прототипа не считаются текстами. Для проверки наличия свойства независимо от значения используйте Object.hasOwn в приложении.
 
-verify('table.empty') // true
-verify('unknown.key') // false
-```
-Используется для:
+```tsx
+import { verifyTextKey, type TextDictionary } from 'isp-ui-kit';
 
-* дебага
-* аналитики
-* логирования
-* условного рендера
-
-## Пример
-<Canvas of={Stories.VerifyKey}/>
-
-### Использование с React Context
-
-Если необходимо сохранить старый (useContext), можно создать тонкий адаптер:
-```ts
-const TextsContext = createContext<{
-getText: ReturnType<typeof createTextGetter>
-} | null>(null)
-
-<TextsContext.Provider value={{ getText }}>
-    <App />
-</TextsContext.Provider>
-
-const { getText } = useContext(TextsContext)
-```
-## Пример
-
-```
-const Child = () => {
-  const ctx = useContext(TextsContext);
-  if (!ctx) return null;
-
-  return <div>{ctx.getText('table.empty')}</div>;
-};
+const texts: TextDictionary = { 'table.empty': 'Нет данных', 'table.note': '' };
+const available = verifyTextKey(texts, 'table.empty'); // true
+const empty = verifyTextKey(texts, 'table.note'); // false
+const missing = verifyTextKey(texts, 'unknown.key'); // false
+const ownKey = Object.hasOwn(texts, 'table.note'); // true
 ```
 
-<Canvas of={Stories.WithContext}/>
+## createTextVerifier
+
+`createTextVerifier(texts)` возвращает типизированную функцию `(key) => boolean` с поведением verifyTextKey. Чтобы проверять произвольный ключ из внешних данных, задайте словарь как TextDictionary; конкретный словарь ограничивает допустимые ключи в TypeScript.
+
+<Canvas of={Stories.VerifyKey} />
+
+## Использование с React Context
+
+Context — способ приложения передать общую функцию дочерним компонентам; он не требуется утилитам. Пример сохраняет типизацию ключей и проверяет наличие провайдера.
+
+```tsx
+import { createContext, useContext, useMemo, type ReactNode } from 'react';
+import { createTextGetter, type TextDictionary } from 'isp-ui-kit';
+
+const defaultTexts = { 'table.empty': 'Нет данных' } as const;
+type TextKey = keyof typeof defaultTexts;
+type GetAppText = (key: TextKey, fallback?: string) => string;
+const TextsContext = createContext<GetAppText | null>(null);
+
+export function TextsProvider({
+  texts,
+  children,
+}: {
+  texts: TextDictionary | undefined;
+  children: ReactNode;
+}) {
+  const text = useMemo(() => createTextGetter(texts), [texts]);
+  return <TextsContext.Provider value={text}>{children}</TextsContext.Provider>;
+}
+
+export function EmptyMessage() {
+  const text = useContext(TextsContext);
+  if (!text) throw new Error('EmptyMessage требует TextsProvider');
+  return <p>{text('table.empty', defaultTexts['table.empty'])}</p>;
+}
+```
+
+<Canvas of={Stories.WithContext} />

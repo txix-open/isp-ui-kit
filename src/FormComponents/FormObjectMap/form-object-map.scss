@@ -1,46 +1,40 @@
 .object-component {
   width: 100%;
-  position: relative;
-  padding-top: 15px;
+  min-width: 0;
+  container-type: inline-size;
 
-  &__content {
-    overflow: auto;
-    scrollbar-width: none;
+  &__field {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 32px;
+    align-items: start;
+    gap: 8px;
+    margin-bottom: 12px;
 
-    &::-webkit-scrollbar {
-      width: 0;
-      height: 0;
+    > input {
+      min-width: 0;
     }
   }
 
   &__empty-field {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 12px;
+    color: var(--ant-color-text-secondary, #666);
   }
 
-  &__field {
-    width: 100%;
-    display: flex;
-    gap: 16px;
-    padding-bottom: 10px;
-
-    div {
-      min-width: 190px;
-      flex-grow: 1;
-    }
-
-    &__remove-btn {
-      flex-shrink: 0;
-    }
+  &__error {
+    margin-bottom: 12px;
+    color: var(--ant-color-error, #ff4d4f);
   }
 
   &__add-btn {
-    bottom: 16px;
-    right: 16px;
-    margin-top: 8px;
     display: flex;
-    align-self: flex-end;
-    align-items: center;
-    gap: 8px;
+  }
+
+  @container (max-width: 420px) {
+    &__field {
+      grid-template-columns: minmax(0, 1fr) 32px;
+      > input:first-child {
+        grid-column: 1 / -1;
+      }
+    }
   }
 }

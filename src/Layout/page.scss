@@ -1,0 +1,49 @@
+.kit-page {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(16px, 3vw, 32px);
+  display: grid;
+  place-items: safe center;
+  overflow: auto;
+  background-color: var(--ant-color-bg-layout, #f5f5f5);
+  color: var(--ant-color-text, rgba(0, 0, 0, 0.88));
+  font-family: var(--ant-font-family, sans-serif);
+  font-size: var(--ant-font-size, 14px);
+  line-height: var(--ant-line-height, 1.57);
+
+  &--status {
+    height: 100vh;
+
+    .ant-result,
+    .not-found-page {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 560px;
+      min-width: 0;
+      padding: 16px 0;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: inherit;
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    .ant-result-subtitle,
+    .not-found-page__description {
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: var(--ant-color-text-secondary, rgba(0, 0, 0, 0.65));
+    }
+
+    .ant-result-extra,
+    .not-found-page__children-wrapper {
+      margin-top: 24px;
+    }
+  }
+}

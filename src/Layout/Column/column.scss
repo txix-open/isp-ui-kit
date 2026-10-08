@@ -274,17 +274,6 @@
         &__item {
           cursor: pointer;
 
-          span {
-            display: flex;
-            width: 100%;
-            align-items: center;
-
-            svg {
-              margin-bottom: 3px;
-
-            }
-          }
-
           &:hover:not(.active) {
             background: var(--ant-control-item-bg-hover) !important;
           }
@@ -305,11 +294,12 @@
       white-space: nowrap;
     }
 
+    .ant-list-item-meta {
+      min-width: 0;
+    }
+
     .ant-list-item-meta-description {
-      span {
-        display: inline;
-        align-items: center
-      }
+      overflow-wrap: anywhere;
     }
 
     .active {
