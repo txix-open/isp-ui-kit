@@ -16,6 +16,8 @@ const LayoutMenu = ({
   onHideMenuItem,
   onClickItem: handleItemChange,
   currentPath,
+  theme = 'light',
+  inlineCollapsed,
 }: LayoutMenuPropsType) => {
   const [selectedMenuKeys, setSelectedMenuKeys] = useState<string[]>([]);
 
@@ -46,6 +48,7 @@ const LayoutMenu = ({
 
       return {
         label: item.label,
+        title: item.label,
         key: item.key,
         icon: item.icon,
         className: itemClassName,
@@ -62,7 +65,8 @@ const LayoutMenu = ({
       defaultOpenKeys={routeWithParents?.parentKeys || []}
       selectedKeys={selectedMenuKeys}
       onClick={handleItemChange}
-      theme="light"
+      theme={theme}
+      inlineCollapsed={inlineCollapsed}
       mode="inline"
       items={getMenuItems(menuConfig)}
     />

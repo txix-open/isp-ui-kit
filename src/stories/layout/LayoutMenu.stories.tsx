@@ -1,225 +1,157 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { LayoutMenu } from '../../Layout';
-import { useState } from 'react';
+import navigationGuide from '../../../docs/layout-navigation.md?raw';
+import { MenuRoutingExample } from '../shared/MenuRoutingExample';
+import {
+  MenuExample,
+  navigationConfig,
+  hideRestricted,
+} from '../shared/NavigationExample';
 
-const baseMenuConfig = [
-  {
-    label: 'admin',
-    key: 'profile',
-    permissions: [],
-  },
-  {
-    key: 'applications_group',
-    label: 'Приложения',
-    permissions: [],
-  },
-  {
-    key: 'appAccess',
-    label: 'Доступы приложений',
-    permissions: [],
-  },
-  {
-    key: 'modules',
-    label: 'Модули',
-    permissions: [],
-  },
-  {
-    key: 'sessionManagement',
-    label: 'Пользователи и роли',
-    children: [
-      {
-        key: 'users',
-        label: 'Пользователи',
-        permissions: [],
-      },
-      {
-        key: 'sessions',
-        label: 'Пользовательские сессии',
-        permissions: [],
-      },
-      {
-        key: 'securityLog',
-        label: 'Просмотр журналов ИБ',
-        permissions: [],
-      },
-      {
-        key: 'roles',
-        label: 'Роли',
-        permissions: [],
-      },
-    ],
-    permissions: [],
-  },
-];
-
-const meta: Meta<typeof LayoutMenu> = {
+const meta = {
   component: LayoutMenu,
   title: 'Layout/LayoutMenu',
   tags: ['autodocs'],
   args: {
-    menuConfig: baseMenuConfig,
+    menuConfig: navigationConfig,
+    currentPath: '/modules',
+    onClickItem: () => {},
+    onHideMenuItem: hideRestricted,
   },
+  render: (args) => <MenuExample {...args} />,
   parameters: {
-    layout: 'left',
-    componentSubtitle: 'Компонент LayoutMenu для отображения меню',
+    layout: 'padded',
+    componentSubtitle: 'Навигация на основе Ant Design Menu',
+    docs: {
+      description: {
+        component: navigationGuide,
+      },
+    },
   },
   argTypes: {
     currentPath: {
-      description: `роут, по которому происходит переход на страницу по клику. **ВАЖНО**: значение должно совпадать с *key:'test' = '/test'* `,
+      description:
+        'Текущий путь. Первый сегмент соответствует key или одному из route.',
     },
     menuConfig: {
-      description: 'конфигурация меню',
+      description:
+        'Дерево пунктов: уникальный key, label, permissions; опционально icon, children, route и className.',
     },
     onClickItem: {
-      description: 'обработчик клика по элементу',
+      description:
+        'Обработчик выбора пункта. В примерах обновляет показанный маршрут.',
     },
     onHideMenuItem: {
-      description: 'функция, скрывающая пункты меню',
+      description:
+        'Возвращает true, чтобы скрыть пункт по permissions; поддерживает строку и массив.',
+    },
+    theme: {
+      description:
+        'Тема Menu. По умолчанию light; для тёмного Sider передайте dark.',
+      control: 'radio',
+      options: ['light', 'dark'],
+    },
+    inlineCollapsed: {
+      description:
+        'Свёрнутый вид отдельного меню. Внутри Sider состояние наследуется автоматически.',
+    },
+  },
+} satisfies Meta<typeof LayoutMenu>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Example: Story = {
+  name: 'Навигация',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Выберите пункт: маршрут под меню обновится, выбранная строка получит акцент.',
+      },
     },
   },
 };
-
-export default meta;
-
-type Story = StoryObj<typeof LayoutMenu>;
-
-export const Example: Story = {
-  name: 'Базовый пример',
-  render: (args) => (
-    <div style={{ width: 250 }}>
-      <LayoutMenu
-        currentPath="/"
-        menuConfig={args.menuConfig}
-        onClickItem={() => null}
-        onHideMenuItem={() => false}
-      />
-    </div>
-  ),
-};
-
 export const SelectedItem: Story = {
-  name: 'Выбранный элемент',
-  render: (args) => (
-    <div style={{ width: 250 }}>
-      <LayoutMenu
-        currentPath="/sessionManagement/users"
-        menuConfig={args.menuConfig}
-        onClickItem={() => null}
-        onHideMenuItem={() => false}
-      />
-    </div>
-  ),
+  name: 'Вложенный активный пункт',
+  args: { currentPath: '/users' },
 };
-
 export const HiddenItems: Story = {
-  name: 'Скрытые элементы',
-  render: (args) => {
-    const onHide = (permissions: string[]) => {
-      return permissions.includes('hide');
-    };
-
-    const config = [
-      ...args.menuConfig,
+  name: 'Скрытие по разрешениям',
+  args: {
+    menuConfig: [
+      ...navigationConfig,
       {
-        key: 'hiddenItem',
-        label: 'Скрытый элемент',
-        permissions: ['hide'],
+        key: 'hidden',
+        label: 'Недоступный раздел',
+        permissions: ['restricted'],
       },
-    ];
-
-    return (
-      <div style={{ width: 250 }}>
-        <LayoutMenu
-          currentPath="/"
-          menuConfig={config}
-          onClickItem={() => null}
-          onHideMenuItem={onHide}
-        />
-      </div>
-    );
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Раздел с restricted скрыт. Остальные пункты и обработчики доступны.',
+      },
+    },
   },
 };
-
 export const DeepNested: Story = {
-  name: 'Вложенные элементы',
-  render: () => {
-    const config = [
+  name: 'Три уровня вложенности',
+  args: {
+    currentPath: '/audit',
+    menuConfig: [
       {
-        key: 'root',
-        label: 'Root',
+        key: 'admin',
+        label: 'Администрирование',
         permissions: [],
         children: [
           {
-            key: 'level1',
-            label: '1 уровень',
+            key: 'security',
+            label: 'Безопасность',
+            permissions: [],
             children: [
-              {
-                key: 'level2',
-                label: '2 уровень',
-                children: [
-                  {
-                    key: 'level3',
-                    label: '3 уровень',
-                  },
-                ],
-              },
+              { key: 'audit', label: 'Журнал аудита', permissions: [] },
             ],
           },
         ],
       },
-    ];
-
-    return (
-      <div style={{ width: 250 }}>
-        <LayoutMenu
-          currentPath="/root/level1/level2"
-          menuConfig={config}
-          onClickItem={() => null}
-          onHideMenuItem={() => false}
-        />
-      </div>
-    );
+    ],
   },
 };
-
 export const WithClickHandler: Story = {
-  name: 'С обработчиком Клика',
-  render: (args) => {
-    const [clickedKey, setClickedKey] = useState<string | null>(null);
+  name: 'Переходы между пунктами',
+  args: { currentPath: '/applications' },
+};
+export const Collapsed: Story = {
+  name: 'Свёрнутое меню с иконками',
+  args: { inlineCollapsed: true, currentPath: '/modules' },
+};
+export const Dark: Story = {
+  name: 'Явная тёмная тема',
+  args: { theme: 'dark', currentPath: '/users' },
+};
 
-    const handleClick = (info: any) => {
-      setClickedKey(info.key);
-    };
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <div style={{ width: 250 }}>
-          <LayoutMenu
-            currentPath="/"
-            menuConfig={args.menuConfig}
-            onClickItem={handleClick}
-            onHideMenuItem={() => false}
-          />
-        </div>
-
-        <div
-          style={{
-            padding: '8px 12px',
-            border: '1px solid #ddd',
-            borderRadius: 6,
-            background: '#fafafa',
-            fontFamily: 'monospace',
-          }}
-        >
-          {clickedKey ? (
-            <>
-              Clicked key: <strong>{clickedKey}</strong>
-            </>
-          ) : (
-            <>Click menu item…</>
-          )}
-        </div>
-      </div>
-    );
+export const RouteAliases: Story = {
+  name: 'Key, route и несколько URL одного раздела',
+  render: () => <MenuRoutingExample />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'moduleSection имеет route=[modules, module-details]. Оба URL выделяют один пункт; клик использует отдельное соответствие key → адрес. Кнопка «Назад» демонстрирует обновление currentPath из истории.',
+      },
+    },
+  },
+};
+export const NestedRoutes: Story = {
+  name: 'Вложенные URL и адаптер маршрутов',
+  render: () => <MenuRoutingExample nested />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Адрес /admin/users/42 передаётся меню как /users. Переходы между разделами пересоздают меню через React key, чтобы применить начальное раскрытие и очистить выбор на /help. Полный пример интеграции с router приведён выше.',
+      },
+    },
   },
 };

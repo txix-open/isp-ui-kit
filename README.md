@@ -104,3 +104,17 @@ TypeError: Super expression must either be null or a function
 ```bash
 npm install vite-plugin-node-polyfills
 ```
+
+## Направление дизайна
+
+Принципы редизайна UI-кита (кроме PcsKit), правила для будущих изменений и принятые решения по компонентам: [docs/design-system.md](docs/design-system.md).
+
+Порядок работы по компонентам и критерии завершения: [docs/redesign-plan.md](docs/redesign-plan.md).
+
+Что изменилось и как перейти без неожиданной смены поведения: [руководство по переходу](docs/migration.md). Эта же статья доступна в Storybook в разделе «Редизайн / Переход на обновлённый кит».
+
+Готовые примеры подключения Monaco, workers, React Hook Form и сохранения: [FormCodeEditor в приложении](docs/code-editor.md). Примеры также доступны в документации FormCodeEditor в Storybook.
+
+Связь URL с key/route, вложенные пункты и подключение router: [LayoutMenu в приложении](docs/layout-navigation.md).
+
+Встраивание главной и служебных страниц под шапку: [HomePage, ErrorPage и NotFoundPage](docs/layout-pages.md).

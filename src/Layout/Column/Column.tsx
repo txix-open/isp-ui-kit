@@ -1,5 +1,9 @@
-import { Skeleton } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { Button, Empty, Popover, Skeleton } from 'antd';
+import {
+  LeftOutlined,
+  RightOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import {
   createRef,
   RefObject,
@@ -9,18 +13,24 @@ import {
   useState,
 } from 'react';
 import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
+import 'react-resizable/css/styles.css';
 import { ResizableBox } from 'react-resizable';
 import { ColumnItem, ColumnProps } from './column.type';
 import ColumnHeaderTitle from './ColumnHeaderTitle';
 import ColumnActions from './ColumnActions';
+import ColumnSelectionActions from './ColumnSelectionActions';
 import ColumnSortControls from './ColumnSortControls';
 import ColumnContent from './ColumnContent';
 import { toStorageKey } from './column.utils';
 import { useColumnGrouping } from './useColumnGrouping';
 import './column.scss';
+import './column-modern.scss';
 import ColumnSearchControls from './ColumnSearchControls';
 
 const Column = <T extends object>({
+  appearance = 'modern',
+  totalItemsCount,
   title = '',
   extraTitle,
   tooltipTitle,
@@ -61,6 +71,7 @@ const Column = <T extends object>({
   const MIN_COLUMN_WIDTH = 200;
   const isDisabled = !selectedItemId;
   const refs = useRef<Record<string, RefObject<HTMLDivElement | null>>>({});
+  const scrollRef = useRef<HTMLDivElement | null>(null);
   const getItemRef = (id: string | number) => {
     const key = String(id);
     if (!refs.current[key]) {
@@ -131,27 +142,54 @@ const Column = <T extends object>({
   });
 
   useEffect(() => {
-    if (!selectedItemId || isLoading) {
+    if (
+      !selectedItemId ||
+      isLoading ||
+      isCollapsed ||
+      !items.some((item) => String(item.id) === selectedItemId)
+    ) {
       return;
     }
-
+    let frame: number;
+    let timer: ReturnType<typeof setTimeout>;
+    let attempts = 0;
     const scrollToElement = () => {
       const currentRef = refs.current[selectedItemId];
       if (currentRef?.current) {
-        setTimeout(() => {
-          currentRef.current?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-            inline: 'nearest',
-          });
+        timer = setTimeout(() => {
+          const element = currentRef.current;
+          const container = scrollRef.current;
+          if (!element || !container) return;
+          const elementRect = element.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          if (
+            elementRect.top < containerRect.top ||
+            elementRect.bottom > containerRect.bottom
+          ) {
+            container.scrollTo({
+              top:
+                container.scrollTop +
+                elementRect.top -
+                containerRect.top -
+                (container.clientHeight - elementRect.height) / 2,
+              behavior: window.matchMedia('(prefers-reduced-motion: reduce)')
+                .matches
+                ? 'instant'
+                : 'smooth',
+            });
+          }
         }, 300);
-      } else {
-        requestAnimationFrame(scrollToElement);
+      } else if (attempts++ < 60) {
+        frame = requestAnimationFrame(scrollToElement);
       }
     };
 
     scrollToElement();
-  }, [selectedItemId, isLoading]);
+    return () => {
+      cancelAnimationFrame(frame);
+      clearTimeout(timer);
+    };
+  }, [selectedItemId, isLoading, isCollapsed, items]);
 
   const handleSortChange = (value: string) => {
     if (value === 'default') {
@@ -170,32 +208,62 @@ const Column = <T extends object>({
   const checkIsActive = (id: string | number): boolean =>
     id.toString() === selectedItemId;
 
-  const renderItem = (item: ColumnItem<T>) => (
-    <div
-      aria-hidden="true"
-      tabIndex={0}
-      role="button"
-      data-cy="firstColumnItem"
-      ref={getItemRef(item.id)}
-      key={item.id}
-      className={`column__items__item ${
-        checkIsActive(item.id) ? 'active' : ''
-      }`}
-      onClick={() => setSelectedItemId(item.id.toString())}
-      onKeyDown={(e) =>
-        e.key === 'Enter' && setSelectedItemId(item.id.toString())
-      }
-    >
-      <Skeleton loading={isLoading} active>
-        {renderItems(item)}
-      </Skeleton>
-    </div>
-  );
+  const renderItem = (item: ColumnItem<T>) =>
+    appearance === 'modern' ? (
+      <div
+        ref={getItemRef(item.id)}
+        key={item.id}
+        className={`column__items__item ${checkIsActive(item.id) ? 'active' : ''}`}
+      >
+        <div
+          className="column__item-select"
+          role="button"
+          tabIndex={0}
+          aria-pressed={checkIsActive(item.id)}
+          data-cy="firstColumnItem"
+          onClick={() => setSelectedItemId(String(item.id))}
+          onKeyDown={(e) => {
+            if (e.target !== e.currentTarget) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setSelectedItemId(String(item.id));
+            }
+          }}
+        >
+          <Skeleton loading={isLoading} active>
+            {renderItems(item)}
+          </Skeleton>
+        </div>
+      </div>
+    ) : (
+      <div
+        tabIndex={0}
+        role="button"
+        aria-pressed={checkIsActive(item.id)}
+        data-cy="firstColumnItem"
+        ref={getItemRef(item.id)}
+        key={item.id}
+        className={`column__items__item ${
+          checkIsActive(item.id) ? 'active' : ''
+        }`}
+        onClick={() => setSelectedItemId(item.id.toString())}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setSelectedItemId(item.id.toString());
+          }
+        }}
+      >
+        <Skeleton loading={isLoading} active>
+          {renderItems(item)}
+        </Skeleton>
+      </div>
+    );
 
   return (
     <ResizableBox
       minConstraints={[isCollapsed ? COLLAPSED_WIDTH : MIN_COLUMN_WIDTH, 0]}
-      className={`column ${isCollapsed ? 'collapsed' : ''} ${
+      className={`column ${appearance === 'modern' ? 'column--modern' : ''} ${isCollapsed ? 'collapsed' : ''} ${
         isResizing ? 'resizing' : ''
       }`}
       width={currentColumnWidth}
@@ -205,21 +273,43 @@ const Column = <T extends object>({
       handle={
         <span
           className="custom-resize-handle"
-          role="button"
+          role="separator"
           tabIndex={0}
-          aria-label={isCollapsed ? 'Expand column' : 'Collapse column'}
+          aria-label="Ширина колонки"
+          aria-orientation="vertical"
+          aria-valuenow={currentColumnWidth}
+          aria-valuemin={isCollapsed ? 0 : MIN_COLUMN_WIDTH}
           onClick={(e) => {
             e.stopPropagation();
-            toggleCollapsed();
           }}
-          onKeyDown={(e) => e.key === 'Enter' && toggleCollapsed()}
+          onKeyDown={(e) => {
+            if (e.target !== e.currentTarget) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleCollapsed();
+            } else if (
+              !isCollapsed &&
+              (e.key === 'ArrowLeft' || e.key === 'ArrowRight')
+            ) {
+              e.preventDefault();
+              const width = Math.max(
+                MIN_COLUMN_WIDTH,
+                currentColumnWidth + (e.key === 'ArrowRight' ? 20 : -20),
+              );
+              setAndStoreWidth(width);
+              setLastExpandedWidth(width);
+            }
+          }}
         >
           <span className="custom-resize-handle__thumb" />
           {isCollapsible && (
             <button
               type="button"
               className="custom-resize-handle__toggle"
-              aria-label={isCollapsed ? 'Expand column' : 'Collapse column'}
+              aria-label={
+                isCollapsed ? 'Развернуть колонку' : 'Свернуть колонку'
+              }
+              aria-expanded={!isCollapsed}
               onMouseDown={(e) => e.stopPropagation()}
               onClick={(e) => {
                 e.stopPropagation();
@@ -240,14 +330,37 @@ const Column = <T extends object>({
         }
       }}
     >
-      <div className="column__header">
+      <div className="column__header" inert={isCollapsed}>
         <ColumnHeaderTitle
+          appearance={appearance}
+          showAddBtn={showAddBtn}
+          onAddItem={onAddItem}
+          selectionActions={
+            appearance === 'modern' && (showUpdateBtn || showRemoveBtn) ? (
+              <ColumnSelectionActions
+                key={selectedItemId}
+                selectedItemId={selectedItemId}
+                disabled={isDisabled || Boolean(isLoading)}
+                showUpdateBtn={showUpdateBtn}
+                showRemoveBtn={showRemoveBtn}
+                onUpdateItem={onUpdateItem}
+                onRemoveItem={onRemoveItem}
+                loadingRemove={loadingRemove}
+                disableRemovePopconfirm={disableRemovePopconfirm}
+                removeConfirmDescription={removeConfirmDescription}
+                onOpenChange={onOpenChange}
+              />
+            ) : undefined
+          }
+          totalItemsCount={totalItemsCount}
+          isSearching={Boolean(searchValue?.trim())}
           title={title}
           extraTitle={extraTitle}
           tooltipTitle={tooltipTitle}
           itemsCount={items.length}
         />
         <ColumnActions
+          appearance={appearance}
           searchPlaceholder={searchPlaceholder}
           searchValue={searchValue}
           onChangeSearchValue={onChangeSearchValue}
@@ -264,22 +377,84 @@ const Column = <T extends object>({
           removeConfirmDescription={removeConfirmDescription}
           onOpenChange={onOpenChange}
         />
-        <ColumnSearchControls
-          searchFields={searchFields}
-          searchFieldValue={searchFieldValue}
-          searchOptions={searchFields}
-          onSearchChange={handleSearchChange}
-        />
-        <ColumnSortControls
-          sortableFields={sortableFields}
-          sortValue={sortValue}
-          directionValue={directionValue}
-          sortOptions={sortOptions}
-          onChangeDirectionValue={onChangeDirectionValue}
-          onSortChange={handleSortChange}
-        />
+        {appearance === 'modern' ? (
+          <div className="column__modern-options">
+            <ColumnSortControls
+              sortableFields={sortableFields}
+              sortValue={sortValue}
+              directionValue={directionValue}
+              sortOptions={sortOptions}
+              onChangeDirectionValue={onChangeDirectionValue}
+              onSortChange={handleSortChange}
+            />
+            {searchFields.length > 0 && (
+              <Popover
+                trigger="click"
+                placement="bottomRight"
+                title="Поле поиска"
+                content={
+                  <div style={{ width: 220 }}>
+                    <ColumnSearchControls
+                      searchFields={searchFields}
+                      searchFieldValue={searchFieldValue}
+                      searchOptions={searchFields}
+                      onSearchChange={handleSearchChange}
+                    />
+                  </div>
+                }
+              >
+                <Button
+                  type="text"
+                  size="small"
+                  aria-label="Настройки поиска"
+                  title="Настройки поиска"
+                  icon={<SettingOutlined />}
+                />
+              </Popover>
+            )}
+          </div>
+        ) : (
+          <>
+            <ColumnSearchControls
+              searchFields={searchFields}
+              searchFieldValue={searchFieldValue}
+              searchOptions={searchFields}
+              onSearchChange={handleSearchChange}
+            />
+            <ColumnSortControls
+              sortableFields={sortableFields}
+              sortValue={sortValue}
+              directionValue={directionValue}
+              sortOptions={sortOptions}
+              onChangeDirectionValue={onChangeDirectionValue}
+              onSortChange={handleSortChange}
+            />
+          </>
+        )}
       </div>
-      <SimpleBar className="column__items">
+      <SimpleBar
+        className="column__items"
+        inert={isCollapsed}
+        scrollableNodeProps={{ ref: scrollRef }}
+      >
+        {appearance === 'modern' && !isLoading && items.length === 0 && (
+          <div className="column__empty" role="status">
+            <Empty
+              image={Empty.PRESENTED_IMAGE_SIMPLE}
+              description={
+                searchValue ? 'Ничего не найдено' : 'Пока нет элементов'
+              }
+            />
+            <p>
+              {searchValue
+                ? 'Попробуйте изменить запрос или поле поиска.'
+                : 'Добавьте первый элемент, чтобы начать работу.'}
+            </p>
+            {!searchValue && showAddBtn && (
+              <Button onClick={onAddItem}>Добавить элемент</Button>
+            )}
+          </div>
+        )}
         <ColumnContent
           shouldShowGroups={shouldShowGroups}
           sortedGroupedItems={sortedGroupedItems}

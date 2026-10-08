@@ -1,151 +1,112 @@
 import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { Controller, useController } from 'react-hook-form';
-
+import { useController } from 'react-hook-form';
+import { useId } from 'react';
 import './form-object-map.scss';
-import {
-  FieldEsiPropsType,
-  ObjectEntriesValueType,
-  ObjectFieldRendererPropsType,
-} from '../ConfigForm/config-form.type';
+import { ObjectFieldRendererPropsType } from '../ConfigForm/config-form.type';
+import useCollectionDraft from '../BaseField/useCollectionDraft';
+
+type Entry = [string, string];
+const fromValue = (value: unknown): Entry[] =>
+  value && typeof value === 'object' && !Array.isArray(value)
+    ? Object.entries(value)
+    : [];
+const toValue = (entries: Entry[]) =>
+  Object.fromEntries(entries.filter(([key]) => key));
 
 export const ObjectFieldRenderer = ({
   name,
   control,
   disabled = false,
 }: ObjectFieldRendererPropsType) => {
-  const [entries, setEntries] = useState<FieldEsiPropsType>([]);
+  const errorId = `object-map-error-${useId()}`;
   const {
-    field: { value },
+    field,
+    fieldState: { error },
   } = useController({ name, control });
-
-  useEffect(() => {
-    if (value && entries.length === 0) {
-      setEntries(Object.entries(value));
-    }
-  }, [value]);
-  const entriesToObject = (entries: FieldEsiPropsType) =>
-    entries.reduce(
-      (obj, [key, value]) => (key ? { ...obj, [key]: value } : obj),
-      {},
-    );
-
-  const handleAddField = () => {
-    const updatedEntries = [...entries, ['', '']];
-    setEntries(updatedEntries);
-  };
-
-  const handleRemoveField = (
-    index: number,
-    onChange: (el: ObjectEntriesValueType) => void,
-  ) => {
-    const updatedEntries = entries.filter((_, i) => i !== index);
-    setEntries(updatedEntries);
-    onChange(entriesToObject(updatedEntries));
-  };
-
-  const getUpdatedEntries = (index: number, newValue: string, order: number) =>
-    entries.map((entry, i) => {
-      if (order === 0) {
-        return i === index ? [newValue, entry[1]] : entry;
-      }
-      return i === index ? [entry[0], newValue] : entry;
-    });
-
-  const handleBlur = (
-    index: number,
-    e: React.FocusEvent<HTMLInputElement>,
-    onChange: (el: ObjectEntriesValueType) => void,
-    num: number,
-  ) => {
-    const trimmedValue = e.target.value.trim();
-    const updatedEntries = getUpdatedEntries(index, trimmedValue, num);
-    setEntries(updatedEntries);
-    onChange(entriesToObject(updatedEntries));
-  };
-
-  const handleChangeKey = (
-    index: number,
-    newKey: string,
-    onChange: (el: ObjectEntriesValueType) => void,
-  ) => {
-    const updatedEntries = getUpdatedEntries(index, newKey, 0);
-    setEntries(updatedEntries);
-    onChange(entriesToObject(updatedEntries));
-  };
-
-  const handleChangeValue = (
-    index: number,
-    newValue: string,
-    onChange: (el: ObjectEntriesValueType) => void,
-  ) => {
-    const updatedEntries = getUpdatedEntries(index, newValue, 1);
-    setEntries(updatedEntries);
-    onChange(entriesToObject(updatedEntries));
-  };
-  const renderConditionFields = (
-    onChange: (el: ObjectEntriesValueType) => void,
-  ) => (
-    <>
-      {entries.map(([key, value], index) => (
-        <div key={index} className="object-component__field">
-          <Input
-            disabled={disabled}
-            data-testid={`object-component__key-${index}`}
-            placeholder="Ключ"
-            value={key}
-            onChange={(e) => handleChangeKey(index, e.target.value, onChange)}
-            onBlur={(e) => handleBlur(index, e, onChange, 0)}
-          />
-          <Input
-            disabled={disabled}
-            data-testid={`object-component__value-${index}`}
-            placeholder="Значение"
-            value={value}
-            onChange={(e) => handleChangeValue(index, e.target.value, onChange)}
-            onBlur={(e) => handleBlur(index, e, onChange, 1)}
-          />
-          <Button
-            disabled={disabled}
-            data-testid={`object-component__remove-btn-${index}`}
-            className="object-component__field__remove-btn"
-            danger
-            type="primary"
-            onClick={() => handleRemoveField(index, onChange)}
-            icon={<DeleteOutlined />}
-          />
-        </div>
-      ))}
-    </>
+  const { rows, add, remove, update } = useCollectionDraft(
+    name,
+    field.value,
+    fromValue,
+    toValue,
+    field.onChange,
   );
+  const change = (key: number, entry: Entry, part: 0 | 1, value: string) =>
+    update(key, part === 0 ? [value, entry[1]] : [entry[0], value]);
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field }) => (
-        <div className="object-component">
-          <div className="object-component__content">
-            {renderConditionFields(field.onChange)}
-          </div>
-          <div className="object-component__add-btn">
-            <span className="object-component__add-btn__description">
-              Добавить ключ
-            </span>
+    <div className="object-component">
+      <div className="object-component__content">
+        {!rows.length && (
+          <div className="object-component__empty-field">Пока нет ключей</div>
+        )}
+        {rows.map((row, index) => (
+          <div key={row.key} className="object-component__field">
+            <Input
+              ref={index === 0 ? field.ref : undefined}
+              disabled={disabled}
+              data-testid={`object-component__key-${index}`}
+              aria-label={`Ключ ${index + 1}`}
+              aria-invalid={Boolean(error)}
+              aria-describedby={error ? errorId : undefined}
+              status={error ? 'error' : undefined}
+              placeholder="Ключ"
+              value={row.value[0]}
+              onChange={(event) =>
+                change(row.key, row.value, 0, event.target.value)
+              }
+              onBlur={(event) => {
+                change(row.key, row.value, 0, event.target.value.trim());
+                field.onBlur();
+              }}
+            />
+            <Input
+              disabled={disabled}
+              data-testid={`object-component__value-${index}`}
+              aria-label={`Значение ${index + 1}`}
+              aria-invalid={Boolean(error)}
+              aria-describedby={error ? errorId : undefined}
+              status={error ? 'error' : undefined}
+              placeholder="Значение"
+              value={row.value[1]}
+              onChange={(event) =>
+                change(row.key, row.value, 1, event.target.value)
+              }
+              onBlur={(event) => {
+                change(row.key, row.value, 1, event.target.value.trim());
+                field.onBlur();
+              }}
+            />
             <Button
               disabled={disabled}
-              data-testid="object-component__add-btn"
-              className="object-component__add-btn__btn"
-              onClick={handleAddField}
-              type="primary"
-              shape="circle"
-              icon={<PlusOutlined />}
+              data-testid={`object-component__remove-btn-${index}`}
+              className="object-component__field__remove-btn"
+              danger
+              type="text"
+              aria-label={`Удалить ключ ${index + 1}`}
+              onClick={() => remove(row.key)}
+              icon={<DeleteOutlined />}
             />
           </div>
+        ))}
+      </div>
+      {error?.message && (
+        <div className="object-component__error" role="alert" id={errorId}>
+          {error.message}
         </div>
       )}
-    />
+      <div className="object-component__add-btn">
+        <Button
+          ref={!rows.length ? field.ref : undefined}
+          disabled={disabled}
+          data-testid="object-component__add-btn"
+          className="object-component__add-btn__btn"
+          onClick={() => add(['', ''])}
+          icon={<PlusOutlined />}
+        >
+          Добавить ключ
+        </Button>
+      </div>
+    </div>
   );
 };
-
 export default ObjectFieldRenderer;

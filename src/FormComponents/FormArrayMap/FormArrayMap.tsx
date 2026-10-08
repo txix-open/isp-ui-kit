@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { Controller, FieldValues, useController } from 'react-hook-form';
-import { Button, Input, Form } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import { FieldValues, useController } from 'react-hook-form';
+import { useId } from 'react';
+import { Button, Input } from 'antd';
+import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { FormArrayMapProps } from './form-array-map.type';
-
+import BaseField from '../BaseField/BaseField';
+import useCollectionDraft from '../BaseField/useCollectionDraft';
 import './form-array-map.scss';
+
+const fromValue = (value: unknown): string[] =>
+  Array.isArray(value) ? value.map(String) : [];
+const toValue = (entries: string[]) => entries.filter((entry) => entry !== '');
 
 const FormArrayMap = <T extends FieldValues>({
   name,
@@ -12,104 +17,79 @@ const FormArrayMap = <T extends FieldValues>({
   label,
   controlClassName = '',
   formItemProps,
+  disabled = false,
 }: FormArrayMapProps<T>) => {
-  const [entries, setEntries] = useState<unknown[]>([]);
+  const errorId = `array-map-error-${useId()}`;
   const {
-    field: { value },
+    field,
+    fieldState: { error },
   } = useController({ name, control });
-
-  useEffect(() => {
-    if (value && entries.length === 0) {
-      setEntries(value.map((el: unknown) => String(el)));
-    }
-  }, [value]);
-
-  const handleAdd = () => {
-    const updatedEntries = [...entries, ''];
-    setEntries(updatedEntries);
-  };
-
-  const handleRemoveField = (
-    index: number,
-    onChange: (el: unknown[]) => void,
-  ) => {
-    const updatedEntries = entries.filter((value, i) => i !== index);
-    setEntries(updatedEntries);
-    onChange(updatedEntries.filter((entry) => entry !== ''));
-  };
-
-  const getUpdatedEntries = (index: number, newValue: string) =>
-    entries.map((entry, i) => {
-      return i === index ? newValue : entry;
-    });
-
-  const handleChange = (
-    index: number,
-    newKey: string,
-    onChange: (el: unknown[]) => void,
-  ) => {
-    const updatedEntries = getUpdatedEntries(index, newKey);
-    setEntries(updatedEntries);
-    onChange(updatedEntries.filter((entry) => entry !== ''));
-  };
-
-  const handleBlur = (
-    index: number,
-    e: React.FocusEvent<HTMLInputElement>,
-    onChange: (el: unknown[]) => void,
-  ) => {
-    const trimmedValue = e.target.value.trim();
-    const updatedEntries = getUpdatedEntries(index, trimmedValue);
-    setEntries(updatedEntries);
-    onChange(updatedEntries.filter((entry) => entry !== ''));
-  };
-
+  const { rows, add, remove, update } = useCollectionDraft(
+    name,
+    field.value,
+    fromValue,
+    toValue,
+    field.onChange,
+  );
   return (
-    <div>
-      {entries.map((item, index) => (
-        <div className="form-array-map" key={index}>
-          <Controller
-            name={name}
-            control={control}
-            render={({ field }) => (
-              <>
-                <Form.Item
-                  className={controlClassName}
-                  labelCol={{ span: 24 }}
-                  label={
-                    label
-                      ? `${label}-${index + 1}`
-                      : `Элемент массива-${index + 1}`
-                  }
-                  {...formItemProps}
-                >
-                  <div className="form-array-map__wrapper">
-                    <Input
-                      onChange={(e) =>
-                        handleChange(index, e.target.value, field.onChange)
-                      }
-                      onBlur={(e) => handleBlur(index, e, field.onChange)}
-                      value={String(item)}
-                      placeholder="Значение"
-                    />
-                    <Button
-                      danger
-                      type="primary"
-                      icon={<DeleteOutlined />}
-                      onClick={() => handleRemoveField(index, field.onChange)}
-                    />
-                  </div>
-                </Form.Item>
-              </>
+    <div className="form-array-map__collection">
+      {!rows.length && (
+        <div className="form-array-map__empty">Пока нет элементов</div>
+      )}
+      {rows.map((row, index) => (
+        <div className="form-array-map" key={row.key}>
+          <BaseField
+            label={
+              label ? `${label}-${index + 1}` : `Элемент массива-${index + 1}`
+            }
+            controlClassName={controlClassName}
+            formItemProps={formItemProps}
+            describedBy={error ? errorId : undefined}
+          >
+            {(accessibility) => (
+              <div className="form-array-map__wrapper">
+                <Input
+                  {...accessibility}
+                  aria-invalid={Boolean(error)}
+                  status={error ? 'error' : undefined}
+                  ref={index === 0 ? field.ref : undefined}
+                  disabled={disabled}
+                  onChange={(event) => update(row.key, event.target.value)}
+                  onBlur={(event) => {
+                    update(row.key, event.target.value.trim());
+                    field.onBlur();
+                  }}
+                  value={row.value}
+                  placeholder="Значение"
+                />
+                <Button
+                  disabled={disabled}
+                  danger
+                  type="text"
+                  icon={<DeleteOutlined />}
+                  aria-label={`Удалить элемент ${index + 1}`}
+                  onClick={() => remove(row.key)}
+                />
+              </div>
             )}
-          />
+          </BaseField>
         </div>
       ))}
-      <Button className="form-array-map__btn" onClick={handleAdd}>
+      {error?.message && (
+        <div className="form-array-map__error" role="alert" id={errorId}>
+          {error.message}
+        </div>
+      )}
+      <Button
+        ref={!rows.length ? field.ref : undefined}
+        disabled={disabled}
+        className="form-array-map__btn"
+        icon={<PlusOutlined />}
+        onClick={() => add('')}
+      >
         Добавить новый элемент
       </Button>
     </div>
   );
 };
-
 export default FormArrayMap;

@@ -24,6 +24,7 @@ const ColumnSortControls = <T extends object>({
           Сортировка
         </span>
         <Select
+          aria-label="Поле сортировки"
           placeholder="Выберите поле"
           variant="borderless"
           size="small"
@@ -33,6 +34,16 @@ const ColumnSortControls = <T extends object>({
         />
       </div>
       <Button
+        aria-label={
+          directionValue === 'asc'
+            ? 'Сортировать по убыванию'
+            : 'Сортировать по возрастанию'
+        }
+        title={
+          directionValue === 'asc'
+            ? 'Сортировать по убыванию'
+            : 'Сортировать по возрастанию'
+        }
         className="column__header__sort-controls__button"
         size="small"
         icon={

@@ -1,9 +1,10 @@
-import { Form, InputNumber } from 'antd';
+import { InputNumber } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormInputNumberProps } from './form-input-number.type';
-import '../form-components.scss';
+import BaseField from '../BaseField/BaseField';
 
 export default <T extends FieldValues>({
+  forwardEvents = false,
   control,
   name,
   rules,
@@ -17,17 +18,31 @@ export default <T extends FieldValues>({
     fieldState: { error },
   } = useController({ name, control, rules });
   return (
-    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
-      <Form.Item
-        className={controlClassName}
-        labelCol={{ span: 24 }}
-        label={label}
-        validateStatus={error && 'error'}
-        help={error && error.message}
-        {...formItemProps}
-      >
-        <InputNumber {...rest} {...field} autoComplete="off" />
-      </Form.Item>
-    </div>
+    <BaseField
+      id={rest.id}
+      label={label}
+      required={Boolean(rules?.required?.value)}
+      error={error}
+      controlClassName={controlClassName}
+      formItemProps={formItemProps}
+      describedBy={rest['aria-describedby']}
+    >
+      {(accessibility) => (
+        <InputNumber
+          {...rest}
+          {...field}
+          {...accessibility}
+          onChange={(value) => {
+            field.onChange(value);
+            if (forwardEvents) rest.onChange?.(value);
+          }}
+          onBlur={(event) => {
+            field.onBlur();
+            if (forwardEvents) rest.onBlur?.(event);
+          }}
+          autoComplete="off"
+        />
+      )}
+    </BaseField>
   );
 };

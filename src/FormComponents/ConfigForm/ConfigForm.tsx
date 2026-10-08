@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { Button } from 'antd';
+import { Button, Empty } from 'antd';
 import { FieldValues, useForm } from 'react-hook-form';
 import { ArrayFieldRenderer } from './ArrayFieldRenderer';
 import { RenderFieldByType } from './RenderFieldByType';
 import FormObjectMap from '../FormObjectMap/FormObjectMap';
 import { ConfigFormType, FieldConfigType, FieldType } from './config-form.type';
+import './config-form.scss';
 
 export default <T extends FieldValues>({
   config,
@@ -12,7 +13,12 @@ export default <T extends FieldValues>({
   onSubmit,
   data,
 }: ConfigFormType<T>) => {
-  const { control, handleSubmit, reset } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting },
+  } = useForm({
     mode: 'onChange',
   });
 
@@ -26,10 +32,10 @@ export default <T extends FieldValues>({
     switch (field.type) {
       case FieldType.OBJECT:
         return (
-          <div key={field.id}>
-            <label>{field.label}</label>
+          <fieldset className="config-form__group" key={field.id}>
+            <legend>{field.label}</legend>
             <FormObjectMap control={control} name={field.name} />
-          </div>
+          </fieldset>
         );
       case FieldType.ARRAY:
         return (
@@ -43,18 +49,43 @@ export default <T extends FieldValues>({
           />
         );
       default:
-        return RenderFieldByType({ field, control, crudApi });
+        return (
+          <RenderFieldByType
+            field={field}
+            control={control}
+            crudApi={crudApi}
+          />
+        );
     }
   };
 
   return (
-    <form className="config-form" data-testid="config-form">
+    <form
+      className="config-form"
+      data-testid="config-form"
+      onSubmit={(event) => {
+        if (isSubmitting) event.preventDefault();
+        else void handleSubmit(onSubmit)(event);
+      }}
+      aria-busy={isSubmitting}
+    >
       <div className="config-form__control">
-        <Button type="primary" onClick={handleSubmit(onSubmit)}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          loading={isSubmitting}
+          disabled={isSubmitting || !config?.fields.length}
+        >
           Сохранить
         </Button>
       </div>
       <div className="config-form__content">
+        {!config?.fields.length && (
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="В конфигурации нет полей"
+          />
+        )}
         {config &&
           config.fields.map((field: FieldConfigType) => (
             <div

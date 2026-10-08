@@ -2,28 +2,71 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Utils/Описание" />
 
-# Utils
+# Утилиты
 
-Папка `utils` содержит набор утилитарных функций и инструментов для упрощения различных задач в приложении
+Обычные функции для чтения конфигурации, текстов и поиска пункта меню. Их можно вызывать вне React-компонентов; getConfigProperty читает браузерную конфигурацию и возвращает fallback на сервере.
 
-#### Импорт компонентов
 ```tsx
-import { getConfigProperty } from 'isp-ui-kit'
+import {
+  getConfigProperty,
+  getText,
+  createTextGetter,
+  verifyTextKey,
+  createTextVerifier,
+  findRouteWithParents,
+} from 'isp-ui-kit';
 ```
 
-## Список утилит
-### configUtils
-- **[getConfigProperty](?path=/story/utils-getconfigproperty--example)** — Хук для управления аутентификацией.
+## Конфигурация приложения
 
-### textsUtils
-- **[getText](?path=/docs/utils-textutils-описание--docs#gettext)** —
-Получает текст по ключу из словаря с поддержкой fallback-значения и подстановки параметров.
+[getConfigProperty](?path=/docs/utils-getconfigproperty--docs) читает собственное свойство window.config по точному ключу. Если config или ключ отсутствуют, возвращается defaultValue. Существующие false, 0, пустая строка, null и undefined возвращаются без замены на fallback.
 
-- **[createTextGetter](?path=/docs/utils-textutils-описание--docs#createtextgetter)** —
-Создаёт типизированную функцию `getText`, привязанную к конкретному словарю текстов.
+```tsx
+import { getConfigProperty } from 'isp-ui-kit';
 
-- **[verifyTextKey](?path=/docs/utils-textutils-описание--docs#verifytextkey)** —
-Проверяет наличие ключа в словаре текстов.
+const passwordLoginEnabled = getConfigProperty('ENABLE_PASSWORD_LOGIN', true);
+```
 
-- **[createTextVerifier](?path=/docs/utils-textutils-описание--docs#createtextverifier)** —
-Создаёт типизированную функцию для проверки существования ключей в словаре.
+Приложение должно заполнить window.config до чтения; хук и подписка на изменения не создаются. Функция не проверяет тип значения и не разбирает вложенные пути вида `service.url`. При отсутствии window (например, на сервере) возвращается defaultValue.
+
+## Тексты
+
+- [getText](?path=/docs/utils-textutils-описание--docs#gettext) возвращает строку из словаря, fallback или пустую строку; подставляет строковые параметры.
+- [createTextGetter](?path=/docs/utils-textutils-описание--docs#createtextgetter) привязывает функцию к словарю и сохраняет типизацию его ключей.
+- [verifyTextKey](?path=/docs/utils-textutils-описание--docs#verifytextkey) проверяет наличие непустого текста, а не только наличие свойства. Для пустой строки возвращает false.
+- [createTextVerifier](?path=/docs/utils-textutils-описание--docs#createtextverifier) создаёт такую проверку для конкретного словаря.
+
+Словарь загружает и хранит приложение. TextParams принимает строки: числа передавайте как String(value). Это подстановка текста, без склонений, плюрализации или HTML-экранирования.
+
+## Пункт меню и родители
+
+findRouteWithParents ищет пункт по key или его route-алиасу в дереве ConfigMenuItemType. Возвращает `{ route, parentKeys }`, где route — сам найденный объект, parentKeys — ключи предков от корня; при отсутствии совпадения возвращает null.
+
+```tsx
+import { findRouteWithParents, type ConfigMenuItemType } from 'isp-ui-kit';
+
+const menu: ConfigMenuItemType[] = [
+  {
+    key: 'settings',
+    label: 'Настройки',
+    permissions: [],
+    children: [
+      {
+        key: 'people',
+        route: ['users', 'user'],
+        label: 'Пользователи',
+        permissions: [],
+      },
+    ],
+  },
+];
+
+const match = findRouteWithParents('users', menu);
+// match?.route.key === 'people'
+// match?.parentKeys === ['settings']
+const missing = findRouteWithParents('unknown', menu); // null
+```
+
+Функция получает готовый ключ или алиас, а не полный URL: pathname и вложенные адреса преобразует приложение. Поиск идёт по порядку дерева, возвращает первое совпадение и не фильтрует permissions. Для алиаса корня можно использовать route: ['']; одиночная пустая строка route не учитывается. Не задавайте пересекающиеся ключи и алиасы.
+
+[Маршруты и ключи LayoutMenu](?path=/docs/layout-layoutmenu--docs), [пример с React Router](?path=/docs/layout-интеграция-с-react-router--docs).

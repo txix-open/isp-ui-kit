@@ -1,6 +1,10 @@
 import { ChangeEvent, ReactElement, ReactNode } from 'react';
 
 export interface ColumnProps<T extends object> {
+  /** Modern is the default; classic provides the previous design. */
+  appearance?: 'classic' | 'modern';
+  /** Total before filtering; used to show the search result count. */
+  totalItemsCount?: number;
   title?: ReactNode;
   extraTitle?: ReactNode;
   tooltipTitle?: ReactNode;
@@ -49,6 +53,12 @@ export type ColumnItem<T extends {}> = T & {
 export type SortItemType<T> = { value: keyof T; label: string };
 
 export type ColumnHeaderTitleProps = {
+  selectionActions?: ReactNode;
+  showAddBtn?: boolean;
+  onAddItem?: () => void;
+  appearance?: 'classic' | 'modern';
+  totalItemsCount?: number;
+  isSearching?: boolean;
   title?: ReactNode;
   extraTitle?: ReactNode;
   tooltipTitle?: ReactNode;
@@ -56,6 +66,7 @@ export type ColumnHeaderTitleProps = {
 };
 
 export type ColumnActionsProps = {
+  appearance?: 'classic' | 'modern';
   searchPlaceholder: string;
   searchValue: string;
   onChangeSearchValue: (

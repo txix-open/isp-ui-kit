@@ -1,3 +1,4 @@
+import StoryForm from '../shared/StoryForm';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { FormSecretTextArea } from '../../FormComponents';
@@ -7,7 +8,7 @@ const meta: Meta<typeof FormSecretTextArea> = {
   tags: ['autodocs'],
   title: 'FormComponents/FormSecretTextArea',
   args: {
-    label: 'Название SecretTextArea',
+    label: 'Секретное значение',
     name: 'TextArea',
     rules: { required: { value: true, message: 'Поле не может быть пустым' } },
   },
@@ -16,27 +17,44 @@ const meta: Meta<typeof FormSecretTextArea> = {
     docs: {
       description: {
         component:
-          'Компонент SecretTextArea, который поддерживает react-hook-form',
+          'Многострочное поле с маскированием и React Hook Form. Базовое оформление Ant Design сохранено. Кнопка видимости имеет доступное название и не перекрывает текст; при disabled недоступна. Маскирование скрывает текст визуально и не изменяет значение.',
       },
     },
   },
   argTypes: {
+    formItemProps: {
+      control: false,
+      description:
+        'Свойства Ant Design Form.Item: подпись, help, extra и оформление. Ошибка формы имеет приоритет над help; required здесь не заменяет rules.',
+    },
+    forwardEvents: {
+      description:
+        'false по умолчанию сохраняет прежние callbacks. true вызывает пользовательские onChange/onBlur после обработчиков формы.',
+    },
+    trimOnBlur: {
+      description:
+        'true по умолчанию обрезает крайние пробелы на blur; false сохраняет ввод дословно.',
+    },
     control: {
       control: false,
-      description: 'параметр, получаемый из react-hook-form',
+      description:
+        'Объект control из useForm(). Значение и ошибки управляются React Hook Form.',
     },
     name: {
       control: false,
-      description: 'Путь до поля в структуре',
+      description:
+        'Путь в данных формы, например service.name; вложенные имена поддерживаются.',
     },
     label: {
       description: 'Подпись к TextArea',
     },
     rules: {
-      description: 'Правила валидации поля',
+      description:
+        'Правила React Hook Form; required задаётся как { value: true, message: ... }.',
     },
     controlClassName: {
-      description: 'Имя класса для компонента формы',
+      description:
+        'CSS-класс Form.Item; для самого контрола используйте className.',
     },
   },
 };
@@ -44,35 +62,37 @@ const meta: Meta<typeof FormSecretTextArea> = {
 export default meta;
 
 type Story = StoryObj<typeof FormSecretTextArea>;
-const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
   name: 'Пример',
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSecretTextArea {...args} />
-      </form>
+      <StoryForm methods={methods}>
+        <FormSecretTextArea {...args} control={control} />
+      </StoryForm>
     );
   },
 };
 export const Validation: Story = {
   name: 'Валидация',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'При открытии ошибка установлена через setError для демонстрации состояния. Кнопка «Проверить и отправить» запускает реальные rules; сброс очищает форму.',
+      },
+    },
+  },
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
-    control.setError('SecretTextArea', {
-      type: 'required',
-      message: args.rules!.required!.message,
-    });
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSecretTextArea {...args} />
-      </form>
+      /* Validation fixture is installed by StoryForm after mount. */
+      <StoryForm methods={methods} errorField={args.name}>
+        <FormSecretTextArea {...args} control={control} />
+      </StoryForm>
     );
   },
 };

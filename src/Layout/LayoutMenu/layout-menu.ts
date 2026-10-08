@@ -14,6 +14,10 @@ export interface ConfigMenuItemType {
 export type MenuItemType = Required<MenuProps>['items'][number];
 
 export interface LayoutMenuPropsType {
+  /** Theme of the menu; match LayoutSider when using an explicit dark sider. */
+  theme?: MenuProps['theme'];
+  /** Optional standalone collapse control; inside LayoutSider it is inherited. */
+  inlineCollapsed?: boolean;
   onHideMenuItem: (value: string | string[]) => boolean;
   menuConfig: ConfigMenuItemType[];
   onClickItem: ({ key }: { key: string }) => void;
