@@ -10,11 +10,12 @@ export const getText = <T extends TextDictionary, K extends keyof T & string>(
 ): string => {
   if (!texts) return fallback ?? '';
 
-  let text = (texts[key] as string) ?? fallback ?? '';
+  let text =
+    (Object.hasOwn(texts, key) ? texts[key] : undefined) ?? fallback ?? '';
 
   if (params) {
-    for (const paramKey in params) {
-      text = text.replace(new RegExp(`{{${paramKey}}}`, 'g'), params[paramKey]);
+    for (const [paramKey, value] of Object.entries(params)) {
+      text = text.split(`{{${paramKey}}}`).join(value);
     }
   }
 
@@ -27,7 +28,7 @@ export const verifyTextKey = <
 >(
   texts: T | undefined,
   key: K,
-): boolean => Boolean(texts?.[key]);
+): boolean => Boolean(texts && Object.hasOwn(texts, key) && texts[key]);
 
 export const createTextGetter = <T extends TextDictionary>(
   texts: T | undefined,

@@ -1,9 +1,14 @@
-.home-page {
-  height: 100%;
+.home-page.kit-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: safe center;
+  align-items: safe center;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  font-size: calc(1.5vw + 1.5vh);
-
+  > * {
+    min-width: 0;
+    max-width: 100%;
+  }
 }

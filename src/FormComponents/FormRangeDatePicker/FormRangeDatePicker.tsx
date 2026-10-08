@@ -1,12 +1,14 @@
-import { DatePicker, Form } from 'antd';
+import { DatePicker } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormRangeDatePickerProps } from './form-range-date-picker.type';
 import dayjs from '../../cfg/dayjs-config';
+import BaseField from '../BaseField/BaseField';
 import ru from 'antd/es/date-picker/locale/ru_RU';
 
 const { RangePicker } = DatePicker;
 
 export default function FormRangeDatePicker<T extends FieldValues>({
+  forwardEvents = false,
   control,
   name,
   rules,
@@ -29,36 +31,49 @@ export default function FormRangeDatePicker<T extends FieldValues>({
     ? value.map((date: string) => dayjs(date))
     : undefined;
 
+  const saveDate = (dates: (dayjs.Dayjs | null)[] | null) => {
+    const formattedDates: string[] | undefined = dates
+      ? dates.map((date) =>
+          dayjs(date).tz('Europe/Moscow').format(defaultSaveDateFormat),
+        )
+      : undefined;
+    onChange(formattedDates);
+  };
+
   return (
-    <div
-      className={`form-range-date-picker ${
-        rules?.required?.value ? 'requiredInput' : ''
-      }`}
+    <BaseField
+      wrapperClassName="form-range-date-picker"
+      id={typeof rest.id === 'string' ? rest.id : rest.id?.start}
+      label={label}
+      required={Boolean(rules?.required?.value)}
+      error={error}
+      controlClassName={controlClassName}
+      formItemProps={formItemProps}
+      describedBy={rest['aria-describedby']}
     >
-      <Form.Item
-        className={controlClassName}
-        labelCol={{ span: 24 }}
-        label={label}
-        validateStatus={error && 'error'}
-        help={error && error.message}
-        {...formItemProps}
-      >
+      {(accessibility) => (
         <RangePicker
           locale={ru}
           format={dateFormat}
           value={formattedValue}
-          onChange={(dates) => {
-            const formattedDates: string[] | undefined = dates
-              ? dates.map((date) =>
-                  dayjs(date).tz('Europe/Moscow').format(defaultSaveDateFormat),
-                )
-              : undefined;
-            onChange(formattedDates);
-          }}
           {...rest}
           {...fieldRest}
+          {...accessibility}
+          id={rest.id ?? accessibility.id}
+          onChange={
+            forwardEvents
+              ? (date, dateString) => {
+                  saveDate(date);
+                  rest.onChange?.(date, dateString);
+                }
+              : (rest.onChange ?? saveDate)
+          }
+          onBlur={(...args) => {
+            fieldRest.onBlur();
+            if (forwardEvents) rest.onBlur?.(...args);
+          }}
         />
-      </Form.Item>
-    </div>
+      )}
+    </BaseField>
   );
 }

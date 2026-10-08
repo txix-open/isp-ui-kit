@@ -1,9 +1,11 @@
-import { Form, Input } from 'antd';
+import { Input } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormInputProps } from './form-input.type';
-import '../form-components.scss';
+import BaseField from '../BaseField/BaseField';
 
 export default <T extends FieldValues>({
+  trimOnBlur = true,
+  forwardEvents = false,
   control,
   name,
   rules,
@@ -18,24 +20,35 @@ export default <T extends FieldValues>({
   } = useController({ name, control, rules });
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const trimmedValue = e.target.value.trim();
-    field.onChange(trimmedValue);
+    const value = trimOnBlur ? e.target.value.trim() : e.target.value;
+    field.onChange(value);
     field.onBlur();
+    if (forwardEvents) rest.onBlur?.(e);
   };
 
   return (
-    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
-      <Form.Item
-        className={controlClassName}
-        labelCol={{ span: 24 }}
-        label={label}
-        validateStatus={error && 'error'}
-        help={error && error.message}
-        {...formItemProps}
-      >
-        {/* @ts-ignore */}
-        <Input {...rest} {...field} onBlur={handleBlur} autoComplete="off" />
-      </Form.Item>
-    </div>
+    <BaseField
+      id={rest.id}
+      label={label}
+      required={Boolean(rules?.required?.value)}
+      error={error}
+      controlClassName={controlClassName}
+      formItemProps={formItemProps}
+      describedBy={rest['aria-describedby']}
+    >
+      {(accessibility) => (
+        <Input
+          {...rest}
+          {...field}
+          {...accessibility}
+          onChange={(event) => {
+            field.onChange(event);
+            if (forwardEvents) rest.onChange?.(event);
+          }}
+          onBlur={handleBlur}
+          autoComplete="off"
+        />
+      )}
+    </BaseField>
   );
 };

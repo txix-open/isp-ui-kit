@@ -1,12 +1,14 @@
-import { Form, Select } from 'antd';
+import { Select } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 import { FormSelectProps } from './form-select.type';
-import '../form-components.scss';
+import BaseField from '../BaseField/BaseField';
 
 export default <T extends FieldValues>({
+  forwardEvents = false,
   control,
   name,
   label,
+  controlClassName = '',
   mode,
   rules,
   formItemProps,
@@ -18,19 +20,26 @@ export default <T extends FieldValues>({
   } = useController({ name, control, rules });
 
   return (
-    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
-      <Form.Item
-        labelCol={{ span: 24 }}
-        label={label}
-        validateStatus={error && 'error'}
-        help={error && error.message}
-        {...formItemProps}
-      >
+    <BaseField
+      id={rest.id}
+      label={label}
+      required={Boolean(rules?.required?.value)}
+      error={error}
+      controlClassName={controlClassName}
+      formItemProps={formItemProps}
+      describedBy={rest['aria-describedby']}
+    >
+      {(accessibility) => (
         <Select
           data-cy="form-select"
           mode={mode}
           {...rest}
           {...field}
+          {...accessibility}
+          onBlur={(event) => {
+            field.onBlur();
+            if (forwardEvents) rest.onBlur?.(event);
+          }}
           onChange={(value, option) => {
             const finalValue = value === undefined ? null : value;
             field.onChange(finalValue);
@@ -39,7 +48,7 @@ export default <T extends FieldValues>({
             }
           }}
         />
-      </Form.Item>
-    </div>
+      )}
+    </BaseField>
   );
 };

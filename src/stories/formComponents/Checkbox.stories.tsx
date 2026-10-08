@@ -1,3 +1,4 @@
+import StoryForm from '../shared/StoryForm';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { FormCheckbox } from '../../FormComponents';
@@ -15,27 +16,41 @@ const meta: Meta<typeof FormCheckbox> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Checkbox, который поддерживает react-hook-form',
+        component:
+          'Checkbox Ant Design с React Hook Form. Сохраняет boolean и подпись рядом с флажком. Ошибка связана с полем; события приложения включаются через forwardEvents.',
       },
     },
   },
   argTypes: {
+    formItemProps: {
+      control: false,
+      description:
+        'Свойства Ant Design Form.Item: подпись, help, extra и оформление. Ошибка формы имеет приоритет над help; required здесь не заменяет rules.',
+    },
+    forwardEvents: {
+      description:
+        'false по умолчанию сохраняет прежние callbacks. true вызывает пользовательские onChange/onBlur после обработчиков формы.',
+    },
     control: {
       control: false,
-      description: 'параметр, получаемый из react-hook-form',
+      description:
+        'Объект control из useForm(). Значение и ошибки управляются React Hook Form.',
     },
     name: {
       control: false,
-      description: 'Путь до поля в структуре',
+      description:
+        'Путь в данных формы, например service.name; вложенные имена поддерживаются.',
     },
     label: {
       description: 'Подпись к checkbox',
     },
     rules: {
-      description: 'Правила валидации поля',
+      description:
+        'Правила React Hook Form; required задаётся как { value: true, message: ... }.',
     },
     controlClassName: {
-      description: 'Имя класса для компонента формы',
+      description:
+        'CSS-класс Form.Item; для самого контрола используйте className.',
     },
   },
 };
@@ -43,35 +58,43 @@ const meta: Meta<typeof FormCheckbox> = {
 export default meta;
 
 type Story = StoryObj<typeof FormCheckbox>;
-const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
   name: 'Пример',
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
-      </form>
+      <StoryForm methods={methods}>
+        <FormCheckbox {...args} control={control} />
+      </StoryForm>
     );
   },
 };
 export const Validation: Story = {
   name: 'Валидация',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'При открытии ошибка установлена через setError для демонстрации состояния. Кнопка «Проверить и отправить» запускает реальные rules; сброс очищает форму.',
+      },
+    },
+  },
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
-    control.setError('checkbox', {
-      type: 'required',
-      message: args.rules!.required!.message,
-    });
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormCheckbox {...args} />
-      </form>
+      /* Validation fixture is installed by StoryForm after mount. */
+      <StoryForm methods={methods} errorField={args.name}>
+        <FormCheckbox {...args} control={control} />
+      </StoryForm>
     );
   },
+};
+
+export const Disabled: Story = {
+  name: 'Недоступен',
+  args: { disabled: true },
+  render: Example.render,
 };

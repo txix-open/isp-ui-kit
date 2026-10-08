@@ -30,22 +30,33 @@ export const ArrayFieldRenderer = ({
   });
 
   return (
-    <div>
-      <label>{label}</label>
+    <fieldset className="config-form__group config-form__array">
+      <legend>{label}</legend>
       {fields.map((field: any, index: number) => (
         <div
           key={field.formFieldId}
           className="edit-field"
           data-testid="edit-field"
         >
-          <label className="edit-field__label">{index}</label>
-          {RenderFieldByType({
-            field: { inputType, settings, id: `${name}[${index}]` },
-            control,
-            value: field,
-            crudApi,
-          })}
-          <Button type="link" danger onClick={() => remove(index)}>
+          <span className="edit-field__label" aria-hidden="true">
+            {index + 1}
+          </span>
+          <RenderFieldByType
+            field={{
+              inputType,
+              settings,
+              id: `${name}[${index}]`,
+              ariaLabel: `${label}: ${index + 1}`,
+            }}
+            control={control}
+            crudApi={crudApi}
+          />
+          <Button
+            type="text"
+            danger
+            aria-label={`Удалить элемент ${index + 1}: ${label}`}
+            onClick={() => remove(index)}
+          >
             <DeleteOutlined />
           </Button>
         </div>
@@ -53,6 +64,6 @@ export const ArrayFieldRenderer = ({
       <Button className="edit-field__btn" onClick={() => append('')}>
         Добавить элемент
       </Button>
-    </div>
+    </fieldset>
   );
 };

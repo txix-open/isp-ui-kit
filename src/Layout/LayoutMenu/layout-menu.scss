@@ -1,4 +1,25 @@
 .layout-menu {
+  &.ant-menu-inline,
+  &.ant-menu-vertical {
+    border-inline-end: 0;
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    margin-block: 4px;
+    border-radius: 8px;
+  }
+
+  .ant-menu-item-selected {
+    font-weight: 600;
+  }
+
+  .ant-menu-item:focus-visible,
+  .ant-menu-submenu-title:focus-visible {
+    outline: 2px solid var(--ant-color-primary, #1677ff);
+    outline-offset: -2px;
+  }
+
   .hide-item {
     display: none !important;
   }

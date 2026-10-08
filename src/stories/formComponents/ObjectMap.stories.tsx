@@ -1,49 +1,48 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useForm } from 'react-hook-form';
 import { FormObjectMap } from '../../FormComponents';
-
+import CollectionMapsExample from '../shared/CollectionMapsExample';
 const meta: Meta<typeof FormObjectMap> = {
   component: FormObjectMap,
-  tags: ['autodocs'],
   title: 'FormComponents/FormObjectMap',
-  args: {
-    name: 'objectField',
-  },
+  tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Компонент FormObjectMap для отрисовки объектов',
+        component:
+          'Редактор словаря: ключ, значение и удаление в одной строке. В узкой области ключ расположен над значением. Пустой ключ исключается из модели, значение может быть пустым; ключи и значения обрезаются на blur. Повторяющийся ключ сохраняет значение последней строки, как прежде. reset и setValue обновляют строки; черновые пустые строки остаются локальными до ввода.',
       },
     },
   },
   argTypes: {
-    control: {
-      control: false,
-      description: 'параметр, получаемый из react-hook-form',
-    },
-    name: {
-      control: false,
-      description: 'Путь до поля в структуре',
-    },
+    control: { control: false, description: 'Control из React Hook Form.' },
+    name: { description: 'Путь до словаря, включая вложенные имена.' },
+    disabled: { description: 'Блокирует оба поля, добавление и удаление.' },
   },
 };
-
 export default meta;
-
 type Story = StoryObj<typeof FormObjectMap>;
-const onSubmit = (data: unknown) => console.log(data);
-
 export const Example: Story = {
-  name: 'Пример',
-  render: (args) => {
-    const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormObjectMap {...args} />
-      </form>
-    );
+  name: 'Редактирование и сохранение',
+  render: () => <CollectionMapsExample kind="object" />,
+};
+export const Empty: Story = {
+  name: 'Пустой словарь',
+  render: () => <CollectionMapsExample kind="object" empty />,
+};
+export const Disabled: Story = {
+  name: 'Недоступное редактирование',
+  render: () => <CollectionMapsExample kind="object" disabled />,
+};
+export const ExternalUpdate: Story = {
+  name: 'Загрузка, reset и setValue',
+  render: Example.render,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Измените ключ и добавьте пустую строку, затем загрузите другую запись или очистите через setValue. Старые строки исчезают; новые значения не смешиваются с черновиком.',
+      },
+    },
   },
 };
