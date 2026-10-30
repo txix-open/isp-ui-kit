@@ -26,10 +26,11 @@ export * from './Layout/LayoutMenu/layout-menu';
 export * from './Layout/LayoutSider/layout-sider';
 export * from './Layout/NotFoundPage/not-found-page';
 
-import ReactJsonView from './components/ReactJsonView/js';
+import ReactJsonView from './components/JsonViewer';
 import ConfigTable from './components/ConfigTable/ConfigTable';
 import SearchInput from './components/SearchInput/SearchInput';
 export * from './components/ConfigTable/config-table.type';
+export * from './components/JsonViewer/json-viewer.type';
 export * from './components/SearchInput/search-input.type';
 
 import useAuth from './hooks/useAuth';

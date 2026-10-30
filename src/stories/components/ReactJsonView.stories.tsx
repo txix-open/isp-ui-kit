@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'; // @ts-ignore
-import ReactJsonView from '../../components/ReactJsonView/js';
+import { useState } from 'react';
+import ReactJsonView from '../../components/JsonViewer';
 
 const json = {
   string: 'this is a test string',
@@ -211,6 +212,17 @@ const meta: Meta<typeof ReactJsonView> = {
       },
       control: false,
     },
+    search: {
+      description:
+        'Запрос поиска: узлы с совпадениями (ключи объектов, примитивные значения) автоматически раскрываются, текст вхождений подсвечивается.',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '(не задан)' },
+      },
+      control: {
+        type: 'text',
+      },
+    },
   },
 };
 
@@ -223,7 +235,127 @@ export const JsonView: Story = {
   render: (args) => {
     return (
       <div>
-        <ReactJsonView onEdit={() => {}} editKeys={true} src={json} />
+        <ReactJsonView onEdit={() => {}} editKeys={true} src={json} {...args} />
+      </div>
+    );
+  },
+};
+
+export const Interactive: Story = {
+  name: 'Интерактив (onEdit/onAdd/onDelete)',
+  parameters: { docs: { disable: true } },
+  render: () => (
+    <div>
+      <ReactJsonView
+        src={json}
+        onEdit={() => {}}
+        onAdd={() => {}}
+        onDelete={() => {}}
+        onSelect={() => {}}
+        defaultValue={{ default: 'value' }}
+      />
+    </div>
+  ),
+};
+
+export const ValidationFail: Story = {
+  name: 'Валидация (отказ в onEdit/onAdd)',
+  parameters: { docs: { disable: true } },
+  render: () => (
+    <div>
+      <ReactJsonView src={json} onEdit={() => false} onAdd={() => false} />
+    </div>
+  ),
+};
+
+const largeLogs = Array.from({ length: 10000 }, (_, i) => ({
+  id: i,
+  ts: `2026-10-30T${String(i % 24).padStart(2, '0')}:${String(
+    Math.floor(i / 24) % 60,
+  ).padStart(2, '0')}:${String(i % 60).padStart(2, '0')}.000Z`,
+  level: ['info', 'warn', 'error', 'debug'][i % 4],
+  service: `svc-${i % 7}`,
+  message: `Request handled in ${i % 997}ms`,
+  longMessage: `Detailed diagnostics for log entry ${i}: upstream latency ${i % 500}ms, queue depth ${i % 97}, retry ${i % 3}, trace ${i.toString(16)}, payload ${'x'.repeat(i % 300)}`,
+}));
+
+const longArray = Array.from({ length: 12 }, (_, i) => `value-${i}`);
+
+export const GroupedArrays: Story = {
+  name: 'Группировка массивов',
+  parameters: { docs: { disable: true } },
+  render: () => (
+    <div>
+      <ReactJsonView src={{ list: longArray }} groupArraysAfterLength={4} />
+    </div>
+  ),
+};
+
+export const LargeData: Story = {
+  name: 'Большие данные (maxHeight, виртуализация)',
+  parameters: { docs: { disable: true } },
+  render: (args) => (
+    <div>
+      <ReactJsonView
+        src={{ logs: largeLogs }}
+        name="logs-root"
+        maxHeight={600}
+        search={args.search ?? 'latency'}
+        onEdit={() => {}}
+        onAdd={() => {}}
+        onDelete={() => {}}
+        onSelect={() => {}}
+      />
+    </div>
+  ),
+};
+
+const searchData = {
+  server: {
+    host: '10.0.4.2',
+    ports: [8080, 8443],
+    tls: {
+      enabled: true,
+      cert: 'server.crt',
+      rotated: '2026-10-01',
+    },
+  },
+  client: {
+    id: 'c-1042',
+    lastError: 'connection reset by peer at 10:11:12',
+    retries: 3,
+  },
+  metrics: {
+    latency_ms: 42.5,
+    throughput: 1250,
+    errors: 0,
+  },
+};
+
+export const Search: Story = {
+  name: 'Поиск (search, авто-раскрытие + подсветка)',
+  parameters: { docs: { disable: true } },
+  render: () => {
+    const [query, setQuery] = useState('1042');
+    return (
+      <div>
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Поиск (search)"
+          style={{
+            marginBottom: 8,
+            padding: '4px 6px',
+            fontFamily: 'monospace',
+          }}
+        />
+        <ReactJsonView
+          src={searchData}
+          name="data"
+          collapsed
+          search={query}
+          onEdit={() => {}}
+        />
       </div>
     );
   },
