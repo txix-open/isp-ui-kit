@@ -1,0 +1,182 @@
+/*
+ * Поведение стилей, требующее CSS (1:1 порт legacy
+ * ReactJsonView/style/scss/global.scss): показ иконок действий
+ * по наведению на строку.
+ */
+.react-json-view {
+    .copy-to-clipboard-container {
+        vertical-align: top;
+        display: none;
+    }
+    .click-to-add {
+        display: none;
+    }
+    .click-to-remove {
+        display: none;
+    }
+    .click-to-edit {
+        display: none;
+    }
+
+    .object-key-val {
+        &:hover > span > .object-meta-data, &:hover > span > span {
+            & > .copy-to-clipboard-container {
+                display: inline-block;
+            }
+            & > .click-to-add {
+                display: inline-block;
+            }
+            & > .click-to-remove {
+                display: inline-block;
+            }
+            & > .click-to-edit {
+                display: inline-block;
+            }
+        }
+    }
+
+    .variable-row {
+        /*
+         * Большие данные: браузер не рендерит строки за пределами
+         * видимой области; contain-intrinsic-size — оценка высоты
+         * строки до первого рендера (auto — запоминать фактическую).
+         */
+        content-visibility: auto;
+        contain-intrinsic-size: auto 26px;
+
+        &:hover {
+            & .copy-to-clipboard-container {
+                display: inline-block;
+            }
+        }
+    }
+
+    // Ключ («"имя"» + «:») — неразрывный блок: кавычки не отрываются от
+    // имени, имя не переносится по пробелам. Ключ отрисован отдельными
+    // инлайн-боксами («"», имя, «"») — без nowrap в узком контейнере строка
+    // ломает ключ на строки. Ключ шире строки/контейнера — эллипсис
+    // (полное имя — в title бокса ключа, задаётся в компонентах).
+    .object-name {
+        white-space: nowrap;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    // Строка-контейнер (иконка + ключ + «{»): flex-строка — сжимается только
+    // ключ (эллипсисом), иконка и скобка не сжимаются.
+    .brace-start {
+        align-items: flex-start;
+        max-width: 100%;
+        min-width: 0;
+
+        > * {
+            flex-shrink: 0;
+        }
+
+        > .object-name {
+            min-width: 0;
+            flex-shrink: 1;
+        }
+    }
+
+    // Строка-значение (ключ + двоеточие): flex-строка — сжимается ключ,
+    // двоеточие остаётся на месте.
+    .variable-key {
+        display: inline-flex;
+        align-items: flex-start;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    // Метаданные узла (размер «N items», иконки) — неделимая единица:
+    // в узком контейнере переносится целиком, а не ломается на «1» /
+    // «item» (в виртуальном режиме обрыв ещё и удваивает высоту строки
+    // при фиксированном питче строк — см. виртуальный блок scss).
+    .object-meta-data {
+        white-space: nowrap;
+    }
+
+    .object-content .variable-row {
+        &:hover .click-to-remove {
+            display: inline-block;
+        }
+        &:hover .click-to-edit {
+            display: inline-block;
+        }
+    }
+
+}
+
+/*
+ * Виртуализованный режим (prop maxHeight): строки рисуются абсолютно
+ * по фиксированным координатам, вложенность — направляющие (rjv-guide)
+ * вместо вложенных div'ов. Класс rjv-virtual стоит на том же элементе,
+ * что и react-json-view — отсюда составной селектор.
+ */
+.react-json-view.rjv-virtual {
+    .rjv-row {
+        position: absolute;
+        left: 0;
+        right: 0;
+        padding-left: var(--rjv-pl);
+        overflow: hidden;
+        // виртуализация сама ограничивает число строк — content-visibility не нужен
+        content-visibility: normal;
+
+        &:hover {
+            // legacy: borderLeft 1px → 2px + paddingLeft -1px
+            padding-left: calc(var(--rjv-pl) - 1px);
+
+            .rjv-guide--own {
+                width: 2px;
+            }
+
+            .copy-to-clipboard-container,
+            .click-to-add,
+            .click-to-remove,
+            .click-to-edit {
+                display: inline-block;
+            }
+        }
+    }
+
+    .rjv-guide {
+        width: 1px;
+    }
+
+    .rjv-row-content {
+        display: flex;
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    // Метаданные узла (размер, иконки) — не сжимаются: место уступает ключ
+    // (он эллипсисом, полное имя в title). Без этого мету сжимали до
+    // переноса «N items» на 2 строки — высота строки удваивалась при
+    // фиксированном питче (15px) и накладывалась на строку ниже.
+    .object-meta-data {
+        flex-shrink: 0;
+    }
+
+    // Значение — одна строка: обрезка + эллипсис (полный текст — в overlay).
+    // Не сжимается широким ключом (flex-shrink: 0): короткое значение
+    // остаётся читаемым, место уступает ключ — он эллипсисом (полное имя в
+    // title). max-width резервирует ключу ~15 символов (140px на моношрифте
+    // 13px, включая кавычки и двоеточие): ключи средней длины не режутся, а
+    // сверхдлинное значение обрезается эллипсисом, не упираясь в край строки.
+    .variable-value {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        flex-shrink: 0;
+        max-width: calc(100% - 140px);
+
+        // Инлайн-стили значений темы (display: inline-block) мешают
+        // эллипсису: текст должен участвовать в строке родителя.
+        > div {
+            display: inline !important;
+        }
+    }
+}
