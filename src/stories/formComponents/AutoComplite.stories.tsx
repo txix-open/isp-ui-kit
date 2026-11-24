@@ -1,3 +1,4 @@
+import StoryForm from '../shared/StoryForm';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { FormAutoComplete } from '../../FormComponents';
@@ -17,31 +18,48 @@ const meta: Meta<typeof FormAutoComplete> = {
     docs: {
       description: {
         component:
-          'Компонент AutoComplete, который поддерживает react-hook-form',
+          'AutoComplete Ant Design с React Hook Form. Ввод и выбор подсказки обновляют форму; встроенная фильтрация по value и обрезка пробелов на blur сохранены. forwardEvents включает пользовательские события; trimOnBlur=false сохраняет ввод дословно.',
       },
     },
   },
   argTypes: {
+    formItemProps: {
+      control: false,
+      description:
+        'Свойства Ant Design Form.Item: подпись, help, extra и оформление. Ошибка формы имеет приоритет над help; required здесь не заменяет rules.',
+    },
+    forwardEvents: {
+      description:
+        'false по умолчанию сохраняет прежние callbacks. true вызывает пользовательские onChange/onBlur после обработчиков формы.',
+    },
+    trimOnBlur: {
+      description:
+        'true по умолчанию обрезает крайние пробелы на blur; false сохраняет ввод дословно.',
+    },
     control: {
       control: false,
-      description: 'параметр, получаемый из react-hook-form',
+      description:
+        'Объект control из useForm(). Значение и ошибки управляются React Hook Form.',
     },
     name: {
       control: false,
-      description: 'Путь до поля в структуре',
+      description:
+        'Путь в данных формы, например service.name; вложенные имена поддерживаются.',
     },
     label: {
       description: 'Подпись к AutoComplete',
     },
     rules: {
-      description: 'Правила валидации',
+      description:
+        'Правила React Hook Form; required задаётся как { value: true, message: ... }.',
     },
     controlClassName: {
-      description: 'Имя класса для компонента формы',
+      description:
+        'CSS-класс Form.Item; для самого контрола используйте className.',
     },
     options: {
       description:
-        'Ожидает массив объектов { value: "значение" } для дефлотных параметров',
+        'Подсказки { value: "значение", label?: "Подпись" }. По умолчанию фильтруются по value; свободный ввод разрешён.',
     },
   },
 };
@@ -50,38 +68,49 @@ export default meta;
 
 type Story = StoryObj<typeof FormAutoComplete>;
 
-const onSubmit = (data: unknown) => console.log(data);
-
 export const Example: Story = {
   name: 'Пример',
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormAutoComplete {...args} />
-      </form>
+      <StoryForm methods={methods}>
+        <FormAutoComplete {...args} control={control} />
+      </StoryForm>
     );
   },
 };
 
 export const Validation: Story = {
   name: 'Валидация',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'При открытии ошибка установлена через setError для демонстрации состояния. Кнопка «Проверить и отправить» запускает реальные rules; сброс очищает форму.',
+      },
+    },
+  },
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
-
-    control.setError('AutoComplete', {
-      type: 'required',
-      message: args.rules!.required!.message,
-    });
+    const { control } = methods;
 
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormAutoComplete {...args} />
-      </form>
+      /* Validation fixture is installed by StoryForm after mount. */
+      <StoryForm methods={methods} errorField={args.name}>
+        <FormAutoComplete {...args} control={control} />
+      </StoryForm>
     );
   },
+};
+
+export const Disabled: Story = {
+  name: 'Недоступен',
+  args: { disabled: true },
+  render: Example.render,
+};
+export const EmptyOptions: Story = {
+  name: 'Нет вариантов',
+  args: { options: [] },
+  render: Example.render,
 };

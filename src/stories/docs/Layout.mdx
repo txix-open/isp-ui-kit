@@ -1,91 +1,78 @@
-import {Meta, Canvas} from '@storybook/addon-docs/blocks';
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 import * as LayoutStories from '../layout/Layout.stories.tsx';
 
-<Meta title="Layout/Описание"/>
+<Meta title="Layout/Описание" />
 
+# Каркас и рабочие области
 
-# Layout
-Компоненты для построения макета страниц
+Компоненты для навигации, колончатого интерфейса и служебных страниц. Роутинг, загрузка данных и бизнес-действия остаются в приложении.
 
-#### Импорт компонентов
 ```tsx
-import { Layout } from 'isp-ui-kit'
-const { Column, NotFoundPage } = Layout
+import {
+  Column,
+  EmptyData,
+  NoData,
+  LayoutMenu,
+  LayoutSider,
+  HomePage,
+  ErrorPage,
+  NotFoundPage,
+} from 'isp-ui-kit';
 ```
 
-## Интерфейс "Три колонки"
-Компоненты для построения колончатого интерфейса
-### [Column](?path=/story/layout-threecolumns-column--docs)
+## Три колонки
 
+[Column](?path=/docs/layout-threecolumns-column--docs) — список с выбором, поиском, сортировкой и группами. Родитель передаёт данные, выбранный id и обработчики. Поиск и подготовка данных выполняются приложением; ширина и раскрытие групп управляются внутри Column.
 
+modern используется по умолчанию; classic сохраняет прежнее оформление. title может содержать пользовательские действия. Перетаскивание границы меняет ширину, отдельная кнопка сворачивает колонку.
 
-Для корректной работы стилей внутри Column:
-1. Необходимо обязательно включить CSS vars для antd config
-```jsx
-<ConfigProvider theme={{cssVar: true}} locale={ruRu}>
-    <App/>
-</ConfigProvider>
+Для стилей Column включите CSS variables Ant Design и подключите стили библиотек прокрутки и изменения размера один раз в приложении:
+
+```tsx
+import type { ReactNode } from 'react';
+import { ConfigProvider, Layout } from 'antd';
+import 'react-resizable/css/styles.css';
+import 'simplebar-react/dist/simplebar.min.css';
+
+export function Workspace({ children }: { children: ReactNode }) {
+  return (
+    <ConfigProvider theme={{ cssVar: {} }}>
+      <Layout style={{ height: '100vh', minHeight: 0 }}>{children}</Layout>
+    </ConfigProvider>
+  );
+}
 ```
 
-2. Добавить поддержку scrollbars и resize
+Высоту задаёт родитель. Шапка может менять высоту при переносе title или появлении действий; список занимает оставшуюся область и прокручивается внутри. На узком экране общему контейнеру колонок может понадобиться горизонтальная прокрутка.
 
-```jsx
-import 'react-resizable/css/styles.css'
-import 'simplebar-react/dist/simplebar.min.css'
-```
+[Обзор ThreeColumns](?path=/docs/layout-threecolumns-обзор--docs) объясняет данные и компоновку; [сложные списки](?path=/story/редизайн-column--playground) показывают группы, версии и пользовательский title.
 
-3. Обернуть приложение в Layout от antd
-```jsx
-import {Layout} from 'antd'
+### [EmptyData](?path=/docs/layout-threecolumns-emptydata--docs)
 
-<Layout>
-    <Column/>
-    <div>Content</div>
-</Layout>
-```
+Ожидание выбора элемента. Данные в списке могут быть, но зависимую область ещё нечем заполнить. Родитель решает, когда показывать состояние; компонент не следит за selectedItemId.
 
-- [Empty](?path=/story/layout-threecolumns-column--empty): Базовый пример компонента Column без содержимого. Подходит для демонстрации структуры или настройки макета.
-- [With Elements](?path=/story/layout-threecolumns-column--with-elements): Пример компонента Column с элементами. Подходит для отображения данных или других вложенных компонентов.
-
----
-
-### [EmptyData](?path=/story/layout-threecolumns-emptydata--example)
-Компонент, используемый для отображения пустых данных. Применяется для сценариев, когда нет данных для отображения.
 <Canvas of={LayoutStories.CombinedColumnWithEmptyData} />
 
----
+### [NoData](?path=/docs/layout-threecolumns-nodata--docs)
 
-### [NoData](?path=/story/layout-threecolumns-nodata--example)
-Вариация компонента для работы с отсутствующими данными. Полезен для создания пользовательских сообщений или заглушек.
+Отсутствие данных для отображения. Компонент не загружает данные и не проверяет список. content заменяет стандартную иконку и сообщение. Для ожидания выбора используйте EmptyData.
 
 <Canvas of={LayoutStories.CombinedLayout} />
 
----
+## Навигация
+
+[LayoutSider](?path=/docs/layout-layoutsider--docs) — Ant Design Sider с отдельной прокруткой содержимого и кнопкой сворачивания внизу панели. Поддерживает collapsed, onCollapse, breakpoint, collapsedWidth и пользовательский trigger. Внутри ограниченного каркаса задавайте `style={{ height: '100%' }}` при определённой высоте родителя; прежняя высота по умолчанию — calc(100vh - 45px).
+
+[LayoutMenu](?path=/docs/layout-layoutmenu--docs) — меню по конфигурации. key — уникальный идентификатор, route — алиас первого сегмента пути. onClickItem передаёт выбор приложению; currentPath обновляет активный пункт. Скрытие по разрешениям задаётся через onHideMenuItem, а проверка доступа остаётся в маршрутах приложения.
+
+[Пример подключения React Router и вложенных адресов](?path=/docs/layout-интеграция-с-react-router--docs).
 
 ## Страницы
-Набор шаблонных страниц для базовых сценариев
 
-### [ErrorPage](?path=/story/layout-pages-errorpage--example)
-Компонент для отображения страницы ошибки. Используется для обработки ошибок 404, 500 или других случаев, требующих пользовательского сообщения.
+- [HomePage](?path=/docs/layout-pages-homepage--docs) — центрирует children в выделенной области; backgroundImage задаёт фон. Высота по умолчанию 100%, поэтому высоту задаёт родитель.
+- [ErrorPage](?path=/docs/layout-pages-errorpage--docs) — сообщение ошибки 500. children — действия в Result.extra; повторную загрузку и переход реализует приложение.
+- [NotFoundPage](?path=/docs/layout-pages-notfoundpage--docs) — сообщение 404 и пользовательские действия. Маршрут для неизвестного адреса настраивает приложение.
 
----
+У ErrorPage и NotFoundPage для совместимости сохранена высота 100vh. Под шапкой передавайте `style={{ height: '100%' }}` и задавайте высоту области содержимого.
 
-### [HomePage](?path=/story/layout-pages-homepage--example)
-Главная страница, используемая для отображения основного контента приложения или приветственного экрана.
-
----
-
-### [NotFoundPage](?path=/story/layout-pages-notfoundpage--example)
-Компонент для отображения страницы "Страница не найдена". Применяется для обработки запросов к несуществующим маршрутам.
-
----
-## Компоненты
-
-### [LayoutSider](?path=/docs/layout-layoutsider--docs)
-Компонент для оборачивания меню
-
-### [LayoutMenu](?path=/story/layout-layoutmenu--example)
-Компонент для меню
-
----
-
+[Встраивание страниц](?path=/docs/layout-pages-обзор--docs) и [полный пример приложения](?path=/story/редизайн-приложение--example) показывают меню, шапку, формы, таблицу и ThreeColumns вместе.

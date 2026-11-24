@@ -1,282 +1,219 @@
-import { Meta, Canvas, ArgTypes, Source } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as ColumnStories from './Column.stories';
 
 <Meta of={ColumnStories} />
 
-# Компонент `Column`
+# Column
 
-### Описание
-Компонент **`Column`** предназначен для отображения вертикальных списков в составе интерфейсов с многоколоночной структурой (например, «Три колонки»). Он поддерживает:
+Вертикальный список с выбором элемента, поиском, сортировкой и группами. Подходит для самостоятельного списка или последовательности «проекты → задачи → подробности».
 
-- Выбор активного элемента
-- Поиск по содержимому
-- Управление элементами (добавление, редактирование, удаление)
-- Кастомную визуализацию элементов через `renderItems`
-- Сохранение ширины колонки между сессиями (`localStorage`)
-- Отображение подсказок (`Tooltip`) для усечённых имён
+Новый вид включён по умолчанию: поиск занимает всю ширину, `+` добавляет элемент, меню `⋯` в шапке содержит действия с выбранным элементом. Выбор не меняет ширину содержимого строк. `appearance="classic"` включает прежнее оформление.
 
----
+## Кто управляет данными
 
-### Пример: пустая колонка
+Родитель хранит список, выбранный ID, запрос и параметры сортировки. Column сообщает об изменениях через обработчики. **Поиск не фильтрует items автоматически:** передавайте уже отфильтрованный список. `searchFields` выбирает поле, но фильтрацию по нему тоже реализует родитель.
 
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.Empty} />
+Column сортирует переданные элементы по `sortValue` и `directionValue`, группирует по `groupBy`, управляет раскрытием групп и сохраняет ширину. Обработчики добавления, редактирования и удаления выполняет приложение; сам компонент данные не изменяет.
+
+`selectedItemId` — строка; `''` означает отсутствие выбора. Числовой `item.id` при выборе преобразуется в строку. После удаления выбранного элемента родителю следует сбросить выбор.
+
+## Рабочий пример
+
+Введите запрос, добавьте элемент, выберите строку и откройте `⋯`. Редактирование меняет название, удаление запрашивает подтверждение и показывает загрузку.
+
+<Canvas of={ColumnStories.FullFeaturedColumn} />
+
+## Поиск и счётчик
+
+`items.length` определяет число отображаемых элементов. Передайте `totalItemsCount` до фильтрации, чтобы при непустом запросе показать «Найдено N из M». Без него выводится только N. Очистка поля вызывает `onChangeSearchValue` с пустой строкой.
+
+<Canvas of={ColumnStories.WithSearch} />
+
+## Длинные названия и группы
+
+`renderItems` возвращает пользовательское содержимое строки. Column добавляет выбор, фокус и выделение. Структура, метаданные и подсказки принадлежат рендеру: компонент не добавляет Tooltip к произвольному названию автоматически. В этих примерах длинное название обрезает List.Item.Meta, а Tooltip показывает полный текст.
+
+`groupBy` задаёт поле группировки. `renderHeaderGroup` меняет содержимое заголовка, `sortGroups` — порядок групп. Элементы без значения поля попадают в «Без группы». Внутри групп действует та же сортировка элементов.
+
+<Canvas of={ColumnStories.LongGrouped} />
+
+## Пустота и загрузка
+
+Пустой список и отсутствие результатов поиска — разные состояния. При `isLoading` без элементов отображается Skeleton; при загрузке уже имеющегося списка его строки показывают Skeleton. `loadingRemove` относится только к удалению.
+
+<Canvas of={ColumnStories.NoResults} />
+<Canvas of={ColumnStories.InitialLoading} />
+
+## Размеры и кастомный заголовок
+
+Родитель задаёт доступную высоту. Column занимает её целиком: шапка имеет высоту по содержимому, список получает остаток и прокручивается внутри. Не нужно вычитать фиксированную высоту шапки из высоты окна. Для темы область должна наследовать CSS-переменные ConfigProvider.
+
+`title` и `extraTitle` принимают ReactNode. Например, кнопку карты связей можно передать внутри title; её действие остаётся в приложении. Текстовый заголовок может переноситься. `tooltipTitle` меняет подсказку стандартного текстового заголовка; подсказки в кастомном ReactNode задаёт его автор.
+
+В следующем примере нажмите «Показать информацию»: шапка вырастет, список уменьшится при той же высоте колонки. Высоту области можно изменить в панели Storybook.
+
+<Canvas of={ColumnStories.CustomHeader} />
+
+Ширина по умолчанию — 300 px, минимальная раскрытая ширина — 200 px. Тяните правую границу или используйте стрелки на сфокусированной границе. Enter/Space переключают сворачивание, если `isCollapsible` включён. Строка выбирается кликом, Enter или Space. Используйте уникальный `columnKey` для каждой независимой колонки: её ширина хранится в localStorage.
+
+## Все сценарии
+
+<table>
+  <thead>
+    <tr>
+      <th>Пример</th>
+      <th>Что проверять</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--empty">
+          Пустая колонка
+        </a>
+      </td>
+      <td>Пустое состояние без действий добавления</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--with-elements">
+          Список элементов
+        </a>
+      </td>
+      <td>Рендер и выбор строки</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--active-element">
+          Выбранный элемент
+        </a>
+      </td>
+      <td>Выделение и смену выбора</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--loading-remove">
+          Удаление с загрузкой
+        </a>
+      </td>
+      <td>Подтверждение и состояние выполнения</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--with-search">Поиск</a>
+      </td>
+      <td>Фильтрацию в родителе и очистку запроса</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--with-sorting">
+          Сортировка
+        </a>
+      </td>
+      <td>Поле, направление и сброс порядка</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--full-featured-column">
+          Действия со списком
+        </a>
+      </td>
+      <td>Добавление, редактирование и удаление</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--custom-render-item">
+          Кастомные строки
+        </a>
+      </td>
+      <td>Произвольное содержимое renderItems</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--long-grouped">
+          Длинные названия и группы
+        </a>
+      </td>
+      <td>Усечение, Tooltip и раскрытие групп</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--no-results">
+          Поиск без результатов
+        </a>
+      </td>
+      <td>Сообщение и восстановление списка после очистки</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--initial-loading">
+          Загрузка
+        </a>
+      </td>
+      <td>Skeleton вместо пустого состояния</td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/story/layout-threecolumns-column--custom-header">
+          Кастомный заголовок
+        </a>
+      </td>
+      <td>Изменение высоты шапки</td>
+    </tr>
+  </tbody>
+</table>
+
+## Минимальная интеграция
+
+Шесть обязательных параметров: `items`, `renderItems`, `selectedItemId`, `setSelectedItemId`, `searchValue`, `onChangeSearchValue`. В примере действия скрыты, потому что обработчики изменения данных не переданы.
+
+```tsx
+import { useState } from 'react';
+import { List, Tooltip } from 'antd';
+import { Column } from 'isp-ui-kit';
+
+type Item = { id: string; name: string };
+const items: Item[] = [
+  { id: '1', name: 'Личный кабинет' },
+  { id: '2', name: 'Интеграции' },
+];
+
+export function ProjectList() {
+  const [selectedId, setSelectedId] = useState('');
+  const [search, setSearch] = useState('');
+  const filtered = items.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  return (
+    <div style={{ display: 'flex', height: 500, minHeight: 0 }}>
+      <Column<Item>
+        title="Проекты"
+        columnKey="projects"
+        items={filtered}
+        totalItemsCount={items.length}
+        selectedItemId={selectedId}
+        setSelectedItemId={setSelectedId}
+        searchValue={search}
+        onChangeSearchValue={(value) => setSearch(value)}
+        renderItems={(item) => (
+          <List.Item>
+            <Tooltip title={item.name}>
+              <List.Item.Meta title={item.name} />
+            </Tooltip>
+          </List.Item>
+        )}
+        showAddBtn={false}
+        showUpdateBtn={false}
+        showRemoveBtn={false}
+      />
     </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.Empty} />
-    </div>
-</div>
-
----
-
-### Пример: колонка с элементами
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.WithElements} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.WithElements} />
-    </div>
-</div>
-
----
-
-### Пример: активный элемент
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.ActiveElement} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.ActiveElement} />
-    </div>
-</div>
-
----
-
-### Пример: удаление с состоянием загрузки
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.LoadingRemove} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.LoadingRemove} />
-    </div>
-</div>
-
----
-
-### Пример: колонка с поиском
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.WithSearch} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.WithSearch} />
-    </div>
-</div>
-
----
-
-### Пример: колонка с сортировкой
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.WithSorting} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.WithSorting} />
-    </div>
-</div>
-
----
-
-### Пример: полнофункциональная колонка
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.FullFeaturedColumn} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.FullFeaturedColumn} />
-    </div>
-</div>
-
----
-
-### Пример: кастомный рендер элемента
-
-<div style={{
-    display: "flex",
-    width: "100%",
-    gap: "24px",
-    alignItems: "flex-start"
-}}>
-    <div style={{ flex: 1 }}>
-        <Canvas of={ColumnStories.CustomRenderItem} />
-    </div>
-
-    <div style={{ flex: 1 }}>
-        <Source of={ColumnStories.CustomRenderItem} />
-    </div>
-</div>
-
----
-
-### Пропсы
-
-<ArgTypes of={ColumnStories.Empty} />
-
-> 💡 Все пропсы, кроме `items` и `title`, опциональны.
-> Для полного контроля над отображением используйте `renderItems`.
-
----
-
-### Особенности реализации
-
-- **Ресайз колонки**: ширина сохраняется в `localStorage` и восстанавливается при перезагрузке.
-- **Работа с длинными текстами**: имена элементов автоматически обрезаются, а полный текст отображается в `Tooltip`.
-- **Гибкость отрисовки**: через `renderItems` можно подключить любой UI-компонент (например, `List`, `Card`, `Typography.Text` и т.д.).
-- **Интеграция с состоянием**: `selectedItemId` и `setSelectedItemId` позволяют легко синхронизировать выбор с внешним состоянием.
-- **Сортировка и поиск**: полностью управляются извне, что даёт максимальную гибкость (например, для интеграции с API или глобальным состоянием).
-
----
-
-### Как использовать в реальном приложении
-
-Компонент `Column` **не управляет состоянием сам** — всё состояние (выбор, поиск, сортировка, данные) должно управляться в родительском компоненте. Вот типовой шаблон для интеграции:
-
-<details>
-    ```tsx
-    import { useState, useCallback } from 'react';
-    import { Column } from './Column';
-    import { List, Tooltip } from 'antd';
-
-    // Тип элемента
-    interface Item {
-    id: string;
-    name: string;
+  );
 }
-
-    // Функция рендера элемента
-    const renderItems = (item: Item) => (
-    <List.Item>
-        <Tooltip title={item.name} mouseEnterDelay={0.5}>
-            <List.Item.Meta title={item.name} />
-        </Tooltip>
-    </List.Item>
-    );
-
-    const MyThreeColumnLayout = () => {
-    // Исходные данные
-    const [items, setItems] = useState<Item[]>([
-{ id: '1', name: 'Проект Alpha' },
-{ id: '2', name: 'Задача Beta' },
-{ id: '3', name: 'Отчёт Gamma' },
-    ]);
-
-    // Состояние UI
-    const [selectedItemId, setSelectedItemId] = useState<string>();
-    const [searchValue, setSearchValue] = useState('');
-    const [sortValue, setSortValue] = useState<keyof Item>();
-    const [directionValue, setDirectionValue] = useState<'asc' | 'desc'>('asc');
-
-    // Фильтрация
-    const filteredItems = items.filter(item =>
-    item.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-
-    // Обработчики
-    const handleAdd = useCallback(() => {
-    const newId = `item-${Date.now()}`;
-    setItems(prev => [...prev, { id: newId, name: 'Новый элемент' }]);
-}, []);
-
-    const handleUpdate = useCallback((id: string) => {
-    setItems(prev =>
-    prev.map(item =>
-    item.id === id ? { ...item, name: `${item.name} (изменено)` } : item
-    )
-    );
-}, []);
-
-    const handleRemove = useCallback(async (id: string) => {
-    // Эмуляция API-запроса
-    await new Promise(r => setTimeout(r, 500));
-    setItems(prev => prev.filter(item => item.id !== id));
-    if (selectedItemId === id) setSelectedItemId(undefined);
-}, [selectedItemId]);
-
-    return (
-    <div style={{ display: 'flex', gap: '16px', height: '500px' }}>
-    <Column
-        title="Элементы"
-        items={filteredItems}
-        selectedItemId={selectedItemId}
-        setSelectedItemId={setSelectedItemId}
-        searchValue={searchValue}
-        onChangeSearchValue={setSearchValue}
-        sortValue={sortValue}
-        onChangeSortValue={setSortValue}
-        directionValue={directionValue}
-        onChangeDirectionValue={setDirectionValue}
-        renderItems={renderItems}
-        sortableFields={[{ label: 'Название', value: 'name' }]}
-        onAddItem={handleAdd}
-        onUpdateItem={handleUpdate}
-        onRemoveItem={handleRemove}
-        searchPlaceholder="Поиск элементов..."
-    />
-</div>
-    );
-};
-
-export default MyThreeColumnLayout;
 ```
-</details>
+
+## Параметры
+
+<ArgTypes of={ColumnStories.FullFeaturedColumn} />
+
+Принципы оформления и правила для дальнейших изменений: `docs/design-system.md`. [Обзор ThreeColumns](?path=/docs/layout-threecolumns-обзор--docs) показывает композицию с NoData и EmptyData.
