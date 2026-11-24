@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 export interface UserData {
   email: string;
@@ -61,107 +61,97 @@ const useAuth = (): UseAuth => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const login = async (
+  const pendingRequests = useRef(0);
+
+  async function request<T>(operation: () => Promise<T>): Promise<T> {
+    pendingRequests.current += 1;
+    setIsLoading(true);
+    try {
+      return await operation();
+    } finally {
+      pendingRequests.current -= 1;
+      setIsLoading(pendingRequests.current > 0);
+    }
+  }
+
+  async function readError(response: Response): Promise<unknown> {
+    const text = await response.text();
+    if (!text) return null;
+    try {
+      return JSON.parse(text);
+    } catch {
+      return text;
+    }
+  }
+
+  const login = (
     path: string,
     data: UserData,
     headers: Record<string, string> = {},
-  ): Promise<AuthResponse> => {
-    setIsLoading(true);
-    return fetch(path, {
-      method: 'POST',
-      headers: {
-        ...headers,
-      },
-      body: JSON.stringify(data),
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          setLoggedIn({ type: 'basic', value: true });
-          const errorData = {
-            response: await response.json(),
-            status: response.status,
-          };
-          return Promise.reject(errorData);
-        }
-        setLoggedIn({ type: 'basic', value: true });
-        return response.json();
-      })
-      .then((responseData) => responseData)
-      .finally(() => setIsLoading(false));
-  };
-  const logout = async (path: string, headers: Record<string, string> = {}) => {
-    setIsLoading(true);
-    return fetch(path, {
-      method: 'POST',
-      headers: {
-        ...headers,
-      },
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          setLoggedIn({ type: 'basic', value: false });
-          const errorData = {
-            response: await response.json(),
-            status: response.status,
-          };
-          return Promise.reject(errorData);
-        }
-        setLoggedIn({ type: 'basic', value: false });
-        return response.text();
-      })
-      .then((responseData) => (responseData ? JSON.parse(responseData) : {}))
-      .finally(() => setIsLoading(false));
-  };
+  ): Promise<AuthResponse> =>
+    request(async () => {
+      const response = await fetch(path, {
+        method: 'POST',
+        headers: { ...headers },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        throw { response: await readError(response), status: response.status };
+      }
+      const result: AuthResponse = await response.json();
+      setLoggedIn({ type: 'basic', value: true });
+      return result;
+    });
 
-  const oAuthLogin = async (
+  const logout = (path: string, headers: Record<string, string> = {}) =>
+    request(async () => {
+      const response = await fetch(path, {
+        method: 'POST',
+        headers: { ...headers },
+      });
+      if (!response.ok) {
+        throw { response: await readError(response), status: response.status };
+      }
+      const text = await response.text();
+      const result = text ? JSON.parse(text) : {};
+      setLoggedIn({ type: 'basic', value: false });
+      return result;
+    });
+
+  const oAuthLogin = (
     path: string,
     data: OAuthRequest,
     headers: Record<string, string> = {},
-  ): Promise<OAuthLoginResponse> => {
-    setIsLoading(true);
-    return fetch(path, {
-      method: 'POST',
-      headers: { ...headers },
-      body: JSON.stringify(data),
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          setLoggedIn({ type: 'oAuth', value: true });
+  ): Promise<OAuthLoginResponse> =>
+    request(async () => {
+      const response = await fetch(path, {
+        method: 'POST',
+        headers: { ...headers },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw await readError(response);
+      const result: OAuthLoginResponse = await response.json();
+      setLoggedIn({ type: 'oAuth', value: true });
+      return result;
+    });
 
-          const errorData = await response.json();
-          return Promise.reject(errorData);
-        }
-        setLoggedIn({ type: 'oAuth', value: true });
-        return response.json();
-      })
-      .then((responseData) => responseData)
-      .finally(() => setIsLoading(false));
-  };
-
-  const oAuthLogout = async (
+  const oAuthLogout = (
     path: string,
     data: OAuthRequest,
     headers: Record<string, string> = {},
-  ): Promise<OAuthLogoutResponse> => {
-    setIsLoading(true);
-    return fetch(path, {
-      method: 'POST',
-      headers: { ...headers },
-      body: JSON.stringify(data),
-    })
-      .then(async (response) => {
-        if (!response.ok) {
-          setLoggedIn({ type: 'basic', value: false });
-
-          const errorData = await response.json();
-          return Promise.reject(errorData);
-        }
-        setLoggedIn({ type: 'basic', value: false });
-        return response.json();
-      })
-      .then((responseData) => responseData)
-      .finally(() => setIsLoading(false));
-  };
+  ): Promise<OAuthLogoutResponse> =>
+    request(async () => {
+      const response = await fetch(path, {
+        method: 'POST',
+        headers: { ...headers },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw await readError(response);
+      const result: OAuthLogoutResponse = await response.json();
+      // Keep the legacy basic type after a successful OAuth logout.
+      setLoggedIn({ type: 'basic', value: false });
+      return result;
+    });
 
   return {
     isLogged,

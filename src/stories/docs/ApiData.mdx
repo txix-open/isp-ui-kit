@@ -1,0 +1,100 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as TableStories from '../components/ConfigTable.stories';
+
+<Meta title="Работа с данными API" />
+
+# Работа с данными API
+
+Приложение вызывает API и передаёт данные компоненту. Компонент отображает их и сообщает приложению о действиях пользователя через функции вроде `onSearch` и `onSubmit`. В API остаются правила валидации, права доступа и работа с данными.
+
+## Список, поиск и страницы
+
+Введите «уведомлений» и нажмите Enter или «Найти». Перейдите на вторую страницу и раскройте **«Запрос и ответ»**. Видно, как меняется `page` при переключении страницы и как `total` отличается от числа записей в `items`. Данные примера вычисляются локально.
+
+<Canvas of={TableStories.ApiData} />
+
+### Как связать ответ API с таблицей
+
+<div style={{ overflowX: 'auto' }}>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Данные или действие</th>
+        <th scope="col">Где используются</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>response.items</code>
+        </td>
+        <td>
+          <code>dataSource</code> — строки текущей страницы.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Стабильный <code>items[].id</code>
+        </td>
+        <td>
+          <code>rowKey="id"</code> — идентификатор строки, в том числе при
+          выборе.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>response.total</code> для текущего запроса
+        </td>
+        <td>
+          <code>pagination.total</code> и <code>filteredItemsCount</code> —
+          число всех совпадений, включая записи на других страницах.
+        </td>
+      </tr>
+      <tr>
+        <td>Общее количество без поиска, если API его возвращает</td>
+        <td>
+          <code>totalItemsCount</code> — число записей до фильтрации.
+        </td>
+      </tr>
+      <tr>
+        <td>Пользователь отправил поиск</td>
+        <td>
+          <code>onSearch(query)</code> — приложение сохраняет запрос, сбрасывает
+          номер страницы и загружает данные.
+        </td>
+      </tr>
+      <tr>
+        <td>Пользователь сменил страницу</td>
+        <td>
+          <code>pagination.onChange(page, pageSize)</code> — приложение
+          загружает нужную страницу. В примере первая страница имеет номер 1.
+        </td>
+      </tr>
+      <tr>
+        <td>Запрос выполняется</td>
+        <td>
+          <code>loading</code> — таблица показывает индикатор. Сообщение и
+          повтор запроса при ошибке добавляет приложение.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+Формат `{ items, total }` показан как пример ответа. Если сервер возвращает `{ data, count }`, приложение передаёт `data` в `dataSource`, а `count` — в `pagination.total`.
+
+Пустой список и поиск без совпадений имеют разные состояния. Попробуйте [пустой список](?path=/story/components-configtable--empty) и [поиск без результатов](?path=/story/components-configtable--no-results).
+
+## Редактирование записи
+
+1. Приложение загружает запись. Для отдельных полей оно задаёт начальные значения формы. В `ConfigForm` описание полей передаётся в `config.fields`, а редактируемая запись — первым элементом `data`.
+2. Имена полей, например `name` и `description`, определяют ключи в объекте, который получает `onSubmit`. Приложение преобразует его в формат запроса API, если форматы различаются.
+3. `onSubmit` возвращает промис сохранения. Пока он выполняется, `ConfigForm` показывает загрузку. Если промис отклонён, форма сообщает об ошибке и сохраняет введённые значения.
+
+[Сохранение записи](?path=/story/formcomponents-configform--async-save) · [Ошибка и повтор](?path=/story/formcomponents-configform--failed-save) · [Варианты для Select из API](?path=/story/formcomponents-configform--remote-options)
+
+## Просмотр вложенного ответа
+
+`ReactJsonView` принимает объект или массив в `src`. Если ответ пришёл строкой, приложение разбирает JSON и обрабатывает возможную ошибку разбора. Для поиска по данным можно передать строку в `search`. Если нужен ввод и изменение JSON как текста, используйте `FormCodeEditor`.
+
+[Поиск в JSON](?path=/story/components-reactjsonview--search) · [Редактор кода](?path=/story/formcomponents-formcodeeditor--example)

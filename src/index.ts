@@ -4,6 +4,7 @@ export * from './FormComponents/ConfigForm/config-form.type';
 export * from './FormComponents/FormArrayMap/form-array-map.type';
 export * from './FormComponents/FormCheckbox/form-checkbox.type';
 export * from './FormComponents/FormCodeEditor/form-code-editor.type';
+export { FormCodeEditorWithLoader } from './FormComponents/FormCodeEditor/FormCodeEditorWithLoader';
 export * from './FormComponents/FormInput/form-input.type';
 export * from './FormComponents/FormInputNumber/form-input-number.type';
 export * from './FormComponents/FormInputPassword/form-input-password.type';
@@ -26,11 +27,12 @@ export * from './Layout/LayoutMenu/layout-menu';
 export * from './Layout/LayoutSider/layout-sider';
 export * from './Layout/NotFoundPage/not-found-page';
 
-import ReactJsonView from './components/ReactJsonView/js';
+import ReactJsonView from './components/JsonViewer';
 import ConfigTable from './components/ConfigTable/ConfigTable';
 import SearchInput from './components/SearchInput/SearchInput';
 export * from './components/ConfigTable/config-table.type';
-export * from './components/SearchInput/search-input.type';
+export * from './components/JsonViewer/json-viewer.type';
+export type { default as SearchInputProps } from './components/SearchInput/search-input.type';
 
 import useAuth from './hooks/useAuth';
 import { getConfigProperty } from './utils/configUtils';

@@ -1,24 +1,74 @@
-.layout-sider {
+.layout-sider.ant-layout-sider {
+  // Preserve the standalone height; embedded panels can set style.height.
   height: calc(100vh - 45px);
-
+  min-height: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-inline-end: 1px solid var(--ant-color-border-secondary, #f0f0f0);
 
-  overflow-y: auto;
-
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-
-  &::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  &.ant-layout-sider-has-trigger {
+    padding-bottom: 0;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
+  &.ant-layout-sider-zero-width {
+    border-inline-end: 0;
   }
 
-  &::-webkit-scrollbar-track {
+  > .ant-layout-sider-children {
+    flex: 1;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--ant-color-text-quaternary, #bfbfbf) transparent;
+  }
+
+  > .ant-layout-sider-trigger {
+    position: static;
+    flex: none;
+    width: 100% !important;
+    border-top: 1px solid var(--ant-color-border-secondary, #f0f0f0);
+  }
+
+  .layout-sider__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
     background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--ant-color-primary, #1677ff);
+      outline-offset: -3px;
+    }
+  }
+
+  &.ant-layout-sider-collapsed .layout-sider__toggle svg {
+    transform: rotate(180deg);
+  }
+
+  &.ant-layout-sider-right .layout-sider__toggle svg {
+    transform: rotate(180deg);
+  }
+
+  &.ant-layout-sider-right.ant-layout-sider-collapsed
+    .layout-sider__toggle
+    svg {
+    transform: none;
+  }
+
+  &.ant-layout-sider-dark {
+    border-inline-end-color: rgba(255, 255, 255, 0.12);
+
+    > .ant-layout-sider-trigger {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
   }
 }

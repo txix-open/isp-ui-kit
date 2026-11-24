@@ -18,10 +18,32 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-      - name: Install optional rollup binary
-        run: npm install @rollup/rollup-linux-x64-gnu --save-optional
+      - name: Check release version
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import { readFileSync } from 'node:fs';
+
+          const manifest = JSON.parse(readFileSync('package.json', 'utf8'));
+          const lockfile = JSON.parse(readFileSync('package-lock.json', 'utf8'));
+          assert.equal(lockfile.version, manifest.version, 'Lockfile version must match package.json');
+          assert.equal(lockfile.packages[''].version, manifest.version, 'Root lockfile version must match package.json');
+          assert.equal(process.env.GITHUB_REF_NAME, `v${manifest.version}`, 'Release tag must match package.json');
+          JS
       - name: Update npm
         run: npm install -g npm@latest
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm publish
+      - name: Install locked dependencies with optional Rollup binary
+        run: npm ci --include=optional
+      - name: Check Linux Rollup binary
+        run: node -e "require('@rollup/rollup-linux-x64-gnu')"
+      - run: npm run build
+      - name: Pack and check npm archive
+        id: package
+        run: |
+          archive="$RUNNER_TEMP/$(npm pack --ignore-scripts --silent --pack-destination "$RUNNER_TEMP")"
+          npm run check:package -- "$archive"
+          echo "archive=$archive" >> "$GITHUB_OUTPUT"
+      - name: Publish checked archive
+        env:
+          PACKAGE_ARCHIVE: ${{ steps.package.outputs.archive }}
+        run: npm publish "$PACKAGE_ARCHIVE"

@@ -1,0 +1,11 @@
+// Scoped by each consumer; never changes Ant Design or PcsKit globally.
+@mixin surface {
+  border: 1px solid var(--ant-color-border-secondary, #e8ecf2);
+  border-radius: var(--kit-workspace-radius, 16px);
+  background: var(--ant-color-bg-container, #fff);
+  box-shadow: var(
+    --kit-workspace-shadow,
+    0 4px 24px rgb(24 39 75 / 5%),
+    0 1px 3px rgb(24 39 75 / 3%)
+  );
+}
