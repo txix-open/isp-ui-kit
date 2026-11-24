@@ -30,7 +30,6 @@ export default [
   },
   {
     ignores: [
-      '**/ReactJsonView/*',
       '**/stories/*',
       'babel.config.js',
       'eslint.config.mjs',
