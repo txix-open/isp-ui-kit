@@ -4,7 +4,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { RenderFieldByType } from '../RenderFieldByType';
 import './array-field-renderer.scss';
 import { InputType, SettingsType } from '../config-form.type';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 interface ArrayFieldRendererProps {
   name: string;
@@ -13,6 +13,7 @@ interface ArrayFieldRendererProps {
   control: Control<any>;
   settings: SettingsType;
   crudApi: any;
+  focusField: (name: string) => void;
 }
 
 export const ArrayFieldRenderer = ({
@@ -22,37 +23,72 @@ export const ArrayFieldRenderer = ({
   inputType,
   settings,
   crudApi,
+  focusField,
 }: ArrayFieldRendererProps) => {
+  const pendingFocus = useRef<number | null | undefined>(undefined);
+  const addButton = useRef<{ focus: () => void } | null>(null);
   const { fields, append, remove } = useFieldArray({
     control,
     name,
     keyName: 'formFieldId',
   });
 
+  useEffect(() => {
+    const index = pendingFocus.current;
+    if (index === undefined) return;
+    pendingFocus.current = undefined;
+    if (index === null) addButton.current?.focus();
+    else focusField(`${name}[${index}]`);
+  }, [fields, focusField, name]);
+
   return (
-    <div>
-      <label>{label}</label>
+    <fieldset className="config-form__group config-form__array">
+      <legend>{label}</legend>
       {fields.map((field: any, index: number) => (
         <div
           key={field.formFieldId}
           className="edit-field"
           data-testid="edit-field"
         >
-          <label className="edit-field__label">{index}</label>
-          {RenderFieldByType({
-            field: { inputType, settings, id: `${name}[${index}]` },
-            control,
-            value: field,
-            crudApi,
-          })}
-          <Button type="link" danger onClick={() => remove(index)}>
+          <span className="edit-field__label" aria-hidden="true">
+            {index + 1}
+          </span>
+          <RenderFieldByType
+            field={{
+              inputType,
+              settings,
+              id: `${name}[${index}]`,
+              ariaLabel: `${label}: ${index + 1}`,
+            }}
+            control={control}
+            crudApi={crudApi}
+          />
+          <Button
+            type="text"
+            danger
+            aria-label={`Удалить элемент ${index + 1}: ${label}`}
+            onClick={() => {
+              pendingFocus.current =
+                fields.length > 1 ? Math.min(index, fields.length - 2) : null;
+              remove(index);
+            }}
+          >
             <DeleteOutlined />
           </Button>
         </div>
       ))}
-      <Button className="edit-field__btn" onClick={() => append('')}>
+      <Button
+        ref={(node) => {
+          addButton.current = node;
+        }}
+        className="edit-field__btn"
+        onClick={() => {
+          pendingFocus.current = fields.length;
+          append('', { shouldFocus: false });
+        }}
+      >
         Добавить элемент
       </Button>
-    </div>
+    </fieldset>
   );
 };

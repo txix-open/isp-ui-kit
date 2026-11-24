@@ -1,3 +1,4 @@
+import authGuide from '../../../docs/auth-hook.md?raw';
 import { Meta, type StoryObj } from '@storybook/react';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
@@ -16,11 +17,25 @@ const BasicAuthExample = ({
 
   const handleLogin = async () => {
     try {
-      const response = await login(loginPath, { email, password });
-      console.log('Auth successful:', response);
+      await login(
+        loginPath,
+        { email, password },
+        {
+          'Content-Type': 'application/json',
+        },
+      );
       setError('');
-    } catch (err) {
+    } catch {
       setError('Ошибка входа. Проверьте данные.');
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout(logoutPath);
+      setError('');
+    } catch {
+      setError('Не удалось завершить сессию.');
     }
   };
 
@@ -31,7 +46,7 @@ const BasicAuthExample = ({
         <div>
           <p>Статус: ВЫ АВТОРИЗОВАНЫ ({isLogged.type})</p>
           <button
-            onClick={() => logout(logoutPath)}
+            onClick={() => void handleLogout()}
             disabled={isLoading}
             aria-label="Logout button"
           >
@@ -61,77 +76,37 @@ const BasicAuthExample = ({
           >
             {isLoading ? 'Загрузка...' : 'Войти'}
           </button>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
       )}
+      {error && <p role="alert">{error}</p>}
     </div>
   );
 };
 
-const meta: Meta<typeof useAuth> = {
+const meta: Meta<typeof BasicAuthExample> = {
   title: 'Hooks/useAuth',
   component: BasicAuthExample,
+  tags: ['autodocs'],
+  args: { loginPath: '/api/login', logoutPath: '/api/logout' },
+  argTypes: {
+    loginPath: {
+      description:
+        'Адрес POST-запроса входа в приложении. Storybook не предоставляет этот API.',
+    },
+    logoutPath: { description: 'Адрес POST-запроса выхода в приложении.' },
+  },
   parameters: {
     docs: {
       description: {
-        component: `
-Компонент для демонстрации базовой аутентификации с использованием хука \`useAuth\`.
-
-## Возвращаемые значения из хука \`useAuth\`
-### 1. **isLogged**
-- **Тип:** \`{ type: 'basic' | 'oAuth'; value: boolean }\`
-- **Описание:** Объект, содержащий информацию о текущем состоянии аутентификации.
-  - **\`type\`**: Тип аутентификации (например, \`basic\` для обычной аутентификации с email/паролем или \`oAuth\` для аутентификации через код OAuth).
-  - **\`value\`**: Логическое значение, показывающее, авторизован ли пользователь (\`true\` — авторизован, \`false\` — не авторизован).
-
-### 2. **isLoading**
-- **Тип:** \`boolean\`
-- **Описание:** Логическое значение, которое указывает, находится ли система в состоянии загрузки (например, при отправке запроса на сервер для логина или логаута).
-
-### 3. **login**
-- **Тип:** \`(path: string, data: UserData, headers?: Record<string, string>) => Promise<AuthResponse>\`
-- **Описание:** Функция для выполнения логина с использованием email и пароля.
-  - **Параметры:**
-    - \`path\`: Путь для API запроса.
-    - \`data\`: Данные пользователя (email и пароль).
-    - \`headers\`: Необязательные заголовки для запроса.
-  - **Возвращаемое значение:** Промис, который возвращает объект \`AuthResponse\` с данными аутентификации (например, токен и время истечения).
-
-### 4. **logout**
-- **Тип:** \`(path: string, headers?: Record<string, string>) => Promise<void>\`
-- **Описание:** Функция для выполнения выхода.
-  - **Параметры:**
-    - \`path\`: Путь для API запроса на выход.
-    - \`headers\`: Необязательные заголовки для запроса.
-  - **Возвращаемое значение:** Промис, который завершает запрос на выход (не возвращает данные).
-
-### 5. **oAuthLogin**
-- **Тип:** \`(path: string, data: OAuthRequest, headers?: Record<string, string>) => Promise<void>\`
-- **Описание:** Функция для выполнения аутентификации через OAuth с использованием кода авторизации.
-  - **Параметры:**
-    - \`path\`: Путь для API запроса.
-    - \`data\`: Данные для аутентификации (например, код авторизации).
-    - \`headers\`: Необязательные заголовки для запроса.
-  - **Возвращаемое значение:** Промис, который завершает запрос на аутентификацию (не возвращает данные).
-
-## Пример компонента
-
-\`\`\`tsx
-import { useState } from 'react';
-import { useAuth } from 'isp-ui-kit'
-
-const AuthExample = () => {
-  const { isLogged, isLoading, login, logout, oAuthLogin } = useAuth();
-}
-        `,
+        component: authGuide,
       },
     },
   },
 };
 export default meta;
 
-type Story = StoryObj<typeof useAuth>;
+type Story = StoryObj<typeof BasicAuthExample>;
 export const BasicAuth: Story = {
   name: 'Пример аутентификации',
-  render: (args) => <BasicAuthExample />,
+  render: (args) => <BasicAuthExample {...args} />,
 };

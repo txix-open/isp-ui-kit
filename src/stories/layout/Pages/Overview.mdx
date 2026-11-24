@@ -1,0 +1,11 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import pagesGuide from '../../../../docs/layout-pages.md?raw';
+
+<Meta title="Layout/Pages/Обзор" />
+
+<Markdown>
+  {pagesGuide.replace(
+    '(layout-navigation.md)',
+    '(?path=/docs/layout-layoutmenu--docs)',
+  )}
+</Markdown>

@@ -4,22 +4,64 @@ import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import image from '@rollup/plugin-image';
 import { babel } from '@rollup/plugin-babel';
 import del from 'rollup-plugin-delete';
 
+const entries = {
+  index: 'src/index.ts',
+  search: 'src/entries/search.ts',
+  'json-viewer': 'src/entries/json-viewer.ts',
+  'code-editor': 'src/entries/code-editor.ts',
+  'code-editor-custom': 'src/entries/code-editor-custom.ts',
+};
+
+function packageEntrypoints() {
+  return {
+    name: 'package-entrypoints',
+    generateBundle({ format }) {
+      const isEsm = format === 'es';
+      this.emitFile({
+        type: 'asset',
+        fileName: isEsm ? 'index.esm.js' : 'index.cjs.js',
+        source: isEsm
+          ? "export * from './index.mjs';\n"
+          : "module.exports = require('./index.cjs');\n",
+      });
+
+      if (isEsm) {
+        for (const name of Object.keys(entries)) {
+          const declaration = name === 'index' ? name : `entries/${name}`;
+          this.emitFile({
+            type: 'asset',
+            fileName: `${name}.d.mts`,
+            source: `export * from './${declaration}.js';\n`,
+          });
+        }
+      }
+    },
+  };
+}
+
 export default [
   {
-    input: 'src/index.ts',
+    input: entries,
     output: [
       {
-        file: 'dist/index.cjs.js',
+        dir: 'dist',
         format: 'cjs',
+        entryFileNames: '[name].cjs',
+        chunkFileNames: 'chunks/[name]-[hash].cjs',
         sourcemap: true,
       },
       {
-        file: 'dist/index.esm.js',
+        dir: 'dist',
         format: 'esm',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        entryFileNames: ({ name, isEntry }) =>
+          isEntry
+            ? '[name].mjs'
+            : `esm/${name.replaceAll('node_modules/', 'vendor/')}.mjs`,
         sourcemap: true,
       },
     ],
@@ -31,7 +73,6 @@ export default [
         preferBuiltins: false,
       }),
       commonjs(),
-      image(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
         extract: false,
@@ -49,6 +90,7 @@ export default [
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       }),
       terser({
+        maxWorkers: 2,
         compress: {
           drop_console: ['log', 'info'],
           drop_debugger: true,
@@ -57,6 +99,7 @@ export default [
           comments: false,
         },
       }),
+      packageEntrypoints(),
     ],
   },
 ];

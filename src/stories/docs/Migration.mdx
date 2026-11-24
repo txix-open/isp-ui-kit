@@ -1,0 +1,29 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import migration from '../../../docs/migration.md?raw';
+import {
+  storybookDocsLinks,
+  docsMarkdownOptions,
+} from '../shared/storybookDocsLinks';
+
+<Meta title="Переход на версию 3.0.0" />
+
+<Markdown options={docsMarkdownOptions}>
+  {storybookDocsLinks(migration)}
+</Markdown>
+
+Полное подключение Monaco, workers и React Hook Form описано отдельно в
+[документации FormCodeEditor](?path=/docs/formcomponents-formcodeeditor--docs).
+
+## Рабочие примеры
+
+- [ThreeColumns](?path=/docs/layout-threecolumns-обзор--docs)
+- [ConfigTable](?path=/story/components-configtable--table)
+- [Базовые поля и Ant Design](?path=/story/редизайн-базовые-поля--comparison)
+- [Прежние defaults и новые опции](?path=/story/редизайн-совместимость-полей--defaults-and-options)
+- [Фокус первой ошибки](?path=/story/редизайн-совместимость-полей--error-focus)
+
+- [Ошибка сохранения и повторная попытка](?path=/story/formcomponents-configform--failed-save)
+- [Смена записи во время сохранения](?path=/story/formcomponents-configform--switch-during-save)
+- [Ошибка загрузки вариантов](?path=/story/formcomponents-configform--failed-options)
+- [Открытый диапазон дат](?path=/story/formcomponents-formrangedatepicker--open-range)
+- [Переработка ReactJsonView](?path=/docs/components-reactjsonview-переход--docs)

@@ -1,3 +1,4 @@
+import StoryForm from '../shared/StoryForm';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useForm } from 'react-hook-form';
 import { FormSelect } from '../../FormComponents';
@@ -19,27 +20,41 @@ const meta: Meta<typeof FormSelect> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Компонент Select, который поддерживает react-hook-form',
+        component:
+          'Select Ant Design с React Hook Form. Базовое оформление сохранено. Очистка одиночного значения передаёт null; пользовательский onChange работает как прежде. forwardEvents включает дополнительно onBlur.',
       },
     },
   },
   argTypes: {
+    formItemProps: {
+      control: false,
+      description:
+        'Свойства Ant Design Form.Item: подпись, help, extra и оформление. Ошибка формы имеет приоритет над help; required здесь не заменяет rules.',
+    },
+    forwardEvents: {
+      description:
+        'false по умолчанию; true дополнительно передаёт пользовательский onBlur. Пользовательский onChange вызывается в обоих режимах.',
+    },
     control: {
       control: false,
-      description: 'параметр, получаемый из react-hook-form',
+      description:
+        'Объект control из useForm(). Значение и ошибки управляются React Hook Form.',
     },
     name: {
       control: false,
-      description: 'Путь до поля в структуре',
+      description:
+        'Путь в данных формы, например service.name; вложенные имена поддерживаются.',
     },
     label: {
       description: 'Подпись к Select',
     },
     rules: {
-      description: 'Правила валидации поля',
+      description:
+        'Правила React Hook Form; required задаётся как { value: true, message: ... }.',
     },
     controlClassName: {
-      description: 'Имя класса для компонента формы',
+      description:
+        'CSS-класс Form.Item; для самого контрола используйте className.',
     },
     options: {
       description: ' Ожидает массив объектов {value: "id", label: "Заголовок"}',
@@ -50,35 +65,54 @@ const meta: Meta<typeof FormSelect> = {
 export default meta;
 
 type Story = StoryObj<typeof FormSelect>;
-const onSubmit = (data: unknown) => console.log(data);
 
 export const Example: Story = {
   name: 'Пример',
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSelect {...args} />
-      </form>
+      <StoryForm methods={methods}>
+        <FormSelect {...args} control={control} />
+      </StoryForm>
     );
   },
 };
 export const Validation: Story = {
   name: 'Валидация',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'При открытии ошибка установлена через setError для демонстрации состояния. Кнопка «Проверить и отправить» запускает реальные rules; сброс очищает форму.',
+      },
+    },
+  },
   render: (args) => {
     const methods = useForm();
-    const { control, handleSubmit } = methods;
-    args.control = control;
-    control.setError('Select', {
-      type: 'required',
-      message: args.rules!.required!.message,
-    });
+    const { control } = methods;
     return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormSelect {...args} />
-      </form>
+      /* Validation fixture is installed by StoryForm after mount. */
+      <StoryForm methods={methods} errorField={args.name}>
+        <FormSelect {...args} control={control} />
+      </StoryForm>
     );
   },
+};
+
+export const Disabled: Story = {
+  name: 'Недоступен',
+  args: { disabled: true },
+  render: Example.render,
+};
+export const EmptyOptions: Story = {
+  name: 'Нет вариантов',
+  args: { options: [] },
+  render: Example.render,
+};
+
+export const Multiple: Story = {
+  name: 'Несколько значений',
+  args: { mode: 'multiple', allowClear: true, style: { width: '100%' } },
+  render: Example.render,
 };
