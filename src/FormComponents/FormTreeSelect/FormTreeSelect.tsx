@@ -1,13 +1,15 @@
-import { Form, TreeSelect } from 'antd';
+import { TreeSelect } from 'antd';
 import { FieldValues, useController } from 'react-hook-form';
 
 import { FormTreeSelectProps } from './form-tree-select.type';
-import '../form-components.scss';
+import BaseField from '../BaseField/BaseField';
 
 export default <T extends FieldValues>({
+  forwardEvents = false,
   control,
   name,
   label,
+  controlClassName = '',
   rules,
   formItemProps,
   ...rest
@@ -18,17 +20,32 @@ export default <T extends FieldValues>({
   } = useController({ name, control, rules });
 
   return (
-    <div className={`${rules?.required?.value ? 'requiredInput' : ''}`}>
-      <Form.Item
-        className="form-tree-select"
-        labelCol={{ span: 24 }}
-        label={label}
-        validateStatus={error && 'error'}
-        help={error && error.message}
-        {...formItemProps}
-      >
-        <TreeSelect {...rest} {...field} />
-      </Form.Item>
-    </div>
+    <BaseField
+      id={rest.id}
+      label={label}
+      required={Boolean(rules?.required?.value)}
+      error={error}
+      controlClassName={['form-tree-select', controlClassName]
+        .filter(Boolean)
+        .join(' ')}
+      formItemProps={formItemProps}
+      describedBy={rest['aria-describedby']}
+    >
+      {(accessibility) => (
+        <TreeSelect
+          {...rest}
+          {...field}
+          {...accessibility}
+          onChange={(value, labelList, extra) => {
+            field.onChange(value);
+            if (forwardEvents) rest.onChange?.(value, labelList, extra);
+          }}
+          onBlur={(event) => {
+            field.onBlur();
+            if (forwardEvents) rest.onBlur?.(event);
+          }}
+        />
+      )}
+    </BaseField>
   );
 };
