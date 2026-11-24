@@ -1,6 +1,6 @@
 {
   "name": "isp-ui-kit",
-  "version": "2.3.4",
+  "version": "3.0.0",
   "description": "React UI kit for admin interfaces built with Ant Design, with layouts, form fields, data tables and JSON tools.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
